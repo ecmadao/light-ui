@@ -1,0 +1,14 @@
+@import "../../../shared/styles/base.css";
+
+.message-component {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  padding: 23px 30px;
+  color: #fff;
+  font-size: 14px;
+  z-index: var(--zIndex999);
+}

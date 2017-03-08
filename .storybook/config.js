@@ -17,7 +17,7 @@ function loadStories() {
   // require('../stories/Input');
   // require('../stories/Textarea');
   // require('../stories/Modal');
-  // require('../stories/ShortMessage');
+  require('../stories/ShortMessage');
   // require('../stories/ActionModal');
 }
 

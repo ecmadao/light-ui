@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '../components/react/Button';
+import Button from '../components/react/Button/BaseButton';
+import IconButton from '../components/react/Button/IconButton';
 
 
 class ButtonWrapper extends React.Component {
@@ -7,7 +8,7 @@ class ButtonWrapper extends React.Component {
     const { disabled } = this.props;
     return (
       <div id="components-container">
-        <h3>MD Theme</h3>
+        <h3>Base Button - MD Theme</h3>
         <Button
           disabled={disabled}
           value="Base Button" />
@@ -32,19 +33,42 @@ class ButtonWrapper extends React.Component {
             <i className="fa fa-angle-left" aria-hidden="true"></i>
           )}
         />
-        <br/><br/>
-        <h3>Flat Theme</h3>
+        <br/>
+        <h3>Base Button - Flat Theme</h3>
         <Button
           disabled={disabled}
           value="Base Button"
-          style="flat" />
+          theme="flat" />
         <Button
           disabled={disabled}
           value="With icon"
-          style="flat"
+          theme="flat"
           leftIcon={(
             <i className="fa fa-plus-circle" aria-hidden="true"></i>
           )}
+        />
+        <br/>
+        <h3>Icon Button - Ghost Theme</h3>
+        <IconButton
+          disabled={disabled}
+          icon="clipboard" />
+        <IconButton
+          disabled={disabled}
+          icon={(
+            <i className="fa fa-question" aria-hidden="true"></i>
+          )} />
+        <h3>Icon Button - Flat Theme</h3>
+        <IconButton
+          disabled={disabled}
+          icon="clipboard"
+          theme="flat"
+        />
+        <IconButton
+          disabled={disabled}
+          icon={(
+            <i className="fa fa-question" aria-hidden="true"></i>
+          )}
+          theme="flat"
         />
       </div>
     )

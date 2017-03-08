@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-import styles from './button.css';
+import styles from './base_button.css';
 
-class Button extends React.Component {
+class BaseButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,20 +38,21 @@ class Button extends React.Component {
       className,
       leftIcon,
       rightIcon,
-      style,
+      theme,
       color,
       disabled
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
       styles["button"],
-      styles[style],
+      styles[theme],
       styles[color],
       pressed && styles["pressDown"],
       disabled && styles["disabled"],
       className
     );
     const onClick = disabled ? () => {} : this.onClick;
+
     return (
       <div
         className={buttonClass}
@@ -72,29 +73,21 @@ class Button extends React.Component {
   }
 }
 
-Button.propTypes = {
+BaseButton.propTypes = {
   value: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.string,
+  theme: PropTypes.string,
   disabled: PropTypes.bool,
-  leftIcon: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.element,
-    PropTypes.object
-  ]),
-  rightIcon: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.element,
-    PropTypes.object
-  ])
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node
 };
 
-Button.defaultProps = {
+BaseButton.defaultProps = {
   value: '',
   color: 'green',
-  style: 'material',
+  theme: 'material',
   onClick: () => {},
   leftIcon: null,
   rightIcon: null,
@@ -102,4 +95,4 @@ Button.defaultProps = {
   disabled: false
 }
 
-export default Button;
+export default BaseButton;
