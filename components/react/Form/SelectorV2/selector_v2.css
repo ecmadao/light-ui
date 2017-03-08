@@ -70,8 +70,10 @@
   transition: box-shadow 0.1s;
   box-shadow: var(--shadowInput);
 
-  &:hover {
-    box-shadow: var(--shadowInputHover);
+  &:not(.selector-disabled) {
+    &:hover {
+      box-shadow: var(--shadowInputHover);
+    }
   }
 }
 
@@ -94,11 +96,9 @@
     fill: var(--oc-white);
   }
 
-  &.flat {
+  &.flat:not(.selector-disabled) {
     &:hover {
-      color: var(--oc-white);
-      fill: var(--oc-white);
-      background-color: var(--oc-gray-7);
+      border: 1px solid var(--oc-gray-5);
     }
   }
 }
@@ -110,11 +110,10 @@
     background-color: var(--oc-green-5);
   }
 
-  &.flat {
-    /*&:hover {
-      color: var(--oc-green-5);
-      fill: var(--oc-green-5);
-    }*/
+  &.flat:not(.selector-disabled) {
+    &:hover {
+      border: 1px solid var(--oc-green-5);
+    }
   }
 }
 
@@ -125,10 +124,9 @@
     background-color: var(--oc-blue-5);
   }
 
-  &.flat {
+  &.flat:not(.selector-disabled) {
     &:hover {
-      fill: var(--oc-blue-5);
-      color: var(--oc-blue-5);
+      border: 1px solid var(--oc-blue-5);
     }
   }
 }
@@ -141,6 +139,7 @@
   }
 
   &::before {
+    z-index: var(--zIndex1);
     background-color: rgba(255, 255, 255, 0.4);
   }
 }
@@ -193,4 +192,5 @@
 
 .option-wrapper {
   margin: 0 20px;
+  color: var(--oc-gray-7);
 }

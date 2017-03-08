@@ -47,7 +47,7 @@ class SelectorV2 extends React.Component {
           id={id}
           value={text}
           onClick={this.onChange}
-          isActive={id === value}
+          isActive={id == value}
         />
       )
     });
@@ -75,7 +75,7 @@ class SelectorV2 extends React.Component {
     const { value, options, theme, color, className, disabled } = this.props;
     const maxLengthValue = this.maxLengthValue;
 
-    const targetOptions = options.filter(option => option.id === value);
+    const targetOptions = options.filter(option => option.id == value);
     const targetText = (targetOptions[0] && targetOptions[0].text) || '';
     const containerClass = cx(
       styles['selector-container'],
@@ -85,10 +85,12 @@ class SelectorV2 extends React.Component {
       className
     );
 
+    const onClick = disabled ? () => {} : () => this.handleActiveChange(true);
+
     return (
       <div
         className={containerClass}
-        onClick={() => this.handleActiveChange(true)}>
+        onClick={onClick}>
         <OutsideClickHandler
           onOutsideClick={this.handleOutsideClick}>
           <div className={styles.wrapper}>
@@ -121,7 +123,7 @@ SelectorV2.propTypes = {
 SelectorV2.defaultProps = {
   options: [],
   onChange: () => {},
-  theme: 'flat',
+  theme: 'material',
   color: 'green',
   className: '',
   disabled: false

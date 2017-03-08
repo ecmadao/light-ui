@@ -56,21 +56,21 @@ class Input extends React.Component {
       value,
       disabled,
       id,
-      className,
+      style,
       placeholder,
       type,
-      style,
+      theme,
       onFocus,
       onKeyDown,
-      customStyle
+      className
     } = this.props;
     const { error } = this.state;
     const inputClass = cx(
       styles["input"],
+      styles[theme],
       styles[style],
-      styles[className],
       error && styles["error"],
-      customStyle
+      className
     );
 
     return (
@@ -96,12 +96,12 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   check: PropTypes.bool,
   value: PropTypes.string,
+  style: PropTypes.string,
   className: PropTypes.string,
-  customStyle: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  style: PropTypes.string,
+  theme: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onKeyUp: PropTypes.func,
@@ -113,12 +113,12 @@ Input.defaultProps = {
   disabled: false,
   value: '',
   check: true,
+  style: '',
   className: '',
-  customStyle: '',
   id: '',
   placeholder: '',
   type: 'string',
-  style: 'material',
+  theme: 'material',
   onChange: () => {},
   onBlur: () => {},
   onKeyUp: () => {},

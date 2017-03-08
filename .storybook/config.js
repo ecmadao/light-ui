@@ -8,6 +8,7 @@ addDecorator((story) => {
 
 function loadStories() {
   require('../stories/Button');
+  require('../stories/Form');
   // require('../stories/CheckButton');
   // require('../stories/Label');
   // require('../stories/Selector');

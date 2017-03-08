@@ -44,7 +44,7 @@ class Textarea extends React.Component {
   render() {
     const {
       value,
-      style,
+      theme,
       onKeyDown,
       placeholder
     } = this.props;
@@ -52,7 +52,7 @@ class Textarea extends React.Component {
 
     const wrapperClass = cx(
       styles["textarea_wrapper"],
-      styles[style],
+      styles[theme],
       focus && styles["focus"],
       error && styles["error"]
     );
@@ -83,7 +83,7 @@ class Textarea extends React.Component {
 Textarea.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  style: PropTypes.string,
+  theme: PropTypes.string,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
 };
@@ -91,7 +91,7 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   value: '',
   placeholder: '',
-  style: 'flat',
+  theme: 'flat',
   onChange: () => {},
   onKeyDown: () => {}
 }

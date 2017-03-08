@@ -9,6 +9,7 @@
   border-radius: 2px;
   transition: border 0.2s;
   margin: 0 5px;
+  background-color: var(--oc-white);
 
   &:first-child {
     margin-left: 0;

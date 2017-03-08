@@ -19,7 +19,7 @@ class ButtonWrapper extends React.Component {
         />
         <Button
           disabled={disabled}
-          value="with right icon"
+          value="With right icon"
           color="dark"
           rightIcon={(
             <i className="fa fa-angle-right" aria-hidden="true"></i>

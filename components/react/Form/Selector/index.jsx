@@ -16,14 +16,14 @@ class Selector extends React.Component {
 
   onChange() {
     const value = this.selector.value;
-    const {onChange} = this.props;
+    const { onChange } = this.props;
     onChange && onChange(value);
   }
 
   renderOptions() {
-    const {options} = this.props;
+    const { options } = this.props;
     return options.map((option, index) => {
-      const {id, text} = option;
+      const { id, text } = option;
       return (
         <option key={index} value={id}>
           {text}
@@ -33,8 +33,8 @@ class Selector extends React.Component {
   }
 
   get currentText() {
-    const {value, options} = this.props;
-    const filtered = options.filter(option => option.id === value);
+    const { value, options } = this.props;
+    const filtered = options.filter(option => option.id == value);
     if (!filtered.length) {
       return options[0].text;
     }
@@ -42,17 +42,20 @@ class Selector extends React.Component {
   }
 
   render() {
-    const {value, style} = this.props;
+    const { value, theme, className, disabled } = this.props;
     const containerClass = cx(
-      styles["selector_container"],
-      styles[style]
+      styles["selector-container"],
+      styles[theme],
+      disabled && styles['selector-disabled'],
+      className
     );
+    const onChange = disabled ? () => {} : this.onChange;
     return (
       <div className={containerClass}>
         {this.currentText}&nbsp;&nbsp;&nbsp;<i className="fa fa-caret-down" aria-hidden="true"></i>
         <select
           value={value}
-          onChange={this.onChange}
+          onChange={onChange}
           className={styles["selector"]}
           ref={ref => this.selector = ref}>
           {this.renderOptions()}
@@ -63,17 +66,24 @@ class Selector extends React.Component {
 }
 
 Selector.propTypes = {
-  value: PropTypes.string,
-  style: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  theme: PropTypes.string,
+  className: PropTypes.string,
   onChange: PropTypes.func,
-  options: PropTypes.array
+  options: PropTypes.array,
+  disabled: PropTypes.bool
 };
 
 Selector.defaultProps = {
   value: '',
-  style: 'material',
+  theme: 'material',
   options: [],
-  onChange: () => {}
+  onChange: () => {},
+  className: '',
+  disabled: false
 }
 
 export default Selector;
