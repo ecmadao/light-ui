@@ -4,7 +4,6 @@
 .container {
   width: 30px;
   height: 30px;
-  display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.2s;
@@ -14,6 +13,7 @@
   position: relative;
   user-select: none;
   margin: 15px 5px;
+  display: inline-flex;
 
   &:first-child {
     margin-left: 0;
@@ -49,8 +49,8 @@
 .disabled {
   cursor: not-allowed;
 
-  &::before {
-    background-color: rgba(0, 0, 0, 0.1);
+  &.flat::before {
+    background-color: rgba(255, 255, 255, 0.4);
     z-index: var(--zIndex1);
   }
 }

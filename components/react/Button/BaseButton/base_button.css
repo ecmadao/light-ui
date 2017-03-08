@@ -11,9 +11,12 @@
   font-size: 12px;
   display: inline-block;
   user-select: none;
+  position: relative;
 
-  &:hover {
-    opacity: 1;
+  &:not(.disabled) {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   & i:first-child {
@@ -31,6 +34,19 @@
   &:last-child {
     margin-right: 0;
   }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
 }
 
 .flat {
@@ -44,12 +60,14 @@
       color: var(--oc-green-7);
     }
 
-    &:hover {
-      background-color: var(--oc-green-7);
-      color: var(--oc-white);
-
-      & i {
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--oc-green-7);
         color: var(--oc-white);
+
+        & i {
+          color: var(--oc-white);
+        }
       }
     }
   }
@@ -62,12 +80,14 @@
       color: var(--oc-red-5);
     }
 
-    &:hover {
-      background-color: var(--oc-red-5);
-      color: var(--oc-white);
-
-      & i {
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--oc-red-5);
         color: var(--oc-white);
+
+        & i {
+          color: var(--oc-white);
+        }
       }
     }
   }
@@ -80,12 +100,14 @@
       color: var(--oc-gray-7);
     }
 
-    &:hover {
-      background-color: var(--oc-gray-7);
-      color: var(--oc-white);
-
-      & i {
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--oc-gray-7);
         color: var(--oc-white);
+
+        & i {
+          color: var(--oc-white);
+        }
       }
     }
   }
@@ -98,12 +120,14 @@
       color: var(--oc-gray-5);
     }
 
-    &:hover {
-      background-color: var(--oc-gray-5);
-      color: var(--oc-white);
-
-      & i {
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--oc-gray-5);
         color: var(--oc-white);
+
+        & i {
+          color: var(--oc-white);
+        }
       }
     }
   }
@@ -114,8 +138,10 @@
   box-shadow: var(--shadow3);
   transition: opacity 0.2s, box-shadow 0.2s;
 
-  &:hover {
-    box-shadow: var(--shadow5);
+  &:not(.disabled) {
+    &:hover {
+      box-shadow: var(--shadow5);
+    }
   }
 
   &.green {
@@ -147,4 +173,9 @@
 
 .disabled {
   cursor: not-allowed;
+
+  &::before {
+    z-index: var(--zIndex1);
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 }
