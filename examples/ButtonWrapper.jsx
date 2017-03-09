@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from '../components/react/Button/Button';
 import IconButton from '../components/react/Button/IconButton';
-
+import FloatingActionButton from '../components/react/Button/FloatingActionButton';
 
 class ButtonWrapper extends React.Component {
   render() {
     const { disabled } = this.props;
     return (
       <div id="components-container">
-        <h3>Base Button - MD Theme</h3>
+        <h3>Button - MD Theme</h3>
         <div>
           <Button
             disabled={disabled}
@@ -47,7 +47,7 @@ class ButtonWrapper extends React.Component {
             )}
           />
         </div>
-        <h3>Base Button - Flat Theme</h3>
+        <h3>Button - Flat Theme</h3>
         <div>
           <Button
             disabled={disabled}
@@ -115,6 +115,18 @@ class ButtonWrapper extends React.Component {
               <i className="fa fa-question" aria-hidden="true"></i>
             )}
             theme="flat"
+          />
+        </div>
+        <h3>Floating Action Button</h3>
+        <div>
+          <FloatingActionButton
+            icon="share-alt"
+          />
+          <FloatingActionButton
+            icon="share-alt"
+            style={{
+              backgroundColor: '#1c7cd6'
+            }}
           />
         </div>
       </div>

@@ -159,7 +159,7 @@
 .material {
   color: var(--oc-white);
   box-shadow: var(--shadow3);
-  transition: opacity 0.2s, box-shadow 0.2s;
+  transition: opacity 0.2s, box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
   &:not(.disabled) {
     &:hover {
@@ -188,8 +188,40 @@
   }
 }
 
+.floating-action-button {
+  padding: 0;
+  border-radius: 50%;
+  color: var(--oc-white);
+  box-shadow: var(--shadow5);
+  transition: box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &.green {
+    background-color: var(--oc-green-7);
+  }
+
+  &.red {
+    background-color: var(--oc-red-7);
+  }
+
+  &.dark {
+    background-color: var(--oc-gray-7);
+  }
+
+  &.gray {
+    background-color: var(--oc-gray-5);
+  }
+
+  &.blue {
+    background-color: var(--oc-blue-7);
+  }
+}
+
 .pressDown {
-  &.material {
+  &.material.material {
+    box-shadow: var(--shadow2);
+  }
+
+  &.floating-action-button.floating-action-button {
     box-shadow: var(--shadow2);
   }
 
