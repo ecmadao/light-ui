@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/react/Button/BaseButton';
+import Button from '../components/react/Button/Button';
 import IconButton from '../components/react/Button/IconButton';
 
 

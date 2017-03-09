@@ -34,13 +34,12 @@ class BaseButton extends React.Component {
 
   render() {
     const {
-      value,
       className,
-      leftIcon,
-      rightIcon,
       theme,
       color,
-      disabled
+      disabled,
+      children,
+      style
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
@@ -55,6 +54,7 @@ class BaseButton extends React.Component {
 
     return (
       <div
+        style={style}
         className={buttonClass}
         onMouseDown={this.onMouseDown}
         onMouseOut={this.onMouseUp}
@@ -62,11 +62,7 @@ class BaseButton extends React.Component {
         onMouseUp={this.onMouseUp}
         onClick={onClick}>
         <div className={styles["wrapper"]}>
-          {leftIcon}
-          <span>
-            {value}
-          </span>
-          {rightIcon}
+          {children}
         </div>
       </div>
     )
@@ -74,25 +70,23 @@ class BaseButton extends React.Component {
 }
 
 BaseButton.propTypes = {
-  value: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.string,
   className: PropTypes.string,
+  style: PropTypes.object,
   theme: PropTypes.string,
   disabled: PropTypes.bool,
-  leftIcon: PropTypes.node,
-  rightIcon: PropTypes.node
+  children: PropTypes.element,
 };
 
 BaseButton.defaultProps = {
-  value: '',
   color: 'green',
   theme: 'material',
   onClick: () => {},
-  leftIcon: null,
-  rightIcon: null,
   className: '',
-  disabled: false
+  style: {},
+  disabled: false,
+  children: (<div></div>),
 }
 
 export default BaseButton;

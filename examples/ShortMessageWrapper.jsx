@@ -1,6 +1,6 @@
 import React from 'react';
 import ShortMessage from '../components/react/Modal/ShortMessage';
-import Button from '../components/react/Button/BaseButton';
+import Button from '../components/react/Button/Button';
 import Input from '../components/react/Form/Input';
 
 class ShortMessageWrapper extends React.Component {
