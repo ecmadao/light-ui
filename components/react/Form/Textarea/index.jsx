@@ -51,7 +51,7 @@ class Textarea extends React.Component {
     const { focus, error } = this.state;
 
     const wrapperClass = cx(
-      styles["textarea_wrapper"],
+      styles["textarea-wrapper"],
       styles[theme],
       focus && styles["focus"],
       error && styles["error"]
@@ -59,7 +59,7 @@ class Textarea extends React.Component {
 
     return (
       <div className={wrapperClass}>
-        <pre className={styles["textarea_hidden"]}>
+        <pre className={styles["textarea-hidden"]}>
           <span>
             {value}
           </span>
@@ -75,6 +75,9 @@ class Textarea extends React.Component {
           onBlur={this.onBlur}
           onFocus={this.onFocus}
         />
+        <div className={styles["textarea-tip"]}>
+          已输入{value.length}字
+        </div>
       </div>
     )
   }

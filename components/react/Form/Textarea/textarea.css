@@ -1,6 +1,6 @@
 @import 'open-color/open-color.css';
 
-.textarea_wrapper {
+.textarea-wrapper {
   min-height: 100px;
   position: relative;
   outline: none;
@@ -32,7 +32,15 @@
   }
 }
 
-.textarea_hidden {
+.textarea-tip {
+  position: absolute;
+  bottom: 6px;
+  right: 3px;
+  color: var(--oc-gray-4);
+  font-size: 12px;
+}
+
+.textarea-hidden {
   width: 94%;
   margin-left: 3%;
   display: block;
