@@ -6,10 +6,10 @@ import Textarea from '../components/react/Form/Textarea';
 
 
 const OPTIONS = [
-  { id: 0, text: 'selector 0' },
-  { id: 1, text: 'selector 1' },
-  { id: 2, text: 'selector 2' },
-  { id: 3, text: 'selector 3' }
+  { id: 0, value: 'selector 0' },
+  { id: 1, value: 'selector 1' },
+  { id: 2, value: 'selector 2' },
+  { id: 3, value: 'selector 3' }
 ];
 
 class FormWrapper extends React.Component {
@@ -28,7 +28,6 @@ class FormWrapper extends React.Component {
   }
 
   onSelect(selected) {
-    console.log(`selected: ${selected}`)
     this.setState({ selected })
   }
 

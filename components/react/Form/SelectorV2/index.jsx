@@ -40,12 +40,12 @@ class SelectorV2 extends React.Component {
     const { active } = this.state;
     const { options, value } = this.props;
     const optionComponents = options.map((option, index) => {
-      const { id, text } = option;
+      const { id } = option;
       return (
         <Option
           key={index}
           id={id}
-          value={text}
+          value={option.value}
           onClick={this.onChange}
           isActive={id == value}
         />
@@ -64,9 +64,9 @@ class SelectorV2 extends React.Component {
 
   get maxLengthValue() {
     const { options } = this.props;
-    let maxValue = options[0].text;
+    let maxValue = options[0].value;
     options.forEach((option) => {
-      if (option.text.length > maxValue.length) { maxValue = option.text }
+      if (option.value.length > maxValue.length) { maxValue = option.value }
     });
     return maxValue;
   }
@@ -76,7 +76,7 @@ class SelectorV2 extends React.Component {
     const maxLengthValue = this.maxLengthValue;
 
     const targetOptions = options.filter(option => option.id == value);
-    const targetText = (targetOptions[0] && targetOptions[0].text) || '';
+    const targetValue = (targetOptions[0] && targetOptions[0].value) || '';
     const containerClass = cx(
       styles['selector-container'],
       styles[`selector-${color}`],
@@ -95,7 +95,7 @@ class SelectorV2 extends React.Component {
           onOutsideClick={this.handleOutsideClick}>
           <div className={styles.wrapper}>
             <div className={styles['value-wrapper']}>
-              <span className={styles['value']}>{targetText}</span>
+              <span className={styles['value']}>{targetValue}</span>
               <span className={styles['value-hidden']}>{maxLengthValue}</span>
             </div>
             &nbsp;&nbsp;&nbsp;{ARROW_DOWN}

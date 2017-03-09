@@ -2,7 +2,7 @@
 @import '../../../shared/styles/base.css';
 
 .selector-container {
-  font-size: 14px;
+  font-size: 12px;
   background-color: var(--oc-white);
   margin: 10px 5px;
   min-width: 4em;

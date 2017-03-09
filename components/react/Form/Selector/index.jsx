@@ -23,22 +23,22 @@ class Selector extends React.Component {
   renderOptions() {
     const { options } = this.props;
     return options.map((option, index) => {
-      const { id, text } = option;
+      const { id, value } = option;
       return (
         <option key={index} value={id}>
-          {text}
+          {value}
         </option>
       )
     })
   }
 
-  get currentText() {
+  get currentValue() {
     const { value, options } = this.props;
     const filtered = options.filter(option => option.id == value);
     if (!filtered.length) {
-      return options[0].text;
+      return options[0].value;
     }
-    return filtered[0].text;
+    return filtered[0].value;
   }
 
   render() {
@@ -52,7 +52,7 @@ class Selector extends React.Component {
     const onChange = disabled ? () => {} : this.onChange;
     return (
       <div className={containerClass}>
-        {this.currentText}&nbsp;&nbsp;&nbsp;<i className="fa fa-caret-down" aria-hidden="true"></i>
+        {this.currentValue}&nbsp;&nbsp;&nbsp;<i className="fa fa-caret-down" aria-hidden="true"></i>
         <select
           value={value}
           onChange={onChange}

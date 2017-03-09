@@ -5,6 +5,7 @@ const postcssImport = require('postcss-import');
 const postcssNext = require('postcss-cssnext');
 
 const SOURCE_PATH = path.join(__dirname, '../components');
+const WRAPPER_PATH = path.join(__dirname, '../examples');
 const cssLoader = [
   'style-loader',
   'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap',
@@ -34,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ['style-loader', 'css-loader', 'postcss-loader'],
+        loaders: ['style-loader', 'css-loader', 'postcss-loader'],
         exclude: SOURCE_PATH
       },
       {
