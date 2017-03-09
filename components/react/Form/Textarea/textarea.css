@@ -65,7 +65,6 @@
   font-size: 14px;
   line-height: 18px;
   padding: 0;
-  /*font-weight: 300;*/
   outline: none !important;
   border: none;
   background-color: transparent;
@@ -78,5 +77,13 @@
   &:hover::-webkit-scrollbar {
     width: 0;
     background: transparent;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+
+  & textarea {
+    cursor: not-allowed;
   }
 }

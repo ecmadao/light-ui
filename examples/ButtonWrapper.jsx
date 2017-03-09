@@ -121,12 +121,12 @@ class ButtonWrapper extends React.Component {
         <div>
           <FloatingActionButton
             icon="share-alt"
+            disabled={disabled}
           />
           <FloatingActionButton
             icon="share-alt"
-            style={{
-              backgroundColor: '#1c7cd6'
-            }}
+            disabled={disabled}
+            color="blue"
           />
         </div>
       </div>

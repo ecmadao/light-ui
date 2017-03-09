@@ -65,14 +65,14 @@ class Input extends React.Component {
 
   render() {
     const {
-      value,
-      disabled,
       id,
-      style,
-      placeholder,
       type,
       theme,
-      className
+      style,
+      value,
+      disabled,
+      className,
+      placeholder
     } = this.props;
     const { error } = this.state;
     const inputClass = cx(
@@ -80,6 +80,7 @@ class Input extends React.Component {
       styles[theme],
       styles[style],
       error && styles["error"],
+      disabled && styles["disabled"],
       className
     );
 

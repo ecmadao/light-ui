@@ -15,17 +15,6 @@
   user-select: none;
   display: inline-block;
 
-  & svg {
-    fill: var(--oc-gray-7);
-    transition: fill 0.1s;
-  }
-
-  &:hover {
-    & svg {
-      fill: var(--oc-green-5);
-    }
-  }
-
   &::before {
     content: '';
     display: block;

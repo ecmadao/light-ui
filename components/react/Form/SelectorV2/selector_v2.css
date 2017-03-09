@@ -18,7 +18,7 @@
   fill: var(--oc-gray-7);
 
   & svg {
-    transition: background-color 0.1s;
+    transition: transform 0.2s, background-color 0.2s;
   }
 
   &::before {
@@ -144,6 +144,17 @@
   }
 }
 
+.selector-container-active {
+  & .options-wrapper {
+    z-index: 1;
+    visibility: visible;
+  }
+
+  & svg {
+    transform: rotate(180deg);
+  }
+}
+
 /* options */
 .options-wrapper {
   position: absolute;
@@ -163,10 +174,6 @@
   border-radius: 0 0 2px 2px;
 }
 
-.options-wrapper-active {
-  z-index: 1;
-  visibility: visible;
-}
 
 .option {
   height: 30px;

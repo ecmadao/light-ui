@@ -31,83 +31,87 @@
   &:-ms-input-placeholder {
     color: var(--oc-gray-5);
   }
+}
 
-  &.material {
-    border: 1px solid transparent;
-    height: 30px;
-    line-height: 30px;
-    transition: box-shadow 0.2s;
-    box-shadow: var(--shadowInput);
+.material {
+  border: 1px solid transparent;
+  height: 30px;
+  line-height: 30px;
+  transition: box-shadow 0.2s;
+  box-shadow: var(--shadowInput);
+
+  &:focus {
+    box-shadow: var(--shadowInputHover);
+  }
+
+  &.error {
+    border: 1px solid var(--oc-red-7);
 
     &:focus {
-      box-shadow: var(--shadowInputHover);
+      border: 1px solid var(--oc-red-7);
+    }
+  }
+}
+
+.flat {
+  height: 30px;
+  line-height: 30px;
+  transition: border 0.2s;
+  border: 1px solid var(--oc-gray-5);
+
+  &:focus {
+    border: 1px solid var(--oc-green-7);
+  }
+
+  &.error {
+    border: 1px solid var(--oc-red-7);
+
+    &:focus {
+      border: 1px solid var(--oc-red-7);
+    }
+  }
+}
+
+.borderless {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  margin: 0;
+  min-width: 150px;
+  transition: border 0.2s;
+  border: 1px solid transparent;
+  background-color: transparent;
+
+  &:focus {
+    border: 1px solid var(--oc-green-7);
+  }
+
+  /*&.error {
+    border: 1px solid var(--oc-red-7);
+
+    &:focus {
+      border: 1px solid var(--oc-red-7);
+    }
+  }*/
+
+  &.underline {
+    border: none;
+    border-bottom: 1px solid transparent;
+
+    &:focus {
+      border-bottom: 1px solid var(--oc-green-7);
     }
 
     &.error {
-      border: 1px solid var(--oc-red-7);
+      border-bottom: 1px solid var(--oc-red-7);
 
       &:focus {
-        border: 1px solid var(--oc-red-7);
-      }
-    }
-  }
-
-  &.flat {
-    height: 30px;
-    line-height: 30px;
-    transition: border 0.2s;
-    border: 1px solid var(--oc-gray-5);
-
-    &:focus {
-      border: 1px solid var(--oc-green-7);
-    }
-
-    &.error {
-      border: 1px solid var(--oc-red-7);
-
-      &:focus {
-        border: 1px solid var(--oc-red-7);
-      }
-    }
-  }
-
-  &.borderless {
-    height: 24px;
-    line-height: 24px;
-    padding: 0 5px;
-    margin: 0;
-    min-width: 150px;
-    transition: border 0.2s;
-    border: 1px solid transparent;
-    background-color: transparent;
-
-    &:focus {
-      border: 1px solid var(--oc-green-7);
-    }
-
-    /*&.error {
-      border: 1px solid var(--oc-red-7);
-
-      &:focus {
-        border: 1px solid var(--oc-red-7);
-      }
-    }*/
-
-    &.underline {
-      border: none;
-      border-bottom: 1px solid transparent;
-
-      &:focus {
-        border-bottom: 1px solid var(--oc-green-7);
-      }
-
-      &.error {
         border-bottom: 1px solid var(--oc-red-7);
-
-        &:focus {
-          border-bottom: 1px solid var(--oc-red-7);
-        }
       }
     }
   }
+}
+
+.disabled {
+  cursor: not-allowed;
 }

@@ -13,6 +13,7 @@ class Textarea extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
   }
 
   onChange() {
@@ -34,6 +35,11 @@ class Textarea extends React.Component {
     this.check();
   }
 
+  onKeyDown() {
+    const { onKeyDown } = this.props;
+    onKeyDown && onKeyDown();
+  }
+
   check(inputValue) {
     const value = inputValue || this.textarea.value;
     const { type, max } = this.props;
@@ -45,7 +51,7 @@ class Textarea extends React.Component {
     const {
       value,
       theme,
-      onKeyDown,
+      disabled,
       placeholder
     } = this.props;
     const { focus, error } = this.state;
@@ -54,7 +60,8 @@ class Textarea extends React.Component {
       styles["textarea-wrapper"],
       styles[theme],
       focus && styles["focus"],
-      error && styles["error"]
+      error && styles["error"],
+      disabled && styles["disabled"],
     );
 
     return (
@@ -67,11 +74,12 @@ class Textarea extends React.Component {
         </pre>
         <textarea
           value={value}
+          disabled={disabled}
           placeholder={placeholder}
           onChange={this.onChange}
           ref={ref => this.textarea = ref}
           className={styles["textarea"]}
-          onKeyDown={onKeyDown}
+          onKeyDown={this.onKeyDown}
           onBlur={this.onBlur}
           onFocus={this.onFocus}
         />
@@ -89,6 +97,7 @@ Textarea.propTypes = {
   theme: PropTypes.string,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Textarea.defaultProps = {
@@ -96,7 +105,8 @@ Textarea.defaultProps = {
   placeholder: '',
   theme: 'flat',
   onChange: () => {},
-  onKeyDown: () => {}
+  onKeyDown: () => {},
+  disabled: false
 }
 
 export default Textarea;

@@ -97,6 +97,8 @@ class FormWrapper extends React.Component {
         <div>
           <InputGroup
             value={value}
+            disabled={disabled}
+            placeholder="input group with input"
             onChange={this.onChange} >
             <Input
               value={value}
@@ -109,6 +111,8 @@ class FormWrapper extends React.Component {
           </InputGroup>
           <InputGroup
             value={value}
+            disabled={disabled}
+            placeholder="input group with intro"
             onChange={this.onChange} >
             <div style={{ fontSize: '12px' }}>
               This is an intro of input.
@@ -122,6 +126,7 @@ class FormWrapper extends React.Component {
             value={value}
             placeholder="textarea"
             type="textarea"
+            disabled={disabled}
             onChange={this.onChange}
           />
         </div>

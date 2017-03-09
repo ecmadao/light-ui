@@ -52,7 +52,7 @@ class Selector extends React.Component {
     const onChange = disabled ? () => {} : this.onChange;
     return (
       <div className={containerClass}>
-        {this.currentValue}&nbsp;&nbsp;&nbsp;<i className="fa fa-caret-down" aria-hidden="true"></i>
+        {this.currentValue}&nbsp;&nbsp;&nbsp;{ARROW_DOWN}
         <select
           value={value}
           onChange={onChange}

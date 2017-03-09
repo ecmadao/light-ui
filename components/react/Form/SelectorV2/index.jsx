@@ -37,7 +37,6 @@ class SelectorV2 extends React.Component {
   }
 
   renderOptions() {
-    const { active } = this.state;
     const { options, value } = this.props;
     const optionComponents = options.map((option, index) => {
       const { id } = option;
@@ -51,12 +50,9 @@ class SelectorV2 extends React.Component {
         />
       )
     });
-    const wrapperClass = cx(
-      styles['options-wrapper'],
-      active && styles['options-wrapper-active']
-    );
+
     return (
-      <div className={wrapperClass}>
+      <div className={styles['options-wrapper']}>
         {optionComponents}
       </div>
     )
@@ -72,6 +68,7 @@ class SelectorV2 extends React.Component {
   }
 
   render() {
+    const { active } = this.state;
     const { value, options, theme, color, className, disabled } = this.props;
     const maxLengthValue = this.maxLengthValue;
 
@@ -81,6 +78,7 @@ class SelectorV2 extends React.Component {
       styles['selector-container'],
       styles[`selector-${color}`],
       styles[theme],
+      active && styles['selector-container-active'],
       disabled && styles['selector-disabled'],
       className
     );
