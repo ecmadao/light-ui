@@ -12,6 +12,8 @@ class Input extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onFocus = this.onFocus.bind(this);
   }
 
   componentDidUpdate(preProps) {
@@ -37,10 +39,20 @@ class Input extends React.Component {
     onBlur && onBlur();
   }
 
+  onKeyDown() {
+    const { onKeyDown } = this.props;
+    onKeyDown && onKeyDown();
+  }
+
   onKeyUp() {
     this.check();
     const { onKeyUp } = this.props;
     onKeyUp && onKeyUp();
+  }
+
+  onFocus() {
+    const { onFocus } = this.props;
+    onFocus && onFocus();
   }
 
   check(inputValue) {
@@ -60,8 +72,6 @@ class Input extends React.Component {
       placeholder,
       type,
       theme,
-      onFocus,
-      onKeyDown,
       className
     } = this.props;
     const { error } = this.state;
@@ -81,10 +91,10 @@ class Input extends React.Component {
         value={value}
         className={inputClass}
         onChange={this.onChange}
-        onKeyDown={onKeyDown}
+        onKeyDown={this.onKeyDown}
         onBlur={this.onBlur}
         onKeyUp={this.onKeyUp}
-        onFocus={onFocus}
+        onFocus={this.onFocus}
         placeholder={placeholder}
         ref={ref => this.input = ref}
       />

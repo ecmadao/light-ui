@@ -18,21 +18,28 @@ class MessageComponent {
   }
 
   show(msg) {
-    this.$message = this.messageTemplate(msg);
+    this.$message = this._messageTemplate(msg);
     this.$body.appendChild(this.$message);
-    this.autoHide();
+    this._autoHide();
   }
 
-  hide() {
-    this.$body.removeChild(this.$message);
+  _hide() {
+    try {
+      this.$body.removeChild(this.$message);
+    } catch (err) {}
+    this.$message = null;
   }
 
-  autoHide() {
-    const hideMessage = () => this.hide();
+  remove() {
+    this.$message && this._hide();
+  }
+
+  _autoHide() {
+    const hideMessage = () => this._hide();
     setTimeout(hideMessage, this.timeOut);
   }
 
-  messageTemplate(msg) {
+  _messageTemplate(msg) {
     const message = document.createElement('div');
     message.className = styles["message-component"];
     message.innerHTML = msg;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../components/react/Form/Input';
+import InputGroup from '../components/react/Form/InputGroup';
 import Selector from '../components/react/Form/Selector';
 import SelectorV2 from '../components/react/Form/SelectorV2';
 import Textarea from '../components/react/Form/Textarea';
@@ -91,6 +92,28 @@ class FormWrapper extends React.Component {
             disabled={disabled}
             onChange={this.onChange}
           />
+        </div>
+        <h3>Input Group</h3>
+        <div>
+          <InputGroup
+            value={value}
+            onChange={this.onChange} >
+            <Input
+              value={value}
+              theme="borderless"
+              style="underline"
+              placeholder="borderless theme"
+              disabled={disabled}
+              onChange={this.onChange}
+            />
+          </InputGroup>
+          <InputGroup
+            value={value}
+            onChange={this.onChange} >
+            <div style={{ fontSize: '12px' }}>
+              This is an intro of input.
+            </div>
+          </InputGroup>
         </div>
         <h3>Textarea</h3>
         <div>

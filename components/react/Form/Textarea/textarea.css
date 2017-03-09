@@ -35,7 +35,7 @@
 .textarea-tip {
   position: absolute;
   bottom: 6px;
-  right: 3px;
+  right: 6px;
   color: var(--oc-gray-4);
   font-size: 12px;
 }

@@ -11,6 +11,8 @@ class BaseButton extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -30,6 +32,17 @@ class BaseButton extends React.Component {
 
   onMouseUp() {
     this.setState({ pressed: false });
+  }
+
+  onMouseEnter() {
+    const { onMouseEnter } = this.props;
+    onMouseEnter && onMouseEnter();
+  }
+
+  onMouseLeave() {
+    this.onMouseUp();
+    const { onMouseLeave } = this.props;
+    onMouseLeave && onMouseLeave();
   }
 
   render() {
@@ -58,8 +71,9 @@ class BaseButton extends React.Component {
         className={buttonClass}
         onMouseDown={this.onMouseDown}
         onMouseOut={this.onMouseUp}
-        onMouseLeave={this.onMouseUp}
+        onMouseLeave={this.onMouseLeave}
         onMouseUp={this.onMouseUp}
+        onMouseEnter={this.onMouseEnter}
         onClick={onClick}>
         <div className={styles["wrapper"]}>
           {children}

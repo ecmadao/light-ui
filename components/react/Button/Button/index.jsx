@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import cx from 'classnames';
 import BaseButton from '../BaseButton';
 
 const Button = (props) => {
