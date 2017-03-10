@@ -18,11 +18,13 @@
 .cards-container-wrapper {
   flex-direction: column;
   margin: 10px 0;
+  border-radius: 4px;
 }
 
 .cards-child {
   display: flex;
   margin: 0;
+  background-color: transparent;
 
   &:last-child {
     margin: 0;
@@ -33,14 +35,6 @@
   border-bottom: 1px solid transparent;
   box-shadow: var(--shadow3);
 }
-
-/*.ghost {
-  border-bottom: 1px solid var(--oc-gray-2);
-
-  &:last-child {
-    border-bottom: 1px solid transparent;
-  }
-}*/
 
 .card {
   &:not(:last-child) {
