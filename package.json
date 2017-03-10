@@ -1,6 +1,6 @@
 {
   "name": "light-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Components of hacknical",
   "main": "./lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "prebuild": "npm run clean",
     "prepublish": "in-publish && safe-publish-latest && npm run build || not-in-publish",
     "tag": "git tag v$npm_package_version",
-    "postversion": "git commit package.json CHANGELOG.md -m \"Version $npm_package_version\" && npm run tag && git push && git push --tags && npm publish --registry=https://registry.npmjs.org/",
+    "postversion": "git commit package.json -m \"Version $npm_package_version\" && npm run tag && git push && git push --tags && npm publish --registry=https://registry.npmjs.org/",
     "build": "cross-env NODE_ENV=production npm run babel && npm run css",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages",
