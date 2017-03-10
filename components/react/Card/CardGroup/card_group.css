@@ -1,0 +1,49 @@
+@import 'open-color/open-color.css';
+@import "../../../shared/styles/base.css";
+
+.cards-container {
+  /*width: 100%;*/
+  flex: 1;
+  display: inline-flex;
+  flex-direction: row;
+  background-color: var(--oc-white);
+  border-bottom: 1px solid var(--oc-gray-2);
+
+  &:last-child {
+    border-bottom: 1px solid transparent;
+    margin: 10px 0;
+  }
+}
+
+.cards-container-wrapper {
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.cards-child {
+  display: flex;
+  margin: 0;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.material {
+  border-bottom: 1px solid transparent;
+  box-shadow: var(--shadow3);
+}
+
+/*.ghost {
+  border-bottom: 1px solid var(--oc-gray-2);
+
+  &:last-child {
+    border-bottom: 1px solid transparent;
+  }
+}*/
+
+.card {
+  &:not(:last-child) {
+    border-right: 1px solid var(--oc-gray-2);
+  }
+}

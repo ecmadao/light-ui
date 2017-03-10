@@ -76,7 +76,7 @@
 .info_tipso_wrapper {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 5px;
   color: var(--oc-gray-5);
 
   & i {

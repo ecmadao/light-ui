@@ -1,11 +1,12 @@
 import React from 'react';
 import InfoCard from '../components/react/Card/InfoCard';
+import CardGroup from '../components/react/Card/CardGroup';
 
 class CardWrapper extends React.Component {
   render() {
     return (
       <div id="components-container">
-        <h3>Info Card</h3>
+        <h3>Min Info Card</h3>
         <div>
           <InfoCard
             mainText="Material Theme"
@@ -56,7 +57,7 @@ class CardWrapper extends React.Component {
             style={{ textAlign: 'left' }}
           />
         </div>
-        <h3>Info Card with Tipso</h3>
+        <h3>Min Info Card with Tipso</h3>
         <div>
           <InfoCard
             mainText="Material Theme"
@@ -66,6 +67,102 @@ class CardWrapper extends React.Component {
               text: 'This is material theme'
             }}
           />
+        </div>
+        <h3>Card Group</h3>
+        <div>
+          <CardGroup >
+            <InfoCard
+              mainText="Card Group 1"
+              subText="2017"
+              style={{ textAlign: 'left' }}
+              tipso={{
+                text: 'This card is in group'
+              }}
+            />
+            <InfoCard
+              mainText="Card Group 2"
+              subText="2017"
+              style={{ textAlign: 'left' }}
+            />
+          </CardGroup>
+        </div>
+        <div>
+          <CardGroup>
+            <CardGroup>
+              <InfoCard
+                mainText="Card Group 1"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+                tipso={{
+                  text: 'This card is in group'
+                }}
+              />
+              <InfoCard
+                mainText="Card Group 2"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+              <InfoCard
+                mainText="Card Group 3"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+            </CardGroup>
+            <CardGroup>
+              <InfoCard
+                mainText="Card Group 4"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+                tipso={{
+                  text: 'This card is in group'
+                }}
+              />
+              <InfoCard
+                mainText="Card Group 5"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+            </CardGroup>
+          </CardGroup>
+        </div>
+        <div>
+          <CardGroup theme="material">
+            <CardGroup>
+              <InfoCard
+                mainText="Card Group 1"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+                tipso={{
+                  text: 'This card is in group'
+                }}
+              />
+              <InfoCard
+                mainText="Card Group 2"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+              <InfoCard
+                mainText="Card Group 3"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+            </CardGroup>
+            <CardGroup>
+              <InfoCard
+                mainText="Card Group 4"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+                tipso={{
+                  text: 'This card is in group'
+                }}
+              />
+              <InfoCard
+                mainText="Card Group 5"
+                subText="2017"
+                style={{ textAlign: 'left' }}
+              />
+            </CardGroup>
+          </CardGroup>
         </div>
       </div>
     )
