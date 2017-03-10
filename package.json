@@ -14,8 +14,8 @@
     "gh-pages:clean": "rimraf _gh-pages",
     "gh-pages:build": "$(npm bin)/build-storybook -o _gh-pages",
     "gh-pages:copy-public": "cp public/* _gh-pages/$1",
-    "gh-pages:publish": "$(npm bin)/git-directory-deploy --directory _gh-pages",
-    "gh-pages": "npm run gh-pages:build && npm run gh-pages:copy-public && npm run gh-pages:publish",
+    "gh-pages:publish": "$(npm bin)/git-directory-deploy --directory _gh-pages --branch gh-pages",
+    "gh-pages": "npm run gh-pages:build && npm run gh-pages:publish",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "author": "ecmadao",
