@@ -69,7 +69,8 @@ class BaseTipso extends React.Component {
       className,
       tipsoContent,
       tipsoStyle,
-      wrapperStyle
+      wrapperStyle,
+      wrapperClass
     } = this.props;
     const containerClass = cx(
       styles["tipso-container"],
@@ -85,7 +86,7 @@ class BaseTipso extends React.Component {
       <div
         ref={ref => this.tipso = ref}
         style={wrapperStyle}
-        className={styles['tipso-wrapper']}>
+        className={cx(styles['tipso-wrapper'], wrapperClass)}>
         {tipsoTrigger}
         <div
           style={tipsoStyle}
@@ -114,6 +115,7 @@ BaseTipso.propTypes = {
   trigger: PropTypes.string,
   tipsoStyle: PropTypes.object,
   wrapperStyle: PropTypes.object,
+  wrapperClass: PropTypes.string,
 };
 
 BaseTipso.defaultProps = {
@@ -123,7 +125,8 @@ BaseTipso.defaultProps = {
   theme: 'light',
   trigger: 'hover',
   tipsoStyle: {},
-  wrapperStyle: {}
+  wrapperStyle: {},
+  wrapperClass: ''
 };
 
 export default BaseTipso;

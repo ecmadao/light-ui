@@ -1,0 +1,110 @@
+@import 'open-color/open-color.css';
+@import "../../../shared/styles/base.css";
+
+.info-card {
+  padding: 15px 20px;
+  margin: 10px 5px;
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  user-select: none;
+  position: relative;
+  border-radius: 2px;
+  min-width: 100px;
+  text-align: center;
+  cursor: default;
+
+  /*&:not(:last-child) {
+    border-right: 1px solid var(--oc-gray-2);
+  }*/
+
+  & i {
+    margin-right: 10px;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.with-tipso {
+  padding-right: 30px;
+}
+
+.material {
+  background-color: var(--oc-white);
+  box-shadow: var(--shadow3);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: var(--shadow4);
+  }
+}
+
+.flat {
+  border: 1px solid var(--oc-gray-4);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--oc-gray-2);
+  }
+}
+
+.info_text {
+}
+
+.info_main_text {
+  composes: info_text;
+  font-size: 20px;
+  color: var(--oc-gray-7);
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info_sub_text {
+  composes: info_text;
+  font-size: 14px;
+  color: var(--oc-gray-5);
+}
+
+.info_tipso_wrapper {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--oc-gray-5);
+
+  & i {
+    font-size: 14px;
+    /*cursor: pointer;*/
+    margin-right: 0 !important;
+  }
+}
+
+.info_tipso {
+  min-width: 130px;
+  font-size: 12px;
+  line-height: 1.5em;
+  bottom: 30px;
+  color: var(--oc-gray-7);
+}
+
+@media (max-width: 800px) {
+  .chart_info {
+    /*padding: 0;*/
+    padding: 0 10px;
+  }
+
+  .info_main_text {
+    font-size: 1.6em;
+  }
+
+  .info_sub_text {
+    font-size: 12px;
+  }
+}
