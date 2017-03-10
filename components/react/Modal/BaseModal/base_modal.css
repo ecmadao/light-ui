@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  composes: var(--zIndexHidden);
+  z-index: var(--zIndexHidden);
   transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
   & .modal_wrapper {
