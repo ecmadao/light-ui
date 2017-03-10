@@ -10,7 +10,13 @@
     "prebuild": "npm run clean",
     "prepublish": "npm run build",
     "build": "cross-env NODE_ENV=production npm run babel && npm run css",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "gh-pages:clean": "rimraf _gh-pages",
+    "gh-pages:build": "$(npm bin)/build-storybook -o _gh-pages",
+    "gh-pages:copy-public": "cp public/* _gh-pages/$1",
+    "gh-pages:publish": "$(npm bin)/git-directory-deploy --directory _gh-pages",
+    "gh-pages": "npm run gh-pages:build && npm run gh-pages:copy-public && npm run gh-pages:publish",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "author": "ecmadao",
   "license": "MIT",
@@ -42,6 +48,7 @@
     "cross-env": "^3.1.3",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "git-directory-deploy": "^1.5.1",
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "^8.2.0",
     "postcss-loader": "^1.1.1",

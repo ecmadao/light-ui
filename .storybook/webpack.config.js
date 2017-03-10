@@ -43,18 +43,6 @@ module.exports = {
         include: SOURCE_PATH,
         loaders: ['babel-loader'],
       },
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'babel!react-svg'
-      // },
-      {
-        test: require.resolve('jquery'),
-        loader: 'expose?jQuery'
-      },
-      {
-        test: require.resolve('jquery'),
-        loader: 'expose?$'
-      }
     ]
   },
   resolve: {
@@ -62,11 +50,6 @@ module.exports = {
   },
   postcss: getPostcssPlugins,
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
     }),
