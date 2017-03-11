@@ -52,13 +52,15 @@ class BaseButton extends React.Component {
       color,
       disabled,
       children,
-      style
+      style,
+      clickable
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
       styles["button"],
       styles[theme],
       styles[color],
+      clickable && styles["clickable"],
       pressed && styles["pressDown"],
       disabled && styles["disabled"],
       className
@@ -91,6 +93,7 @@ BaseButton.propTypes = {
   theme: PropTypes.string,
   disabled: PropTypes.bool,
   children: PropTypes.element,
+  clickable: PropTypes.bool
 };
 
 BaseButton.defaultProps = {
@@ -101,6 +104,7 @@ BaseButton.defaultProps = {
   style: {},
   disabled: false,
   children: (<div></div>),
+  clickable: true
 }
 
 export default BaseButton;

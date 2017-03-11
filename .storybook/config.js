@@ -13,6 +13,7 @@ function loadStories() {
   require('../stories/Tipso');
   require('../stories/Loading');
   require('../stories/Card');
+  require('../stories/Others');
 }
 
 configure(loadStories, module);

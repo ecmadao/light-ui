@@ -13,15 +13,23 @@ const Button = (props) => {
     onClick
   } = props;
 
+  const leftIconElement = typeof leftIcon === 'string' ?
+    (<i className={`fa fa-${leftIcon}`} aria-hidden="true"></i>) :
+    leftIcon;
+
+  const rightIconElement = typeof rightIcon === 'string' ?
+    (<i className={`fa fa-${rightIcon}`} aria-hidden="true"></i>) :
+    rightIcon;
+
   return (
     <BaseButton
       {...props}>
       <div>
-        {leftIcon}
+        {leftIconElement}
         <span>
           {value}
         </span>
-        {rightIcon}
+        {leftIconElement}
       </div>
     </BaseButton>
   )
@@ -34,8 +42,14 @@ Button.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.string,
   disabled: PropTypes.bool,
-  leftIcon: PropTypes.node,
-  rightIcon: PropTypes.node
+  leftIcon: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string
+  ]),
+  rightIcon: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.string
+  ])
 };
 
 Button.defaultProps = {
