@@ -33,7 +33,7 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  icon: 'hand-spock-o',
+  icon: '',
   onClick: () => {},
   className: '',
   id: '',

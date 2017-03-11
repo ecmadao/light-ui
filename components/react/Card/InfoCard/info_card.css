@@ -15,6 +15,15 @@
   cursor: default;
   composes: baseText;
 
+  & svg {
+    width: 14px;
+    height: 14px;
+
+    & path {
+      fill: var(--oc-gray-6);
+    }
+  }
+
   /*&:not(:last-child) {
     border-right: 1px solid var(--oc-gray-2);
   }*/

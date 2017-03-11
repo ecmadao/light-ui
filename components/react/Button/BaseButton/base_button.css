@@ -4,7 +4,7 @@
 .button {
   text-align: center;
   cursor: default;
-  padding: 10px 25px;
+  padding: 10px 15px;
   border-radius: 2px;
   opacity: 0.8;
   margin: 15px 5px;
@@ -252,6 +252,26 @@
     &:hover {
       background-color: var(--oc-gray-2);
     }
+  }
+
+  &.green {
+    color: var(--oc-green-7);
+  }
+
+  &.red {
+    color: var(--oc-red-7);
+  }
+
+  &.dark {
+    color: var(--oc-gray-7);
+  }
+
+  &.gray {
+    color: var(--oc-gray-5);
+  }
+
+  &.blue {
+    color: var(--oc-blue-7);
   }
 }
 

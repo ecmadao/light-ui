@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
+import icons from '../../../shared/utils/icons';
 import Tipso from '../../Tipso/Tipso';
 import styles from './info_card.css';
 
@@ -27,7 +28,7 @@ const InfoCard = (props) => {
     (<i className={`fa fa-${icon}`} aria-hidden="true"></i>) :
     icon;
   const tipsoIcon = tipso && typeof tipso.icon === 'object' ?
-    tipso.icon : (<i aria-hidden="true" className="fa fa-question-circle"></i>);
+    tipso.icon : (icons.info);
 
   return (
     <div className={infoClass} style={style}>

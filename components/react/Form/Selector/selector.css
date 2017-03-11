@@ -15,6 +15,16 @@
   display: inline-block;
   composes: baseText;
 
+  fill: var(--oc-gray-7);
+
+  & polygon {
+    fill: var(--oc-gray-7);
+  }
+
+  & svg {
+    /*transform: rotate(-90deg);*/
+  }
+
   &::before {
     content: '';
     display: block;

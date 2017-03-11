@@ -1,15 +1,10 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
+import icons from '../../../shared/utils/icons';
 import styles from './selector_v2.css';
 import Option from './Option';
 import OutsideClickHandler from './OutsideClickHandler';
-
-const ARROW_DOWN = (
-<svg width="11px" height="7px" viewBox="712 206 11 7" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <polygon id="Triangle-1-Copy" stroke="none" fill="" fillRule="evenodd" transform="translate(717.500000, 209.500000) scale(1, -1) translate(-717.500000, -209.500000) " points="717.5 206 723 213 712 213"></polygon>
-</svg>
-);
 
 class SelectorV2 extends React.Component {
   constructor(props) {
@@ -96,7 +91,7 @@ class SelectorV2 extends React.Component {
               <span className={styles['value']}>{targetValue}</span>
               <span className={styles['value-hidden']}>{maxLengthValue}</span>
             </div>
-            &nbsp;&nbsp;&nbsp;{ARROW_DOWN}
+            &nbsp;&nbsp;&nbsp;{icons.down}
           </div>
           {this.renderOptions()}
         </OutsideClickHandler>

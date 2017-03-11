@@ -1,12 +1,8 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import styles from './selector.css';
+import icons from '../../../shared/utils/icons';
 
-const ARROW_DOWN = (
-<svg width="11px" height="7px" viewBox="712 206 11 7" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <polygon id="Triangle-1-Copy" stroke="none" fill="" fillRule="evenodd" transform="translate(717.500000, 209.500000) scale(1, -1) translate(-717.500000, -209.500000) " points="717.5 206 723 213 712 213"></polygon>
-</svg>
-);
 
 class Selector extends React.Component {
   constructor(props) {
@@ -52,7 +48,7 @@ class Selector extends React.Component {
     const onChange = disabled ? () => {} : this.onChange;
     return (
       <div className={containerClass}>
-        {this.currentValue}&nbsp;&nbsp;&nbsp;{ARROW_DOWN}
+        {this.currentValue}&nbsp;&nbsp;&nbsp;{icons.down}
         <select
           value={value}
           onChange={onChange}

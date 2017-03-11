@@ -29,7 +29,7 @@ const Button = (props) => {
         <span>
           {value}
         </span>
-        {leftIconElement}
+        {rightIconElement}
       </div>
     </BaseButton>
   )

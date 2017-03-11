@@ -19,6 +19,10 @@ class OthersWrapper extends React.Component {
           <Label
             clickable={false}
             text="can not click"
+            theme="ghost"/>
+          <Label
+            clickable={false}
+            text="can not click"
             theme="flat"/>
           <Label
             clickable={false}
@@ -28,9 +32,13 @@ class OthersWrapper extends React.Component {
         <div>
           <Label
             icon="code-fork"
+            theme="ghost"
+            text="fork me"/>
+          <Label
+            icon="code-fork"
             theme="flat"
-            text="click me"/>
-          <Label icon="code-fork" text="click me" />
+            text="fork me"/>
+          <Label icon="code-fork" text="fork me" />
         </div>
       </div>
     )

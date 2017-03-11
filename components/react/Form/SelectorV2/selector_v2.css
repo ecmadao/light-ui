@@ -17,7 +17,12 @@
   color: var(--oc-gray-7);
   fill: var(--oc-gray-7);
 
+  & polygon {
+    fill: var(--oc-gray-7);
+  }
+
   & svg {
+    /*transform: rotate(-90deg);*/
     transition: transform 0.2s, background-color 0.2s;
   }
 
@@ -84,6 +89,10 @@
   transition: border 0.1s;
   border: 1px solid var(--oc-gray-5);
 
+  & polygon {
+    fill: var(--oc-gray-7);
+  }
+
   & .options-wrapper {
     border: 1px solid var(--oc-gray-5);
   }
@@ -94,6 +103,10 @@
     background-color: var(--oc-gray-7);
     color: var(--oc-white);
     fill: var(--oc-white);
+
+    & polygon {
+      fill: var(--oc-white);
+    }
   }
 
   &.flat:not(.selector-disabled) {
@@ -108,6 +121,10 @@
     fill: var(--oc-white);
     color: var(--oc-white);
     background-color: var(--oc-green-5);
+
+    & polygon {
+      fill: var(--oc-white);
+    }
   }
 
   &.flat:not(.selector-disabled) {
@@ -122,6 +139,10 @@
     fill: var(--oc-white);
     color: var(--oc-white);
     background-color: var(--oc-blue-5);
+
+    & polygon {
+      fill: var(--oc-white);
+    }
   }
 
   &.flat:not(.selector-disabled) {
