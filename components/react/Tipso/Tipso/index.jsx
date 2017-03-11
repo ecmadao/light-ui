@@ -1,12 +1,17 @@
-import React, { PropTypes, cloneElement } from 'react';
+import React, { PropTypes } from 'react';
+import objectAssign from 'object-assign';
 import BaseTipso from '../BaseTipso';
 
 const Tipso = (props) => {
+  const { children } = props;
+  const baseProps = objectAssign({}, props);
+
+  delete baseProps.children;
 
   return (
     <BaseTipso
-      {...props} >
-      {props.children}
+      {...baseProps}>
+      {children}
     </BaseTipso>
   )
 };
@@ -19,7 +24,8 @@ Tipso.propTypes = {
 
 Tipso.defaultProps = {
   trigger: 'hover',
-  wrapperStyle: {}
+  wrapperStyle: {},
+  children: (<div></div>)
 };
 
 export default Tipso;

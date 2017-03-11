@@ -56,8 +56,8 @@ class Input extends React.Component {
   }
 
   check(inputValue) {
-    const { type, check } = this.props;
-    if (!check) { return }
+    const { type, required } = this.props;
+    if (!required) { return }
     const value = inputValue || this.input.value;
     const error = !Validator[type](value) ? true : false;
     this.setState({ error });
@@ -70,6 +70,8 @@ class Input extends React.Component {
       theme,
       style,
       value,
+      subTheme,
+      required,
       disabled,
       className,
       placeholder
@@ -78,8 +80,8 @@ class Input extends React.Component {
     const inputClass = cx(
       styles["input"],
       styles[theme],
-      styles[style],
-      error && styles["error"],
+      styles[subTheme],
+      required && error && styles["error"],
       disabled && styles["disabled"],
       className
     );
@@ -87,6 +89,7 @@ class Input extends React.Component {
     return (
       <input
         id={id}
+        required={required}
         disabled={disabled}
         type={type}
         value={value}
@@ -98,6 +101,7 @@ class Input extends React.Component {
         onFocus={this.onFocus}
         placeholder={placeholder}
         ref={ref => this.input = ref}
+        style={style}
       />
     )
   }
@@ -105,14 +109,15 @@ class Input extends React.Component {
 
 Input.propTypes = {
   disabled: PropTypes.bool,
-  check: PropTypes.bool,
+  required: PropTypes.bool,
   value: PropTypes.string,
-  style: PropTypes.string,
+  style: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   theme: PropTypes.string,
+  subTheme: PropTypes.string,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onKeyUp: PropTypes.func,
@@ -123,13 +128,14 @@ Input.propTypes = {
 Input.defaultProps = {
   disabled: false,
   value: '',
-  check: true,
-  style: '',
+  required: true,
+  style: {},
   className: '',
   id: '',
   placeholder: '',
   type: 'string',
   theme: 'material',
+  subTheme: '',
   onChange: () => {},
   onBlur: () => {},
   onKeyUp: () => {},

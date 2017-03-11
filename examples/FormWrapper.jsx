@@ -70,7 +70,7 @@ class FormWrapper extends React.Component {
           <Input
             value={value}
             theme="borderless"
-            style="underline"
+            subTheme="underline"
             placeholder="borderless theme"
             disabled={disabled}
             onChange={this.onChange}
@@ -93,6 +93,25 @@ class FormWrapper extends React.Component {
             onChange={this.onChange}
           />
         </div>
+        <h4>Not required</h4>
+        <div>
+          <Input
+            value={value}
+            type="email"
+            required={false}
+            placeholder="email"
+            disabled={disabled}
+            onChange={this.onChange}
+          />
+          <Input
+            value={value}
+            type="phone"
+            required={false}
+            placeholder="phone"
+            disabled={disabled}
+            onChange={this.onChange}
+          />
+        </div>
         <h3>Input Group</h3>
         <div>
           <InputGroup
@@ -103,7 +122,7 @@ class FormWrapper extends React.Component {
             <Input
               value={value}
               theme="borderless"
-              style="underline"
+              subTheme="underline"
               placeholder="borderless theme"
               disabled={disabled}
               onChange={this.onChange}

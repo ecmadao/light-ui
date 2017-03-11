@@ -50,7 +50,6 @@ class Textarea extends React.Component {
   render() {
     const {
       value,
-      theme,
       disabled,
       placeholder
     } = this.props;
@@ -58,7 +57,7 @@ class Textarea extends React.Component {
 
     const wrapperClass = cx(
       styles["textarea-wrapper"],
-      styles[theme],
+      styles["flat"],
       focus && styles["focus"],
       error && styles["error"],
       disabled && styles["disabled"],
@@ -94,7 +93,6 @@ class Textarea extends React.Component {
 Textarea.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  theme: PropTypes.string,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
   disabled: PropTypes.bool,
@@ -103,7 +101,6 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   value: '',
   placeholder: '',
-  theme: 'flat',
   onChange: () => {},
   onKeyDown: () => {},
   disabled: false

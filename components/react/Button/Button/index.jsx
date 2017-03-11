@@ -1,17 +1,14 @@
 import React, { PropTypes } from 'react';
+import objectAssign from 'object-assign';
 import BaseButton from '../BaseButton';
 
 const Button = (props) => {
   const {
     value,
-    className,
     leftIcon,
-    rightIcon,
-    theme,
-    color,
-    disabled,
-    onClick
+    rightIcon
   } = props;
+  const baseProps = objectAssign({}, props);
 
   const leftIconElement = typeof leftIcon === 'string' ?
     (<i className={`fa fa-${leftIcon}`} aria-hidden="true"></i>) :
@@ -21,9 +18,13 @@ const Button = (props) => {
     (<i className={`fa fa-${rightIcon}`} aria-hidden="true"></i>) :
     rightIcon;
 
+  delete baseProps.leftIcon;
+  delete baseProps.rightIcon;
+  delete baseProps.value;
+
   return (
     <BaseButton
-      {...props}>
+      {...baseProps}>
       <div>
         {leftIconElement}
         <span>
@@ -39,15 +40,18 @@ Button.propTypes = {
   value: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.string,
+  style: PropTypes.object,
   className: PropTypes.string,
   theme: PropTypes.string,
   disabled: PropTypes.bool,
   leftIcon: PropTypes.oneOfType([
     PropTypes.node,
+    PropTypes.element,
     PropTypes.string
   ]),
   rightIcon: PropTypes.oneOfType([
     PropTypes.node,
+    PropTypes.element,
     PropTypes.string
   ])
 };
@@ -55,6 +59,7 @@ Button.propTypes = {
 Button.defaultProps = {
   value: '',
   color: 'green',
+  style: {},
   theme: 'material',
   onClick: () => {},
   leftIcon: null,

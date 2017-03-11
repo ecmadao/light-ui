@@ -1,12 +1,13 @@
 import React, { PropTypes, cloneElement } from 'react';
 import cx from 'classnames';
+import Helper from '../../../shared/utils/helper';
 import styles from './card_group.css';
 
 const CardGroup = (props) => {
   const { className, children, theme, style } = props;
   let hasCardGroup = false;
 
-  const cards = Array.isArray(children) ? children.map((child, index) => {
+  const cards = Helper.isArray(children) ? children.map((child, index) => {
     const isCardGroup = child.type.prototype === CardGroup.prototype;
     if (isCardGroup) { hasCardGroup = true }
 

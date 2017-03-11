@@ -47,10 +47,6 @@ class Loading extends React.Component {
           <div></div>
           <div></div>
         </div>
-        {/* <div className={styles["bounce_wrapper"]}>
-          <div className={styles["loading_bounce"]}></div>
-          <div className={styles["loading_bounce"]}></div>
-        </div> */}
       </div>
     )
   }
@@ -63,7 +59,7 @@ Loading.propTypes = {
   closeAble: PropTypes.bool,
   onClose: PropTypes.func,
   style: PropTypes.object,
-}
+};
 
 Loading.defaultProps = {
   className: '',

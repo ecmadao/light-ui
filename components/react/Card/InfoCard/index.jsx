@@ -67,6 +67,7 @@ InfoCard.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.oneOfType([
     PropTypes.node,
+    PropTypes.element,
     PropTypes.string
   ]),
   tipso: PropTypes.object,

@@ -37,12 +37,14 @@ InputGroup.propTypes = {
   inputClassName: PropTypes.string,
   wrapperClassName: PropTypes.string,
   wrapperStyle: PropTypes.object,
+  children: PropTypes.element
 };
 
 InputGroup.defaultProps = {
   inputClassName: '',
   wrapperClassName: '',
-  wrapperStyle: {}
+  wrapperStyle: {},
+  children: (<div></div>),
 };
 
 export default InputGroup;

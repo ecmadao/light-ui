@@ -63,14 +63,16 @@ class ShortMessageWrapper extends React.Component {
         <h3>Change Short Message</h3>
         <div>
           <Input
-            placeholder="expire time(s)"
             value={value}
+            required={false}
             onChange={this.onChange}
+            placeholder="expire time (s)"
           />
           <Input
-            placeholder="message content"
             value={text}
+            required={false}
             onChange={this.onTextChange}
+            placeholder="message content"
           />
         </div>
         <div>
