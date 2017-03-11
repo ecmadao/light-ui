@@ -57,25 +57,25 @@ class ShortMessageWrapper extends React.Component {
           <ShortMessage
             onClose={this.onClose}
             expire={expire * 1000}
-            text={text || 'This is SMS'}
+            text={text || 'This is ShortMessage'}
           />
         ) : ''}
-        <h3>修改 SMS</h3>
+        <h3>Change Short Message</h3>
         <div>
           <Input
-            placeholder="显示的时间(单位: s)"
+            placeholder="expire time(s)"
             value={value}
             onChange={this.onChange}
           />
           <Input
-            placeholder="消息内容"
+            placeholder="message content"
             value={text}
             onChange={this.onTextChange}
           />
         </div>
         <div>
           <Button
-            value="Click to show SMS"
+            value="Click to show ShortMessage"
             onClick={this.onClick}
             disabled={showSMS}
           />&nbsp;

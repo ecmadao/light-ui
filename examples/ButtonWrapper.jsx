@@ -91,6 +91,50 @@ class ButtonWrapper extends React.Component {
             )}
           />
         </div>
+        <h3>Button - Ghost Theme</h3>
+        <div>
+          <Button
+            disabled={disabled}
+            value="Green Button"
+            theme="ghost"
+          />
+          <Button
+            disabled={disabled}
+            value="Dark Button"
+            color="dark"
+            theme="ghost"
+          />
+          <Button
+            disabled={disabled}
+            value="Blue Button"
+            color="blue"
+            theme="ghost"
+          />
+          <Button
+            disabled={disabled}
+            value="Red Button"
+            color="red"
+            theme="ghost"
+          />
+        </div>
+        <div>
+          <Button
+            disabled={disabled}
+            value="With left icon"
+            theme="ghost"
+            leftIcon={(
+              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            )}
+          />
+          <Button
+            disabled={disabled}
+            value="With right icon"
+            theme="ghost"
+            rightIcon={(
+              <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            )}
+          />
+        </div>
         <h3>Icon Button - Ghost Theme</h3>
         <div>
           <IconButton

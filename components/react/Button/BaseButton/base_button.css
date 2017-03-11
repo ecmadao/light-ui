@@ -236,7 +236,7 @@
 }
 
 .disabled {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 
   &::before {
     z-index: var(--zIndex1);
