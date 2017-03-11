@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import BaseButton from '../BaseButton';
-
+import styles from './icon_button.css';
 
 const IconButton = (props) => {
   const { icon } = props;
@@ -13,11 +13,7 @@ const IconButton = (props) => {
   return (
     <BaseButton
       {...props}
-      style={{
-        padding: '0',
-        width: '30px',
-        height: '30px'
-      }}
+      className={styles['icon-button']}
     >
       {iconElement}
     </BaseButton>

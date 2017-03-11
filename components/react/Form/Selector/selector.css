@@ -4,7 +4,6 @@
 .selector-container {
   background-color: var(--oc-white);
   color: var(--oc-gray-7);
-  font-size: 12px;
   cursor: pointer;
   min-width: 4em;
   text-align: center;
@@ -14,6 +13,7 @@
   margin: 10px 5px;
   user-select: none;
   display: inline-block;
+  composes: baseText;
 
   &::before {
     content: '';

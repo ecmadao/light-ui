@@ -4,13 +4,13 @@
 .input {
   outline: none;
   background-color: var(--oc-white);
-  font-size: 14px;
   color: var(--oc-gray-7);
   padding: 3px 15px;
   flex: 1;
   border-radius: 2px;
   margin: 10px 5px;
   min-width: 60px;
+  composes: baseText;
 
   &:first-child {
     margin-left: 0;

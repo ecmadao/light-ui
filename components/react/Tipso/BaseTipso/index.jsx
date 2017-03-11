@@ -7,7 +7,7 @@ class BaseTipso extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show: props.show
     };
     this.handleShowChange = this.handleShowChange.bind(this);
     this.onOutsideClick = this.onOutsideClick.bind(this);
@@ -65,6 +65,7 @@ class BaseTipso extends React.Component {
     const { show } = this.state;
     const {
       theme,
+      position,
       children,
       className,
       tipsoContent,
@@ -75,6 +76,7 @@ class BaseTipso extends React.Component {
     const containerClass = cx(
       styles["tipso-container"],
       styles[theme],
+      styles[position],
       show && styles["active"],
       className
     );
@@ -116,6 +118,8 @@ BaseTipso.propTypes = {
   tipsoStyle: PropTypes.object,
   wrapperStyle: PropTypes.object,
   wrapperClass: PropTypes.string,
+  position: PropTypes.string,
+  show: PropTypes.bool
 };
 
 BaseTipso.defaultProps = {
@@ -126,7 +130,9 @@ BaseTipso.defaultProps = {
   trigger: 'hover',
   tipsoStyle: {},
   wrapperStyle: {},
-  wrapperClass: ''
+  wrapperClass: '',
+  position: 'top',
+  show: false
 };
 
 export default BaseTipso;

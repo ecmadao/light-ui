@@ -2,7 +2,6 @@
 @import '../../../shared/styles/base.css';
 
 .selector-container {
-  font-size: 12px;
   background-color: var(--oc-white);
   margin: 10px 5px;
   min-width: 4em;
@@ -13,6 +12,7 @@
   position: relative;
   display: inline-block;
   padding: 10px 20px;
+  composes: baseText;
 
   color: var(--oc-gray-7);
   fill: var(--oc-gray-7);

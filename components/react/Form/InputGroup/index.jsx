@@ -10,16 +10,19 @@ class InputGroup extends React.Component {
   render() {
     const {
       children,
-      customStyle,
-      inputClassName
+      wrapperStyle,
+      inputClassName,
+      wrapperClassName
     } = this.props;
 
     return (
       <Tipso
         trigger="focus"
         wrapperStyle={{
+          ...wrapperStyle,
           margin: '0 5px'
         }}
+        wrapperClass={wrapperClassName}
         tipsoContent={children}>
         <Input
           {...this.props}
@@ -30,9 +33,16 @@ class InputGroup extends React.Component {
   }
 }
 
+InputGroup.propTypes = {
+  inputClassName: PropTypes.string,
+  wrapperClassName: PropTypes.string,
+  wrapperStyle: PropTypes.object,
+};
+
 InputGroup.defaultProps = {
-  customStyle: '',
-  inputClassName: ''
+  inputClassName: '',
+  wrapperClassName: '',
+  wrapperStyle: {}
 };
 
 export default InputGroup;

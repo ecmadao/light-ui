@@ -8,13 +8,13 @@
   border-radius: 2px;
   opacity: 0.8;
   margin: 15px 5px;
-  font-size: 12px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   user-select: none;
   position: relative;
+  composes: baseSubText;
 
   &:not(.disabled) {
     &:hover {
@@ -236,5 +236,11 @@
   &::before {
     z-index: var(--zIndex1);
     background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.ghost {
+  &:hover {
+    background-color: var(--oc-gray-2);
   }
 }

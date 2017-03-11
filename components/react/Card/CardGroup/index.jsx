@@ -11,6 +11,7 @@ const CardGroup = (props) => {
     if (isCardGroup) { hasCardGroup = true }
 
     const childProps = isCardGroup ? {
+      key: index,
       className: styles['cards-child']
     } : {
       key: index,
@@ -18,7 +19,10 @@ const CardGroup = (props) => {
       className: styles['card']
     };
     return cloneElement(child, childProps);
-  }) : children;
+  }) : cloneElement(children, {
+    theme: 'ghost',
+    className: styles['card']
+  });
 
 
   const groupClass = cx(

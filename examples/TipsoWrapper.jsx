@@ -15,9 +15,9 @@ class TipsoWrapper extends React.Component {
           <Tipso
             tipsoContent={(
               <div style={{
-                  width: '100px',
+                  width: '95px',
                   textAlign: 'center'
-              }}>This is example</div>
+              }}>This is an example</div>
             )}>
             <Button
               value="hover to show"
@@ -27,9 +27,34 @@ class TipsoWrapper extends React.Component {
             theme="dark"
             tipsoContent={(
               <div style={{
-                  width: '100px',
+                  width: '95px',
                   textAlign: 'center'
-              }}>This is example</div>
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="hover to show"
+            />
+          </Tipso>
+          <Tipso
+            position="bottom"
+            tipsoContent={(
+              <div style={{
+                  width: '95px',
+                  textAlign: 'center'
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="hover to show"
+            />
+          </Tipso>
+          <Tipso
+            theme="dark"
+            position="bottom"
+            tipsoContent={(
+              <div style={{
+                  width: '95px',
+                  textAlign: 'center'
+              }}>This is an example</div>
             )}>
             <Button
               value="hover to show"
@@ -42,9 +67,9 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '100px',
+                  width: '95px',
                   textAlign: 'center'
-              }}>This is example</div>
+              }}>This is an example</div>
             )}>
             <Button
               value="click to show"
@@ -55,12 +80,57 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '80px',
+                  width: '95px',
                   textAlign: 'center'
-              }}>This is example</div>
+              }}>This is an example</div>
             )}>
             <Button
               value="click to show"
+            />
+          </Tipso>
+          <Tipso
+            trigger="click"
+            position="bottom"
+            tipsoContent={(
+              <div style={{
+                  width: '95px',
+                  textAlign: 'center'
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="click to show"
+            />
+          </Tipso>
+          <Tipso
+            theme="dark"
+            position="bottom"
+            trigger="click"
+            tipsoContent={(
+              <div style={{
+                  width: '95px',
+                  textAlign: 'center'
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="click to show"
+            />
+          </Tipso>
+        </div>
+        <h4>Show Tipso in default</h4>
+        <div>
+          <Tipso
+            show={true}
+            theme="dark"
+            position="bottom"
+            trigger="click"
+            tipsoContent={(
+              <div style={{
+                  width: '95px',
+                  textAlign: 'center'
+              }}>This is an example</div>
+            )}>
+            <Button
+              value="show in default"
             />
           </Tipso>
         </div>

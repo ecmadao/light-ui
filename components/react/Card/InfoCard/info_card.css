@@ -2,7 +2,7 @@
 @import "../../../shared/styles/base.css";
 
 .info-card {
-  padding: 15px 20px;
+  padding: 15px 10px;
   margin: 10px 5px;
   display: inline-flex;
   flex: 1;
@@ -13,6 +13,7 @@
   min-width: 100px;
   text-align: center;
   cursor: default;
+  composes: baseText;
 
   /*&:not(:last-child) {
     border-right: 1px solid var(--oc-gray-2);
@@ -32,6 +33,7 @@
 }
 
 .with-tipso {
+  padding: 15px 20px;
   padding-right: 30px;
 }
 

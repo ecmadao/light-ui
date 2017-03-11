@@ -15,9 +15,6 @@ const FloatingActionButton = (props) => {
       theme="floating-action-button"
       style={{
         ...style,
-        // position: 'fixed',
-        // bottom: '30px',
-        // right: '100px',
         width: '50px',
         height: '50px'
       }}

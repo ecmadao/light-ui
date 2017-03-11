@@ -4,6 +4,7 @@
 .tipso-wrapper {
   position: relative;
   display: inline-block;
+  composes: baseText;
 
   &:first-child {
     margin-left: 0 !important;
@@ -24,13 +25,13 @@
   display: flex;
   position: absolute;
   left: 50%;
-  bottom: 100%;
   transform: translateX(-50%);
   visibility: hidden;
   line-height: 1em;
   min-width: 100px;
   font-size: 12px;
   z-index: var(--zIndexHidden);
+  composes: baseSubText;
 
   &.active {
     visibility: visible;
@@ -39,49 +40,97 @@
 
   &::before,
   &::after {
-    content: '';
-    display: block;
     width: 0;
     height: 0;
-    position: absolute;
     left: 50%;
+    content: '';
+    display: block;
+    position: absolute;
     transform: translateX(-50%);
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
   }
 
   &::after {
-    bottom: -10px;
     z-index: var(--zIndex1);
   }
 
   &::before {
-    bottom: -11px;
     z-index: var(--zIndexHidden);
   }
 }
 
-.tipso-container.dark {
-  color: var(--oc-white);
-  background-color: var(--oc-gray-9);
+.top {
+  bottom: 100%;
+  transform: translate(-50%, -3px);
 
   &::after {
-    border-top: 10px solid var(--oc-gray-9);
+    bottom: -10px;
   }
 
   &::before {
-    border-top: 10px solid rgba(212, 212, 212, 1);
+    bottom: -11px;
+  }
+
+  &.dark {
+    &::after {
+      border-top: 10px solid var(--oc-gray-9);
+    }
+
+    &::before {
+      border-top: 10px solid rgba(212, 212, 212, 1);
+    }
+  }
+
+  &.light {
+    &::after {
+      border-top: 10px solid var(--oc-white);
+    }
+
+    &::before {
+      border-top: 10px solid rgba(212, 212, 212, 0.3);
+    }
   }
 }
 
-.tipso-container.light {
-  background-color: var(--oc-white);
+.bottom {
+  top: 100%;
+  transform: translate(-50%, 3px);
 
   &::after {
-    border-top: 10px solid var(--oc-white);
+    top: -10px;
   }
 
   &::before {
-    border-top: 10px solid rgba(212, 212, 212, 0.3);
+    top: -11px;
   }
+
+  &.dark {
+    &::after {
+      border-bottom: 10px solid var(--oc-gray-9);
+    }
+
+    &::before {
+      border-bottom: 10px solid rgba(212, 212, 212, 1);
+    }
+  }
+
+  &.light {
+    &::after {
+      border-bottom: 10px solid var(--oc-white);
+    }
+
+    &::before {
+      border-bottom: 10px solid rgba(212, 212, 212, 0.3);
+    }
+  }
+}
+
+.dark {
+  color: var(--oc-white);
+  background-color: var(--oc-gray-9);
+}
+
+.light {
+  background-color: var(--oc-white);
 }
