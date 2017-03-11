@@ -1,8 +1,8 @@
 ## Light-UI
 
-[![npm version](https://badge.fury.io/js/light-ui.svg)](https://badge.fury.io/js/light-ui)  [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![react-times](http://img.shields.io/npm/dm/light-ui.svg)](https://www.npmjs.com/package/react-times) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ecmadao/react-times/master/LICENSE)
+[![npm version](https://badge.fury.io/js/light-ui.svg)](https://badge.fury.io/js/light-ui)  [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![light-ui](http://img.shields.io/npm/dm/light-ui.svg)](https://www.npmjs.com/package/light-ui) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ecmadao/light-ui/master/LICENSE)
 
-[![NPM](https://nodei.co/npm/react-times.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/light-ui)
+[![NPM](https://nodei.co/npm/light-ui.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/light-ui)
 
 > UI Components for [hacknical](https://github.com/ecmadao/hacknical)
 
