@@ -1,5 +1,0 @@
-@import '../../../shared/styles/base.css';
-
-.switchery {
-  z-index: var(--zIndex1);
-}

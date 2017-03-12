@@ -1,0 +1,76 @@
+@import 'open-color/open-color.css';
+@import "../../../shared/styles/base.css";
+
+.switcher-container {
+  width: 52px;
+  height: 32px;
+  display: inline-block;
+  border-radius: 32px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--oc-gray-5);
+  transition: background-color 0.2s;
+}
+
+.container-checked {
+  border: 1px solid transparent;
+
+  &.green {
+    background-color: var(--oc-green-7);
+  }
+
+  &.blue {
+    background-color: var(--oc-blue-7);
+  }
+
+  &.gray {
+    background-color: var(--oc-gray-7);
+  }
+
+  & .switcher-item {
+    right: 0;
+  }
+}
+
+.container-disabled {
+  cursor: not-allowed !important;
+}
+
+.container-mini {
+  width: 35px;
+  height: 22px;
+  border-radius: 22px;
+
+  & .switcher-item {
+    width: 22px;
+    height: 22px;
+    right: calc(100% - 22px);
+  }
+}
+
+.switcher-item {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--oc-white);
+  box-shadow: var(--shadow2);
+  box-shadow: 0 1px 3px rgba(0,0,0,.4);
+  position: absolute;
+  top: 0;
+  right: calc(100% - 32px);
+  transition: right 0.2s;
+}
+
+@media (max-width: 800px) {
+  .switcher-container {
+    width: 35px;
+    height: 22px;
+    border-radius: 22px;
+
+    & .switcher-item {
+      width: 22px;
+      height: 22px;
+      right: calc(100% - 22px);
+    }
+  }
+}

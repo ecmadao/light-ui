@@ -1,5 +1,6 @@
 import React from 'react';
 import Label from '../components/react/Others/Label';
+import Switcher from '../components/react/Others/Switcher';
 
 class OthersWrapper extends React.Component {
   render() {
@@ -39,6 +40,10 @@ class OthersWrapper extends React.Component {
             theme="flat"
             text="fork me"/>
           <Label icon="code-fork" text="fork me" />
+        </div>
+        <h3>Switcher</h3>
+        <div>
+          <Switcher />
         </div>
       </div>
     )

@@ -18,3 +18,4 @@ export InfoCard from './react/Card/InfoCard';
 export CardGroup from './react/Card/CardGroup';
 
 export Label from './react/Others/Label';
+export Switcher from './react/Others/Switcher';

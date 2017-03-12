@@ -1,4 +1,4 @@
-const isArray = (array) => Object.prototype.toString.call(o)=='[object Array]';
+const isArray = (array) => Object.prototype.toString.call(array)=='[object Array]';
 
 export default {
   isArray
