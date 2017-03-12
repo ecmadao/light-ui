@@ -6,6 +6,10 @@
 
 > UI Components for [hacknical](https://github.com/ecmadao/hacknical)
 
+### Online demo
+
+[https://ecmadao.github.io/light-ui](https://ecmadao.github.io/light-ui)
+
 ### Install & Config
 
 - install
@@ -211,6 +215,21 @@ render() {
     >
     	<input placeholder="your need to focus to show tipso" />
     </Tipso>
+  )
+}
+```
+
+#### Switcher
+
+> [Online examples](https://ecmadao.github.io/light-ui/?selectedKind=Others&selectedStory=basical&full=0&down=1&left=1&panelRight=0&downPanel=kadirahq%2Fstorybook-addon-actions%2Factions-panel)
+
+```javascript
+import {} from 'light-ui';
+
+// ...
+render() {
+  return (
+  	<Switcher onChange={this.onChange} checked={props.checked} />
   )
 }
 ```
@@ -527,6 +546,18 @@ Label.propTypes = {
     PropTypes.node,
     PropTypes.string
   ])
+};
+```
+
+#### Switcher
+
+```javascript
+Switcher.propTypes = {
+  color: PropTypes.string, // green, blue or gray
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  size: PropTypes.string // normal or mini
 };
 ```
 
