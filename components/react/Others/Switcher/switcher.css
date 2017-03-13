@@ -10,6 +10,16 @@
   cursor: pointer;
   border: 1px solid var(--oc-gray-5);
   transition: background-color 0.2s;
+  background-color: var(--oc-white);
+  margin: 15px 5px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .container-checked {

@@ -1,3 +1,38 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Light-UI](#light-ui)
+  - [Online demo](#online-demo)
+  - [Install & Config](#install--config)
+  - [Basic Examples](#basic-examples)
+    - [Button](#button)
+    - [Min Info Card](#min-info-card)
+    - [Tipso](#tipso)
+    - [Switcher](#switcher)
+  - [API](#api)
+    - [Button](#button-1)
+    - [IconButton](#iconbutton)
+    - [FloatingActionButton](#floatingactionbutton)
+    - [Input](#input)
+    - [InputGroup](#inputgroup)
+    - [Selector](#selector)
+    - [SelectorV2](#selectorv2)
+    - [Textarea](#textarea)
+    - [Loading](#loading)
+    - [PortalModal](#portalmodal)
+    - [ShortMessage](#shortmessage)
+    - [Tipso](#tipso-1)
+    - [InfoCard](#infocard)
+    - [CardGroup](#cardgroup)
+    - [Label](#label)
+    - [Switcher](#switcher-1)
+  - [Todo](#todo)
+  - [License](#license)
+  - [Author](#author)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Light-UI
 
 [![npm version](https://badge.fury.io/js/light-ui.svg)](https://badge.fury.io/js/light-ui)  [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![light-ui](http://img.shields.io/npm/dm/light-ui.svg)](https://www.npmjs.com/package/light-ui) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/ecmadao/light-ui/master/LICENSE)

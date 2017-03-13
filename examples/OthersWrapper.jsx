@@ -49,6 +49,7 @@ class OthersWrapper extends React.Component {
         <h3>Switcher</h3>
         <div>
           <Switcher disabled={disabled} />
+          <Switcher disabled={disabled} checked={true} />
         </div>
       </div>
     );
