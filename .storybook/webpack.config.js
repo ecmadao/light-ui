@@ -27,6 +27,13 @@ function getPostcssPlugins(webpack_) {
 module.exports = {
   context: SOURCE_PATH,
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      }
+    ],
     loaders: [
       {
         test: /\.css$/,

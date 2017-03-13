@@ -2,11 +2,8 @@ import React from 'react';
 import Button from '../components/react/Button/Button';
 import Tipso from '../components/react/Tipso/Tipso';
 
-
 class TipsoWrapper extends React.Component {
-
   render() {
-
     return (
       <div id="components-container">
         <h3>Tipso</h3>
@@ -15,8 +12,8 @@ class TipsoWrapper extends React.Component {
           <Tipso
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -27,8 +24,8 @@ class TipsoWrapper extends React.Component {
             theme="dark"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -39,8 +36,8 @@ class TipsoWrapper extends React.Component {
             position="bottom"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -52,8 +49,8 @@ class TipsoWrapper extends React.Component {
             position="bottom"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -67,8 +64,8 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -80,8 +77,8 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -93,8 +90,8 @@ class TipsoWrapper extends React.Component {
             position="bottom"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -107,8 +104,8 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -125,8 +122,8 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             tipsoContent={(
               <div style={{
-                  width: '95px',
-                  textAlign: 'center'
+                width: '95px',
+                textAlign: 'center'
               }}>This is an example</div>
             )}>
             <Button
@@ -135,8 +132,8 @@ class TipsoWrapper extends React.Component {
           </Tipso>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default TipsoWrapper
+export default TipsoWrapper;

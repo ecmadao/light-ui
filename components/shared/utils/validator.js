@@ -27,7 +27,8 @@ export default {
   email,
   phone,
   url,
+  empty,
   string,
   number,
   textarea
-}
+};

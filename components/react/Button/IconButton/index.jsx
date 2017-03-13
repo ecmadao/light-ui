@@ -8,9 +8,9 @@ const IconButton = (props) => {
   const { icon, className } = props;
   const baseProps = objectAssign({}, props);
 
-  const iconElement = typeof icon === 'string' ?
-    (<i className={`fa fa-${icon}`} aria-hidden="true"></i>) :
-    icon;
+  const iconElement = typeof icon === 'string'
+    ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+    : icon;
 
   delete baseProps.className;
   delete baseProps.icon;
@@ -22,7 +22,7 @@ const IconButton = (props) => {
     >
       {iconElement}
     </BaseButton>
-  )
+  );
 };
 
 IconButton.propTypes = {

@@ -28,4 +28,4 @@ export default {
   down: DOWN,
   info: INFO,
   close: CLOSE
-}
+};

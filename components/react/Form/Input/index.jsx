@@ -57,9 +57,9 @@ class Input extends React.Component {
 
   check(inputValue) {
     const { type, required } = this.props;
-    if (!required) { return }
+    if (!required) { return; }
     const value = inputValue || this.input.value;
-    const error = !Validator[type](value) ? true : false;
+    const error = !Validator[type](value);
     this.setState({ error });
   }
 
@@ -100,10 +100,10 @@ class Input extends React.Component {
         onKeyUp={this.onKeyUp}
         onFocus={this.onFocus}
         placeholder={placeholder}
-        ref={ref => this.input = ref}
+        ref={ref => (this.input = ref)}
         style={style}
       />
-    )
+    );
   }
 }
 
@@ -141,6 +141,6 @@ Input.defaultProps = {
   onKeyUp: () => {},
   onFocus: () => {},
   onKeyDown: () => {}
-}
+};
 
 export default Input;

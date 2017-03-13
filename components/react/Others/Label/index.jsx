@@ -13,9 +13,9 @@ const Label = (props) => {
     className
   );
 
-  const iconElement = typeof icon === 'string' ?
-    (<i className={`fa fa-${icon}`} aria-hidden="true"></i>) :
-    icon;
+  const iconElement = typeof icon === 'string'
+  ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+  : icon;
 
   delete baseProps.theme;
   delete baseProps.className;
@@ -30,7 +30,7 @@ const Label = (props) => {
       className={labelClass}
       leftIcon={iconElement}
     />
-  )
+  );
 };
 
 Label.propTypes = {

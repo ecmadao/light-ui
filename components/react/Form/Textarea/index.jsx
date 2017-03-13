@@ -37,13 +37,13 @@ class Textarea extends React.Component {
 
   onKeyDown() {
     const { onKeyDown } = this.props;
-    onKeyDown && onKeyDown();
+    onKeyDown();
   }
 
   check(inputValue) {
     const value = inputValue || this.textarea.value;
     const { type, max } = this.props;
-    const error = !Validator[type](value, max) ? true : false;
+    const error = !Validator[type](value, max);
     this.setState({ error });
   }
 
@@ -76,7 +76,7 @@ class Textarea extends React.Component {
           disabled={disabled}
           placeholder={placeholder}
           onChange={this.onChange}
-          ref={ref => this.textarea = ref}
+          ref={ref => (this.textarea = ref)}
           className={styles["textarea"]}
           onKeyDown={this.onKeyDown}
           onBlur={this.onBlur}
@@ -86,7 +86,7 @@ class Textarea extends React.Component {
           已输入{value.length}字
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -104,6 +104,6 @@ Textarea.defaultProps = {
   onChange: () => {},
   onKeyDown: () => {},
   disabled: false
-}
+};
 
 export default Textarea;

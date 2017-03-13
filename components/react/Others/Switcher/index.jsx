@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import styles from './switcher.css';
 
-
 class Switcher extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ class Switcher extends React.Component {
 
   onChange() {
     const { onChange, disabled } = this.props;
-    if (disabled) { return }
+    if (disabled) { return; }
     const { checked } = this.state;
     this.setState({ checked: !checked });
     onChange && onChange();
@@ -45,7 +44,7 @@ class Switcher extends React.Component {
         className={containerClass}>
         <div className={styles["switcher-item"]}></div>
       </div>
-    )
+    );
   }
 }
 

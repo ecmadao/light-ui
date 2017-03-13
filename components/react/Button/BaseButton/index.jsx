@@ -81,7 +81,7 @@ class BaseButton extends React.Component {
           {children}
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -105,6 +105,6 @@ BaseButton.defaultProps = {
   disabled: false,
   children: (<div></div>),
   clickable: true
-}
+};
 
 export default BaseButton;

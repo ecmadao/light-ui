@@ -2,9 +2,6 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import styles from './loading.css';
 
-
-const EMPTY_FUNC = () => {};
-
 class Loading extends React.Component {
   constructor(props) {
     super(props);
@@ -23,14 +20,14 @@ class Loading extends React.Component {
 
   onClose() {
     const { onClose, closeAble } = this.props;
-    if (!closeAble) { return }
+    if (!closeAble) { return; }
     this.setState({ loading: false });
     onClose && onClose();
   }
 
   render() {
     const { loading } = this.state;
-    const { onClose, className, theme, style } = this.props;
+    const { className, theme, style } = this.props;
     const containerClass = cx(
       styles["loading-container"],
       loading && styles["loading-active"],
@@ -48,7 +45,7 @@ class Loading extends React.Component {
           <div></div>
         </div>
       </div>
-    )
+    );
   }
 }
 

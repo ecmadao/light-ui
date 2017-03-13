@@ -24,11 +24,11 @@ const InfoCard = (props) => {
     className
   );
 
-  const iconElement = typeof icon === 'string' ?
-    (<i className={`fa fa-${icon}`} aria-hidden="true"></i>) :
-    icon;
-  const tipsoIcon = tipso && typeof tipso.icon === 'object' ?
-    tipso.icon : (icons.info);
+  const iconElement = typeof icon === 'string'
+    ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+    : icon;
+  const tipsoIcon = tipso && typeof tipso.icon === 'object'
+    ? tipso.icon : (icons.info);
 
   return (
     <div className={infoClass} style={style}>
@@ -49,9 +49,8 @@ const InfoCard = (props) => {
         {subText}
       </div>
     </div>
-  )
+  );
 };
-
 
 InfoCard.propTypes = {
   mainText: PropTypes.oneOfType([

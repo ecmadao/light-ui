@@ -13,7 +13,7 @@ const Tipso = (props) => {
       {...baseProps}>
       {children}
     </BaseTipso>
-  )
+  );
 };
 
 Tipso.propTypes = {

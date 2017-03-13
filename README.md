@@ -566,6 +566,7 @@ Switcher.propTypes = {
 - [x] README
 - [x] API Doc
 - [ ] Raw javascript components
+- [x] EsLint
 
 ### License
 

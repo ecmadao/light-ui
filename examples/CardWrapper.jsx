@@ -165,8 +165,8 @@ class CardWrapper extends React.Component {
           </CardGroup>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default CardWrapper
+export default CardWrapper;

@@ -3,7 +3,6 @@ import cx from 'classnames';
 import styles from './selector_v2.css';
 
 class Option extends React.Component {
-
   onClick(e) {
     const { onClick, id, isActive } = this.props;
     !isActive && onClick && onClick(id);
@@ -25,7 +24,7 @@ class Option extends React.Component {
           {value}
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import cx from 'classnames';
-
 import Input from '../Input';
 import Tipso from '../../Tipso/Tipso';
 import styles from './input_group.css';
@@ -29,7 +27,7 @@ class InputGroup extends React.Component {
           className={cx(styles.input, inputClassName)}
         />
       </Tipso>
-    )
+    );
   }
 }
 

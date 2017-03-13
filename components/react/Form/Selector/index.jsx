@@ -3,7 +3,6 @@ import cx from 'classnames';
 import styles from './selector.css';
 import icons from '../../../shared/utils/icons';
 
-
 class Selector extends React.Component {
   constructor(props) {
     super(props);
@@ -24,13 +23,13 @@ class Selector extends React.Component {
         <option key={index} value={id}>
           {value}
         </option>
-      )
-    })
+      );
+    });
   }
 
   get currentValue() {
     const { value, options } = this.props;
-    const filtered = options.filter(option => option.id == value);
+    const filtered = options.filter(option => option.id === value);
     if (!filtered.length) {
       return options[0].value;
     }
@@ -53,11 +52,11 @@ class Selector extends React.Component {
           value={value}
           onChange={onChange}
           className={styles["selector"]}
-          ref={ref => this.selector = ref}>
+          ref={ref => (this.selector = ref)}>
           {this.renderOptions()}
         </select>
       </div>
-    )
+    );
   }
 }
 
@@ -80,6 +79,6 @@ Selector.defaultProps = {
   onChange: () => {},
   className: '',
   disabled: false
-}
+};
 
 export default Selector;

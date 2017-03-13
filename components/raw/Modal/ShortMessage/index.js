@@ -7,7 +7,7 @@ const ShortMessage = () => {
       messageComponent = new MessageComponent();
     }
     return messageComponent;
-  })()
+  })();
 };
 
 class MessageComponent {

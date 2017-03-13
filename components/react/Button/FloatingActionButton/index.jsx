@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import cx from 'classnames';
 import objectAssign from 'object-assign';
 import BaseButton from '../BaseButton';
 
@@ -7,9 +6,9 @@ const FloatingActionButton = (props) => {
   const { icon, style } = props;
   const baseProps = objectAssign({}, props);
 
-  const iconElement = typeof icon === 'string' ?
-    (<i className={`fa fa-${icon}`} aria-hidden="true"></i>) :
-    icon;
+  const iconElement = typeof icon === 'string'
+    ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+    : icon;
 
   delete baseProps.style;
   delete baseProps.icon;
@@ -26,9 +25,8 @@ const FloatingActionButton = (props) => {
     >
       {iconElement}
     </BaseButton>
-  )
-}
-
+  );
+};
 
 FloatingActionButton.propTypes = {
   style: PropTypes.object,

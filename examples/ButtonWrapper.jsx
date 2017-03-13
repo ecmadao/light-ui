@@ -174,8 +174,8 @@ class ButtonWrapper extends React.Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default ButtonWrapper
+export default ButtonWrapper;

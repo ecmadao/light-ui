@@ -10,13 +10,13 @@ const Button = (props) => {
   } = props;
   const baseProps = objectAssign({}, props);
 
-  const leftIconElement = typeof leftIcon === 'string' ?
-    (<i className={`fa fa-${leftIcon}`} aria-hidden="true"></i>) :
-    leftIcon;
+  const leftIconElement = typeof leftIcon === 'string'
+    ? (<i className={`fa fa-${leftIcon}`} aria-hidden="true"></i>)
+    : leftIcon;
 
-  const rightIconElement = typeof rightIcon === 'string' ?
-    (<i className={`fa fa-${rightIcon}`} aria-hidden="true"></i>) :
-    rightIcon;
+  const rightIconElement = typeof rightIcon === 'string'
+    ? (<i className={`fa fa-${rightIcon}`} aria-hidden="true"></i>)
+    : rightIcon;
 
   delete baseProps.leftIcon;
   delete baseProps.rightIcon;
@@ -33,7 +33,7 @@ const Button = (props) => {
         {rightIconElement}
       </div>
     </BaseButton>
-  )
+  );
 };
 
 Button.propTypes = {
@@ -66,6 +66,6 @@ Button.defaultProps = {
   rightIcon: null,
   className: '',
   disabled: false
-}
+};
 
 export default Button;

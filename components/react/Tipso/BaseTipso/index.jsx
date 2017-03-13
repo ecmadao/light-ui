@@ -86,7 +86,7 @@ class BaseTipso extends React.Component {
 
     return (
       <div
-        ref={ref => this.tipso = ref}
+        ref={ref => (this.tipso = ref)}
         style={wrapperStyle}
         className={cx(styles['tipso-wrapper'], wrapperClass)}>
         {tipsoTrigger}
@@ -98,10 +98,9 @@ class BaseTipso extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
-
 
 BaseTipso.propTypes = {
   children: PropTypes.oneOfType([

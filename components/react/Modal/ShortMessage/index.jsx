@@ -3,7 +3,6 @@ import Portal from 'react-portal';
 import cx from 'classnames';
 import styles from './short_message.css';
 
-
 class ShortMessage extends React.Component {
   constructor(props) {
     super(props);
@@ -42,12 +41,12 @@ class ShortMessage extends React.Component {
         onClose={onClose}
         isOpened={show}>
         <div
-          ref={ref => this.messageModal = ref}
+          ref={ref => (this.messageModal = ref)}
           className={messageClass}>
           {text}
         </div>
       </Portal>
-    )
+    );
   }
 }
 

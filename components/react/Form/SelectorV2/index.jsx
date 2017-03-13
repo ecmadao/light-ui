@@ -41,23 +41,23 @@ class SelectorV2 extends React.Component {
           id={id}
           value={option.value}
           onClick={this.onChange}
-          isActive={id == value}
+          isActive={id === value}
         />
-      )
+      );
     });
 
     return (
       <div className={styles['options-wrapper']}>
         {optionComponents}
       </div>
-    )
+    );
   }
 
   get maxLengthValue() {
     const { options } = this.props;
     let maxValue = options[0].value;
     options.forEach((option) => {
-      if (option.value.length > maxValue.length) { maxValue = option.value }
+      if (option.value.length > maxValue.length) { maxValue = option.value; }
     });
     return maxValue;
   }
@@ -67,7 +67,7 @@ class SelectorV2 extends React.Component {
     const { value, options, theme, color, className, disabled } = this.props;
     const maxLengthValue = this.maxLengthValue;
 
-    const targetOptions = options.filter(option => option.id == value);
+    const targetOptions = options.filter(option => option.id === value);
     const targetValue = (targetOptions[0] && targetOptions[0].value) || '';
     const containerClass = cx(
       styles['selector-container'],
@@ -96,7 +96,7 @@ class SelectorV2 extends React.Component {
           {this.renderOptions()}
         </OutsideClickHandler>
       </div>
-    )
+    );
   }
 }
 
@@ -120,6 +120,6 @@ SelectorV2.defaultProps = {
   color: 'green',
   className: '',
   disabled: false
-}
+};
 
 export default SelectorV2;

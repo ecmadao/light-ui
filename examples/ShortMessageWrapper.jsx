@@ -88,7 +88,7 @@ class ShortMessageWrapper extends React.Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 

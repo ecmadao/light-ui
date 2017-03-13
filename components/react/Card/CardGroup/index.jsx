@@ -9,7 +9,7 @@ const CardGroup = (props) => {
 
   const cards = Helper.isArray(children) ? children.map((child, index) => {
     const isCardGroup = child.type.prototype === CardGroup.prototype;
-    if (isCardGroup) { hasCardGroup = true }
+    if (isCardGroup) { hasCardGroup = true; }
 
     const childProps = isCardGroup ? {
       key: index,
@@ -25,7 +25,6 @@ const CardGroup = (props) => {
     className: styles['card']
   });
 
-
   const groupClass = cx(
     styles['cards-container'],
     hasCardGroup && styles['cards-container-wrapper'],
@@ -37,7 +36,7 @@ const CardGroup = (props) => {
     <div className={groupClass} style={style}>
       {cards}
     </div>
-  )
+  );
 };
 
 CardGroup.propTypes = {
@@ -58,4 +57,4 @@ CardGroup.defaultProps = {
   style: {}
 };
 
-export default CardGroup
+export default CardGroup;

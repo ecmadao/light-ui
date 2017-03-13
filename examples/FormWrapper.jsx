@@ -5,7 +5,6 @@ import Selector from '../components/react/Form/Selector';
 import SelectorV2 from '../components/react/Form/SelectorV2';
 import Textarea from '../components/react/Form/Textarea';
 
-
 const OPTIONS = [
   { id: 0, value: 'selector 0' },
   { id: 1, value: 'selector 1' },
@@ -25,16 +24,16 @@ class FormWrapper extends React.Component {
   }
 
   onChange(value) {
-    this.setState({ value })
+    this.setState({ value });
   }
 
   onSelect(selected) {
-    this.setState({ selected })
+    this.setState({ selected });
   }
 
   render() {
     const { value, selected } = this.state;
-    const { disabled, clearIcon } = this.props;
+    const { disabled } = this.props;
 
     return (
       <div id="components-container">
@@ -220,7 +219,7 @@ class FormWrapper extends React.Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 

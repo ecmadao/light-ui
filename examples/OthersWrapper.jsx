@@ -51,7 +51,7 @@ class OthersWrapper extends React.Component {
           <Switcher disabled={disabled} />
         </div>
       </div>
-    )
+    );
   }
 }
 

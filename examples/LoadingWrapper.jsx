@@ -22,7 +22,7 @@ class LoadingWrapper extends React.Component {
   }
 
   onChange(theme) {
-    this.setState({ theme })
+    this.setState({ theme });
   }
 
   onClose() {
@@ -73,8 +73,8 @@ class LoadingWrapper extends React.Component {
           style={style}
         />
       </div>
-    )
+    );
   }
 }
 
-export default LoadingWrapper
+export default LoadingWrapper;
