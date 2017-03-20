@@ -47,6 +47,7 @@ class BaseButton extends React.Component {
 
   render() {
     const {
+      id,
       className,
       theme,
       color,
@@ -69,6 +70,7 @@ class BaseButton extends React.Component {
 
     return (
       <div
+        id={id}
         style={style}
         className={buttonClass}
         onMouseDown={this.onMouseDown}
@@ -86,6 +88,7 @@ class BaseButton extends React.Component {
 }
 
 BaseButton.propTypes = {
+  id: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.string,
   className: PropTypes.string,
@@ -97,6 +100,7 @@ BaseButton.propTypes = {
 };
 
 BaseButton.defaultProps = {
+  id: '',
   color: 'green',
   theme: 'material',
   onClick: () => {},
