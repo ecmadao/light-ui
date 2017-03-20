@@ -38,7 +38,7 @@
   }
 
   & .switcher-item {
-    right: 0;
+    right: 0 !important;
   }
 }
 
@@ -56,6 +56,18 @@
     border-radius: 2px;
     z-index: var(--zIndex1);
     background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.container-small {
+  width: 42px;
+  height: 26px;
+  border-radius: 26px;
+
+  & .switcher-item {
+    width: 26px;
+    height: 26px;
+    right: calc(100% - 26px);
   }
 }
 

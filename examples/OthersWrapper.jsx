@@ -47,9 +47,20 @@ class OthersWrapper extends React.Component {
           <Label disabled={disabled} icon="code-fork" text="fork me" />
         </div>
         <h3>Switcher</h3>
+        <h4>Normal size</h4>
         <div>
           <Switcher disabled={disabled} />
           <Switcher disabled={disabled} checked={true} />
+        </div>
+        <h4>Small size</h4>
+        <div>
+          <Switcher disabled={disabled} size="small"/>
+          <Switcher disabled={disabled} checked={true} size="small"/>
+        </div>
+        <h4>Mini size</h4>
+        <div>
+          <Switcher disabled={disabled} size="mini"/>
+          <Switcher disabled={disabled} checked={true} size="mini"/>
         </div>
       </div>
     );
