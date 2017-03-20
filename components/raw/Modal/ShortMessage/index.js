@@ -17,10 +17,10 @@ class MessageComponent {
     this.$body = document.body;
   }
 
-  show(msg) {
+  show(msg, time = this.timeOut) {
     this.$message = this._messageTemplate(msg);
     this.$body.appendChild(this.$message);
-    this._autoHide();
+    this._autoHide(time);
   }
 
   _hide() {
@@ -34,9 +34,9 @@ class MessageComponent {
     this.$message && this._hide();
   }
 
-  _autoHide() {
+  _autoHide(time) {
     const hideMessage = () => this._hide();
-    setTimeout(hideMessage, this.timeOut);
+    setTimeout(hideMessage, time);
   }
 
   _messageTemplate(msg) {

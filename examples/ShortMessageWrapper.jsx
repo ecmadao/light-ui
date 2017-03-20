@@ -1,19 +1,24 @@
 import React from 'react';
 import ShortMessage from '../components/react/Modal/ShortMessage';
+import RawShortMessage from '../components/raw/Modal/ShortMessage';
 import Button from '../components/react/Button/Button';
 import Input from '../components/react/Form/Input';
+
+const Message = new RawShortMessage(3000);
 
 class ShortMessageWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showSMS: false,
-      value: '',
+      expire: '',
       text: ''
     };
     this.reset = this.reset.bind(this);
+    this.resetRaw = this.resetRaw.bind(this);
     this.onClose = this.onClose.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.onClickRaw = this.onClickRaw.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
   }
@@ -21,9 +26,13 @@ class ShortMessageWrapper extends React.Component {
   reset() {
     this.setState({
       showSMS: false,
-      value: '',
+      expire: '',
       text: ''
     });
+  }
+
+  resetRaw() {
+    Message.remove();
   }
 
   onClose() {
@@ -38,8 +47,15 @@ class ShortMessageWrapper extends React.Component {
     });
   }
 
-  onChange(value) {
-    this.setState({ value });
+  onClickRaw() {
+    let expire = parseInt(this.state.expire);
+    if (isNaN(expire)) { expire = 3; }
+    Message.remove();
+    Message.show(this.state.value || 'I am a Raw SMS (wrote in raw javascript)', expire * 1000);
+  }
+
+  onChange(expire) {
+    this.setState({ expire });
   }
 
   onTextChange(text) {
@@ -47,8 +63,8 @@ class ShortMessageWrapper extends React.Component {
   }
 
   render() {
-    const { showSMS, value, text } = this.state;
-    let expire = parseInt(value);
+    const { showSMS, text } = this.state;
+    let expire = parseInt(this.state.expire);
     if (isNaN(expire)) { expire = 3; }
 
     return (
@@ -63,7 +79,7 @@ class ShortMessageWrapper extends React.Component {
         <h3>Change Short Message</h3>
         <div>
           <Input
-            value={value}
+            value={this.state.expire}
             required={false}
             onChange={this.onChange}
             placeholder="expire time (s)"
@@ -79,6 +95,18 @@ class ShortMessageWrapper extends React.Component {
           <Button
             value="Click to show ShortMessage"
             onClick={this.onClick}
+            disabled={showSMS}
+          />&nbsp;
+          <Button
+            value="Reset"
+            color="dark"
+            onClick={this.reset}
+          />
+        </div>
+        <div>
+          <Button
+            value="Click to show Raw SMS (wrote in raw javascript)"
+            onClick={this.onClickRaw}
             disabled={showSMS}
           />&nbsp;
           <Button

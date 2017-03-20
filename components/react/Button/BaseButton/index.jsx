@@ -60,8 +60,8 @@ class BaseButton extends React.Component {
       styles["button"],
       styles[theme],
       styles[color],
-      clickable && styles["clickable"],
-      pressed && styles["pressDown"],
+      !disabled && clickable && styles["clickable"],
+      !disabled && pressed && styles["pressDown"],
       disabled && styles["disabled"],
       className
     );
