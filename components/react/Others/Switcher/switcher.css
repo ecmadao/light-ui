@@ -95,17 +95,3 @@
   right: calc(100% - 32px);
   transition: right 0.2s;
 }
-
-@media (max-width: 800px) {
-  .switcher-container {
-    width: 35px;
-    height: 22px;
-    border-radius: 22px;
-
-    & .switcher-item {
-      width: 22px;
-      height: 22px;
-      right: calc(100% - 22px);
-    }
-  }
-}
