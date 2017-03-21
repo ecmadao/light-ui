@@ -33,26 +33,26 @@ class Input extends React.Component {
     }
   }
 
-  onBlur() {
+  onBlur(e) {
     this.check();
     const { onBlur } = this.props;
-    onBlur && onBlur();
+    onBlur && onBlur(e);
   }
 
-  onKeyDown() {
+  onKeyDown(e) {
     const { onKeyDown } = this.props;
-    onKeyDown && onKeyDown();
+    onKeyDown && onKeyDown(e);
   }
 
-  onKeyUp() {
+  onKeyUp(e) {
     this.check();
     const { onKeyUp } = this.props;
-    onKeyUp && onKeyUp();
+    onKeyUp && onKeyUp(e);
   }
 
-  onFocus() {
+  onFocus(e) {
     const { onFocus } = this.props;
-    onFocus && onFocus();
+    onFocus && onFocus(e);
   }
 
   check(inputValue) {

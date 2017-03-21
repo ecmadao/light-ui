@@ -26,18 +26,18 @@ class Textarea extends React.Component {
     }
   }
 
-  onFocus() {
+  onFocus(e) {
     this.setState({ focus: true });
   }
 
-  onBlur() {
+  onBlur(e) {
     this.setState({ focus: false });
-    this.check();
+    this.check(e);
   }
 
-  onKeyDown() {
+  onKeyDown(e) {
     const { onKeyDown } = this.props;
-    onKeyDown();
+    onKeyDown(e);
   }
 
   check(inputValue) {
