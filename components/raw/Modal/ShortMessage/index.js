@@ -1,10 +1,10 @@
 import styles from './short_message.css';
 
-const ShortMessage = () => {
+const ShortMessage = (...args) => {
   let messageComponent = null;
   return (() => {
     if (!messageComponent) {
-      messageComponent = new MessageComponent();
+      messageComponent = new MessageComponent(...args);
     }
     return messageComponent;
   })();
