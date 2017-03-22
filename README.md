@@ -21,7 +21,8 @@
 
 ### Doc
 
-- [documents](https://github.com/ecmadao/light-ui/tree/master/examples)
+- [documents](https://github.com/ecmadao/light-ui/wiki)
+- [examples](https://github.com/ecmadao/light-ui/tree/master/examples)
 - [online demo](https://ecmadao.github.io/light-ui)
 
 ### Screenshots
