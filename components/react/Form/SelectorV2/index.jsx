@@ -55,7 +55,7 @@ class SelectorV2 extends React.Component {
 
   get maxLengthValue() {
     const { options } = this.props;
-    let maxValue = options[0].value;
+    let maxValue = (options[0] && options[0].text) || '';
     options.forEach((option) => {
       if (option.value.length > maxValue.length) { maxValue = option.value; }
     });
