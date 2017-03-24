@@ -131,7 +131,7 @@ class FormWrapper extends React.Component {
             value={value}
             disabled={disabled}
             placeholder="input group with intro"
-            onChange={this.onChange} >
+            onChange={this.onChange}>
             <div style={{ fontSize: '12px' }}>
               This is an intro of input.
             </div>

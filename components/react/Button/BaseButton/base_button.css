@@ -35,11 +35,15 @@
   }
 
   &:first-child {
-    margin-left: 0;
+    &:not(.floating-action-button) {
+      margin-left: 0;
+    }
   }
 
   &:last-child {
-    margin-right: 0;
+    &:not(.floating-action-button) {
+      margin-right: 0;
+    }
   }
 
   &::before {
