@@ -14,10 +14,9 @@ const Message = (...args) => {
 class MessageComponent {
   constructor(content = '', type = 'positive', timeOut = 2500) {
     this.timeOut = timeOut;
-    this.content = content;
     this.type = type;
     this.$body = document.body;
-    this.$message = this.messageTemplate();
+    this.$message = this.messageTemplate(content);
     this.appendMessage();
   }
 
@@ -25,7 +24,7 @@ class MessageComponent {
     this.$message.classList.remove(styles['positive']);
     this.$message.classList.remove(styles['tips']);
     this.$message.classList.add(styles['negative']);
-    document.getElementsByClassName(styles['message_content'])[0].innerHTML = msg;
+    this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeOut);
   }
@@ -34,7 +33,7 @@ class MessageComponent {
     this.$message.classList.remove(styles['negative']);
     this.$message.classList.remove(styles['tips']);
     this.$message.classList.add(styles['positive']);
-    document.getElementsByClassName(styles['message_content'])[0].innerHTML = msg;
+    this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeOut);
   }
@@ -43,7 +42,7 @@ class MessageComponent {
     this.$message.classList.remove(styles['negative']);
     this.$message.classList.remove(styles['positive']);
     this.$message.classList.add(styles['tips']);
-    document.getElementsByClassName(styles['message_content'])[0].innerHTML = msg;
+    this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeOut);
   }
@@ -62,7 +61,7 @@ class MessageComponent {
 
   appendMessage() {
     this.$body.appendChild(this.$message);
-    const closeIcon = document.getElementById('message_close_icon');
+    const closeIcon = this.$message.childNodes[1];
     const closeFunc = () => {
       this.$message.classList.remove(styles['active']);
     };
@@ -73,13 +72,10 @@ class MessageComponent {
     }
   }
 
-  messageTemplate() {
+  messageTemplate(content) {
     const message = document.createElement('div');
     message.className = cx(styles['message_component'], styles[this.type]);
-    message.innerHTML = `
-      <div class="${styles['message_content']}">${this.content}</div>
-      <i class="fa fa-times" id="message_close_icon" aria-hidden="true"></i>
-    `;
+    message.innerHTML = `<div class="${styles['message_content']}">${content}</div><i class="fa fa-times" id="message_close_icon" aria-hidden="true"></i>`;
     return message;
   }
 }
