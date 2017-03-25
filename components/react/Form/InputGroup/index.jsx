@@ -9,6 +9,7 @@ class InputGroup extends React.Component {
     const {
       children,
       wrapperStyle,
+      tipsoStyle,
       inputClassName,
       wrapperClassName
     } = this.props;
@@ -20,6 +21,7 @@ class InputGroup extends React.Component {
           ...wrapperStyle,
           margin: '0 5px'
         }}
+        tipsoStyle={{...tipsoStyle}}
         wrapperClass={wrapperClassName}
         tipsoContent={children}>
         <Input
@@ -35,6 +37,7 @@ InputGroup.propTypes = {
   inputClassName: PropTypes.string,
   wrapperClassName: PropTypes.string,
   wrapperStyle: PropTypes.object,
+  tipsoStyle: PropTypes.object,
   children: PropTypes.element
 };
 
@@ -42,6 +45,7 @@ InputGroup.defaultProps = {
   inputClassName: '',
   wrapperClassName: '',
   wrapperStyle: {},
+  tipsoStyle: {},
   children: (<div></div>),
 };
 

@@ -10,6 +10,7 @@ function loadStories() {
   require('../stories/Button');
   require('../stories/Form');
   require('../stories/ShortMessage');
+  require('../stories/Message');
   require('../stories/Tipso');
   require('../stories/Loading');
   require('../stories/Card');

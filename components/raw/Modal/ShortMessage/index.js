@@ -43,7 +43,7 @@ class MessageComponent {
   _messageTemplate(msg) {
     const message = document.createElement('div');
     message.className = styles["message-component"];
-    Object.keys(this.style).forEach(key => message.style[key] = this.style[key]);
+    Object.keys(this.style).forEach((key) => { message.style[key] = this.style[key]; });
     message.innerHTML = msg;
     return message;
   }
