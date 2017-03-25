@@ -26,7 +26,9 @@ class MessageWrapper extends React.Component {
   }
 
   onClick() {
-    message.notice(this.state.text, this.state.expire);
+    let expire = parseInt(this.state.expire);
+    if (isNaN(expire)) { expire = 3000; }
+    message.notice(this.state.text, expire);
   }
 
   render() {
@@ -53,12 +55,7 @@ class MessageWrapper extends React.Component {
             value="Click to show Message"
             onClick={this.onClick}
             disabled={showSMS}
-          />&nbsp;
-          {/* <Button
-            value="Reset"
-            color="dark"
-            onClick={this.reset}
-          /> */}
+          />
         </div>
       </div>
     );

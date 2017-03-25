@@ -50,10 +50,11 @@ class MessageComponent {
 
   showMessage(timeOut = this.timeOut) {
     this.$message.classList.add(styles['active']);
+    this.autoHideMessage(timeOut);
   }
 
   autoHideMessage(timeOut) {
-    let hideMessage = () => {
+    const hideMessage = () => {
       this.$message.classList.remove(styles['active']);
     };
     setTimeout(hideMessage, timeOut);
@@ -61,9 +62,15 @@ class MessageComponent {
 
   appendMessage() {
     this.$body.appendChild(this.$message);
-    document.getElementById('message_close_icon').addEventListener('click', () => {
+    const closeIcon = document.getElementById('message_close_icon');
+    const closeFunc = () => {
       this.$message.classList.remove(styles['active']);
-    });
+    };
+    if (closeIcon.addEventListener) {
+      closeIcon.addEventListener('click', closeFunc.bind(this), true);
+    } else {
+      closeIcon.attachEvent('onmousedown', closeFunc.bind(this));
+    }
   }
 
   messageTemplate() {
