@@ -54,11 +54,13 @@ class BaseButton extends React.Component {
       disabled,
       children,
       style,
+      type,
       clickable
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
-      styles["button"],
+      styles["base_button"],
+      styles[type],
       styles[theme],
       styles[color],
       !disabled && clickable && styles["clickable"],
@@ -94,6 +96,7 @@ BaseButton.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   theme: PropTypes.string,
+  type: PropTypes.string,
   disabled: PropTypes.bool,
   children: PropTypes.element,
   clickable: PropTypes.bool
@@ -103,6 +106,7 @@ BaseButton.defaultProps = {
   id: '',
   color: 'green',
   theme: 'material',
+  type: 'button',
   onClick: () => {},
   className: '',
   style: {},

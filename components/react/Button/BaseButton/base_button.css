@@ -1,7 +1,7 @@
 @import 'open-color/open-color.css';
 @import '../../../shared/styles/base.css';
 
-.button {
+.base_button {
   text-align: center;
   cursor: default;
   padding: 10px 20px;
@@ -283,19 +283,4 @@
   & i:first-child {
     margin-right: 5px;
   }
-}
-
-.label-material {
-  composes: material;
-  composes: label;
-}
-
-.label-flat {
-  composes: flat;
-  composes: label;
-}
-
-.label-ghost {
-  composes: ghost;
-  composes: label;
 }

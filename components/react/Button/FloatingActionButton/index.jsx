@@ -16,7 +16,7 @@ const FloatingActionButton = (props) => {
   return (
     <BaseButton
       {...baseProps}
-      theme="floating-action-button"
+      type="floating-action-button"
       style={{
         ...style,
         width: '50px',

@@ -26,7 +26,7 @@ const Label = (props) => {
     <Button
       {...baseProps}
       value={text}
-      theme={`label-${theme}`}
+      theme={theme}
       className={labelClass}
       leftIcon={iconElement}
     />
