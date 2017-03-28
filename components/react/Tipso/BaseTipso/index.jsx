@@ -90,13 +90,15 @@ class BaseTipso extends React.Component {
         style={wrapperStyle}
         className={cx(styles['tipso-wrapper'], wrapperClass)}>
         {tipsoTrigger}
-        <div
-          style={tipsoStyle}
-          className={containerClass}>
-          <div>
-            {tipsoContent}
+        {tipsoContent ? (
+          <div
+            style={tipsoStyle}
+            className={containerClass}>
+            <div>
+              {tipsoContent}
+            </div>
           </div>
-        </div>
+        ) : ''}
       </div>
     );
   }
@@ -123,7 +125,7 @@ BaseTipso.propTypes = {
 
 BaseTipso.defaultProps = {
   children: (<div></div>),
-  tipsoContent: (<div></div>),
+  tipsoContent: null,
   className: '',
   theme: 'light',
   trigger: 'hover',

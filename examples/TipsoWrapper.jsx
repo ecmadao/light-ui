@@ -131,6 +131,18 @@ class TipsoWrapper extends React.Component {
             />
           </Tipso>
         </div>
+        <h4>Without Tipso content, just play as normal component</h4>
+        <div>
+          <Tipso
+            show={true}
+            theme="dark"
+            position="bottom"
+            trigger="click">
+            <Button
+              value="show in default"
+            />
+          </Tipso>
+        </div>
       </div>
     );
   }
