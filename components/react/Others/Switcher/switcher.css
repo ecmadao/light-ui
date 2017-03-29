@@ -7,7 +7,7 @@
   width: 52px;
   height: 32px;
   display: inline-block;
-  border-radius: var(--radius-half);
+  border-radius: 32px;
   position: relative;
   cursor: pointer;
   border: 1px solid var(--gray);
@@ -64,7 +64,7 @@
 .container-small {
   width: 42px;
   height: 26px;
-  border-radius: var(--radius-half);
+  border-radius: 26px;
 
   & .switcher-item {
     width: 26px;
@@ -76,7 +76,7 @@
 .container-mini {
   width: 35px;
   height: 22px;
-  border-radius: var(--radius-half);
+  border-radius: 22px;
 
   & .switcher-item {
     width: 22px;
@@ -88,7 +88,7 @@
 .switcher-item {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-half);
+  border-radius: 32px;
   background-color: var(--white);
   box-shadow: var(--shadow2);
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
