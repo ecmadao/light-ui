@@ -4,12 +4,16 @@
 @import '../../../shared/styles/border.css';
 @import '../../../shared/styles/font.css';
 
+:root {
+  --background-transition : background-color 0.2s;
+  --color-transition : color 0.2s;
+}
+
 .base_button {
   text-align: center;
   cursor: default;
   padding: 10px 20px;
   border-radius: var(--radius-small);
-  opacity: 0.8;
   margin: 15px 5px;
   display: inline-flex;
   justify-content: center;
@@ -19,9 +23,15 @@
   position: relative;
   composes: baseSubText;
 
+  & .wrapper {
+    transform: translateY(0);
+  }
+
   &.clickable:not(.disabled) {
     &:hover {
-      opacity: 1;
+      &::before {
+        background-color: var(--black);
+      }
     }
   }
 
@@ -57,14 +67,16 @@
     right: 0;
     bottom: 0;
     left: 0;
+    margin: -1px;
+    opacity: 0.3;
     border-radius: var(--radius-small);
     background-color: transparent;
-    transition: background-color 0.2s;
+    transition: var(--background-transition);
   }
 }
 
 .flat {
-  transition: background-color 0.2s, opacity 0.2s, color 0.2s;
+  transition: var(--background-transition), var(--color-transition);
 
   &.green {
     border: 1px solid var(--green-dark);
@@ -171,7 +183,7 @@
   color: var(--white);
   border: 1px solid transparent;
   box-shadow: var(--shadow3);
-  transition: opacity 0.2s, box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
   &.clickable:not(.disabled) {
     &:hover {
@@ -206,6 +218,10 @@
   color: var(--white);
   box-shadow: var(--shadow5);
   transition: box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &::before {
+    border-radius: var(--radius-half);
+  }
 
   &.green {
     background-color: var(--green-dark);
@@ -247,17 +263,42 @@
 
   &::before {
     z-index: var(--zIndex1);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: var(--gray);
   }
 }
 
 .ghost {
   color: var(--gray-dark);
   border: 1px solid transparent;
+  transition: var(--background-transition), var(--color-transition);
 
   &.clickable:not(.disabled) {
     &:hover {
-      background-color: var(--gray-light);
+      color: var(--white);
+
+      & i {
+        color: var(--white);
+      }
+
+      &.green {
+        background-color: var(--green);
+      }
+
+      &.red {
+        background-color: var(--red);
+      }
+
+      &.dark {
+        background-color: var(--gray-dark);
+      }
+
+      &.gray {
+        background-color: var(--gray);
+      }
+
+      &.blue {
+        background-color: var(--blue);
+      }
     }
   }
 

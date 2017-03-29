@@ -4,6 +4,7 @@
   /* ===== colors ===== */
 
   --white: var(--oc-white);
+  --black: var(--oc-black);
 
   /* ====== gray ====== */
   --gray-light-deep: var(--oc-gray-1);
