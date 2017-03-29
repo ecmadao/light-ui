@@ -146,6 +146,28 @@ class ButtonWrapper extends React.Component {
               <i className="fa fa-question" aria-hidden="true"></i>
             )} />
         </div>
+        <div>
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            color="green"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            color="blue"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            color="gray"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            color="dark"
+          />
+        </div>
         <h3>Icon Button - Flat Theme</h3>
         <div>
           <IconButton
@@ -159,6 +181,32 @@ class ButtonWrapper extends React.Component {
               <i className="fa fa-question" aria-hidden="true"></i>
             )}
             theme="flat"
+          />
+        </div>
+        <div>
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            theme="flat"
+            color="green"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            theme="flat"
+            color="blue"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            theme="flat"
+            color="gray"
+          />
+          <IconButton
+            disabled={disabled}
+            icon="clipboard"
+            theme="flat"
+            color="dark"
           />
         </div>
         <h3>Floating Action Button</h3>
