@@ -1,5 +1,8 @@
-@import 'open-color/open-color.css';
-@import '../../../shared/styles/base.css';
+@import '../../../shared/styles/font.css';
+@import "../../../shared/styles/shadow.css";
+@import "../../../shared/styles/z-index.css";
+@import "../../../shared/styles/color.css";
+@import "../../../shared/styles/border.css";
 
 .tipso-wrapper {
   position: relative;
@@ -17,7 +20,7 @@
 
 .tipso-container {
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   box-shadow: var(--shadow4);
   padding: 10px 20px;
   justify-content: center;
@@ -74,7 +77,7 @@
 
   &.dark {
     &::after {
-      border-top: 10px solid var(--oc-gray-9);
+      border-top: 10px solid var(--gray-dark-deep);
     }
 
     &::before {
@@ -84,7 +87,7 @@
 
   &.light {
     &::after {
-      border-top: 10px solid var(--oc-white);
+      border-top: 10px solid var(--white);
     }
 
     &::before {
@@ -107,7 +110,7 @@
 
   &.dark {
     &::after {
-      border-bottom: 10px solid var(--oc-gray-9);
+      border-bottom: 10px solid var(--gray-dark-deep);
     }
 
     &::before {
@@ -117,7 +120,7 @@
 
   &.light {
     &::after {
-      border-bottom: 10px solid var(--oc-white);
+      border-bottom: 10px solid var(--white);
     }
 
     &::before {
@@ -127,10 +130,10 @@
 }
 
 .dark {
-  color: var(--oc-white);
-  background-color: var(--oc-gray-9);
+  color: var(--white);
+  background-color: var(--gray-dark-deep);
 }
 
 .light {
-  background-color: var(--oc-white);
+  background-color: var(--white);
 }

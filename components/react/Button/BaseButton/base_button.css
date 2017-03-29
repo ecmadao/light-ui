@@ -1,11 +1,14 @@
-@import 'open-color/open-color.css';
-@import '../../../shared/styles/base.css';
+@import "../../../shared/styles/shadow.css";
+@import "../../../shared/styles/z-index.css";
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
+@import '../../../shared/styles/font.css';
 
 .base_button {
   text-align: center;
   cursor: default;
   padding: 10px 20px;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   opacity: 0.8;
   margin: 15px 5px;
   display: inline-flex;
@@ -54,7 +57,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    border-radius: 2px;
+    border-radius: var(--radius-small);
     background-color: transparent;
     transition: background-color 0.2s;
   }
@@ -64,100 +67,100 @@
   transition: background-color 0.2s, opacity 0.2s, color 0.2s;
 
   &.green {
-    border: 1px solid var(--oc-green-7);
-    color: var(--oc-green-7);
+    border: 1px solid var(--green-dark);
+    color: var(--green-dark);
 
     & i {
-      color: var(--oc-green-7);
+      color: var(--green-dark);
     }
 
     &.clickable:not(.disabled) {
       &:hover {
-        background-color: var(--oc-green-7);
-        color: var(--oc-white);
+        background-color: var(--green-dark);
+        color: var(--white);
 
         & i {
-          color: var(--oc-white);
+          color: var(--white);
         }
       }
     }
   }
 
   &.red {
-    border: 1px solid var(--oc-red-7);
-    color: var(--oc-red-7);
+    border: 1px solid var(--red-dark);
+    color: var(--red-dark);
 
     & i {
-      color: var(--oc-red-7);
+      color: var(--red-dark);
     }
 
     &.clickable:not(.disabled) {
       &:hover {
-        background-color: var(--oc-red-7);
-        color: var(--oc-white);
+        background-color: var(--red-dark);
+        color: var(--white);
 
         & i {
-          color: var(--oc-white);
+          color: var(--white);
         }
       }
     }
   }
 
   &.blue {
-    border: 1px solid var(--oc-blue-7);
-    color: var(--oc-blue-7);
+    border: 1px solid var(--blue-dark);
+    color: var(--blue-dark);
 
     & i {
-      color: var(--oc-blue-7);
+      color: var(--blue-dark);
     }
 
     &.clickable:not(.disabled) {
       &:hover {
-        background-color: var(--oc-blue-7);
-        color: var(--oc-white);
+        background-color: var(--blue-dark);
+        color: var(--white);
 
         & i {
-          color: var(--oc-white);
+          color: var(--white);
         }
       }
     }
   }
 
   &.dark {
-    border: 1px solid var(--oc-gray-7);
-    color: var(--oc-gray-7);
+    border: 1px solid var(--gray-dark);
+    color: var(--gray-dark);
 
     & i {
-      color: var(--oc-gray-7);
+      color: var(--gray-dark);
     }
 
     &.clickable:not(.disabled) {
       &:hover {
-        background-color: var(--oc-gray-7);
-        color: var(--oc-white);
+        background-color: var(--gray-dark);
+        color: var(--white);
 
         & i {
-          color: var(--oc-white);
+          color: var(--white);
         }
       }
     }
   }
 
   &.gray {
-    border: 1px solid var(--oc-gray-5);
-    color: var(--oc-gray-5);
+    border: 1px solid var(--gray);
+    color: var(--gray);
 
     & i {
-      color: var(--oc-gray-5);
+      color: var(--gray);
     }
 
     &.clickable:not(.disabled) {
       &:hover {
-        background-color: var(--oc-gray-5);
-        color: var(--oc-white);
+        background-color: var(--gray);
+        color: var(--white);
 
         & i {
-          color: var(--oc-white);
+          color: var(--white);
         }
       }
     }
@@ -165,7 +168,7 @@
 }
 
 .material {
-  color: var(--oc-white);
+  color: var(--white);
   border: 1px solid transparent;
   box-shadow: var(--shadow3);
   transition: opacity 0.2s, box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -177,51 +180,51 @@
   }
 
   &.green {
-    background-color: var(--oc-green-7);
+    background-color: var(--green-dark);
   }
 
   &.red {
-    background-color: var(--oc-red-7);
+    background-color: var(--red-dark);
   }
 
   &.dark {
-    background-color: var(--oc-gray-7);
+    background-color: var(--gray-dark);
   }
 
   &.gray {
-    background-color: var(--oc-gray-5);
+    background-color: var(--gray);
   }
 
   &.blue {
-    background-color: var(--oc-blue-7);
+    background-color: var(--blue-dark);
   }
 }
 
 .floating-action-button {
   padding: 0;
-  border-radius: 50%;
-  color: var(--oc-white);
+  border-radius: var(--radius-half);
+  color: var(--white);
   box-shadow: var(--shadow5);
   transition: box-shadow 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 
   &.green {
-    background-color: var(--oc-green-7);
+    background-color: var(--green-dark);
   }
 
   &.red {
-    background-color: var(--oc-red-7);
+    background-color: var(--red-dark);
   }
 
   &.dark {
-    background-color: var(--oc-gray-7);
+    background-color: var(--gray-dark);
   }
 
   &.gray {
-    background-color: var(--oc-gray-5);
+    background-color: var(--gray);
   }
 
   &.blue {
-    background-color: var(--oc-blue-7);
+    background-color: var(--blue-dark);
   }
 }
 
@@ -249,33 +252,33 @@
 }
 
 .ghost {
-  color: var(--oc-gray-7);
+  color: var(--gray-dark);
   border: 1px solid transparent;
 
   &.clickable:not(.disabled) {
     &:hover {
-      background-color: var(--oc-gray-2);
+      background-color: var(--gray-light);
     }
   }
 
   &.green {
-    color: var(--oc-green-7);
+    color: var(--green-dark);
   }
 
   &.red {
-    color: var(--oc-red-7);
+    color: var(--red-dark);
   }
 
   &.dark {
-    color: var(--oc-gray-7);
+    color: var(--gray-dark);
   }
 
   &.gray {
-    color: var(--oc-gray-5);
+    color: var(--gray);
   }
 
   &.blue {
-    color: var(--oc-blue-7);
+    color: var(--blue-dark);
   }
 }
 

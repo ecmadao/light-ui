@@ -1,13 +1,15 @@
-@import 'open-color/open-color.css';
-@import '../../../shared/styles/base.css';
+@import '../../../shared/styles/font.css';
+@import "../../../shared/styles/shadow.css";
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
 
 .input {
   outline: none;
-  background-color: var(--oc-white);
-  color: var(--oc-gray-7);
+  background-color: var(--white);
+  color: var(--gray-dark);
   padding: 3px 15px;
   flex: 1;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   margin: 10px 5px;
   min-width: 60px;
   composes: baseText;
@@ -21,15 +23,15 @@
   }
 
   &::-moz-placeholder {
-    color: var(--oc-gray-5);
+    color: var(--gray);
   }
 
   &::-webkit-input-placeholder {
-    color: var(--oc-gray-5);
+    color: var(--gray);
   }
 
   &:-ms-input-placeholder {
-    color: var(--oc-gray-5);
+    color: var(--gray);
   }
 }
 
@@ -45,10 +47,10 @@
   }
 
   &.error {
-    border: 1px solid var(--oc-red-7);
+    border: 1px solid var(--red-dark);
 
     &:focus {
-      border: 1px solid var(--oc-red-7);
+      border: 1px solid var(--red-dark);
     }
   }
 }
@@ -57,17 +59,17 @@
   height: 30px;
   line-height: 30px;
   transition: border 0.2s;
-  border: 1px solid var(--oc-gray-5);
+  border: 1px solid var(--gray);
 
   &:focus {
-    border: 1px solid var(--oc-green-7);
+    border: 1px solid var(--green-dark);
   }
 
   &.error {
-    border: 1px solid var(--oc-red-7);
+    border: 1px solid var(--red-dark);
 
     &:focus {
-      border: 1px solid var(--oc-red-7);
+      border: 1px solid var(--red-dark);
     }
   }
 }
@@ -83,14 +85,14 @@
   background-color: transparent;
 
   &:focus {
-    border: 1px solid var(--oc-green-7);
+    border: 1px solid var(--green-dark);
   }
 
   /*&.error {
-    border: 1px solid var(--oc-red-7);
+    border: 1px solid var(--red-dark);
 
     &:focus {
-      border: 1px solid var(--oc-red-7);
+      border: 1px solid var(--red-dark);
     }
   }*/
 
@@ -99,14 +101,14 @@
     border-bottom: 1px solid transparent;
 
     &:focus {
-      border-bottom: 1px solid var(--oc-green-7);
+      border-bottom: 1px solid var(--green-dark);
     }
 
     &.error {
-      border-bottom: 1px solid var(--oc-red-7);
+      border-bottom: 1px solid var(--red-dark);
 
       &:focus {
-        border-bottom: 1px solid var(--oc-red-7);
+        border-bottom: 1px solid var(--red-dark);
       }
     }
   }

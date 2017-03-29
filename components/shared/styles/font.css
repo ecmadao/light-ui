@@ -1,0 +1,20 @@
+:root {
+  /* ===== font size ===== */
+  --baseTextSizeM: 12px;
+  --baseTextSizeL: 14px;
+  --baseTextSizeXL: 16px;
+}
+
+.baseText {
+  font-size: var(--baseTextSizeL);
+}
+
+.baseSubText {
+  font-size: var(--baseTextSizeM);
+}
+
+@media (max-width: 800px) {
+  .baseText {
+    font-size: var(--baseTextSizeM);
+  }
+}

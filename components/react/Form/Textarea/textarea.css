@@ -1,5 +1,6 @@
-@import 'open-color/open-color.css';
-@import "../../../shared/styles/base.css";
+@import '../../../shared/styles/font.css';
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
 
 .textarea-wrapper {
   min-height: 100px;
@@ -7,10 +8,10 @@
   outline: none;
   flex: 1;
   padding: 10px 0;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   transition: border 0.2s;
   margin: 0 5px;
-  background-color: var(--oc-white);
+  background-color: var(--white);
   composes: baseText;
 
   &:first-child {
@@ -22,15 +23,15 @@
   }
 
   &.flat {
-    border: 1px solid var(--oc-gray-5);
+    border: 1px solid var(--gray);
   }
 
   &.focus {
-    border: 1px solid var(--oc-green-5);
+    border: 1px solid var(--green);
   }
 
   &.error {
-    border: 1px solid var(--oc-red-5);
+    border: 1px solid var(--red);
   }
 }
 
@@ -38,7 +39,7 @@
   position: absolute;
   bottom: 6px;
   right: 6px;
-  color: var(--oc-gray-4);
+  color: var(--gray);
   font-size: 12px;
 }
 

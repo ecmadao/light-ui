@@ -1,4 +1,4 @@
-@import '../../../shared/styles/base.css';
+@import "../../../shared/styles/z-index.css";
 
 .modal_component {
   position: fixed;
@@ -38,5 +38,4 @@
     z-index: var(--zIndex999);
     background-color: rgba(0, 0, 0, 0.2);
   }
-
 }

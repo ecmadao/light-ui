@@ -1,13 +1,14 @@
-@import 'open-color/open-color.css';
+@import "../../../shared/styles/font.css";
+@import '../../../shared/styles/color.css';
 
 .icon-button {
   width: 30px;
   height: 30px;
   padding: 0;
   transition: background-color 0.2s;
-  composes: baseSubText from '../../../shared/styles/base.css';
+  composes: baseSubText;
 
   & i {
-    color: var(--oc-gray-5);
+    color: var(--gray);
   }
 }

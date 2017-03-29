@@ -1,24 +1,27 @@
-@import 'open-color/open-color.css';
-@import '../../../shared/styles/base.css';
+@import '../../../shared/styles/font.css';
+@import "../../../shared/styles/shadow.css";
+@import "../../../shared/styles/z-index.css";
+@import "../../../shared/styles/color.css";
+@import "../../../shared/styles/border.css";
 
 .selector-container {
-  background-color: var(--oc-white);
+  background-color: var(--white);
   margin: 10px 5px;
   min-width: 4em;
   text-align: center;
   transition: background-color 0.2s, box-shadow 0.2s;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
   cursor: pointer;
   position: relative;
   display: inline-block;
   padding: 10px 20px;
   composes: baseText;
 
-  color: var(--oc-gray-7);
-  fill: var(--oc-gray-7);
+  color: var(--gray-dark);
+  fill: var(--gray-dark);
 
   & polygon {
-    fill: var(--oc-gray-7);
+    fill: var(--gray-dark);
   }
 
   & svg {
@@ -34,7 +37,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    border-radius: 2px;
+    border-radius: var(--radius-small);
     background-color: transparent;
     transition: background-color 0.2s;
   }
@@ -83,71 +86,71 @@
 }
 
 .flat {
-  color: var(--oc-gray-7);
-  fill: var(--oc-gray-7);
-  background-color: var(--oc-white);
+  color: var(--gray-dark);
+  fill: var(--gray-dark);
+  background-color: var(--white);
   transition: border 0.1s;
-  border: 1px solid var(--oc-gray-5);
+  border: 1px solid var(--gray);
 
   & polygon {
-    fill: var(--oc-gray-7);
+    fill: var(--gray-dark);
   }
 
   & .options-wrapper {
-    border: 1px solid var(--oc-gray-5);
+    border: 1px solid var(--gray);
   }
 }
 
 .selector-white {
   &.material {
-    background-color: var(--oc-gray-7);
-    color: var(--oc-white);
-    fill: var(--oc-white);
+    background-color: var(--gray-dark);
+    color: var(--white);
+    fill: var(--white);
 
     & polygon {
-      fill: var(--oc-white);
+      fill: var(--white);
     }
   }
 
   &.flat:not(.selector-disabled) {
     &:hover {
-      border: 1px solid var(--oc-gray-5);
+      border: 1px solid var(--gray);
     }
   }
 }
 
 .selector-green {
   &.material {
-    fill: var(--oc-white);
-    color: var(--oc-white);
-    background-color: var(--oc-green-5);
+    fill: var(--white);
+    color: var(--white);
+    background-color: var(--green);
 
     & polygon {
-      fill: var(--oc-white);
+      fill: var(--white);
     }
   }
 
   &.flat:not(.selector-disabled) {
     &:hover {
-      border: 1px solid var(--oc-green-5);
+      border: 1px solid var(--green);
     }
   }
 }
 
 .selector-blue {
   &.material {
-    fill: var(--oc-white);
-    color: var(--oc-white);
-    background-color: var(--oc-blue-5);
+    fill: var(--white);
+    color: var(--white);
+    background-color: var(--blue);
 
     & polygon {
-      fill: var(--oc-white);
+      fill: var(--white);
     }
   }
 
   &.flat:not(.selector-disabled) {
     &:hover {
-      border: 1px solid var(--oc-blue-5);
+      border: 1px solid var(--blue);
     }
   }
 }
@@ -184,7 +187,7 @@
   right: -1px;
   max-height: 400px;
   flex-direction: column;
-  background-color: var(--oc-white);
+  background-color: var(--white);
   box-shadow: var(--shadowInput);
   transform: translateY(-2px);
   justify-content: center;
@@ -192,7 +195,7 @@
   z-index: -1;
   visibility: hidden;
   overflow-y: auto;
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 var(--radius-small) var(--radius-small);
 }
 
 
@@ -209,7 +212,7 @@
   }
 
   &:last-child {
-    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 var(--radius-small) var(--radius-small);
   }
 }
 
@@ -220,5 +223,5 @@
 
 .option-wrapper {
   margin: 0 20px;
-  color: var(--oc-gray-7);
+  color: var(--gray-dark);
 }

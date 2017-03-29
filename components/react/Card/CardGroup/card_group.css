@@ -1,13 +1,14 @@
-@import 'open-color/open-color.css';
-@import "../../../shared/styles/base.css";
+@import "../../../shared/styles/shadow.css";
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
 
 .cards-container {
   /*width: 100%;*/
   flex: 1;
   display: inline-flex;
   flex-direction: row;
-  background-color: var(--oc-white);
-  border-bottom: 1px solid var(--oc-gray-2);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-light);
 
   &:last-child {
     border-bottom: 1px solid transparent;
@@ -18,7 +19,7 @@
 .cards-container-wrapper {
   flex-direction: column;
   margin: 10px 0;
-  border-radius: 4px;
+  border-radius: var(--radius);
 }
 
 .cards-child {
@@ -38,6 +39,6 @@
 
 .card {
   &:not(:last-child) {
-    border-right: 1px solid var(--oc-gray-2);
+    border-right: 1px solid var(--gray-light);
   }
 }

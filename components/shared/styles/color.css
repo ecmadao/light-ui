@@ -1,0 +1,38 @@
+@import 'open-color/open-color.css';
+
+:root {
+  /* ===== colors ===== */
+
+  --white: var(--oc-white);
+
+  /* ====== gray ====== */
+  --gray-light-deep: var(--oc-gray-1);
+  --gray-light: var(--oc-gray-3);
+  --gray: var(--oc-gray-5);
+  --gray-dark: var(--oc-gray-7);
+  --gray-dark-deep: var(--oc-gray-9);
+
+  /* ====== green ====== */
+  --green-light-deep: var(--oc-green-1);
+  --green-light: var(--oc-green-3);
+  --green: var(--oc-green-5);
+  --green-dark: var(--oc-green-7);
+
+  /* ====== blue ====== */
+  --blue-light-deep: var(--oc-blue-1);
+  --blue-light: var(--oc-blue-3);
+  --blue: var(--oc-blue-5);
+  --blue-dark: var(--oc-blue-7);
+
+  /* ====== red ====== */
+  --red-light-deep: var(--oc-red-1);
+  --red-light: var(--oc-red-3);
+  --red: var(--oc-red-5);
+  --red-dark: var(--oc-red-7);
+
+  --bg: #F7F8F9;
+  --bgDark: #252525;
+  --bgDeep: #eaeaea;
+  --flatCard: #F4F4F4;
+  --flatCardBorder: #D5D5D5;
+}
