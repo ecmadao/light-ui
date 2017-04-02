@@ -3,11 +3,9 @@
 @import '../../../shared/styles/border.css';
 
 .cards-container {
-  /*width: 100%;*/
   flex: 1;
   display: inline-flex;
   flex-direction: row;
-  border-radius: var(--radius);
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-light);
 
@@ -20,6 +18,10 @@
 .cards-container-wrapper {
   flex-direction: column;
   margin: 10px 0;
+
+  &.material {
+    border-radius: var(--radius-small);
+  }
 }
 
 .cards-child {

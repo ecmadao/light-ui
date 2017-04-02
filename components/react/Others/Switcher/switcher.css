@@ -3,11 +3,17 @@
 @import "../../../shared/styles/color.css";
 @import "../../../shared/styles/border.css";
 
+:root {
+  --switcher: 32px;
+  --switcher-small: 26px;
+  --switcher-mini: 22px;
+}
+
 .switcher-container {
   width: 52px;
-  height: 32px;
+  height: var(--switcher);
   display: inline-block;
-  border-radius: 32px;
+  border-radius: var(--switcher);
   position: relative;
   cursor: pointer;
   border: 1px solid var(--gray);
@@ -63,37 +69,37 @@
 
 .container-small {
   width: 42px;
-  height: 26px;
-  border-radius: 26px;
+  height: var(--switcher-small);
+  border-radius: var(--switcher-small);
 
   & .switcher-item {
-    width: 26px;
-    height: 26px;
-    right: calc(100% - 26px);
+    width: var(--switcher-small);
+    height: var(--switcher-small);
+    right: calc(100% - var(--switcher-small));
   }
 }
 
 .container-mini {
   width: 35px;
-  height: 22px;
-  border-radius: 22px;
+  height: var(--switcher-mini);
+  border-radius: var(--switcher-mini);
 
   & .switcher-item {
-    width: 22px;
-    height: 22px;
-    right: calc(100% - 22px);
+    width: var(--switcher-mini);
+    height: var(--switcher-mini);
+    right: calc(100% - var(--switcher-mini));
   }
 }
 
 .switcher-item {
-  width: 32px;
-  height: 32px;
-  border-radius: 32px;
+  width: var(--switcher);
+  height: var(--switcher);
+  border-radius: var(--switcher);
   background-color: var(--white);
   box-shadow: var(--shadow2);
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
   position: absolute;
   top: 0;
-  right: calc(100% - 32px);
+  right: calc(100% - var(--switcher));
   transition: right 0.2s;
 }
