@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/react/Button/Button';
 import IconButton from '../components/react/Button/IconButton';
+import ButtonGroup from '../components/react/Button/ButtonGroup';
 import FloatingActionButton from '../components/react/Button/FloatingActionButton';
 
 class ButtonWrapper extends React.Component {
@@ -207,6 +208,43 @@ class ButtonWrapper extends React.Component {
             icon="clipboard"
             theme="flat"
             color="dark"
+          />
+        </div>
+        <h3>Icon Button Group</h3>
+        <div>
+          <ButtonGroup
+            buttons={[
+              {
+                icon: 'clipboard',
+                color: 'dark',
+                active: true
+              },
+              {
+                icon: 'font',
+                color: 'dark',
+              },
+              {
+                icon: 'bold',
+                color: 'dark'
+              },
+            ]}
+          />
+          <ButtonGroup
+            theme="flat"
+            buttons={[
+              {
+                icon: 'clipboard',
+                color: 'dark',
+              },
+              {
+                icon: 'font',
+                color: 'dark',
+              },
+              {
+                icon: 'bold',
+                color: 'dark'
+              },
+            ]}
           />
         </div>
         <h3>Floating Action Button</h3>

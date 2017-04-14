@@ -1,5 +1,6 @@
 export Button from './react/Button/Button';
 export IconButton from './react/Button/IconButton';
+export ButtonGroup from './react/Button/ButtonGroup';
 export FloatingActionButton from './react/Button/FloatingActionButton';
 
 export Input from './react/Form/Input';
@@ -19,3 +20,4 @@ export CardGroup from './react/Card/CardGroup';
 
 export Label from './react/Others/Label';
 export Switcher from './react/Others/Switcher';
+export Slider from './react/Others/Slider';
