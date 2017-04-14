@@ -1,5 +1,12 @@
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
+@import '../../../shared/styles/z-index.css';
+
+:root {
+  --pathwayHeight: 5px;
+  --pathwayMargin: 20px;
+  --draggerSize: 25px;
+}
 
 .container {
   flex: 1;
@@ -8,9 +15,68 @@
 
 .pathway {
   width: 100%;
-  height: 10px;
-  margin: 10px 0;
+  height: var(--pathwayHeight);
+  margin: var(--pathwayMargin) 0;
   position: relative;
   border-radius: var(--radius-small);
   background-color: var(--gray-light);
+}
+
+.progress-bar {
+  z-index: var(--zIndex1);
+  height: 100%;
+  position: absolute;
+  border-radius: var(--radius-small);
+
+  &.bar-green {
+    background-color: var(--green);
+  }
+
+  &.bar-red {
+    background-color: var(--red);
+  }
+
+  &.bar-dark {
+    background-color: var(--gray-dark);
+  }
+
+  &.bar-gray {
+    background-color: var(--gray);
+  }
+
+  &.bar-blue {
+    background-color: var(--blue);
+  }
+}
+
+.dragger {
+  width: var(--draggerSize);
+  height: var(--draggerSize);
+  left: 0;
+  cursor: pointer;
+  z-index: var(--zIndex9);
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  top: calc((var(--pathwayHeight) - var(--draggerSize)) / 2);
+
+  &.green {
+    background-color: var(--green);
+  }
+
+  &.red {
+    background-color: var(--red);
+  }
+
+  &.dark {
+    background-color: var(--gray-dark);
+  }
+
+  &.gray {
+    background-color: var(--gray);
+  }
+
+  &.blue {
+    background-color: var(--blue);
+  }
 }

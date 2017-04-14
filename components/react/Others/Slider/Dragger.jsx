@@ -1,20 +1,16 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
-import styles from './dragger.css';
+import styles from './slider.css';
 import darg from '../../../shared/utils/darg';
 
 class Dragger extends React.Component {
   constructor(props) {
     super(props);
-    const { max, min, value } = props;
-    const left = value / (max - min);
     this.state = {
-      draging: false,
-      left: left
+      draging: false
     };
     this.startX = 0;
-    this.originLeft = left;
 
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -57,14 +53,6 @@ class Dragger extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { value, max, min } = nextProps;
-    const nextLeft = value / (max - min);
-    if (nextLeft !== this.state.left) {
-      this.setState({ left: nextLeft });
-    }
-  }
-
   resetOrigin() {
     const centerPoint = ReactDOM.findDOMNode(this.dragger);
     const centerPointPos = centerPoint.getBoundingClientRect();
@@ -101,23 +89,19 @@ class Dragger extends React.Component {
 
   setLeft(position, mouseUp = false) {
     const dragX = position.x;
-    const { maxDis, onChange } = this.props;
+    const { maxDis, onDragEnd, onDraging } = this.props;
     if (this.startX !== dragX) {
       const percentage = (dragX - this.startX) / maxDis;
-      const validateLeft = darg.validatePosition(this.originLeft + percentage, 0, 1);
-      this.setState({
-        left: validateLeft
-      });
+      const validateLeft = darg.validatePosition(this.props.originLeft + percentage, 0, 1);
+      onDraging && onDraging(validateLeft);
       if (mouseUp) {
-        this.originLeft = validateLeft;
-        onChange && onChange(validateLeft);
+        onDragEnd && onDragEnd(validateLeft);
       }
     }
   }
 
   render() {
-    const { color } = this.props;
-    const { left } = this.state;
+    const { color, left } = this.props;
     const dragClass = cx(
       styles.dragger,
       color && styles[color]
@@ -136,18 +120,20 @@ class Dragger extends React.Component {
 
 Dragger.propTypes = {
   color: PropTypes.string,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  value: PropTypes.number,
-  onChange: PropTypes.func,
+  left: PropTypes.number,
+  originLeft: PropTypes.number,
+  maxDis: PropTypes.number,
+  onDragEnd: PropTypes.func,
+  onDraging: PropTypes.func,
 };
 
 Dragger.defaultProps = {
-  max: 0,
-  min: 0,
-  value: 0,
+  left: 0,
+  originLeft: 0,
+  maxDis: 0,
   color: 'green',
-  onChange: () => {},
+  onDragEnd: () => {},
+  onDraging: () => {},
 };
 
 export default Dragger;
