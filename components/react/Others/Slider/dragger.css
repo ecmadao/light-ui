@@ -1,0 +1,37 @@
+@import '../../../shared/styles/color.css';
+
+:root {
+  --pathwayHeight: 10px;
+  --draggerSize: 30px;
+}
+
+.dragger {
+  width: 30px;
+  height: 30px;
+  left: 0;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  top: calc((var(--pathwayHeight) - var(--draggerSize)) / 2);
+
+  &.green {
+    background-color: var(--green);
+  }
+
+  &.red {
+    background-color: var(--red);
+  }
+
+  &.dark {
+    background-color: var(--gray-dark);
+  }
+
+  &.gray {
+    background-color: var(--gray);
+  }
+
+  &.blue {
+    background-color: var(--blue);
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Label from '../components/react/Others/Label';
+import Slider from '../components/react/Others/Slider';
 import Switcher from '../components/react/Others/Switcher';
 
 class OthersWrapper extends React.Component {
@@ -67,6 +68,10 @@ class OthersWrapper extends React.Component {
           <Switcher disabled={disabled} checked={true} size="mini" version="v2" />
           <br/>
           <Switcher disabled={disabled} checked={true} size="mini" version="v3" />
+        </div>
+        <h3>Slider</h3>
+        <div>
+          <Slider />
         </div>
       </div>
     );

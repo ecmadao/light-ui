@@ -220,7 +220,11 @@ class ButtonWrapper extends React.Component {
                 active: true
               },
               {
-                icon: 'share-alt',
+                icon: 'font',
+                color: 'dark',
+              },
+              {
+                icon: 'bold',
                 color: 'dark'
               },
             ]}
@@ -233,7 +237,11 @@ class ButtonWrapper extends React.Component {
                 color: 'dark',
               },
               {
-                icon: 'share-alt',
+                icon: 'font',
+                color: 'dark',
+              },
+              {
+                icon: 'bold',
                 color: 'dark'
               },
             ]}

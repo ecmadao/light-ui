@@ -1,0 +1,16 @@
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
+
+.container {
+  flex: 1;
+  min-width: 200px;
+}
+
+.pathway {
+  width: 100%;
+  height: 10px;
+  margin: 10px 0;
+  position: relative;
+  border-radius: var(--radius-small);
+  background-color: var(--gray-light);
+}
