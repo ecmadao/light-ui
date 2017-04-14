@@ -77,7 +77,7 @@ class BaseTipso extends React.Component {
       styles["tipso-container"],
       styles[theme],
       styles[position],
-      show && styles["active"],
+      (this.props.show || show) && styles["active"],
       className
     );
 

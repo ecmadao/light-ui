@@ -4,7 +4,7 @@ import styles from './slider.css';
 
 class ProgressBar extends React.Component {
   render() {
-    const { width, color } = this.props;
+    const { left, right, color } = this.props;
     const barClass = cx(
       styles['progress-bar'],
       color && styles[`bar-${color}`]
@@ -12,7 +12,8 @@ class ProgressBar extends React.Component {
     return (
       <div
         style={{
-          width: `${width * 100}%`
+          left: `${left * 100}%`,
+          right: `${(1 - right) * 100}%`
         }}
         className={barClass}></div>
     );
@@ -20,12 +21,14 @@ class ProgressBar extends React.Component {
 }
 
 ProgressBar.propTypes = {
-  width: PropTypes.number,
+  left: PropTypes.number,
+  right: PropTypes.number,
   color: PropTypes.string,
 };
 
 ProgressBar.defaultProps = {
-  width: 0,
+  left: 0,
+  right: 0,
   color: 'green'
 };
 

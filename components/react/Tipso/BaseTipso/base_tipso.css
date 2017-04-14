@@ -4,6 +4,12 @@
 @import "../../../shared/styles/color.css";
 @import "../../../shared/styles/border.css";
 
+:root {
+  --triangleWidth: 8px;
+  --triangleHeight: 5px;
+  --triangleOffset: 6px;
+}
+
 .tipso-wrapper {
   position: relative;
   display: inline-block;
@@ -50,8 +56,8 @@
     display: block;
     position: absolute;
     transform: translateX(-50%);
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
+    border-left: var(--triangleWidth) solid transparent;
+    border-right: var(--triangleWidth) solid transparent;
   }
 
   &::after {
@@ -65,66 +71,66 @@
 
 .top {
   bottom: 100%;
-  transform: translate(-50%, -3px);
+  transform: translate(-50%, -var(--triangleOffset));
 
   &::after {
-    bottom: -10px;
+    bottom: -var(--triangleHeight);
   }
 
   &::before {
-    bottom: -11px;
+    bottom: -var(--triangleOffset);
   }
 
   &.dark {
     &::after {
-      border-top: 10px solid var(--gray-dark-deep);
+      border-top: var(--triangleHeight) solid var(--gray-dark-deep);
     }
 
     &::before {
-      border-top: 10px solid rgba(212, 212, 212, 1);
+      border-top: var(--triangleHeight) solid transparent;
     }
   }
 
   &.light {
     &::after {
-      border-top: 10px solid var(--white);
+      border-top: var(--triangleHeight) solid var(--white);
     }
 
     &::before {
-      border-top: 10px solid rgba(212, 212, 212, 0.3);
+      border-top: var(--triangleHeight) solid rgba(212, 212, 212, 0.3);
     }
   }
 }
 
 .bottom {
   top: 100%;
-  transform: translate(-50%, 3px);
+  transform: translate(-50%, var(--triangleOffset));
 
   &::after {
-    top: -10px;
+    top: -var(--triangleHeight);
   }
 
   &::before {
-    top: -11px;
+    top: -var(--triangleOffset);
   }
 
   &.dark {
     &::after {
-      border-bottom: 10px solid var(--gray-dark-deep);
+      border-bottom: var(--triangleHeight) solid var(--gray-dark-deep);
     }
 
     &::before {
-      border-bottom: 10px solid rgba(212, 212, 212, 1);
+      border-bottom: var(--triangleHeight) solid transparent;
     }
   }
 
   &.light {
     &::after {
-      border-bottom: 10px solid var(--white);
+      border-bottom: var(--triangleHeight) solid var(--white);
     }
 
     &::before {
-      border-bottom: 10px solid rgba(212, 212, 212, 0.3);
+      border-bottom: var(--triangleHeight) solid rgba(212, 212, 212, 0.3);
     }
   }
 }

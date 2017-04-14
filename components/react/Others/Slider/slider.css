@@ -5,7 +5,7 @@
 :root {
   --pathwayHeight: 5px;
   --pathwayMargin: 20px;
-  --draggerSize: 25px;
+  --draggerSize: 17px;
 }
 
 .container {
@@ -49,16 +49,24 @@
   }
 }
 
-.dragger {
-  width: var(--draggerSize);
-  height: var(--draggerSize);
+.dragger-container {
   left: 0;
   cursor: pointer;
   z-index: var(--zIndex9);
   position: absolute;
-  border-radius: 50%;
   transform: translateX(-50%);
   top: calc((var(--pathwayHeight) - var(--draggerSize)) / 2);
+}
+
+.tipso {
+  min-width: inherit;
+}
+
+.dragger {
+  width: var(--draggerSize);
+  height: var(--draggerSize);
+  cursor: pointer;
+  border-radius: 50%;
 
   &.green {
     background-color: var(--green);

@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import styles from './slider.css';
+import Tipso from '../../Tipso/Tipso';
 import darg from '../../../shared/utils/darg';
 
 class Dragger extends React.Component {
@@ -89,10 +90,10 @@ class Dragger extends React.Component {
 
   setLeft(position, mouseUp = false) {
     const dragX = position.x;
-    const { maxDis, onDragEnd, onDraging } = this.props;
+    const { maxDis, onDragEnd, onDraging, min, max } = this.props;
     if (this.startX !== dragX) {
       const percentage = (dragX - this.startX) / maxDis;
-      const validateLeft = darg.validatePosition(this.props.originLeft + percentage, 0, 1);
+      const validateLeft = darg.validatePosition(this.props.originLeft + percentage, min, max);
       onDraging && onDraging(validateLeft);
       if (mouseUp) {
         onDragEnd && onDragEnd(validateLeft);
@@ -101,19 +102,30 @@ class Dragger extends React.Component {
   }
 
   render() {
-    const { color, left } = this.props;
+    const { color, left, value, tipFormatter } = this.props;
     const dragClass = cx(
       styles.dragger,
       color && styles[color]
     );
     return (
-      <div
-        className={dragClass}
-        style={{
+      <Tipso
+        theme="dark"
+        show={this.state.draging}
+        tipsoContent={(
+          <div style={{
+            textAlign: 'center'
+          }}>{tipFormatter ? tipFormatter(value) : value}</div>
+        )}
+        className={styles.tipso}
+        wrapperClass={styles['dragger-container']}
+        wrapperStyle={{
           left: `${left * 100}%`
-        }}
-        ref={ref => this.dragger = ref}
-        onMouseDown={this.handleMouseDown}></div>
+        }}>
+        <div
+          className={dragClass}
+          ref={ref => this.dragger = ref}
+          onMouseDown={this.handleMouseDown}></div>
+      </Tipso>
     );
   }
 }
@@ -121,16 +133,22 @@ class Dragger extends React.Component {
 Dragger.propTypes = {
   color: PropTypes.string,
   left: PropTypes.number,
+  value: PropTypes.number,
   originLeft: PropTypes.number,
   maxDis: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
   onDragEnd: PropTypes.func,
   onDraging: PropTypes.func,
 };
 
 Dragger.defaultProps = {
   left: 0,
+  value: 0,
   originLeft: 0,
   maxDis: 0,
+  min: 0,
+  max: 0,
   color: 'green',
   onDragEnd: () => {},
   onDraging: () => {},

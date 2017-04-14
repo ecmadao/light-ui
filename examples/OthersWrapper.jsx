@@ -71,7 +71,8 @@ class OthersWrapper extends React.Component {
         </div>
         <h3>Slider</h3>
         <div>
-          <Slider />
+          <Slider value={15} />
+          <Slider value={[15, 35]} />
         </div>
       </div>
     );
