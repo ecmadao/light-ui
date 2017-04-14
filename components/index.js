@@ -20,3 +20,4 @@ export CardGroup from './react/Card/CardGroup';
 
 export Label from './react/Others/Label';
 export Switcher from './react/Others/Switcher';
+export Slider from './react/Others/Slider';

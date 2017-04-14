@@ -5,7 +5,8 @@
 :root {
   --pathwayHeight: 5px;
   --pathwayMargin: 20px;
-  --draggerSize: 17px;
+  --draggerSize: 12px;
+  --draggerBorder: 4px;
 }
 
 .container {
@@ -55,7 +56,7 @@
   z-index: var(--zIndex9);
   position: absolute;
   transform: translateX(-50%);
-  top: calc((var(--pathwayHeight) - var(--draggerSize)) / 2);
+  top: calc((var(--pathwayHeight) - var(--draggerSize) - 2 * var(--draggerBorder)) / 2);
 }
 
 .tipso {
@@ -67,24 +68,25 @@
   height: var(--draggerSize);
   cursor: pointer;
   border-radius: 50%;
+  background-color: var(--white);
 
   &.green {
-    background-color: var(--green);
+    border: var(--draggerBorder) solid var(--green);
   }
 
   &.red {
-    background-color: var(--red);
+    border: var(--draggerBorder) solid var(--red);
   }
 
   &.dark {
-    background-color: var(--gray-dark);
+    border: var(--draggerBorder) solid var(--gray-dark);
   }
 
   &.gray {
-    background-color: var(--gray);
+    border: var(--draggerBorder) solid var(--gray);
   }
 
   &.blue {
-    background-color: var(--blue);
+    border: var(--draggerBorder) solid var(--blue);
   }
 }

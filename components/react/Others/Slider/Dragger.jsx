@@ -13,6 +13,7 @@ class Dragger extends React.Component {
     };
     this.startX = 0;
 
+    this.setLeft = this.setLeft.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);

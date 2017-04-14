@@ -10,10 +10,13 @@ import Helper from '../../../shared/utils/helper';
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.initialState();
+    this.state = objectAssign({}, this.initialState(props), {
+      maxDis: 0
+    });
     this.onChange = this.onChange.bind(this);
     this.onDraging = this.onDraging.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
+    this.changePosition = this.changePosition.bind(this);
   }
 
   componentDidMount() {
@@ -34,29 +37,28 @@ class Slider extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { value, max, min } = nextProps;
-    const nextLeft = value / (max - min);
-    if (nextLeft !== this.state.left) {
+    const { value } = nextProps;
+    const values = Helper.isArray(value) ? value : [value];
+    if (!Helper.isEqual(values, this.state.values)) {
       this.setState({
-        left: nextLeft,
-        originLeft: nextLeft
+        ...this.initialState(nextProps)
       });
     }
   }
 
-  initialState() {
-    const { value, max, min } = this.props;
+  initialState(props) {
+    const { value, max, min } = props;
     const values = Helper.isArray(value) ? value : [value];
     const positions = values.map((item) => {
-      const left = item / (max - min);
+      const left = (item - min) / (max - min);
       return {
         left,
         originLeft: left
       };
     });
     return {
-      maxDis: 0,
-      positions
+      positions,
+      values
     };
   }
 
@@ -67,19 +69,24 @@ class Slider extends React.Component {
   }
 
   onChange(index) {
+    const { positions } = this.state;
+    const { onChange } = this.props;
     return (left) => {
       this.onDragEnd(left, index);
-      const { positions } = this.props;
-      const { onChange, max } = this.props;
-      const value = parseInt(left * max, 10);
-      const getValue = position => parseInt(position.left * max, 10);
+      const value = this.getValue(left);
+      const returnValue = position => this.getValue(position.left);
       const results = [
-        ...positions.slice(0, index).map(getValue),
+        ...positions.slice(0, index).map(returnValue),
         value,
-        ...positions.slice(index + 1).map(getValue)
+        ...positions.slice(index + 1).map(returnValue)
       ];
       onChange(results.length > 1 ? results : results[0]);
     };
+  }
+
+  getValue(left) {
+    const { max, min } = this.props;
+    return parseInt(left * (max - min) + min, 10);
   }
 
   onDraging(index) {
@@ -103,12 +110,17 @@ class Slider extends React.Component {
 
   renderDrager() {
     const { positions, maxDis } = this.state;
-    const { color, min, max, tipFormatter } = this.props;
+    const { color, tipFormatter, minRange, max, min } = this.props;
+    const minDis = minRange / (max - min);
     return positions.map((item, index) => {
       const { left, originLeft } = item;
-      const value = parseInt((max - min) * left, 10);
-      const minPosition = index === 0 ? 0 : positions[0].left;
-      const maxPosition = index === positions.length - 1 ? 1 : positions.slice(-1)[0].left;
+      const value = this.getValue(left);
+      const minPosition = index - 1 >= 0
+        ? positions[index - 1].left + minDis
+        : 0;
+      const maxPosition = index + 1 < positions.length
+        ? positions[index + 1].left - minDis
+        : 1;
       return (
         <Dragger
           key={index}
@@ -169,6 +181,7 @@ Slider.propTypes = {
     PropTypes.number,
     PropTypes.array
   ]),
+  minRange: PropTypes.number,
   color: PropTypes.string,
   onChange: PropTypes.func
 };
@@ -179,6 +192,7 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   value: 10,
+  minRange: 0,
   color: 'green',
   onChange: () => {}
 };
