@@ -27,6 +27,7 @@
     "no-extra-semi": 1,
     "no-constant-condition": 2,
     "no-extra-boolean-cast": 2,
+    "no-return-assign": 0,
     "use-isnan": 2,
     "no-undef-init": 2,
     "camelcase": 2,

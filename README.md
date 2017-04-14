@@ -19,13 +19,23 @@
 
 > UI Components for [hacknical](https://github.com/ecmadao/hacknical)
 
-### Doc
+### Doc & Demo
 
-- [documents](https://github.com/ecmadao/light-ui/wiki)
-- [examples](https://github.com/ecmadao/light-ui/tree/master/examples)
-- [online demo](https://ecmadao.github.io/light-ui)
+- [Documents](https://github.com/ecmadao/light-ui/wiki)
+- [Examples](https://github.com/ecmadao/light-ui/tree/master/examples)
+- [Online demo](https://ecmadao.github.io/light-ui)
 
 ### Screenshots
+
+![](./screenshots/switcher.gif)
+
+![](./screenshots/range.gif)
+
+![](./screenshots/tipso.gif)
+
+![](./screenshots/input.gif)
+
+![](./screenshots/button.gif)
 
 ![](./screenshots/1.png)
 
@@ -39,7 +49,7 @@
 
 - [x] README
 - [x] API Doc
-- [ ] Raw javascript components
+- [x] Raw javascript components
 - [x] EsLint
 
 ### License
