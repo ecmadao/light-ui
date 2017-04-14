@@ -1,0 +1,40 @@
+@import '../../../shared/styles/border.css';
+@import "../../../shared/styles/shadow.css";
+@import '../../../shared/styles/color.css';
+
+.container {
+  display: inline-block;
+  margin: 15px 5px;
+  background-color: var(--white);
+  border-radius: var(--radius-small);
+}
+
+.flat {
+  border: 1px solid var(--gray-light);
+}
+
+.material {
+  box-shadow: var(--shadow3);
+}
+
+.button {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+
+  &::before {
+    margin: 0 !important;
+  }
+
+  &:first-child {
+    border-radius: var(--radius-small) 0 0 var(--radius-small) !important;
+  }
+
+  &:last-child {
+    border-radius:  0 var(--radius-small) var(--radius-small) 0 !important;
+  }
+
+  &:not(:last-child) {
+    border-right: 1px solid var(--gray-light-deep) !important;
+  }
+}

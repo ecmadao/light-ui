@@ -48,14 +48,15 @@ class BaseButton extends React.Component {
   render() {
     const {
       id,
-      className,
+      type,
       theme,
       color,
+      style,
+      active,
       disabled,
       children,
-      style,
-      type,
-      clickable
+      clickable,
+      className
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
@@ -63,9 +64,10 @@ class BaseButton extends React.Component {
       styles[type],
       styles[theme],
       styles[color],
-      !disabled && clickable && styles["clickable"],
-      !disabled && pressed && styles["pressDown"],
-      disabled && styles["disabled"],
+      !disabled && clickable && styles['clickable'],
+      !disabled && pressed && styles['pressDown'],
+      active && styles['active'],
+      disabled && styles['disabled'],
       className
     );
     const onClick = disabled ? () => {} : this.onClick;
@@ -97,6 +99,7 @@ BaseButton.propTypes = {
   style: PropTypes.object,
   theme: PropTypes.string,
   type: PropTypes.string,
+  active: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.element,
   clickable: PropTypes.bool
@@ -110,6 +113,7 @@ BaseButton.defaultProps = {
   onClick: () => {},
   className: '',
   style: {},
+  active: false,
   disabled: false,
   children: (<div></div>),
   clickable: true

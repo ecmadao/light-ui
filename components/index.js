@@ -1,5 +1,6 @@
 export Button from './react/Button/Button';
 export IconButton from './react/Button/IconButton';
+export ButtonGroup from './react/Button/ButtonGroup';
 export FloatingActionButton from './react/Button/FloatingActionButton';
 
 export Input from './react/Form/Input';
