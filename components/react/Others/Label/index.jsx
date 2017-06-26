@@ -40,21 +40,28 @@ const Label = (props) => {
         className,
       )}
     >
-      <div className={styles['label-wrapper']}>
+      <div className={styles.labelWrapper}>
         <div
           onClick={handleDelete}
-          className={styles['label-delete']}
+          className={styles.labelDelete}
         >
           x
         </div>
         <div
           onClick={handleClick}
           className={cx(
-            styles['label-content'],
+            styles.labelContent,
             clickable && styles.clickable,
           )}>
-          {iconElement}&nbsp;
-          {text}
+          {iconElement}
+          <span
+            className={cx(
+              styles.labelText,
+              iconElement && styles.withIcon
+            )}
+          >
+            {text}
+          </span>
         </div>
       </div>
     </div>

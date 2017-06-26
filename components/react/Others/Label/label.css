@@ -9,7 +9,7 @@
   display: inline-block;
   padding: 0 10px;
   border-radius: var(--borderRadius);
-  margin: 7px;
+  margin: 0 5px;
   font-size: 12px;
   height: var(--height);
   line-height: var(--height);
@@ -24,11 +24,11 @@
   }
 
   &.deleteable:hover {
-    & .label-delete {
+    & .labelDelete {
       left: 5px;
     }
 
-    & .label-content {
+    & .labelContent {
       transform: translateX(15px);
     }
   }
@@ -41,28 +41,31 @@
   }
 }
 
-.label-wrapper {
+.labelWrapper {
   position: relative;
   overflow: hidden;
   min-width: var(--height);
-  height: calc(var(--height) - 2px);
-  line-height: calc(var(--height) - 2px);
+  height: var(--height);
+  line-height: var(--height);
 }
 
 .flat {
   &.dark {
     border: 1px solid var(--gray-dark-deep);
     color: var(--gray-dark-deep);
+    background-color: transparent;
   }
 
   &.light {
     border: 1px solid var(--white);
     color: var(--white);
+    background-color: transparent;
   }
 
   &.darkLight {
     border: 1px solid var(--gray-dark);
     color: var(--gray-dark);
+    background-color: transparent;
   }
 }
 
@@ -86,7 +89,7 @@
   }
 }
 
-.label-delete {
+.labelDelete {
   cursor: pointer;
   color: var(--red);
   position: absolute;
@@ -98,9 +101,12 @@
   transition: left 0.2s;
 }
 
-.label-content {
+.labelContent {
   cursor: default;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   transform: translateX(0);
   transition: transform 0.2s;
   width: 100%;
@@ -108,5 +114,11 @@
 
   &.clickable {
     cursor: pointer;
+  }
+}
+
+.labelText {
+  &.withIcon {
+    margin-left: 5px;
   }
 }

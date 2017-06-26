@@ -60,14 +60,14 @@ class BaseButton extends React.Component {
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
-      styles["base_button"],
+      styles['base_button'],
       styles[type],
       styles[theme],
       styles[color],
-      !disabled && clickable && styles['clickable'],
-      !disabled && pressed && styles['pressDown'],
-      active && styles['active'],
-      disabled && styles['disabled'],
+      !disabled && clickable && styles.clickable,
+      !disabled && pressed && styles.pressDown,
+      active && styles.active,
+      disabled && styles.disabled,
       className
     );
     const onClick = disabled ? () => {} : this.onClick;
@@ -83,7 +83,7 @@ class BaseButton extends React.Component {
         onMouseUp={this.onMouseUp}
         onMouseEnter={this.onMouseEnter}
         onClick={onClick}>
-        <div className={styles["wrapper"]}>
+        <div className={styles.wrapper}>
           {children}
         </div>
       </div>
