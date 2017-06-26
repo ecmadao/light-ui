@@ -72,18 +72,39 @@ class OthersWrapper extends React.Component {
             disabled={disabled}
             icon="code-fork"
             theme="ghost"
-            text="fork me"/>
+            text="fork me"
+          />
           <Label
             disabled={disabled}
             icon="code-fork"
             theme="flat"
-            text="fork me"/>
+            text="fork me"
+          />
           <Label
             disabled={disabled}
             icon="code-fork"
             text="fork me"
           />
         </div>
+
+        <h4>...min size</h4>
+        <div>
+          <Label
+            min
+            disabled={disabled}
+            icon="code-fork"
+            theme="flat"
+            text="fork me"
+          />
+          <Label
+            min
+            disabled={disabled}
+            text="click me"
+            theme="flat"
+            deleteable
+          />
+        </div>
+
         <h3>Switcher</h3>
         <h4>Normal size</h4>
         <div>

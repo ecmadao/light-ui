@@ -3,6 +3,7 @@
 :root {
   --borderRadius: 20px;
   --height: 25px;
+  --heightMin: 20px;
 }
 
 .label {
@@ -39,6 +40,18 @@
     cursor: not-allowed;
     user-select: none;
   }
+
+  &.min {
+    height: var(--heightMin);
+    line-height: var(--heightMin);
+    padding: 0 7px;
+
+    & .labelWrapper {
+      min-width: var(--heightMin);
+      height: var(--heightMin);
+      line-height: var(--heightMin);
+    }
+  }
 }
 
 .labelWrapper {
@@ -47,6 +60,9 @@
   min-width: var(--height);
   height: var(--height);
   line-height: var(--height);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .flat {

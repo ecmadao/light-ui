@@ -5,6 +5,7 @@ import styles from './label.css';
 const Label = (props) => {
   const {
     text,
+    min,
     className,
     theme,
     icon,
@@ -35,6 +36,7 @@ const Label = (props) => {
         styles.label,
         styles[color],
         styles[theme],
+        min && styles.min,
         deleteable && styles.deleteable,
         disabled && styles.disabled,
         className,
@@ -70,6 +72,7 @@ const Label = (props) => {
 
 Label.propTypes = {
   text: PropTypes.string,
+  min: PropTypes.bool,
   clickable: PropTypes.bool,
   deleteable: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -86,6 +89,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
   text: '',
+  min: false,
   clickable: true,
   onClick: () => {},
   className: '',
