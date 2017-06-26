@@ -42,8 +42,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader', 'postcss-loader'],
-        exclude: SOURCE_PATH
+        include: WRAPPER_PATH,
+        loader: cssLoader.join('!'),
       },
       {
         test: /\.(js|jsx)$/,

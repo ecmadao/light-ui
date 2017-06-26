@@ -91,10 +91,32 @@ class Dragger extends React.Component {
 
   setLeft(position, mouseUp = false) {
     const dragX = position.x;
-    const { maxDis, onDragEnd, onDraging, min, max } = this.props;
+    const {
+      min,
+      max,
+      jump,
+      maxValue,
+      minValue,
+      minJump,
+      maxDis,
+      onDragEnd,
+      onDraging,
+    } = this.props;
     if (this.startX !== dragX) {
       const percentage = (dragX - this.startX) / maxDis;
-      const validateLeft = darg.validatePosition(this.props.originLeft + percentage, min, max);
+      let validateLeft = darg.validatePosition(
+        this.props.originLeft + percentage, min, max);
+
+      if (jump) {
+        let val = validateLeft * (maxValue - minValue);
+        const integerVal = Math.floor(val);
+        if ((val - integerVal) > minJump / 2) {
+          val = integerVal + 1;
+        } else {
+          val = integerVal;
+        }
+        validateLeft = val / (maxValue - minValue);
+      }
       onDraging && onDraging(validateLeft);
       if (mouseUp) {
         onDragEnd && onDragEnd(validateLeft);
@@ -103,21 +125,38 @@ class Dragger extends React.Component {
   }
 
   render() {
-    const { color, left, value, tipFormatter } = this.props;
+    const {
+      color,
+      left,
+      value,
+      tipFormatter,
+      useTipso,
+      draggerClass,
+      tipsoClass
+    } = this.props;
     const dragClass = cx(
       styles.dragger,
-      color && styles[color]
+      color && styles[color],
+      draggerClass
     );
+    const tipsoValue = tipFormatter ? tipFormatter(value) : value;
     return (
       <Tipso
         theme="dark"
+        disabled={!useTipso}
         show={this.state.draging}
         tipsoContent={(
-          <div style={{
-            textAlign: 'center'
-          }}>{tipFormatter ? tipFormatter(value) : value}</div>
+          <div
+            style={{
+              textAlign: 'center',
+              minWidth: `${(tipsoValue.length + 1) * 5}px`
+            }}
+          >{tipsoValue}</div>
         )}
-        className={styles.tipso}
+        className={cx(
+          styles.tipso,
+          tipsoClass
+        )}
         wrapperClass={styles['dragger-container']}
         wrapperStyle={{
           left: `${left * 100}%`
@@ -141,6 +180,9 @@ Dragger.propTypes = {
   max: PropTypes.number,
   onDragEnd: PropTypes.func,
   onDraging: PropTypes.func,
+  useTipso: PropTypes.bool,
+  draggerClass: PropTypes.string,
+  tipsoClass: PropTypes.string,
 };
 
 Dragger.defaultProps = {
@@ -153,6 +195,9 @@ Dragger.defaultProps = {
   color: 'green',
   onDragEnd: () => {},
   onDraging: () => {},
+  useTipso: true,
+  draggerClass: '',
+  tipsoClass: '',
 };
 
 export default Dragger;

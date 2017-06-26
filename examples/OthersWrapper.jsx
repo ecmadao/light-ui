@@ -1,6 +1,5 @@
 import React from 'react';
 import Label from '../components/react/Others/Label';
-import Slider from '../components/react/Others/Slider';
 import Switcher from '../components/react/Others/Switcher';
 
 class OthersWrapper extends React.Component {
@@ -10,13 +9,46 @@ class OthersWrapper extends React.Component {
     return (
       <div id="components-container">
         <h3>Label</h3>
-        <h4>Clickable Label</h4>
+        <h4>...can be delete or click</h4>
         <div>
-          <Label disabled={disabled} text="click me" theme="ghost"/>
-          <Label disabled={disabled} text="click me" theme="flat"/>
-          <Label disabled={disabled} text="click me" />
+          <Label
+            disabled={disabled}
+            text="click me"
+            theme="ghost"
+            deleteable
+          />
+          <Label
+            disabled={disabled}
+            text="click me"
+            theme="flat"
+            deleteable
+          />
+          <Label
+            disabled={disabled}
+            text="click me"
+            deleteable
+          />
         </div>
-        <h4>Unclickable Label</h4>
+
+        <h4>...can be click, can not delete</h4>
+        <div>
+          <Label
+            disabled={disabled}
+            text="click me"
+            theme="ghost"
+          />
+          <Label
+            disabled={disabled}
+            text="click me"
+            theme="flat"
+          />
+          <Label
+            disabled={disabled}
+            text="click me"
+          />
+        </div>
+
+        <h4>...can not be click</h4>
         <div>
           <Label
             disabled={disabled}
@@ -33,7 +65,8 @@ class OthersWrapper extends React.Component {
             clickable={false}
             text="can not click" />
         </div>
-        <h4>Label with icon</h4>
+
+        <h4>...with icon</h4>
         <div>
           <Label
             disabled={disabled}
@@ -45,7 +78,11 @@ class OthersWrapper extends React.Component {
             icon="code-fork"
             theme="flat"
             text="fork me"/>
-          <Label disabled={disabled} icon="code-fork" text="fork me" />
+          <Label
+            disabled={disabled}
+            icon="code-fork"
+            text="fork me"
+          />
         </div>
         <h3>Switcher</h3>
         <h4>Normal size</h4>
@@ -68,20 +105,6 @@ class OthersWrapper extends React.Component {
           <Switcher disabled={disabled} checked={true} size="mini" version="v2" />
           <br/>
           <Switcher disabled={disabled} checked={true} size="mini" version="v3" />
-        </div>
-        <h3>Slider</h3>
-        <h4>Base Slider</h4>
-        <div>
-          <Slider value={15} />
-        </div>
-        <h4>Range Slider</h4>
-        <div>
-          <Slider value={[15, 35]} />
-          <Slider value={[10, 35, 60]} />
-        </div>
-        <h4>...with min range</h4>
-        <div>
-          <Slider value={[15, 35]} minRange={5}/>
         </div>
       </div>
     );

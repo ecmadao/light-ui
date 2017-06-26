@@ -90,3 +90,17 @@
     border: var(--draggerBorder) solid var(--blue);
   }
 }
+
+.dragSection {
+  height: var(--pathwayHeight);
+  width: var(--pathwayHeight);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 2;
+
+  &.light {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}

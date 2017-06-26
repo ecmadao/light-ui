@@ -5,17 +5,22 @@ import objectAssign from 'object-assign';
 import Dragger from './Dragger';
 import ProgressBar from './ProgressBar';
 import styles from './slider.css';
-import Helper from '../../../shared/utils/helper';
+import Utils from '../../../shared/utils/helper';
 
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = objectAssign({}, this.initialState(props), {
-      maxDis: 0
-    });
+    this.state = objectAssign(
+      {},
+      this.initialState(props),
+      {
+        maxDis: 0
+      }
+    );
     this.onChange = this.onChange.bind(this);
     this.onDraging = this.onDraging.bind(this);
     this.onDragEnd = this.onDragEnd.bind(this);
+    this.onDragMove = this.onDragMove.bind(this);
     this.changePosition = this.changePosition.bind(this);
   }
 
@@ -38,8 +43,8 @@ class Slider extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { value } = nextProps;
-    const values = Helper.isArray(value) ? value : [value];
-    if (!Helper.isEqual(values, this.state.values)) {
+    const values = Utils.isArray(value) ? value : [value];
+    if (!Utils.isEqual(values, this.state.values)) {
       this.setState({
         ...this.initialState(nextProps)
       });
@@ -48,7 +53,7 @@ class Slider extends React.Component {
 
   initialState(props) {
     const { value, max, min } = props;
-    const values = Helper.isArray(value) ? value : [value];
+    const values = Utils.isArray(value) ? value : [value];
     const positions = values.map((item) => {
       const left = (item - min) / (max - min);
       return {
@@ -68,20 +73,18 @@ class Slider extends React.Component {
     this.setState({ maxDis });
   }
 
-  onChange(index) {
+  onChange(index, left) {
     const { positions } = this.state;
     const { onChange } = this.props;
-    return (left) => {
-      this.onDragEnd(left, index);
-      const value = this.getValue(left);
-      const returnValue = position => this.getValue(position.left);
-      const results = [
-        ...positions.slice(0, index).map(returnValue),
-        value,
-        ...positions.slice(index + 1).map(returnValue)
-      ];
-      onChange(results.length > 1 ? results : results[0]);
-    };
+    const value = this.getValue(left);
+    const returnValue = position => this.getValue(position.left);
+    const results = [
+      ...positions.slice(0, index).map(returnValue),
+      value,
+      ...positions.slice(index + 1).map(returnValue)
+    ];
+    const result = results.length > 1 ? results : results[0];
+    onChange(result);
   }
 
   getValue(left) {
@@ -90,14 +93,38 @@ class Slider extends React.Component {
   }
 
   onDraging(index) {
-    return left => this.changePosition(index, { left });
+    const { updateWhenDrag } = this.props;
+    return left => {
+      this.changePosition(index, { left });
+      if (updateWhenDrag) {
+        this.onChange(index, left);
+      }
+    };
   }
 
-  onDragEnd(left, index) {
-    this.changePosition(index, { originLeft: left });
+  onDragEnd(index) {
+    return left => {
+      this.changePosition(index, { left, originLeft: left });
+      this.onChange(index, left);
+    };
+  }
+
+  onDragMove(leftPos) {
+    return () => {
+      const { positions } = this.state;
+      const leftOffsets = positions.map(position => Math.abs(position.left - leftPos));
+      const minLeftOffset = Math.min(...leftOffsets).toFixed(2);
+      const index = Utils.findFirstIndex({
+        array: positions,
+        getVal: (position) => position.left,
+        check: val => Math.abs(val - leftPos).toFixed(2) === minLeftOffset
+      });
+      this.onDragEnd(index)(leftPos);
+    };
   }
 
   changePosition(index, position) {
+    if (index <= -1) return;
     const { positions } = this.state;
     this.setState({
       positions: [
@@ -110,7 +137,18 @@ class Slider extends React.Component {
 
   renderDrager() {
     const { positions, maxDis } = this.state;
-    const { color, tipFormatter, minRange, max, min } = this.props;
+    const {
+      max,
+      min,
+      jump,
+      color,
+      useTipso,
+      minRange,
+      minJump,
+      draggerClass,
+      tipsoClass,
+      tipFormatter,
+    } = this.props;
     const minDis = minRange / (max - min);
     return positions.map((item, index) => {
       const { left, originLeft } = item;
@@ -123,15 +161,22 @@ class Slider extends React.Component {
         : 1;
       return (
         <Dragger
+          jump={jump}
           key={index}
           left={left}
+          useTipso={useTipso}
           originLeft={originLeft}
           maxDis={maxDis}
           color={color}
           value={value}
           max={maxPosition}
           min={minPosition}
-          onDragEnd={this.onChange(index)}
+          maxValue={max}
+          minValue={min}
+          minJump={minJump}
+          draggerClass={draggerClass}
+          tipsoClass={tipsoClass}
+          onDragEnd={this.onDragEnd(index)}
           onDraging={this.onDraging(index)}
           tipFormatter={tipFormatter}
         />
@@ -143,7 +188,7 @@ class Slider extends React.Component {
     const { positions } = this.state;
     const { color } = this.props;
     const left = positions.length > 1 ? positions[0].left : 0;
-    const right = positions.slice(-1)[0].left;
+    const right = 1 - positions.slice(-1)[0].left;
     return (
       <ProgressBar
         color={color}
@@ -151,6 +196,33 @@ class Slider extends React.Component {
         right={right}
       />
     );
+  }
+
+  renderSections() {
+    const { clickable, max, min, minJump, jump } = this.props;
+    if (!clickable || !jump || minJump <= 0) return null;
+    const { positions } = this.state;
+    const lefts = positions.map(position => position.left);
+    let maxLeft = Math.min(...lefts);
+    const maxRight = Math.max(...lefts);
+    if (positions.length === 1) {
+      maxLeft = 0;
+    }
+    const length = (max - min) / minJump;
+    return Utils.createArray(length + 2).map((val, index) => {
+      const left = index / length;
+      return (
+        <div
+          key={index}
+          style={{ left: `${left * 100}%` }}
+          className={cx(
+            styles.dragSection,
+            left >= maxLeft && left <= maxRight && styles.light
+          )}
+          onClick={this.onDragMove(left)}
+        />
+      );
+    });
   }
 
   render() {
@@ -164,6 +236,7 @@ class Slider extends React.Component {
         <div
           className={styles.pathway}
           ref={ref => this.pathway = ref}>
+          {this.renderSections()}
           {this.renderDrager()}
           {this.renderProgressBar()}
         </div>
@@ -183,7 +256,14 @@ Slider.propTypes = {
   ]),
   minRange: PropTypes.number,
   color: PropTypes.string,
-  onChange: PropTypes.func
+  draggerClass: PropTypes.string,
+  tipsoClass: PropTypes.string,
+  onChange: PropTypes.func,
+  useTipso: PropTypes.bool,
+  jump: PropTypes.bool,
+  minJump: PropTypes.number,
+  clickable: PropTypes.bool,
+  updateWhenDrag: PropTypes.bool,
 };
 
 Slider.defaultProps = {
@@ -192,9 +272,16 @@ Slider.defaultProps = {
   min: 0,
   max: 100,
   value: 10,
-  minRange: 0,
+  minRange: 1,
   color: 'green',
-  onChange: () => {}
+  onChange: () => {},
+  useTipso: true,
+  draggerClass: '',
+  tipsoClass: '',
+  jump: false,
+  minJump: 1,
+  clickable: false,
+  updateWhenDrag: false,
 };
 
 export default Slider;
