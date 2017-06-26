@@ -30,9 +30,23 @@ const findFirstIndex = (options = {}) => {
   return index;
 };
 
+export const checkSameArray = (arrayA, arrayB) => {
+  if (arrayA.length !== arrayB.length) return false;
+  let same = true;
+  for (let i = 0; i < arrayA.length; i += 1) {
+    const item = arrayA[i];
+    if (!arrayB.filter(i => i === item).length) {
+      same = false;
+      break;
+    }
+  }
+  return same;
+};
+
 export default {
   isArray,
   isEqual,
   createArray,
+  checkSameArray,
   findFirstIndex,
 };

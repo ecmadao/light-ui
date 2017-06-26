@@ -99,28 +99,26 @@ class Dragger extends React.Component {
       minValue,
       minJump,
       maxDis,
+      maxLeft,
       onDragEnd,
       onDraging,
     } = this.props;
-    if (this.startX !== dragX) {
-      const percentage = (dragX - this.startX) / maxDis;
-      let validateLeft = darg.validatePosition(
-        this.props.originLeft + percentage, min, max);
+    const leftLength = dragX - maxLeft;
+    const offsetPercentage = leftLength / maxDis;
 
-      if (jump) {
-        let val = validateLeft * (maxValue - minValue);
-        const integerVal = Math.floor(val);
-        if ((val - integerVal) > minJump / 2) {
-          val = integerVal + 1;
-        } else {
-          val = integerVal;
-        }
-        validateLeft = val / (maxValue - minValue);
-      }
-      onDraging && onDraging(validateLeft);
-      if (mouseUp) {
-        onDragEnd && onDragEnd(validateLeft);
-      }
+    let validateLeft = darg.validatePosition(
+      offsetPercentage, min, max);
+    if (jump) {
+      let val = validateLeft * (maxValue - minValue);
+      const offset = val % minJump;
+      val = offset > (minJump / 2)
+        ? val - offset + minJump
+        : val - offset;
+      validateLeft = val / (maxValue - minValue);
+    }
+    onDraging && onDraging(validateLeft);
+    if (mouseUp) {
+      onDragEnd && onDragEnd(validateLeft);
     }
   }
 
@@ -174,7 +172,6 @@ Dragger.propTypes = {
   color: PropTypes.string,
   left: PropTypes.number,
   value: PropTypes.number,
-  originLeft: PropTypes.number,
   maxDis: PropTypes.number,
   min: PropTypes.number,
   max: PropTypes.number,
@@ -188,7 +185,6 @@ Dragger.propTypes = {
 Dragger.defaultProps = {
   left: 0,
   value: 0,
-  originLeft: 0,
   maxDis: 0,
   min: 0,
   max: 0,

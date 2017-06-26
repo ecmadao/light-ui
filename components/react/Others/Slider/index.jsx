@@ -42,8 +42,7 @@ class Slider extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { value } = nextProps;
-    const values = Utils.isArray(value) ? value : [value];
+    const values = this.validateValues(nextProps);
     if (!Utils.isEqual(values, this.state.values)) {
       this.setState({
         ...this.initialState(nextProps)
@@ -51,15 +50,18 @@ class Slider extends React.Component {
     }
   }
 
-  initialState(props) {
-    const { value, max, min } = props;
+  validateValues(props) {
+    const { value } = props;
     const values = Utils.isArray(value) ? value : [value];
+    return values;
+  }
+
+  initialState(props) {
+    const { max, min } = props;
+    const values = this.validateValues(props);
     const positions = values.map((item) => {
       const left = (item - min) / (max - min);
-      return {
-        left,
-        originLeft: left
-      };
+      return { left };
     });
     return {
       positions,
@@ -70,7 +72,8 @@ class Slider extends React.Component {
   resetOrigin() {
     const pathway = ReactDOM.findDOMNode(this.pathway).getBoundingClientRect();
     const maxDis = pathway.width;
-    this.setState({ maxDis });
+    const maxLeft = pathway.left;
+    this.setState({ maxDis, maxLeft });
   }
 
   onChange(index, left) {
@@ -83,8 +86,10 @@ class Slider extends React.Component {
       value,
       ...positions.slice(index + 1).map(returnValue)
     ];
-    const result = results.length > 1 ? results : results[0];
-    onChange(result);
+    if (!Utils.checkSameArray(results, this.validateValues(this.props))) {
+      const result = results.length > 1 ? results : results[0];
+      onChange(result);
+    }
   }
 
   getValue(left) {
@@ -104,7 +109,7 @@ class Slider extends React.Component {
 
   onDragEnd(index) {
     return left => {
-      this.changePosition(index, { left, originLeft: left });
+      this.changePosition(index, { left });
       this.onChange(index, left);
     };
   }
@@ -136,7 +141,7 @@ class Slider extends React.Component {
   }
 
   renderDrager() {
-    const { positions, maxDis } = this.state;
+    const { positions, maxDis, maxLeft } = this.state;
     const {
       max,
       min,
@@ -151,7 +156,7 @@ class Slider extends React.Component {
     } = this.props;
     const minDis = minRange / (max - min);
     return positions.map((item, index) => {
-      const { left, originLeft } = item;
+      const { left } = item;
       const value = this.getValue(left);
       const minPosition = index - 1 >= 0
         ? positions[index - 1].left + minDis
@@ -165,8 +170,8 @@ class Slider extends React.Component {
           key={index}
           left={left}
           useTipso={useTipso}
-          originLeft={originLeft}
           maxDis={maxDis}
+          maxLeft={maxLeft}
           color={color}
           value={value}
           max={maxPosition}
