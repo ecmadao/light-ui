@@ -76,8 +76,13 @@ class Slider extends React.Component {
     this.setState({ maxDis, maxLeft });
   }
 
-  onChange(index, left) {
-    const { positions } = this.state;
+  onChange(options = {}) {
+    const {
+      index,
+      left,
+      pos = null
+    } = options;
+    const positions = pos || this.state.positions;
     const { onChange } = this.props;
     const value = this.getValue(left);
     const returnValue = position => this.getValue(position.left);
@@ -94,23 +99,31 @@ class Slider extends React.Component {
 
   getValue(left) {
     const { max, min } = this.props;
-    return parseInt(left * (max - min) + min, 10);
+    return Math.round(left * (max - min) + min);
   }
 
   onDraging(index) {
     const { updateWhenDrag } = this.props;
     return left => {
-      this.changePosition(index, { left });
+      const pos = this.changePosition(index, { left });
       if (updateWhenDrag) {
-        this.onChange(index, left);
+        this.onChange({
+          index,
+          left,
+          pos
+        });
       }
     };
   }
 
   onDragEnd(index) {
     return left => {
-      this.changePosition(index, { left });
-      this.onChange(index, left);
+      const pos = this.changePosition(index, { left });
+      this.onChange({
+        index,
+        left,
+        pos
+      });
     };
   }
 
@@ -129,15 +142,17 @@ class Slider extends React.Component {
   }
 
   changePosition(index, position) {
-    if (index <= -1) return;
+    if (index <= -1) return null;
     const { positions } = this.state;
+    const newPos = [
+      ...positions.slice(0, index),
+      objectAssign({}, positions[index], position),
+      ...positions.slice(index + 1)
+    ];
     this.setState({
-      positions: [
-        ...positions.slice(0, index),
-        objectAssign({}, positions[index], position),
-        ...positions.slice(index + 1)
-      ]
+      positions: newPos
     });
+    return newPos;
   }
 
   renderDrager() {
