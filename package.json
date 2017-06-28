@@ -1,6 +1,6 @@
 {
   "name": "light-ui",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "Components of hacknical",
   "main": "./lib/index.js",
   "scripts": {
