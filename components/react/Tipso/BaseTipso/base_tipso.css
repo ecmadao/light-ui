@@ -8,6 +8,12 @@
   --triangleWidth: 8px;
   --triangleHeight: 5px;
   --triangleOffset: 6px;
+
+  --speed: .2s;
+  --easing: cubic-bezier(.55,0,.1,1);
+  --modalContentOpacity: 0;
+  --scale: scale(0.8);
+  --scaleActive: scale(1);
 }
 
 .tipso-wrapper {
@@ -34,17 +40,23 @@
   display: flex;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  visibility: hidden;
   line-height: 1em;
   min-width: 100px;
   font-size: 12px;
-  z-index: var(--zIndexHidden);
   composes: baseSubText;
 
+  z-index: var(--zIndex0);
+  opacity: var(--modalContentOpacity);
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: var(--scale) translateX(-50%);
+  transition: all var(--speed) var(--easing);
+
   &.active {
-    visibility: visible;
     z-index: var(--zIndex99);
+    visibility: visible;
+    opacity: 1;
+    transform: var(--scaleActive) translateX(-50%);
   }
 
   &::before,
