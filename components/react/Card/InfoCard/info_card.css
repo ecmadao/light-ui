@@ -86,11 +86,9 @@
   position: absolute;
   right: 10px;
   top: 5px;
-  color: var(--gray);
 
   & i {
     font-size: 14px;
-    /*cursor: pointer;*/
     margin-right: 0 !important;
   }
 }
@@ -100,12 +98,10 @@
   font-size: 12px;
   line-height: 1.5em;
   bottom: 30px;
-  color: var(--gray-dark);
 }
 
 @media (max-width: 800px) {
   .chart_info {
-    /*padding: 0;*/
     padding: 0 10px;
   }
 

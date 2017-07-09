@@ -14,7 +14,8 @@ const InfoCard = (props) => {
     subText,
     className,
     mainTextStyle,
-    subTextStyle
+    subTextStyle,
+    tipsoTheme
   } = props;
 
   const infoClass = cx(
@@ -34,6 +35,7 @@ const InfoCard = (props) => {
     <div className={infoClass} style={style}>
       {tipso ? (
         <Tipso
+          theme={tipsoTheme}
           tipsoStyle={tipso.style || {}}
           className={styles["info_tipso"]}
           wrapperClass={styles["info_tipso_wrapper"]}
@@ -71,7 +73,8 @@ InfoCard.propTypes = {
   ]),
   tipso: PropTypes.object,
   style: PropTypes.object,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  tipsoTheme: PropTypes.string,
 };
 
 InfoCard.defaultProps = {
@@ -83,7 +86,8 @@ InfoCard.defaultProps = {
   icon: null,
   tipso: null,
   style: {},
-  theme: 'material'
+  theme: 'material',
+  tipsoTheme: 'light',
 };
 
 export default InfoCard;

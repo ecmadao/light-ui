@@ -67,6 +67,15 @@ class CardWrapper extends React.Component {
               text: 'This is material theme'
             }}
           />
+          <InfoCard
+            mainText="Material Theme"
+            subText="2017"
+            style={{ textAlign: 'left' }}
+            tipsoTheme="dark"
+            tipso={{
+              text: 'This is material theme'
+            }}
+          />
         </div>
         <h3>Card Group</h3>
         <div>
