@@ -64,8 +64,8 @@ class Slider extends React.Component {
       return { left };
     });
     return {
+      values,
       positions,
-      values
     };
   }
 
@@ -108,9 +108,9 @@ class Slider extends React.Component {
       const pos = this.changePosition(index, { left });
       if (updateWhenDrag) {
         this.onChange({
-          index,
+          pos,
           left,
-          pos
+          index,
         });
       }
     };
@@ -130,7 +130,9 @@ class Slider extends React.Component {
   onDragMove(leftPos) {
     return () => {
       const { positions } = this.state;
-      const leftOffsets = positions.map(position => Math.abs(position.left - leftPos));
+      const leftOffsets = positions.map(
+        position => Math.abs(position.left - leftPos)
+      );
       const minLeftOffset = Math.min(...leftOffsets).toFixed(2);
       const index = Utils.findFirstIndex({
         array: positions,
@@ -162,11 +164,12 @@ class Slider extends React.Component {
       min,
       jump,
       color,
-      useTipso,
-      minRange,
       minJump,
-      draggerClass,
+      minRange,
+      useTipso,
+      showTipso,
       tipsoClass,
+      draggerClass,
       tipFormatter,
     } = this.props;
     const minDis = minRange / (max - min);
@@ -184,7 +187,6 @@ class Slider extends React.Component {
           jump={jump}
           key={index}
           left={left}
-          useTipso={useTipso}
           maxDis={maxDis}
           maxLeft={maxLeft}
           color={color}
@@ -194,6 +196,8 @@ class Slider extends React.Component {
           maxValue={max}
           minValue={min}
           minJump={minJump}
+          useTipso={useTipso}
+          showTipso={showTipso}
           draggerClass={draggerClass}
           tipsoClass={tipsoClass}
           onDragEnd={this.onDragEnd(index)}
@@ -255,7 +259,8 @@ class Slider extends React.Component {
       <div className={containerClass}>
         <div
           className={styles.pathway}
-          ref={ref => this.pathway = ref}>
+          ref={ref => this.pathway = ref}
+        >
           {this.renderSections()}
           {this.renderDrager()}
           {this.renderProgressBar()}
@@ -280,6 +285,7 @@ Slider.propTypes = {
   tipsoClass: PropTypes.string,
   onChange: PropTypes.func,
   useTipso: PropTypes.bool,
+  showTipso: PropTypes.bool,
   jump: PropTypes.bool,
   minJump: PropTypes.number,
   clickable: PropTypes.bool,
@@ -296,6 +302,7 @@ Slider.defaultProps = {
   color: 'green',
   onChange: () => {},
   useTipso: true,
+  showTipso: false,
   draggerClass: '',
   tipsoClass: '',
   jump: false,

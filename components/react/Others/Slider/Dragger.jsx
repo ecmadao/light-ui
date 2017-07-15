@@ -9,7 +9,8 @@ class Dragger extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      draging: false
+      draging: false,
+      showTipso: props.showTipso
     };
     this.startX = 0;
 
@@ -71,7 +72,8 @@ class Dragger extends React.Component {
   handleMouseUp(e) {
     if (this.state.draging) {
       this.setState({
-        draging: false
+        draging: false,
+        showTipso: false,
       });
       const pos = darg.mousePosition(e);
       this.setLeft(pos, true);
@@ -129,6 +131,7 @@ class Dragger extends React.Component {
       value,
       tipFormatter,
       useTipso,
+      showTipso,
       draggerClass,
       tipsoClass
     } = this.props;
@@ -141,6 +144,7 @@ class Dragger extends React.Component {
     return (
       <Tipso
         theme="dark"
+        show={showTipso}
         disabled={!useTipso}
         show={this.state.draging}
         tipsoContent={(
@@ -149,7 +153,9 @@ class Dragger extends React.Component {
               textAlign: 'center',
               minWidth: `${(tipsoValue.length + 1) * 5}px`
             }}
-          >{tipsoValue}</div>
+          >
+            {tipsoValue}
+          </div>
         )}
         className={cx(
           styles.tipso,
@@ -158,11 +164,13 @@ class Dragger extends React.Component {
         wrapperClass={styles['dragger-container']}
         wrapperStyle={{
           left: `${left * 100}%`
-        }}>
+        }}
+      >
         <div
           className={dragClass}
           ref={ref => this.dragger = ref}
-          onMouseDown={this.handleMouseDown}></div>
+          onMouseDown={this.handleMouseDown}
+        />
       </Tipso>
     );
   }
@@ -178,6 +186,7 @@ Dragger.propTypes = {
   onDragEnd: PropTypes.func,
   onDraging: PropTypes.func,
   useTipso: PropTypes.bool,
+  showTipso: PropTypes.bool,
   draggerClass: PropTypes.string,
   tipsoClass: PropTypes.string,
 };
@@ -192,6 +201,7 @@ Dragger.defaultProps = {
   onDragEnd: () => {},
   onDraging: () => {},
   useTipso: true,
+  showTipso: false,
   draggerClass: '',
   tipsoClass: '',
 };

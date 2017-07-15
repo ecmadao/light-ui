@@ -2,23 +2,22 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import styles from './slider.css';
 
-class ProgressBar extends React.Component {
-  render() {
-    const { left, right, color } = this.props;
-    const barClass = cx(
-      styles['progress-bar'],
-      color && styles[`bar-${color}`]
-    );
-    return (
-      <div
-        style={{
-          left: `${left * 100}%`,
-          right: `${right * 100}%`
-        }}
-        className={barClass}></div>
-    );
-  }
-}
+const ProgressBar = (props) => {
+  const { left, right, color } = props;
+  const barClass = cx(
+    styles['progress-bar'],
+    color && styles[`bar-${color}`]
+  );
+  return (
+    <div
+      style={{
+        left: `${left * 100}%`,
+        right: `${right * 100}%`
+      }}
+      className={barClass}
+    />
+  );
+};
 
 ProgressBar.propTypes = {
   left: PropTypes.number,
