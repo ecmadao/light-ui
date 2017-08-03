@@ -1,4 +1,5 @@
-import React, { PropTypes, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import styles from './base_tipso.css';

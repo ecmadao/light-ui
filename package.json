@@ -25,8 +25,9 @@
     "moment": "^2.15.2",
     "object-assign": "^4.1.1",
     "open-color": "^1.4.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0",
     "react-portal": "^3.0.0",
     "validator": "^6.2.0"
   },

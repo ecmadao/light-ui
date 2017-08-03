@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './base_modal.css';
 
@@ -20,7 +21,7 @@ class BaseModal extends React.Component {
         <div className={styles["modal_wrapper"]} onClick={this.onClose.bind(this)}></div>
         {children}
       </div>
-    )
+    );
   }
 }
 

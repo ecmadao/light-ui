@@ -1,4 +1,5 @@
-import React, { PropTypes, cloneElement } from 'react';
+import React, { cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Helper from '../../../shared/utils/helper';
 import styles from './card_group.css';
