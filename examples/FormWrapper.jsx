@@ -130,6 +130,7 @@ class FormWrapper extends React.Component {
           <InputGroup
             value={value}
             disabled={disabled}
+            tipsoTheme="dark"
             placeholder="input group with intro"
             onChange={this.onChange}>
             <div style={{ fontSize: '12px' }}>

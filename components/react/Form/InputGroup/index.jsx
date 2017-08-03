@@ -9,10 +9,12 @@ class InputGroup extends React.Component {
   render() {
     const {
       children,
-      wrapperStyle,
       tipsoStyle,
+      tipsoTheme,
+      wrapperStyle,
+      tipsoClassName,
       inputClassName,
-      wrapperClassName
+      wrapperClassName,
     } = this.props;
 
     return (
@@ -23,7 +25,9 @@ class InputGroup extends React.Component {
           margin: '0 5px'
         }}
         tipsoStyle={{...tipsoStyle}}
+        theme={tipsoTheme}
         wrapperClass={wrapperClassName}
+        className={tipsoClassName}
         tipsoContent={children}>
         <Input
           {...this.props}
@@ -35,7 +39,9 @@ class InputGroup extends React.Component {
 }
 
 InputGroup.propTypes = {
+  tipsoTheme: PropTypes.string,
   inputClassName: PropTypes.string,
+  tipsoClassName: PropTypes.string,
   wrapperClassName: PropTypes.string,
   wrapperStyle: PropTypes.object,
   tipsoStyle: PropTypes.object,
@@ -43,7 +49,9 @@ InputGroup.propTypes = {
 };
 
 InputGroup.defaultProps = {
+  tipsoTheme: 'light',
   inputClassName: '',
+  tipsoClassName: '',
   wrapperClassName: '',
   wrapperStyle: {},
   tipsoStyle: {},
