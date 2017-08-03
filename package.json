@@ -1,6 +1,6 @@
 {
   "name": "light-ui",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "Components of hacknical",
   "main": "./lib/index.js",
   "scripts": {
@@ -22,15 +22,17 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
-    "create-react-class": "^15.6.0",
     "moment": "^2.15.2",
     "object-assign": "^4.1.1",
     "open-color": "^1.4.0",
     "prop-types": "^15.5.10",
+    "validator": "^6.2.0",
+    "react-portal": "^3.0.0"
+  },
+  "peerDependencies": {
+    "create-react-class": "^15.6.0",
     "react": "^15.6.0",
-    "react-dom": "^15.6.0",
-    "react-portal": "^3.0.0",
-    "validator": "^6.2.0"
+    "react-dom": "^15.6.0"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.24.1",
