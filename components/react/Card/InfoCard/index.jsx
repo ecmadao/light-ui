@@ -11,12 +11,12 @@ const InfoCard = (props) => {
     tipso,
     theme,
     style,
-    mainText,
     subText,
+    mainText,
     className,
-    mainTextStyle,
+    tipsoTheme,
     subTextStyle,
-    tipsoTheme
+    mainTextStyle,
   } = props;
 
   const infoClass = cx(
@@ -25,16 +25,18 @@ const InfoCard = (props) => {
     tipso && styles["with-tipso"],
     className
   );
-
   const iconElement = typeof icon === 'string'
-    ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
-    : icon;
+  ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+  : icon;
   const tipsoIcon = tipso && typeof tipso.icon === 'object'
     ? tipso.icon : (icons.info);
 
-  return (
-    <div className={infoClass} style={style}>
-      {tipso ? (
+  let tipsoDOM = null;
+  if (tipso !== null) {
+    if (!tipso.text && !tipso.icon) {
+      tipsoDOM = tipso;
+    } else {
+      tipsoDOM = (
         <Tipso
           theme={tipsoTheme}
           tipsoStyle={tipso.style || {}}
@@ -43,7 +45,13 @@ const InfoCard = (props) => {
           tipsoContent={(<span>{tipso.text}</span>)}>
           {tipsoIcon}
         </Tipso>
-      ) : ''}
+      );
+    }
+  }
+
+  return (
+    <div className={infoClass} style={style}>
+      {tipsoDOM}
       <div className={cx(styles["info_main_text"], mainTextStyle)}>
         {icon ? iconElement : ''}
         {mainText}
@@ -58,11 +66,15 @@ const InfoCard = (props) => {
 InfoCard.propTypes = {
   mainText: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
+    PropTypes.node,
+    PropTypes.element,
   ]),
   subText: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
+    PropTypes.node,
+    PropTypes.element,
   ]),
   mainTextStyle: PropTypes.string,
   subTextStyle: PropTypes.string,
@@ -72,7 +84,11 @@ InfoCard.propTypes = {
     PropTypes.element,
     PropTypes.string
   ]),
-  tipso: PropTypes.object,
+  tipso: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.object
+  ]),
   style: PropTypes.object,
   theme: PropTypes.string,
   tipsoTheme: PropTypes.string,

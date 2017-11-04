@@ -1,6 +1,7 @@
 import React from 'react';
 import InfoCard from '../components/react/Card/InfoCard';
 import CardGroup from '../components/react/Card/CardGroup';
+import styles from './shared/styles.css';
 
 class CardWrapper extends React.Component {
   render() {
@@ -75,6 +76,17 @@ class CardWrapper extends React.Component {
             tipso={{
               text: 'This is material theme'
             }}
+          />
+        </div>
+        <h3>Inject custom node on card</h3>
+        <div>
+          <InfoCard
+            mainText="Material Theme"
+            subText="2017"
+            style={{ textAlign: 'left' }}
+            tipso={(<div className={styles.customIcon}>
+              <i className="fa fa-github" aria-hidden="true" />
+            </div>)}
           />
         </div>
         <h3>Card Group</h3>

@@ -16,3 +16,14 @@
 .tipsoClass {
   padding: 10px;
 }
+
+.customIcon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+
+  & i {
+    font-size: 14px;
+    margin-right: 0 !important;
+  }
+}
