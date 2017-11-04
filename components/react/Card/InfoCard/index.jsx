@@ -56,9 +56,11 @@ const InfoCard = (props) => {
         {icon ? iconElement : ''}
         {mainText}
       </div>
-      <div className={cx(styles["info_sub_text"], subTextStyle)}>
-        {subText}
-      </div>
+      {typeof subText === 'string' ? (
+        <div className={cx(styles["info_sub_text"], subTextStyle)}>
+          {subText}
+        </div>
+      ) : subText}
     </div>
   );
 };
