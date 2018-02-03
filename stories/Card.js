@@ -1,6 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-
+import { storiesOf } from '@storybook/react';
 import CardWrapper from '../examples/CardWrapper';
 
 storiesOf('Card', module)
