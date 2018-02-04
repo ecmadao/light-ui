@@ -38,9 +38,7 @@ class ShortMessage extends React.Component {
     );
 
     return (
-      <Portal
-        onClose={onClose}
-        isOpened={show}>
+      <Portal>
         <div
           ref={ref => (this.messageModal = ref)}
           className={messageClass}>
@@ -54,7 +52,7 @@ class ShortMessage extends React.Component {
 ShortMessage.propTypes = {
   onClose: PropTypes.func,
   expire: PropTypes.number,
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 ShortMessage.defaultProps = {

@@ -11,6 +11,7 @@ export Textarea from './react/Form/Textarea';
 
 export Loading from './react/Modal/Loading';
 export PortalModal from './react/Modal/PortalModal';
+export PortalModalWithState from './react/Modal/PortalModalWithState';
 export ShortMessage from './react/Modal/ShortMessage';
 
 export Tipso from './react/Tipso/Tipso';
@@ -21,3 +22,5 @@ export CardGroup from './react/Card/CardGroup';
 export Label from './react/Others/Label';
 export Switcher from './react/Others/Switcher';
 export Slider from './react/Others/Slider';
+
+export OutsideClickHandler from './react/Others/OutsideClickHandler';

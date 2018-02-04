@@ -2,19 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 import BaseModal from '../BaseModal';
+import OutsideClickHandler from '../../Others/OutsideClickHandler';
 
 const PortalModal = (props) => {
-  const { closeOnEsc, showModal, onClose, closeOnOutsideClick, children } = props;
+  const {
+    onClose,
+    children,
+    showModal,
+    closeOnEsc,
+    closeOnOutsideClick,
+  } = props;
   return (
-    <Portal
-      closeOnEsc={closeOnEsc}
-      isOpened={showModal}
-      onClose={onClose}
-      closeOnOutsideClick={closeOnOutsideClick}>
-      <BaseModal showModal={true} onClose={onClose}>
-        {children}
-      </BaseModal>
-    </Portal>
+    <OutsideClickHandler
+      onKeydown={onClose}
+      onOutsideClick={onClose}
+      responseKeydown={closeOnEsc}
+      responseOutsideClick={closeOnOutsideClick}
+    >
+      <Portal>
+        <BaseModal showModal={showModal} onClose={onClose}>
+          {children}
+        </BaseModal>
+      </Portal>
+    </OutsideClickHandler>
   );
 };
 
@@ -26,7 +36,7 @@ PortalModal.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.array
-  ])
+  ]),
 };
 
 PortalModal.defaultProps = {
@@ -34,7 +44,7 @@ PortalModal.defaultProps = {
   showModal: false,
   closeOnOutsideClick: false,
   onClose: () => {},
-  children: (<div></div>)
+  children: (<div></div>),
 };
 
 export default PortalModal;
