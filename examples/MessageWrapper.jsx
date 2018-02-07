@@ -1,7 +1,9 @@
 import React from 'react';
 import Button from '../components/react/Button/Button';
 import Input from '../components/react/Form/Input';
+import Switcher from '../components/react/Others/Switcher';
 import Message from '../components/raw/Message';
+import styles from './shared/styles.css';
 
 const message = new Message();
 
@@ -10,9 +12,11 @@ class MessageWrapper extends React.Component {
     super(props);
     this.state = {
       expire: '',
-      text: 'change message content'
+      text: 'change message content',
+      isMobile: false
     };
     this.onClick = this.onClick.bind(this);
+    this.onSwitch = this.onSwitch.bind(this);
     this.onExpireChange = this.onExpireChange.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
   }
@@ -25,6 +29,15 @@ class MessageWrapper extends React.Component {
     this.setState({ text });
   }
 
+  onSwitch() {
+    this.setState({
+      isMobile: !this.state.isMobile
+    });
+    message.setState({
+      isMobile: !this.state.isMobile
+    });
+  }
+
   onClick() {
     let expire = parseInt(this.state.expire);
     if (isNaN(expire)) { expire = 3000; }
@@ -32,7 +45,7 @@ class MessageWrapper extends React.Component {
   }
 
   render() {
-    const { showSMS, text } = this.state;
+    const { showSMS, text, isMobile } = this.state;
     return (
       <div id="components-container">
         <h3>Change Message</h3>
@@ -49,6 +62,12 @@ class MessageWrapper extends React.Component {
             onChange={this.onTextChange}
             placeholder="message content"
           />
+        </div>
+        <div className={styles.lineItem}>
+          <div className={styles.lineText}>
+            模拟手机端通知/Simulate Message In Mobile
+          </div>
+          <Switcher checked={isMobile} onChange={this.onSwitch} version="v2" />
         </div>
         <div>
           <Button

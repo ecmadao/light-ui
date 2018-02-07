@@ -23,7 +23,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "moment": "^2.15.2",
-    "object-assign": "^4.1.1",
     "open-color": "^1.4.0",
     "prop-types": "^15.6.0",
     "validator": "^6.2.0",

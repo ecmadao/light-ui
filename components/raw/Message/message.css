@@ -55,6 +55,17 @@
   }
 }
 
+.mobile_message {
+  top: inherit;
+  bottom: -120%;
+  transition: bottom 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &.active {
+    bottom: 20px;
+    top: inherit;
+  }
+}
+
 @media (max-width: 500px) {
   .message_component {
     font-size: 12px;

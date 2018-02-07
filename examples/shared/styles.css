@@ -27,3 +27,17 @@
     margin-right: 0 !important;
   }
 }
+
+.lineItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.lineText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import objectAssign from 'object-assign';
+import objectAssign from '../../../shared/utils/objectAssign';
 import BaseButton from '../BaseButton';
 
 const Button = (props) => {

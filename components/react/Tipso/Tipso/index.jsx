@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import objectAssign from 'object-assign';
 import BaseTipso from '../BaseTipso';
+import objectAssign from '../../../shared/utils/objectAssign';
 
 const Tipso = (props) => {
   const { children } = props;

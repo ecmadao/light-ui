@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import objectAssign from 'object-assign';
+import objectAssign from '../../../shared/utils/objectAssign';
 import BaseButton from '../BaseButton';
 import styles from './icon_button.css';
 

@@ -1,5 +1,7 @@
 import cx from 'classnames';
 import styles from './message.css';
+import uuid from '../../shared/utils/uuid';
+import objectAssign from '../../shared/utils/objectAssign';
 
 const Message = (...args) => {
   let messageComponent = null;
@@ -12,56 +14,78 @@ const Message = (...args) => {
 };
 
 class MessageComponent {
-  constructor(content = '', type = 'positive', timeOut = 2500) {
-    this.timeOut = timeOut;
-    this.type = type;
+  constructor(options = {}) {
+    const {
+      content = '',
+      timeout = 2500,
+      isMobile = false,
+      type = 'positive',
+    } = options;
+    this.state = {
+      type,
+      content,
+      timeout,
+      isMobile,
+    };
+    this.timeout = null;
     this.$body = document.body;
-    this.$message = this.messageTemplate(content);
+    this.$message = this.messageTemplate();
     this.appendMessage();
   }
 
-  error(msg, timeOut) {
+  setState(newState) {
+    this.timeout && clearTimeout(this.timeout);
+    this.timeout = null;
+    const { isMobile } = this.state;
+    objectAssign(this.state, newState);
+    if (newState.isMobile !== undefined && newState.isMobile !== isMobile) {
+      this.resetTemplate();
+    }
+  }
+
+  error(msg, timeout) {
     this.$message.classList.remove(styles['positive']);
     this.$message.classList.remove(styles['tips']);
     this.$message.classList.add(styles['negative']);
     this.$message.childNodes[0].innerHTML = msg;
 
-    this.showMessage(timeOut);
+    this.showMessage(timeout);
   }
 
-  notice(msg, timeOut) {
+  notice(msg, timeout) {
     this.$message.classList.remove(styles['negative']);
     this.$message.classList.remove(styles['tips']);
     this.$message.classList.add(styles['positive']);
     this.$message.childNodes[0].innerHTML = msg;
 
-    this.showMessage(timeOut);
+    this.showMessage(timeout);
   }
 
-  tips(msg, timeOut) {
+  tips(msg, timeout) {
     this.$message.classList.remove(styles['negative']);
     this.$message.classList.remove(styles['positive']);
     this.$message.classList.add(styles['tips']);
     this.$message.childNodes[0].innerHTML = msg;
 
-    this.showMessage(timeOut);
+    this.showMessage(timeout);
   }
 
-  showMessage(timeOut = this.timeOut) {
+  showMessage(timeout = this.state.timeout) {
     this.$message.classList.add(styles['active']);
-    this.autoHideMessage(timeOut);
+    this.autoHideMessage(timeout);
   }
 
-  autoHideMessage(timeOut) {
+  autoHideMessage(timeout) {
     const hideMessage = () => {
       this.$message.classList.remove(styles['active']);
     };
-    setTimeout(hideMessage, timeOut);
+    this.timeout = setTimeout(hideMessage, timeout);
   }
 
   appendMessage() {
     this.$body.appendChild(this.$message);
     const closeIcon = this.$message.childNodes[1];
+    if (!closeIcon) return;
     const closeFunc = () => {
       this.$message.classList.remove(styles['active']);
     };
@@ -72,11 +96,24 @@ class MessageComponent {
     }
   }
 
-  messageTemplate(content) {
+  messageTemplate() {
+    const { type, content, isMobile } = this.state;
+    const id = uuid();
     const message = document.createElement('div');
-    message.className = cx(styles['message_component'], styles[this.type]);
-    message.innerHTML = `<div class="${styles['message_content']}">${content}</div><i class="fa fa-times" id="message_close_icon" aria-hidden="true"></i>`;
+    message.className = cx(
+      styles['message_component'],
+      styles[type],
+      isMobile && styles['mobile_message']
+    );
+    message.innerHTML = `<div id="${id}" class="${styles['message_content']}">${content}</div>${isMobile ? '' : '<i class="fa fa-times" aria-hidden="true"></i>'}`;
+    this.setState({ id });
     return message;
+  }
+
+  resetTemplate() {
+    this.$message.remove();
+    this.$message = this.messageTemplate();
+    this.appendMessage();
   }
 }
 
