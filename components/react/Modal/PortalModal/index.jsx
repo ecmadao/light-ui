@@ -14,6 +14,7 @@ const PortalModal = (props) => {
   } = props;
   return (
     <OutsideClickHandler
+      targetKey={27}
       onKeydown={onClose}
       onOutsideClick={onClose}
       responseKeydown={closeOnEsc}

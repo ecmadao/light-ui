@@ -14,7 +14,7 @@
     "build": "cross-env NODE_ENV=production npm run babel && npm run css",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "storybook-deploy": "npm run storybook-pro && npm run deploy-storybook",
+    "storybook-deploy": "npm i && npm run storybook-pro && npm run deploy-storybook",
     "storybook-pro": "build-storybook -c .storybook -o .out",
     "eslint": "./node_modules/.bin/eslint components"
   },
