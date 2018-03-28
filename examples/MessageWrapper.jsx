@@ -11,18 +11,18 @@ class MessageWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      expire: '',
-      text: 'change message content',
+      ttl: '',
+      text: '',
       isMobile: false
     };
     this.onClick = this.onClick.bind(this);
     this.onSwitch = this.onSwitch.bind(this);
-    this.onExpireChange = this.onExpireChange.bind(this);
+    this.onttlChange = this.onttlChange.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
   }
 
-  onExpireChange(expire) {
-    this.setState({ expire });
+  onttlChange(ttl) {
+    this.setState({ ttl });
   }
 
   onTextChange(text) {
@@ -39,9 +39,9 @@ class MessageWrapper extends React.Component {
   }
 
   onClick() {
-    let expire = parseInt(this.state.expire);
-    if (isNaN(expire)) { expire = 3000; }
-    message.notice(this.state.text, expire);
+    let ttl = parseInt(this.state.ttl);
+    if (isNaN(ttl)) { ttl = 3; }
+    message.notice(this.state.text || 'message content', ttl * 1000);
   }
 
   render() {
@@ -51,10 +51,10 @@ class MessageWrapper extends React.Component {
         <h3>Change Message</h3>
         <div>
           <Input
-            value={this.state.expire}
+            value={this.state.ttl}
             required={false}
-            onChange={this.onExpireChange}
-            placeholder="expire time (s)"
+            onChange={this.onttlChange}
+            placeholder="ttl (s)"
           />
           <Input
             value={text}

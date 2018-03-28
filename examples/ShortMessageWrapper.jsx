@@ -16,7 +16,6 @@ class ShortMessageWrapper extends React.Component {
     };
     this.reset = this.reset.bind(this);
     this.resetRaw = this.resetRaw.bind(this);
-    this.onClose = this.onClose.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onClickRaw = this.onClickRaw.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -33,12 +32,6 @@ class ShortMessageWrapper extends React.Component {
 
   resetRaw() {
     Message.remove();
-  }
-
-  onClose() {
-    this.setState({
-      showSMS: false
-    });
   }
 
   onClick() {
@@ -71,11 +64,10 @@ class ShortMessageWrapper extends React.Component {
       <div id="components-container">
         {showSMS ? (
           <ShortMessage
-            onClose={this.onClose}
             expire={expire * 1000}
             text={text || 'This is ShortMessage'}
           />
-        ) : ''}
+        ) : null}
         <h3>Change Short Message</h3>
         <div>
           <Input

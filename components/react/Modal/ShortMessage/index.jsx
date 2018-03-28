@@ -31,7 +31,7 @@ class ShortMessage extends React.Component {
 
   render() {
     const { show } = this.state;
-    const { text, onClose } = this.props;
+    const { text } = this.props;
     const messageClass = cx(
       styles["message_modal_wrapper"],
       show && styles["active"]
@@ -50,13 +50,11 @@ class ShortMessage extends React.Component {
 }
 
 ShortMessage.propTypes = {
-  onClose: PropTypes.func,
   expire: PropTypes.number,
   text: PropTypes.string,
 };
 
 ShortMessage.defaultProps = {
-  onClose: () => {},
   text: 'This is SMS',
   expire: 2000,
 };
