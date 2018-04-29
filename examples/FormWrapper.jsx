@@ -141,10 +141,9 @@ class FormWrapper extends React.Component {
         <h3>Textarea</h3>
         <div>
           <Textarea
-            max="200"
+            maxLength={200}
             value={value}
             placeholder="textarea"
-            type="textarea"
             disabled={disabled}
             onChange={this.onChange}
           />

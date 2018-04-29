@@ -1,26 +1,27 @@
+
 import validator from 'validator';
 
-const email = value => validator.isEmail(value);
+const email = (value, options = {}) => validator.isEmail(value);
 
-const phone = value => validator.isMobilePhone(value, 'zh-CN');
+const phone = (value, options = {}) => validator.isMobilePhone(value, options.local || 'zh-CN');
 
-const empty = value => validator.isEmpty(value);
+const empty = (value, options = {}) => validator.isEmpty(value);
 
-const number = value => validator.isInt(value, {
-  min: 1000,
-  max: 99999
+const number = (value, options = {}) => validator.isInt(value, {
+  min: parseInt(options.min || 0, 10),
+  max: parseInt(options.max || 99999, 10)
 });
 
-const url = value => validator.isURL(value);
+const url = (value, options = {}) => validator.isURL(value);
 
-const string = value => validator.isByteLength(value, {
-  min: 1,
-  max: 200
+const string = (value, options = {}) => validator.isByteLength(value, {
+  min: parseInt(options.min || 1, 10),
+  max: parseInt(options.max || 999, 10),
 });
 
-const textarea = (value, max) => validator.isByteLength(value, {
-  min: 0,
-  max: parseInt(max)
+const textarea = (value, options = {}) => validator.isByteLength(value, {
+  min: options.min,
+  max: options.max
 });
 
 export default {

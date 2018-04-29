@@ -57,10 +57,11 @@ class Input extends React.Component {
   }
 
   check(inputValue) {
-    const { type, required } = this.props;
-    if (!required) { return; }
+    const { type, required, validate } = this.props;
+    if (!required) return;
+
     const value = inputValue || this.input.value;
-    const error = !Validator[type](value);
+    const error = !Validator[type](value, validate);
     this.setState({ error });
   }
 
@@ -113,6 +114,7 @@ Input.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.string,
   style: PropTypes.object,
+  validate: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
@@ -131,6 +133,7 @@ Input.defaultProps = {
   value: '',
   required: true,
   style: {},
+  validate: {},
   className: '',
   id: '',
   placeholder: '',

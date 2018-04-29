@@ -17,6 +17,13 @@ class Textarea extends React.Component {
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
+  componentDidUpdate(preProps) {
+    const { value } = this.props;
+    if (value && !preProps.value) {
+      this.check(value);
+    }
+  }
+
   onChange() {
     const value = this.textarea.value;
     const { onChange } = this.props;
@@ -32,8 +39,8 @@ class Textarea extends React.Component {
   }
 
   onBlur(e) {
+    this.check();
     this.setState({ focus: false });
-    this.check(e);
   }
 
   onKeyDown(e) {
@@ -43,8 +50,11 @@ class Textarea extends React.Component {
 
   check(inputValue) {
     const value = inputValue || this.textarea.value;
-    const { type, max } = this.props;
-    const error = !Validator[type](value, max);
+    const { minLength, maxLength } = this.props;
+    const error = !Validator.textarea(value, {
+      min: parseInt(minLength, 10),
+      max: parseInt(maxLength, 10),
+    });
     this.setState({ error });
   }
 
@@ -97,6 +107,8 @@ Textarea.propTypes = {
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
   disabled: PropTypes.bool,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number,
 };
 
 Textarea.defaultProps = {
@@ -104,7 +116,9 @@ Textarea.defaultProps = {
   placeholder: '',
   onChange: () => {},
   onKeyDown: () => {},
-  disabled: false
+  disabled: false,
+  minLength: 0,
+  maxLength: 999,
 };
 
 export default Textarea;
