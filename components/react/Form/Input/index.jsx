@@ -61,8 +61,12 @@ class Input extends React.Component {
     if (!required) return;
 
     const value = inputValue || this.input.value;
-    const error = !Validator[type](value, validate);
-    this.setState({ error });
+    try {
+      const error = !Validator[type](value, validate);
+      this.setState({ error });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   render() {
