@@ -7,6 +7,7 @@
 :root {
   --triangleWidth: 8px;
   --triangleHeight: 5px;
+  --triangleAfterOffset: 4px;
   --triangleOffset: 6px;
 
   --speed: .2s;
@@ -86,7 +87,7 @@
   transform: translate(-50%, -var(--triangleOffset));
 
   &::after {
-    bottom: -var(--triangleHeight);
+    bottom: -var(--triangleAfterOffset);
   }
 
   &::before {
@@ -119,7 +120,7 @@
   transform: translate(-50%, var(--triangleOffset));
 
   &::after {
-    top: -var(--triangleHeight);
+    top: -var(--triangleAfterOffset);
   }
 
   &::before {
