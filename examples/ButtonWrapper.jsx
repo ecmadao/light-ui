@@ -5,6 +5,10 @@ import ButtonGroup from '../components/react/Button/ButtonGroup';
 import FloatingActionButton from '../components/react/Button/FloatingActionButton';
 
 class ButtonWrapper extends React.Component {
+  onClick() {
+    console.log('clicked');
+  }
+
   render() {
     const { disabled } = this.props;
     return (
@@ -12,6 +16,7 @@ class ButtonWrapper extends React.Component {
         <h3>Button - MD Theme</h3>
         <div>
           <Button
+            onClick={this.onClick.bind(this)}
             disabled={disabled}
             value="Green Button" />
           <Button

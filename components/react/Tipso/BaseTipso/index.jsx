@@ -45,21 +45,26 @@ class BaseTipso extends React.Component {
 
   get triggerFunc() {
     const { trigger } = this.props;
-    const func = {
-      hover: {
-        onMouseOver: this.handleShowChange(true),
-        onMouseEnter: this.handleShowChange(true),
-        onMouseOut: this.handleShowChange(false),
-        onMouseLeave: this.handleShowChange(false)
-      },
-      click: {
-        onClick: this.handleShowChange(true),
-      },
-      focus: {
-        onFocus: this.handleShowChange(true),
-      }
-    };
-    return func[trigger] || {};
+
+    switch (trigger) {
+      case 'hover':
+        return {
+          onMouseOver: this.handleShowChange(true).bind(this),
+          onMouseEnter: this.handleShowChange(true).bind(this),
+          onMouseOut: this.handleShowChange(false).bind(this),
+          onMouseLeave: this.handleShowChange(false).bind(this)
+        };
+      case 'click':
+        return {
+          onClick: this.handleShowChange(true).bind(this),
+        };
+      case 'focus':
+        return {
+          onFocus: this.handleShowChange(true).bind(this),
+        };
+      default:
+        return {};
+    }
   }
 
   render() {

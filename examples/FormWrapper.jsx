@@ -122,7 +122,7 @@ class FormWrapper extends React.Component {
               value={value}
               theme="borderless"
               subTheme="underline"
-              placeholder="borderless theme"
+              placeholder="borderless input"
               disabled={disabled}
               onChange={this.onChange}
             />
