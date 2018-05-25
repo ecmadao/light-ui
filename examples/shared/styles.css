@@ -41,3 +41,29 @@
   justify-content: center;
   align-content: center;
 }
+
+.selector {
+  background-color: transparent !important;
+  color: #22B98F !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s !important;
+
+  &:hover {
+    background-color: #DEF5EE !important;
+  }
+}
+
+.selected {
+  font-size: 36px;
+}
+
+.option {
+  cursor: pointer;
+  padding: 7px 0 7px 15px;
+  background-color: transparent;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #DEF5EE !important;
+  }
+}

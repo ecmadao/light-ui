@@ -16,6 +16,7 @@ function loadStories() {
   require('../stories/Card');
   require('../stories/Slider');
   require('../stories/Others');
+  require('../stories/CustomSelector');
 }
 
 configure(loadStories, module);

@@ -4,6 +4,14 @@
 @import "../../../shared/styles/color.css";
 @import "../../../shared/styles/border.css";
 
+:root {
+  --speed: .2s;
+  --easing: cubic-bezier(.55,0,.1,1);
+  --modalContentOpacity: 0;
+  --scale: scale(0.8);
+  --scaleActive: scale(1);
+}
+
 .selector-container {
   background-color: var(--white);
   margin: 10px 5px;
@@ -170,8 +178,10 @@
 
 .selector-container-active {
   & .options-wrapper {
-    z-index: 1;
+    z-index: var(--zIndex99);
     visibility: visible;
+    opacity: 1;
+    transform: var(--scaleActive) translateY(-2px);
   }
 
   & svg {
@@ -189,13 +199,17 @@
   flex-direction: column;
   background-color: var(--white);
   box-shadow: var(--shadowInput);
-  transform: translateY(-2px);
   justify-content: center;
   align-items: flex-start;
-  z-index: -1;
-  visibility: hidden;
   overflow-y: auto;
   border-radius: 0 0 var(--radius-small) var(--radius-small);
+
+  z-index: var(--zIndex0);
+  opacity: var(--modalContentOpacity);
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: var(--scale) translateY(-2px);
+  transition: all var(--speed) var(--easing);
 }
 
 

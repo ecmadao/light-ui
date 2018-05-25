@@ -11,10 +11,11 @@ class Option extends React.Component {
   }
 
   render() {
-    const { isActive, value } = this.props;
+    const { value, isActive, className } = this.props;
     const optionClass = cx(
       styles.option,
-      isActive && styles['option-active']
+      isActive && styles['option-active'],
+      className
     );
     return (
       <div

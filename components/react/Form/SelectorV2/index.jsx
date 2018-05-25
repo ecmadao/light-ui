@@ -33,16 +33,17 @@ class SelectorV2 extends React.Component {
   }
 
   renderOptions() {
-    const { options, value } = this.props;
+    const { value, options, optionClassName } = this.props;
     const optionComponents = options.map((option, index) => {
       const { id } = option;
       return (
         <Option
-          key={index}
           id={id}
+          key={index}
           value={option.value}
           onClick={this.onChange}
           isActive={id === value}
+          className={optionClassName}
         />
       );
     });
@@ -65,7 +66,16 @@ class SelectorV2 extends React.Component {
 
   render() {
     const { active } = this.state;
-    const { value, options, theme, color, className, disabled } = this.props;
+    const {
+      value,
+      theme,
+      color,
+      options,
+      disabled,
+      showArrow,
+      className,
+      selectedClassName,
+    } = this.props;
     const maxLengthValue = this.maxLengthValue;
 
     const targetOptions = options.filter(option => option.id === value);
@@ -88,11 +98,11 @@ class SelectorV2 extends React.Component {
         <OutsideClickHandler
           onOutsideClick={this.handleOutsideClick}>
           <div className={styles.wrapper}>
-            <div className={styles['value-wrapper']}>
+            <div className={cx(styles['value-wrapper'], selectedClassName)}>
               <span className={styles['value']}>{targetValue}</span>
               <span className={styles['value-hidden']}>{maxLengthValue}</span>
             </div>
-            &nbsp;&nbsp;&nbsp;{icons.down}
+            {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
           </div>
           {this.renderOptions()}
         </OutsideClickHandler>
@@ -112,6 +122,9 @@ SelectorV2.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  showArrow: PropTypes.bool,
+  optionClassName: PropTypes.string,
+  selectedClassName: PropTypes.string,
 };
 
 SelectorV2.defaultProps = {
@@ -120,7 +133,10 @@ SelectorV2.defaultProps = {
   theme: 'material',
   color: 'green',
   className: '',
-  disabled: false
+  disabled: false,
+  showArrow: true,
+  optionClassName: '',
+  selectedClassName: '',
 };
 
 export default SelectorV2;
