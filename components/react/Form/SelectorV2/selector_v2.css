@@ -195,6 +195,7 @@
   position: absolute;
   top: 100%;
   left: -1px;
+  right: -1px;
   max-height: 400px;
   flex-direction: column;
   background-color: var(--white);
@@ -250,6 +251,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 .option-hidden-item {

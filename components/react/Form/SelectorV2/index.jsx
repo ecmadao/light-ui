@@ -13,7 +13,7 @@ class SelectorV2 extends React.Component {
     this.state = {
       active: false
     };
-    this.hiddenDOM = null;
+    this.minWidth = 0;
     this.onChange = this.onChange.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleActiveChange = this.handleActiveChange.bind(this);
@@ -52,7 +52,7 @@ class SelectorV2 extends React.Component {
     return (
       <div
         className={styles['options-container']}
-        style={{ width: `${this.hiddenDOM.offsetWidth + 40}px` }}
+        style={{ minWidth: `${this.selectorWidth}px` }}
       >
         {optionComponents}
       </div>
@@ -96,22 +96,23 @@ class SelectorV2 extends React.Component {
     );
   }
 
-  injectDOM() {
-    if (!this.hiddenDOM) {
+  get selectorWidth() {
+    if (!this.minWidth) {
       const { optionClassName } = this.props;
-      const className = cx(styles.option, optionClassName, styles['option-hidden']);
+      const tmpClassName = cx(styles.option, optionClassName, styles['option-hidden']);
       const maxLengthValue = this.maxLengthValue;
 
-      const node = document.createElement('div');
-      node.setAttribute('class', className);
+      const tmpNode = document.createElement('div');
+      tmpNode.setAttribute('class', tmpClassName);
       const hiddenDOM = document.createElement('div');
       hiddenDOM.setAttribute('class', cx(styles['option-wrapper'], styles['option-hidden-item']));
       hiddenDOM.appendChild(document.createTextNode(maxLengthValue));
-      node.appendChild(hiddenDOM);
+      tmpNode.appendChild(hiddenDOM);
 
-      document.body.appendChild(node);
-      this.hiddenDOM = hiddenDOM;
+      document.body.appendChild(tmpNode);
+      this.minWidth = hiddenDOM.offsetWidth + 40;
     }
+    return this.minWidth;
   }
 
   render() {
@@ -139,13 +140,12 @@ class SelectorV2 extends React.Component {
     );
 
     const onClick = disabled ? () => {} : () => this.handleActiveChange(true);
-    this.injectDOM();
 
     return (
       <div className={containerClass}>
         <OutsideClickHandler
           onOutsideClick={this.handleOutsideClick}>
-          <div className={cx(styles.wrapper)} onClick={onClick}>
+          <div className={styles.wrapper} onClick={onClick}>
             {this.renderSelected()}
             {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
           </div>
