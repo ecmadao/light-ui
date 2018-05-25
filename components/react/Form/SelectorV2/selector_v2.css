@@ -19,7 +19,6 @@
   text-align: center;
   transition: background-color 0.2s, box-shadow 0.2s;
   border-radius: var(--radius-small);
-  cursor: pointer;
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -59,6 +58,7 @@
 }
 
 .wrapper {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   transform: translateY(0);
@@ -74,6 +74,8 @@
 
 .value-hidden {
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .value {
@@ -103,7 +105,7 @@
     fill: var(--gray-dark);
   }
 
-  & .options-wrapper {
+  & .options-container {
     border: 1px solid var(--gray);
   }
 }
@@ -176,7 +178,7 @@
 }
 
 .selector-container-active {
-  & .options-wrapper {
+  & .options-container {
     z-index: var(--zIndex99);
     visibility: visible;
     opacity: 1;
@@ -189,11 +191,10 @@
 }
 
 /* options */
-.options-wrapper {
+.options-container {
   position: absolute;
   top: 100%;
   left: -1px;
-  right: -1px;
   max-height: 400px;
   flex-direction: column;
   background-color: var(--white);
@@ -217,6 +218,7 @@
   width: 100%;
   text-align: left;
   line-height: 30px;
+  cursor: pointer;
   background-color: transparent;
   transition: background-color 0.2s;
 
@@ -237,4 +239,22 @@
 .option-wrapper {
   margin: 0 20px;
   color: var(--gray-dark);
+}
+
+.option-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: inline;
+  z-index: var(--zIndexHidden);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.option-hidden-item {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: inline;
 }

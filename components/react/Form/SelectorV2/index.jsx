@@ -13,6 +13,7 @@ class SelectorV2 extends React.Component {
     this.state = {
       active: false
     };
+    this.hiddenDOM = null;
     this.onChange = this.onChange.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleActiveChange = this.handleActiveChange.bind(this);
@@ -49,7 +50,10 @@ class SelectorV2 extends React.Component {
     });
 
     return (
-      <div className={styles['options-wrapper']}>
+      <div
+        className={styles['options-container']}
+        style={{ width: `${this.hiddenDOM.offsetWidth + 40}px` }}
+      >
         {optionComponents}
       </div>
     );
@@ -92,6 +96,24 @@ class SelectorV2 extends React.Component {
     );
   }
 
+  injectDOM() {
+    if (!this.hiddenDOM) {
+      const { optionClassName } = this.props;
+      const className = cx(styles.option, optionClassName, styles['option-hidden']);
+      const maxLengthValue = this.maxLengthValue;
+
+      const node = document.createElement('div');
+      node.setAttribute('class', className);
+      const hiddenDOM = document.createElement('div');
+      hiddenDOM.setAttribute('class', cx(styles['option-wrapper'], styles['option-hidden-item']));
+      hiddenDOM.appendChild(document.createTextNode(maxLengthValue));
+      node.appendChild(hiddenDOM);
+
+      document.body.appendChild(node);
+      this.hiddenDOM = hiddenDOM;
+    }
+  }
+
   render() {
     const { active } = this.state;
     const {
@@ -117,14 +139,13 @@ class SelectorV2 extends React.Component {
     );
 
     const onClick = disabled ? () => {} : () => this.handleActiveChange(true);
+    this.injectDOM();
 
     return (
-      <div
-        className={containerClass}
-        onClick={onClick}>
+      <div className={containerClass}>
         <OutsideClickHandler
           onOutsideClick={this.handleOutsideClick}>
-          <div className={styles.wrapper}>
+          <div className={cx(styles.wrapper)} onClick={onClick}>
             {this.renderSelected()}
             {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
           </div>

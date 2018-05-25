@@ -4,7 +4,7 @@ import SelectorV2 from '../components/react/Form/SelectorV2';
 import styles from './shared/styles.css';
 
 const OPTIONS = [
-  { id: 0, value: 'selector' },
+  { id: 0, value: '1' },
   { id: 1, value: 'selector 1' },
   { id: 2, value: 'selector 2' },
   { id: 3, value: 'this is long selector' }
@@ -70,7 +70,6 @@ class CustomSelector extends React.Component {
             options={OPTIONS}
             onChange={this.onSelect}
             className={styles.selector}
-            showArrow={false}
             optionClassName={styles.option}
             selectedClassName={styles.selected}
           />
