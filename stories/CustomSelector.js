@@ -6,4 +6,7 @@ import CustomSelector from '../examples/CustomSelector';
 storiesOf('CustomSelector', module)
   .add('basical', () => (
     <CustomSelector />
+  ))
+  .add('disabled', () => (
+    <CustomSelector disabled />
   ));

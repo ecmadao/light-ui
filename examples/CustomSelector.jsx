@@ -4,10 +4,10 @@ import SelectorV2 from '../components/react/Form/SelectorV2';
 import styles from './shared/styles.css';
 
 const OPTIONS = [
-  { id: 0, value: 'selector 0' },
+  { id: 0, value: 'selector' },
   { id: 1, value: 'selector 1' },
   { id: 2, value: 'selector 2' },
-  { id: 3, value: 'selector 3' }
+  { id: 3, value: 'this is long selector' }
 ];
 
 class CustomSelector extends React.Component {
@@ -36,6 +36,33 @@ class CustomSelector extends React.Component {
     return (
       <div id="components-container">
         <h3>SelectorV2 - Custom Style</h3>
+        <h4>Flexable width</h4>
+        <div>
+          <SelectorV2
+            flexable
+            value={selected}
+            disabled={disabled}
+            options={OPTIONS}
+            onChange={this.onSelect}
+            className={styles.selector}
+            showArrow={false}
+            optionClassName={styles.option}
+            selectedClassName={styles.selected}
+          />
+        </div>
+        <div>
+          <SelectorV2
+            flexable
+            value={selected}
+            disabled={disabled}
+            options={OPTIONS}
+            onChange={this.onSelect}
+            className={styles.selector}
+            optionClassName={styles.option}
+            selectedClassName={styles.selected}
+          />
+        </div>
+        <h4>Fixed width</h4>
         <div>
           <SelectorV2
             value={selected}

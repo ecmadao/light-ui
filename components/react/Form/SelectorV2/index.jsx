@@ -64,6 +64,34 @@ class SelectorV2 extends React.Component {
     return maxValue;
   }
 
+  renderSelected() {
+    const {
+      value,
+      options,
+      flexable,
+      selectedClassName,
+    } = this.props;
+
+    const targetOptions = options.filter(option => option.id === value);
+    const targetValue = (targetOptions[0] && targetOptions[0].value) || '';
+
+    if (!flexable) {
+      const maxLengthValue = this.maxLengthValue;
+      return (
+        <div className={cx(styles['value-wrapper'], selectedClassName)}>
+          <span className={styles['value']}>{targetValue}</span>
+          <span className={styles['value-hidden']}>{maxLengthValue}</span>
+        </div>
+      );
+    }
+
+    return (
+      <div className={cx(styles['value-wrapper'], selectedClassName)}>
+        {targetValue}
+      </div>
+    );
+  }
+
   render() {
     const { active } = this.state;
     const {
@@ -76,7 +104,6 @@ class SelectorV2 extends React.Component {
       className,
       selectedClassName,
     } = this.props;
-    const maxLengthValue = this.maxLengthValue;
 
     const targetOptions = options.filter(option => option.id === value);
     const targetValue = (targetOptions[0] && targetOptions[0].value) || '';
@@ -98,10 +125,7 @@ class SelectorV2 extends React.Component {
         <OutsideClickHandler
           onOutsideClick={this.handleOutsideClick}>
           <div className={styles.wrapper}>
-            <div className={cx(styles['value-wrapper'], selectedClassName)}>
-              <span className={styles['value']}>{targetValue}</span>
-              <span className={styles['value-hidden']}>{maxLengthValue}</span>
-            </div>
+            {this.renderSelected()}
             {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
           </div>
           {this.renderOptions()}
@@ -123,6 +147,7 @@ SelectorV2.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   showArrow: PropTypes.bool,
+  flexable: PropTypes.bool,
   optionClassName: PropTypes.string,
   selectedClassName: PropTypes.string,
 };
@@ -135,6 +160,7 @@ SelectorV2.defaultProps = {
   className: '',
   disabled: false,
   showArrow: true,
+  flexable: false,
   optionClassName: '',
   selectedClassName: '',
 };

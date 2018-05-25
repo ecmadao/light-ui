@@ -45,8 +45,17 @@
 .selector {
   background-color: transparent !important;
   color: #22B98F !important;
+  fill: #22B98F !important;
   box-shadow: none !important;
   transition: background-color 0.2s !important;
+
+  & polygon {
+    fill: #22B98F !important;
+  }
+
+  & svg {
+    fill: #22B98F !important;
+  }
 
   &:hover {
     background-color: #DEF5EE !important;
