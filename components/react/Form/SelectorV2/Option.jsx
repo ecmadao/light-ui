@@ -17,8 +17,6 @@ class Option extends React.Component {
       isActive && styles['option-active'],
       className
     );
-    console.log('optionClass');
-    console.log(optionClass);
     return (
       <div
         onClick={this.onClick.bind(this)}
