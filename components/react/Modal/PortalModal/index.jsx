@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 import BaseModal from '../BaseModal';
-import OutsideClickHandler from '../../Others/OutsideClickHandler';
+import OutsideClickHandler from '../../../shared/components/OutsideClickHandler';
 
 const PortalModal = (props) => {
   const {

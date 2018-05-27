@@ -21,10 +21,10 @@ class Switcher extends React.Component {
 
   onChange() {
     const { onChange, disabled } = this.props;
-    if (disabled) { return; }
+    if (disabled) return;
     const { checked } = this.state;
     this.setState({ checked: !checked });
-    onChange && onChange();
+    onChange && onChange(!checked);
   }
 
   render() {

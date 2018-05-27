@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
@@ -5,8 +6,8 @@ import cx from 'classnames';
 import Dragger from './Dragger';
 import ProgressBar from './ProgressBar';
 import styles from './slider.css';
-import Utils from '../../../shared/utils/helper';
-import objectAssign from '../../../shared/utils/objectAssign';
+import Utils from '../../shared/utils/helper';
+import objectAssign from '../../shared/utils/objectAssign';
 
 class Slider extends React.Component {
   constructor(props) {

@@ -1,4 +1,4 @@
-@import "../../../shared/styles/color.css";
+@import "../../shared/styles/color.css";
 
 :root {
   --borderRadius: 20px;
@@ -24,7 +24,7 @@
     margin-right: 0;
   }
 
-  &.deleteable:hover {
+  &:not(.disabled).deleteable:hover {
     & .labelDelete {
       left: 5px;
     }
@@ -39,6 +39,7 @@
     color: var(--gray-dark-deep);
     cursor: not-allowed;
     user-select: none;
+    opacity: 0.6;
   }
 
   &.min {
@@ -130,6 +131,10 @@
 
   &.clickable {
     cursor: pointer;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 

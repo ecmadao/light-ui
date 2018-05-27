@@ -5,7 +5,7 @@ import cx from 'classnames';
 import icons from '../../../shared/utils/icons';
 import styles from './selector_v2.css';
 import Option from './Option';
-import OutsideClickHandler from '../../Others/OutsideClickHandler';
+import OutsideClickHandler from '../../../shared/components/OutsideClickHandler';
 
 class SelectorV2 extends React.Component {
   constructor(props) {

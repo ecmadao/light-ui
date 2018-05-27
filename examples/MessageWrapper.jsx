@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../components/react/Button/Button';
 import Input from '../components/react/Form/Input';
-import Switcher from '../components/react/Others/Switcher';
+import Switcher from '../components/react/Switcher';
 import Message from '../components/raw/Message';
 import styles from './shared/styles.css';
 

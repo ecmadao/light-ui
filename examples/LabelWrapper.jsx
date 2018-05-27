@@ -1,10 +1,12 @@
-import React from 'react';
-import Label from '../components/react/Others/Label';
-import Switcher from '../components/react/Others/Switcher';
 
-class OthersWrapper extends React.Component {
+import React from 'react';
+import Label from '../components/react/Label';
+
+class LabelWrapper extends React.Component {
   render() {
     const { disabled } = this.props;
+
+    console.log(`disabled: ${disabled}`);
 
     return (
       <div id="components-container">
@@ -104,32 +106,9 @@ class OthersWrapper extends React.Component {
             deleteable
           />
         </div>
-
-        <h3>Switcher</h3>
-        <h4>Normal size</h4>
-        <div>
-          <Switcher disabled={disabled} checked={true} />
-          <Switcher disabled={disabled} checked={true} version="v2" />
-          <br/>
-          <Switcher disabled={disabled} checked={true} version="v3" />
-        </div>
-        <h4>Small size</h4>
-        <div>
-          <Switcher disabled={disabled} checked={true} size="small"/>
-          <Switcher disabled={disabled} checked={true} size="small" version="v2" />
-          <br/>
-          <Switcher disabled={disabled} checked={true} size="small" version="v3" />
-        </div>
-        <h4>Mini size</h4>
-        <div>
-          <Switcher disabled={disabled} checked={true} size="mini"/>
-          <Switcher disabled={disabled} checked={true} size="mini" version="v2" />
-          <br/>
-          <Switcher disabled={disabled} checked={true} size="mini" version="v3" />
-        </div>
       </div>
     );
   }
 }
 
-export default OthersWrapper;
+export default LabelWrapper;

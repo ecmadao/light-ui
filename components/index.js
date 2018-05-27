@@ -20,7 +20,8 @@ export InfoCard from './react/Card/InfoCard';
 export CardGroup from './react/Card/CardGroup';
 
 export Label from './react/Others/Label';
-export Switcher from './react/Others/Switcher';
-export Slider from './react/Others/Slider';
+export Switcher from './react/Switcher';
+export Slider from './react/Slider';
 
-export OutsideClickHandler from './react/Others/OutsideClickHandler';
+export OutsideClickHandler from './shared/components/OutsideClickHandler';
+export AnimationComponent from './shared/components/AnimationComponent';

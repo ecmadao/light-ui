@@ -1,7 +1,7 @@
-@import "../../../shared/styles/shadow.css";
-@import "../../../shared/styles/z-index.css";
-@import "../../../shared/styles/color.css";
-@import "../../../shared/styles/border.css";
+@import "../../shared/styles/shadow.css";
+@import "../../shared/styles/z-index.css";
+@import "../../shared/styles/color.css";
+@import "../../shared/styles/border.css";
 
 :root {
   /* version 1 */

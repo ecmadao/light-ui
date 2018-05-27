@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import styles from './slider.css';
-import Tipso from '../../Tipso/Tipso';
-import darg from '../../../shared/utils/darg';
+import Tipso from '../Tipso/Tipso';
+import darg from '../../shared/utils/darg';
 
 class Dragger extends React.Component {
   constructor(props) {

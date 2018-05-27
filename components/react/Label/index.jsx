@@ -44,17 +44,20 @@ const Label = (props) => {
       )}
     >
       <div className={styles.labelWrapper}>
-        <div
-          onClick={handleDelete}
-          className={styles.labelDelete}
-        >
-          x
-        </div>
+        {!disabled && deleteable && (
+          <div
+            onClick={handleDelete}
+            className={styles.labelDelete}
+          >
+            x
+          </div>
+        )}
         <div
           onClick={handleClick}
           className={cx(
             styles.labelContent,
-            clickable && styles.clickable,
+            !disabled && clickable && styles.clickable,
+            disabled && styles.disabled
           )}>
           {iconElement}
           <span

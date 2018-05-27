@@ -1,6 +1,6 @@
-@import '../../../shared/styles/color.css';
-@import '../../../shared/styles/border.css';
-@import '../../../shared/styles/z-index.css';
+@import '../../shared/styles/color.css';
+@import '../../shared/styles/border.css';
+@import '../../shared/styles/z-index.css';
 
 :root {
   --pathwayHeight: 5px;

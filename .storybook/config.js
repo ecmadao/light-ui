@@ -15,7 +15,8 @@ function loadStories() {
   require('../stories/Loading');
   require('../stories/Card');
   require('../stories/Slider');
-  require('../stories/Others');
+  require('../stories/Label');
+  require('../stories/Switcher');
   require('../stories/CustomSelector');
 }
 

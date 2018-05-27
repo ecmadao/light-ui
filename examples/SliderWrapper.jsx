@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from '../components/react/Others/Slider';
+import Slider from '../components/react/Slider';
 import styles from './shared/styles.css';
 
 class SliderWrapper extends React.Component {
