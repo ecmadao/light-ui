@@ -4,17 +4,18 @@ import styles from './selector_v2.css';
 
 class Option extends React.Component {
   onClick(e) {
-    const { onClick, id, isActive } = this.props;
-    !isActive && onClick && onClick(id);
+    const { onClick, id, isActive, disabled } = this.props;
+    !disabled && !isActive && onClick && onClick(id);
     e.stopPropagation();
     return false;
   }
 
   render() {
-    const { value, isActive, className } = this.props;
+    const { value, isActive, disabled, className } = this.props;
     const optionClass = cx(
       styles.option,
       isActive && styles['option-active'],
+      disabled && styles['option-disabled'],
       className
     );
     return (

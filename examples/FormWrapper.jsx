@@ -9,7 +9,8 @@ const OPTIONS = [
   { id: 0, value: 'selector 0' },
   { id: 1, value: 'selector 1' },
   { id: 2, value: 'selector 2' },
-  { id: 3, value: 'selector 3' }
+  { id: 3, value: 'selector 3' },
+  { id: 4, value: 'disabled', disabled: true },
 ];
 
 class FormWrapper extends React.Component {

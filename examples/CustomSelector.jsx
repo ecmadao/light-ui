@@ -7,7 +7,8 @@ const OPTIONS = [
   { id: 0, value: '1' },
   { id: 1, value: 'selector 1' },
   { id: 2, value: 'selector 2' },
-  { id: 3, value: 'this is long selector' }
+  { id: 3, value: 'this is long selector' },
+  { id: 4, value: 'disabled section', disabled: true }
 ];
 
 class CustomSelector extends React.Component {

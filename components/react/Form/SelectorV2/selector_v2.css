@@ -220,6 +220,7 @@
   text-align: left;
   line-height: 30px;
   cursor: pointer;
+  color: var(--gray-dark);
   background-color: transparent;
   transition: background-color 0.2s;
 
@@ -237,9 +238,13 @@
   background-color: #f2f2f2;
 }
 
+.option-disabled {
+  color: #ADADAD;
+  cursor: not-allowed;
+}
+
 .option-wrapper {
   margin: 0 20px;
-  color: var(--gray-dark);
 }
 
 .option-hidden {

@@ -43,6 +43,7 @@ class SelectorV2 extends React.Component {
           key={index}
           value={option.value}
           onClick={this.onChange}
+          disabled={option.disabled}
           isActive={id === value}
           className={optionClassName}
         />
@@ -118,18 +119,13 @@ class SelectorV2 extends React.Component {
   render() {
     const { active } = this.state;
     const {
-      value,
       theme,
       color,
-      options,
       disabled,
       showArrow,
       className,
-      selectedClassName,
     } = this.props;
 
-    const targetOptions = options.filter(option => option.id === value);
-    const targetValue = (targetOptions[0] && targetOptions[0].value) || '';
     const containerClass = cx(
       styles['selector-container'],
       styles[`selector-${color}`],
