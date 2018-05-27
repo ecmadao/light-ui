@@ -19,7 +19,7 @@ export Tipso from './react/Tipso/Tipso';
 export InfoCard from './react/Card/InfoCard';
 export CardGroup from './react/Card/CardGroup';
 
-export Label from './react/Others/Label';
+export Label from './react/Label';
 export Switcher from './react/Switcher';
 export Slider from './react/Slider';
 
