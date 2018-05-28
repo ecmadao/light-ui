@@ -1,3 +1,10 @@
+
+@import "../../lib/shared/styles/color.css";
+
+:root {
+  --triangleHeight: 5px;
+}
+
 .fixed_loading {
   position: fixed;
   top: 0;
@@ -74,5 +81,63 @@
 
   &:hover {
     background-color: #DEF5EE !important;
+  }
+}
+
+.menu {
+  padding: 10px;
+  width: 150px;
+  text-align: left;
+  color: #000;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.menu-dark {
+  color: #fff;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.menuPanel {
+  top: 130% !important;
+}
+
+.dropdownButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuPanel-2 {
+  top: 130% !important;
+  left: inherit !important;
+  right: -1px;
+}
+
+
+.menuPanel-2-dark {
+  composes: menuPanel-2;
+  background-color: var(--gray-dark-deep) !important;
+
+  &::after {
+    border-bottom: var(--triangleHeight) solid var(--gray-dark-deep) !important;
+  }
+
+  &::before {
+    border-bottom: var(--triangleHeight) solid transparent !important;
   }
 }

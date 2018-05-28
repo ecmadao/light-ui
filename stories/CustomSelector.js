@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import CustomSelector from '../examples/CustomSelector';
+import CustomSelectorWrapper from '../examples/CustomSelectorWrapper';
 
 storiesOf('CustomSelector', module)
   .add('basical', () => (
-    <CustomSelector />
+    <CustomSelectorWrapper />
   ))
   .add('disabled', () => (
-    <CustomSelector disabled />
+    <CustomSelectorWrapper disabled />
   ));

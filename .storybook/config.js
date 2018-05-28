@@ -18,6 +18,7 @@ function loadStories() {
   require('../stories/Label');
   require('../stories/Switcher');
   require('../stories/CustomSelector');
+  require('../stories/Dropdown');
 }
 
 configure(loadStories, module);

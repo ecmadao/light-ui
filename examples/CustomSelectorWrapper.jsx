@@ -11,7 +11,7 @@ const OPTIONS = [
   { id: 4, value: 'disabled section', disabled: true }
 ];
 
-class CustomSelector extends React.Component {
+class CustomSelectorWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,4 +80,4 @@ class CustomSelector extends React.Component {
   }
 }
 
-export default CustomSelector;
+export default CustomSelectorWrapper;

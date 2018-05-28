@@ -22,6 +22,7 @@ export CardGroup from './react/Card/CardGroup';
 export Label from './react/Label';
 export Switcher from './react/Switcher';
 export Slider from './react/Slider';
+export Dropdown from './react/Dropdown';
 
 export OutsideClickHandler from './shared/components/OutsideClickHandler';
 export AnimationComponent from './shared/components/AnimationComponent';
