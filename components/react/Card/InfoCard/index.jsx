@@ -50,7 +50,10 @@ const InfoCard = (props) => {
   }
 
   return (
-    <div className={infoClass} style={style}>
+    <div
+      style={style}
+      className={infoClass}
+    >
       {tipsoDOM}
       <div className={cx(styles["info_main_text"], mainTextStyle)}>
         {icon ? iconElement : ''}

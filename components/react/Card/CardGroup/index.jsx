@@ -5,7 +5,14 @@ import Helper from '../../../shared/utils/helper';
 import styles from './card_group.css';
 
 const CardGroup = (props) => {
-  const { className, children, theme, style } = props;
+  const {
+    style,
+    theme,
+    children,
+    className,
+    onTransitionEnd
+  } = props;
+
   let hasCardGroup = false;
 
   const cards = Helper.isArray(children) ? children.map((child, index) => {
@@ -34,7 +41,11 @@ const CardGroup = (props) => {
   );
 
   return (
-    <div className={groupClass} style={style}>
+    <div
+      style={style}
+      className={groupClass}
+      onTransitionEnd={onTransitionEnd}
+    >
       {cards}
     </div>
   );
@@ -49,6 +60,7 @@ CardGroup.propTypes = {
   className: PropTypes.string,
   theme: PropTypes.string,
   style: PropTypes.object,
+  onTransitionEnd: PropTypes.func
 };
 
 CardGroup.defaultProps = {

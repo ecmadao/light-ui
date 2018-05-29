@@ -57,7 +57,8 @@ class BaseButton extends React.Component {
       disabled,
       children,
       clickable,
-      className
+      className,
+      onTransitionEnd
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
@@ -77,13 +78,15 @@ class BaseButton extends React.Component {
       <div
         id={id}
         style={style}
+        onClick={onClick}
         className={buttonClass}
         onMouseDown={this.onMouseDown}
         onMouseOut={this.onMouseUp}
         onMouseLeave={this.onMouseLeave}
         onMouseUp={this.onMouseUp}
         onMouseEnter={this.onMouseEnter}
-        onClick={onClick}>
+        onTransitionEnd={onTransitionEnd}
+      >
         <div className={styles.wrapper}>
           {children}
         </div>
@@ -95,6 +98,7 @@ class BaseButton extends React.Component {
 BaseButton.propTypes = {
   id: PropTypes.string,
   onClick: PropTypes.func,
+  onTransitionEnd: PropTypes.func,
   color: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
