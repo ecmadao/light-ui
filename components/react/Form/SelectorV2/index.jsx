@@ -34,7 +34,12 @@ class SelectorV2 extends React.Component {
   }
 
   renderOptions() {
-    const { value, options, optionClassName } = this.props;
+    const {
+      value,
+      options,
+      optionClassName,
+      optionModalClassName
+    } = this.props;
     const optionComponents = options.map((option, index) => {
       const { id } = option;
       return (
@@ -52,7 +57,10 @@ class SelectorV2 extends React.Component {
 
     return (
       <div
-        className={styles['options-container']}
+        className={cx(
+          styles['options-container'],
+          optionModalClassName
+        )}
         style={{ minWidth: `${this.selectorWidth}px` }}
       >
         {optionComponents}
@@ -167,6 +175,7 @@ SelectorV2.propTypes = {
   flexable: PropTypes.bool,
   optionClassName: PropTypes.string,
   selectedClassName: PropTypes.string,
+  optionModalClassName: PropTypes.string,
 };
 
 SelectorV2.defaultProps = {
@@ -180,6 +189,7 @@ SelectorV2.defaultProps = {
   flexable: false,
   optionClassName: '',
   selectedClassName: '',
+  optionModalClassName: '',
 };
 
 export default SelectorV2;
