@@ -17,6 +17,7 @@ class SelectorV2 extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleActiveChange = this.handleActiveChange.bind(this);
+    this.handleActiveToggle = this.handleActiveToggle.bind(this);
   }
 
   onChange(val) {
@@ -31,6 +32,11 @@ class SelectorV2 extends React.Component {
 
   handleActiveChange(active) {
     this.setState({ active });
+  }
+
+  handleActiveToggle() {
+    const { active } = this.state;
+    this.handleActiveChange(!active);
   }
 
   renderOptions() {
@@ -143,7 +149,7 @@ class SelectorV2 extends React.Component {
       className
     );
 
-    const onClick = disabled ? () => {} : () => this.handleActiveChange(true);
+    const onClick = disabled ? () => {} : () => this.handleActiveToggle();
 
     return (
       <div className={containerClass}>

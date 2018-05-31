@@ -17,6 +17,7 @@ class Dropdown extends React.PureComponent {
     this.onMenuClick = this.onMenuClick.bind(this);
     this.onOutsideClick = this.onOutsideClick.bind(this);
     this.onActiveChange = this.onActiveChange.bind(this);
+    this.onActiveToggle = this.onActiveToggle.bind(this);
   }
 
   onMenuClick(callback) {
@@ -34,9 +35,14 @@ class Dropdown extends React.PureComponent {
     this.setState({ active });
   }
 
+  onActiveToggle() {
+    const { active } = this.state;
+    this.onActiveChange(!active);
+  }
+
   renderMainArea() {
     const { showArrow, disabled, button, buttonClassName } = this.props;
-    const onClick = disabled ? () => {} : () => this.onActiveChange(true);
+    const onClick = disabled ? () => {} : () => this.onActiveToggle();
 
     return (
       <div className={cx(styles.wrapper, buttonClassName)} onClick={onClick}>
