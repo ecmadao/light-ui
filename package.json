@@ -1,6 +1,6 @@
 {
   "name": "light-ui",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A lightly react ui component",
   "main": "./lib/index.js",
   "scripts": {
