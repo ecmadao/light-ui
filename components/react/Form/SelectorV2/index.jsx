@@ -28,6 +28,8 @@ class SelectorV2 extends React.Component {
 
   handleOutsideClick() {
     this.handleActiveChange(false);
+    const { onSelectorClose } = this.props;
+    onSelectorClose && onSelectorClose();
   }
 
   handleActiveChange(active) {
@@ -174,6 +176,7 @@ SelectorV2.propTypes = {
     PropTypes.number
   ]),
   onChange: PropTypes.func,
+  onSelectorClose: PropTypes.func,
   theme: PropTypes.string,
   color: PropTypes.string,
   className: PropTypes.string,
@@ -188,6 +191,7 @@ SelectorV2.propTypes = {
 SelectorV2.defaultProps = {
   options: [],
   onChange: () => {},
+  onSelectorClose: () => {},
   theme: 'material',
   color: 'green',
   className: '',

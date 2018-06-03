@@ -14,6 +14,7 @@ const InfoCard = (props) => {
     subText,
     mainText,
     className,
+    tipsoTrigger,
     tipsoTheme,
     subTextStyle,
     mainTextStyle,
@@ -39,6 +40,7 @@ const InfoCard = (props) => {
       tipsoDOM = (
         <Tipso
           theme={tipsoTheme}
+          trigger={tipsoTrigger}
           tipsoStyle={tipso.style || {}}
           className={styles["info_tipso"]}
           wrapperClass={styles["info_tipso_wrapper"]}
@@ -94,6 +96,7 @@ InfoCard.propTypes = {
     PropTypes.element,
     PropTypes.object
   ]),
+  tipsoTrigger: PropTypes.string,
   style: PropTypes.object,
   theme: PropTypes.string,
   tipsoTheme: PropTypes.string,
@@ -107,6 +110,7 @@ InfoCard.defaultProps = {
   className: '',
   icon: null,
   tipso: null,
+  tipsoTrigger: 'hover',
   style: {},
   theme: 'material',
   tipsoTheme: 'light',

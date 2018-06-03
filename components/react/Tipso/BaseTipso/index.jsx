@@ -31,7 +31,11 @@ class BaseTipso extends React.Component {
   }
 
   handleShowChange(show) {
-    return () => this.setState({ show });
+    const { onTipClose } = this.props;
+    return () => {
+      this.setState({ show });
+      !show && onTipClose && onTipClose();
+    };
   }
 
   onOutsideClick(e) {
@@ -126,7 +130,8 @@ BaseTipso.propTypes = {
   wrapperStyle: PropTypes.object,
   wrapperClass: PropTypes.string,
   position: PropTypes.string,
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  onTipClose: PropTypes.func,
 };
 
 BaseTipso.defaultProps = {
@@ -139,7 +144,8 @@ BaseTipso.defaultProps = {
   wrapperStyle: {},
   wrapperClass: '',
   position: 'top',
-  show: false
+  show: false,
+  onTipClose: () => {},
 };
 
 export default BaseTipso;

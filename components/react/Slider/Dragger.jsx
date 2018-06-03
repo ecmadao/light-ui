@@ -134,7 +134,8 @@ class Dragger extends React.Component {
       useTipso,
       showTipso,
       draggerClass,
-      tipsoClass
+      tipsoClass,
+      tipsoTrigger,
     } = this.props;
     const dragClass = cx(
       styles.dragger,
@@ -145,6 +146,7 @@ class Dragger extends React.Component {
     return (
       <Tipso
         theme="dark"
+        trigger={tipsoTrigger}
         show={showTipso}
         disabled={!useTipso}
         show={this.state.draging}
@@ -190,6 +192,7 @@ Dragger.propTypes = {
   showTipso: PropTypes.bool,
   draggerClass: PropTypes.string,
   tipsoClass: PropTypes.string,
+  tipsoTrigger: PropTypes.string,
 };
 
 Dragger.defaultProps = {
@@ -205,6 +208,7 @@ Dragger.defaultProps = {
   showTipso: false,
   draggerClass: '',
   tipsoClass: '',
+  tipsoTrigger: 'hover',
 };
 
 export default Dragger;

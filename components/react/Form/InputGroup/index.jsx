@@ -11,6 +11,7 @@ class InputGroup extends React.Component {
       children,
       tipsoStyle,
       tipsoTheme,
+      onTipClose,
       tipsoPosition,
       wrapperStyle,
       tipsoClassName,
@@ -30,7 +31,9 @@ class InputGroup extends React.Component {
         theme={tipsoTheme}
         wrapperClass={wrapperClassName}
         className={tipsoClassName}
-        tipsoContent={children}>
+        tipsoContent={children}
+        onTipClose={onTipClose}
+      >
         <Input
           {...this.props}
           className={cx(styles.input, inputClassName)}
@@ -48,7 +51,7 @@ InputGroup.propTypes = {
   wrapperClassName: PropTypes.string,
   wrapperStyle: PropTypes.object,
   tipsoStyle: PropTypes.object,
-  children: PropTypes.element
+  children: PropTypes.element,
 };
 
 InputGroup.defaultProps = {

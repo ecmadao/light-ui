@@ -30,6 +30,8 @@ class Dropdown extends React.PureComponent {
 
   onOutsideClick() {
     this.onActiveChange(false);
+    const { onDropdownClose } = this.props;
+    onDropdownClose && onDropdownClose();
   }
 
   onActiveChange(active) {
@@ -130,6 +132,7 @@ Dropdown.propTypes = {
   ]),
   menuPanelClassName: PropTypes.string,
   buttonClassName: PropTypes.string,
+  onDropdownClose: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
@@ -144,6 +147,7 @@ Dropdown.defaultProps = {
   button: (<div/>),
   buttonClassName: '',
   menuPanelClassName: '',
+  onDropdownClose: () => {},
 };
 
 export default Dropdown;
