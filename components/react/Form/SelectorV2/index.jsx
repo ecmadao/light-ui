@@ -13,7 +13,6 @@ class SelectorV2 extends React.Component {
     this.state = {
       active: false
     };
-    this.minWidth = 0;
     this.onChange = this.onChange.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleActiveChange = this.handleActiveChange.bind(this);
@@ -114,23 +113,20 @@ class SelectorV2 extends React.Component {
   }
 
   get selectorWidth() {
-    if (!this.minWidth) {
-      const { optionClassName } = this.props;
-      const tmpClassName = cx(styles.option, optionClassName, styles['option-hidden']);
-      const maxLengthValue = this.maxLengthValue;
+    const { optionClassName } = this.props;
+    const tmpClassName = cx(styles.option, optionClassName, styles['option-hidden']);
+    const maxLengthValue = this.maxLengthValue;
 
-      const tmpNode = document.createElement('div');
-      tmpNode.setAttribute('class', tmpClassName);
-      const hiddenDOM = document.createElement('div');
-      hiddenDOM.setAttribute('class', cx(styles['option-wrapper'], styles['option-hidden-item']));
-      hiddenDOM.appendChild(document.createTextNode(maxLengthValue));
-      tmpNode.appendChild(hiddenDOM);
+    const tmpNode = document.createElement('div');
+    tmpNode.setAttribute('class', tmpClassName);
+    const hiddenDOM = document.createElement('div');
+    hiddenDOM.setAttribute('class', cx(styles['option-wrapper'], styles['option-hidden-item']));
+    hiddenDOM.appendChild(document.createTextNode(maxLengthValue));
+    tmpNode.appendChild(hiddenDOM);
 
-      document.body.appendChild(tmpNode);
-      tmpNode.remove();
-      this.minWidth = hiddenDOM.offsetWidth + 40;
-    }
-    return this.minWidth;
+    document.body.appendChild(tmpNode);
+    tmpNode.remove();
+    return hiddenDOM.offsetWidth + 40;
   }
 
   render() {
