@@ -21,9 +21,10 @@ class Dropdown extends React.PureComponent {
   }
 
   onMenuClick(callback) {
+    const { closeOnClick } = this.props;
     return () => {
       callback && callback();
-      this.onOutsideClick();
+      closeOnClick && this.onOutsideClick();
     };
   }
 
@@ -60,9 +61,11 @@ class Dropdown extends React.PureComponent {
       showPanelTriangle,
       menuPanelClassName,
     } = this.props;
-    const menuItems = menus.map((menu, index) => {
-      const { onClick, className } = menu.props;
-      return cloneElement(menu, {
+    const items = Array.isArray(menus) ? menus : [menus];
+
+    const menuItems = items.map((item, index) => {
+      const { onClick, className } = item.props;
+      return cloneElement(item, {
         key: `menu-${index}`,
         className: cx(styles['menu'], className),
         onClick: this.onMenuClick(onClick)
@@ -118,6 +121,7 @@ Dropdown.propTypes = {
   disabled: PropTypes.bool,
   showArrow: PropTypes.bool,
   showPanelTriangle: PropTypes.bool,
+  closeOnClick: PropTypes.bool,
   menus: PropTypes.array,
   button: PropTypes.oneOfType([
     PropTypes.node,
@@ -136,6 +140,7 @@ Dropdown.defaultProps = {
   showArrow: true,
   menus: [],
   showPanelTriangle: true,
+  closeOnClick: true,
   button: (<div/>),
   buttonClassName: '',
   menuPanelClassName: '',

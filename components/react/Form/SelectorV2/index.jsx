@@ -125,6 +125,7 @@ class SelectorV2 extends React.Component {
       tmpNode.appendChild(hiddenDOM);
 
       document.body.appendChild(tmpNode);
+      tmpNode.remove();
       this.minWidth = hiddenDOM.offsetWidth + 40;
     }
     return this.minWidth;
