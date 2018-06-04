@@ -62,7 +62,7 @@ class DropdownWrapper extends React.Component {
             showArrow={false}
             disabled={disabled}
             showPanelTriangle={false}
-            menus={this.renderMenus()}
+            content={this.renderMenus()}
             className={styles.dropdown}
             button={this.renderDropdownButton()}
             menuPanelClassName={styles.menuPanel}
@@ -74,7 +74,7 @@ class DropdownWrapper extends React.Component {
             showArrow
             showPanelTriangle
             disabled={disabled}
-            menus={this.renderMenus()}
+            content={this.renderMenus()}
             className={styles.dropdown}
             button={this.renderDropdownButton()}
             menuPanelClassName={styles['menuPanel-2']}
@@ -86,7 +86,7 @@ class DropdownWrapper extends React.Component {
             showArrow
             showPanelTriangle
             disabled={disabled}
-            menus={this.renderMenus(true)}
+            content={this.renderMenus(true)}
             className={styles.dropdown}
             button={this.renderDropdownButton()}
             menuPanelClassName={styles['menuPanel-2-dark']}

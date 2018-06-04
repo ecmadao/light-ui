@@ -29,9 +29,9 @@ class Dropdown extends React.PureComponent {
   }
 
   onOutsideClick() {
-    this.onActiveChange(false);
-    const { onDropdownClose } = this.props;
-    onDropdownClose && onDropdownClose();
+    const { onDropdownClose, closeOnOutsideClick } = this.props;
+    closeOnOutsideClick && this.onActiveChange(false);
+    closeOnOutsideClick && onDropdownClose && onDropdownClose();
   }
 
   onActiveChange(active) {
@@ -59,20 +59,22 @@ class Dropdown extends React.PureComponent {
 
   renderMenuPanel() {
     const {
-      menus,
+      content,
       showPanelTriangle,
       menuPanelClassName,
     } = this.props;
-    const items = Array.isArray(menus) ? menus : [menus];
 
-    const menuItems = items.map((item, index) => {
-      const { onClick, className } = item.props;
-      return cloneElement(item, {
-        key: `menu-${index}`,
-        className: cx(styles['menu'], className),
-        onClick: this.onMenuClick(onClick)
+    let dom = content;
+    if (Array.isArray(content)) {
+      dom = content.map((item, index) => {
+        const { onClick, className } = item.props;
+        return cloneElement(item, {
+          key: `menu-${index}`,
+          className: cx(styles['menu'], className),
+          onClick: this.onMenuClick(onClick)
+        });
       });
-    });
+    }
     return (
       <div
         className={cx(
@@ -81,7 +83,7 @@ class Dropdown extends React.PureComponent {
           menuPanelClassName
         )}
       >
-        {menuItems}
+        {dom}
       </div>
     );
   }
@@ -124,7 +126,13 @@ Dropdown.propTypes = {
   showArrow: PropTypes.bool,
   showPanelTriangle: PropTypes.bool,
   closeOnClick: PropTypes.bool,
-  menus: PropTypes.array,
+  closeOnOutsideClick: PropTypes.bool,
+  content: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.array,
+    PropTypes.element,
+    PropTypes.string
+  ]),
   button: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
@@ -141,9 +149,10 @@ Dropdown.defaultProps = {
   className: '',
   disabled: false,
   showArrow: true,
-  menus: [],
+  content: [],
   showPanelTriangle: true,
   closeOnClick: true,
+  closeOnOutsideClick: true,
   button: (<div/>),
   buttonClassName: '',
   menuPanelClassName: '',
