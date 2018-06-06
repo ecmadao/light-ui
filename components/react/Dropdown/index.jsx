@@ -29,13 +29,16 @@ class Dropdown extends React.PureComponent {
   }
 
   onOutsideClick() {
-    const { onDropdownClose, closeOnOutsideClick } = this.props;
+    const { closeOnOutsideClick } = this.props;
     closeOnOutsideClick && this.onActiveChange(false);
-    closeOnOutsideClick && onDropdownClose && onDropdownClose();
   }
 
   onActiveChange(active) {
     this.setState({ active });
+    if (!active) {
+      const { onDropdownClose } = this.props;
+      onDropdownClose && onDropdownClose();
+    }
   }
 
   onActiveToggle() {
