@@ -1,5 +1,4 @@
 @import '../../../shared/styles/font.css';
-@import "../../../shared/styles/shadow.css";
 @import "../../../shared/styles/z-index.css";
 @import "../../../shared/styles/color.css";
 @import "../../../shared/styles/border.css";
@@ -7,14 +6,20 @@
 :root {
   --triangleWidth: 8px;
   --triangleHeight: 5px;
-  --triangleAfterOffset: 4px;
-  --triangleOffset: 6px;
+  --offsetTop: 4px;
+  --offsetBottom: -4px;
+  --offsetLeft: 8px;
+  --offsetRight: 4px;
 
+  --ratio: 4;
   --speed: .2s;
   --easing: cubic-bezier(.55,0,.1,1);
   --modalContentOpacity: 0;
-  --scale: scale(0.8);
+  --scale: scale(1);
   --scaleActive: scale(1);
+
+  --shadow: 4px 4px 30px 0 rgba(0, 0, 0, 0.2);
+  --filter: rgba(0, 0, 0, 0.2) 4px 4px 30px;
 }
 
 .tipso-wrapper {
@@ -32,15 +37,15 @@
 }
 
 .tipso-container {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: var(--radius-small);
-  box-shadow: var(--shadow4);
+  box-shadow: var(--shadow);
+  filter: drop-shadow(var(--filter));
   padding: 10px;
   justify-content: center;
   align-items: center;
   display: flex;
   position: absolute;
-  left: 50%;
   line-height: 1em;
   min-width: 100px;
   font-size: 12px;
@@ -50,57 +55,62 @@
   opacity: var(--modalContentOpacity);
   visibility: hidden;
   backface-visibility: hidden;
-  transform: var(--scale) translateX(-50%);
+
   transition: all var(--speed) var(--easing);
 
   &.active {
     z-index: var(--zIndex99);
     visibility: visible;
     opacity: 1;
-    transform: var(--scaleActive) translateX(-50%);
   }
 
-  &::before,
   &::after {
     width: 0;
     height: 0;
-    left: 50%;
     content: '';
     display: block;
     position: absolute;
-    transform: translateX(-50%);
-    border-left: var(--triangleWidth) solid transparent;
-    border-right: var(--triangleWidth) solid transparent;
+    filter: drop-shadow(var(--filter));
   }
 
   &::after {
     z-index: var(--zIndex1);
   }
+}
 
-  &::before {
-    z-index: var(--zIndexHidden);
+.top, .bottom {
+  left: 50%;
+
+  &::after {
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: var(--triangleWidth) solid transparent;
+    border-right: var(--triangleWidth) solid transparent;
+  }
+}
+
+.left, .right {
+  top: 50%;
+
+  &::after {
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: calc(var(--triangleHeight) + 2px) solid transparent;
+    border-bottom: calc(var(--triangleHeight) + 2px) solid transparent;
   }
 }
 
 .top {
-  bottom: 100%;
-  transform: translate(-50%, -var(--triangleOffset));
+  bottom: calc(100% + var(--offsetTop) * var(--ratio));
+  transform: var(--scale) translate(-50%, var(--offsetTop));
 
   &::after {
-    bottom: -var(--triangleAfterOffset);
-  }
-
-  &::before {
-    bottom: -var(--triangleOffset);
+    bottom: -var(--triangleHeight);
   }
 
   &.dark {
     &::after {
       border-top: var(--triangleHeight) solid var(--gray-dark-deep);
-    }
-
-    &::before {
-      border-top: var(--triangleHeight) solid transparent;
     }
   }
 
@@ -108,32 +118,25 @@
     &::after {
       border-top: var(--triangleHeight) solid var(--white);
     }
+  }
 
-    &::before {
-      border-top: var(--triangleHeight) solid rgba(212, 212, 212, 0.3);
-    }
+  &.active {
+    bottom: 100%;
+    transform: var(--scaleActive) translate(-50%, var(--offsetTop));
   }
 }
 
 .bottom {
-  top: 100%;
-  transform: translate(-50%, var(--triangleOffset));
+  top: calc(100% + var(--offsetTop) * var(--ratio));
+  transform: var(--scale) translate(-50%, var(--offsetBottom));
 
   &::after {
-    top: -var(--triangleAfterOffset);
-  }
-
-  &::before {
-    top: -var(--triangleOffset);
+    top: -var(--triangleHeight);
   }
 
   &.dark {
     &::after {
       border-bottom: var(--triangleHeight) solid var(--gray-dark-deep);
-    }
-
-    &::before {
-      border-bottom: var(--triangleHeight) solid transparent;
     }
   }
 
@@ -141,10 +144,63 @@
     &::after {
       border-bottom: var(--triangleHeight) solid var(--white);
     }
+  }
 
-    &::before {
-      border-bottom: var(--triangleHeight) solid rgba(212, 212, 212, 0.3);
+  &.active {
+    top: 100%;
+    transform: var(--scaleActive) translate(-50%, var(--offsetBottom));
+  }
+}
+
+.left {
+  right: calc(100% + var(--offsetLeft) * var(--ratio));
+  transform: var(--scale) translate(-var(--offsetLeft), -50%);
+
+  &::after {
+    right: -var(--triangleHeight);
+  }
+
+  &.dark {
+    &::after {
+      border-left: var(--triangleWidth) solid var(--gray-dark-deep);
     }
+  }
+
+  &.light {
+    &::after {
+      border-left: var(--triangleWidth) solid var(--white);
+    }
+  }
+
+  &.active {
+    right: 100%;
+    transform: var(--scaleActive) translate(-var(--offsetLeft), -50%);
+  }
+}
+
+.right {
+  left: calc(100% + var(--offsetLeft) * var(--ratio));
+  transform: var(--scale) translate(var(--offsetRight), -50%);
+
+  &::after {
+    left: -var(--triangleHeight);
+  }
+
+  &.dark {
+    &::after {
+      border-right: var(--triangleWidth) solid var(--gray-dark-deep);
+    }
+  }
+
+  &.light {
+    &::after {
+      border-right: var(--triangleWidth) solid var(--white);
+    }
+  }
+
+  &.active {
+    left: 100%;
+    transform: var(--scaleActive) translate(var(--offsetRight), -50%);
   }
 }
 

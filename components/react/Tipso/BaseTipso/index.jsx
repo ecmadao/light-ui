@@ -40,7 +40,7 @@ class BaseTipso extends React.Component {
 
   onOutsideClick(e) {
     e = e || window.event;
-    const mouseTarget = (typeof e.which !== "undefined") ? e.which : e.button;
+    const mouseTarget = (typeof e.which !== 'undefined') ? e.which : e.button;
     const isDescendantOfRoot = ReactDOM.findDOMNode(this.tipso).contains(e.target);
     if (!isDescendantOfRoot && mouseTarget === 1) {
       this.handleShowChange(false)();
@@ -75,6 +75,7 @@ class BaseTipso extends React.Component {
     const { show } = this.state;
     const {
       theme,
+      disabled,
       position,
       children,
       className,
@@ -84,10 +85,10 @@ class BaseTipso extends React.Component {
       tipsoContent,
     } = this.props;
     const containerClass = cx(
-      styles["tipso-container"],
+      styles['tipso-container'],
       styles[theme],
       styles[position],
-      (this.props.show || show) && styles["active"],
+      !disabled && (this.props.show || show) && styles.active,
       className
     );
 
@@ -131,6 +132,7 @@ BaseTipso.propTypes = {
   wrapperClass: PropTypes.string,
   position: PropTypes.string,
   show: PropTypes.bool,
+  disabled: PropTypes.bool,
   onTipClose: PropTypes.func,
 };
 
@@ -145,6 +147,7 @@ BaseTipso.defaultProps = {
   wrapperClass: '',
   position: 'top',
   show: false,
+  disabled: false,
   onTipClose: () => {},
 };
 
