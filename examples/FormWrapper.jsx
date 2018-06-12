@@ -150,6 +150,18 @@ class FormWrapper extends React.Component {
             onChange={this.onChange}
           />
         </div>
+        <br/>
+        <div>
+          <Textarea
+            maxLength={200}
+            value={value}
+            placeholder="textarea"
+            disabled={disabled}
+            onChange={this.onChange}
+            wordCountTemplate="%n words typed"
+            wordCount={val => val ? val.split(' ').length : 0}
+          />
+        </div>
         <h3>Selector</h3>
         <h4>material theme</h4>
         <div>
