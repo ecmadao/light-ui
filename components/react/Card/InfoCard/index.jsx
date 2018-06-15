@@ -21,9 +21,9 @@ const InfoCard = (props) => {
   } = props;
 
   const infoClass = cx(
-    styles["info-card"],
+    styles['info-card'],
     theme && styles[theme],
-    tipso && styles["with-tipso"],
+    tipso && styles['with-tipso'],
     className
   );
   const iconElement = typeof icon === 'string'
@@ -42,8 +42,8 @@ const InfoCard = (props) => {
           theme={tipsoTheme}
           trigger={tipsoTrigger}
           tipsoStyle={tipso.style || {}}
-          className={styles["info_tipso"]}
-          wrapperClass={styles["info_tipso_wrapper"]}
+          className={styles['info_tipso']}
+          wrapperClass={styles['info_tipso_wrapper']}
           tipsoContent={(<span>{tipso.text}</span>)}>
           {tipsoIcon}
         </Tipso>
@@ -57,12 +57,12 @@ const InfoCard = (props) => {
       className={infoClass}
     >
       {tipsoDOM}
-      <div className={cx(styles["info_main_text"], mainTextStyle)}>
+      <div className={cx(styles['info_main_text'], mainTextStyle)}>
         {icon ? iconElement : ''}
         {mainText}
       </div>
       {typeof subText === 'string' ? (
-        <div className={cx(styles["info_sub_text"], subTextStyle)}>
+        <div className={cx(styles['info_sub_text'], subTextStyle)}>
           {subText}
         </div>
       ) : subText}

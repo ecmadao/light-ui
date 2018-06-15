@@ -40,7 +40,7 @@ class Selector extends React.Component {
   render() {
     const { value, theme, className, disabled } = this.props;
     const containerClass = cx(
-      styles["selector-container"],
+      styles['selector-container'],
       styles[theme],
       disabled && styles['selector-disabled'],
       className
@@ -52,7 +52,7 @@ class Selector extends React.Component {
         <select
           value={value}
           onChange={onChange}
-          className={styles["selector"]}
+          className={styles.selector}
           ref={ref => (this.selector = ref)}>
           {this.renderOptions()}
         </select>

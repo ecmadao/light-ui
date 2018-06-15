@@ -30,8 +30,8 @@ class Loading extends React.Component {
     const { loading } = this.state;
     const { className, theme, style } = this.props;
     const containerClass = cx(
-      styles["loading-container"],
-      loading && styles["loading-active"],
+      styles['loading-container'],
+      loading && styles['loading-active'],
       className
     );
     const loadingClass = styles[`${theme}-wrapper`];

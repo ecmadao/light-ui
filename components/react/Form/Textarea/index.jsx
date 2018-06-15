@@ -70,18 +70,18 @@ class Textarea extends React.Component {
     const { focus, error } = this.state;
 
     const wrapperClass = cx(
-      styles["textarea-wrapper"],
-      styles["flat"],
-      focus && styles["focus"],
-      error && styles["error"],
-      disabled && styles["disabled"],
+      styles['textarea-wrapper'],
+      styles.flat,
+      focus && styles.focus,
+      error && styles.error,
+      disabled && styles.disabled,
     );
 
     const wordCount = this.props.wordCount || countWords;
 
     return (
       <div className={wrapperClass}>
-        <pre className={styles["textarea-hidden"]}>
+        <pre className={styles['textarea-hidden']}>
           <span>
             {value}
           </span>
@@ -93,13 +93,13 @@ class Textarea extends React.Component {
           placeholder={placeholder}
           onChange={this.onChange}
           ref={ref => (this.textarea = ref)}
-          className={styles["textarea"]}
+          className={styles.textarea}
           onKeyDown={this.onKeyDown}
           onBlur={this.onBlur}
           onFocus={this.onFocus}
         />
         {wordCountTemplate && (
-          <div className={styles["textarea-tip"]}>
+          <div className={styles['textarea-tip']}>
             {wordCountTemplate.replace('%n', wordCount(value))}
           </div>
         )}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/react/Button/Button';
 import Tipso from '../components/react/Tipso/Tipso';
+import styles from './shared/styles.css';
 
 class TipsoWrapper extends React.Component {
   render() {
@@ -18,8 +19,11 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
 
           <Tipso
             theme="dark"
@@ -31,8 +35,11 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
 
           <Tipso
             position="bottom"
@@ -44,8 +51,11 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
 
           <Tipso
             theme="dark"
@@ -58,9 +68,11 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
 
+          <br />
           <br />
 
           <Tipso
@@ -73,8 +85,11 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
 
           <Tipso
             position="right"
@@ -86,6 +101,7 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="hover to show"
+              className={styles.button}
             />
           </Tipso>
         </div>
@@ -101,8 +117,12 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
+
           <Tipso
             theme="dark"
             trigger="click"
@@ -114,8 +134,12 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
+
           <Tipso
             trigger="click"
             position="bottom"
@@ -127,8 +151,12 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
+
           <Tipso
             theme="dark"
             position="bottom"
@@ -141,10 +169,12 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
 
           <br/>
+          <br />
 
           <Tipso
             trigger="click"
@@ -157,8 +187,12 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
+
+          &nbsp;&nbsp;
+
           <Tipso
             theme="dark"
             position="right"
@@ -171,6 +205,7 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="click to show"
+              className={styles.button}
             />
           </Tipso>
 
@@ -191,6 +226,7 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="tip is disabled"
+              className={styles.button}
             />
           </Tipso>
         </div>
@@ -210,6 +246,7 @@ class TipsoWrapper extends React.Component {
             )}>
             <Button
               value="show in default"
+              className={styles.button}
             />
           </Tipso>
         </div>

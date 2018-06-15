@@ -32,19 +32,19 @@ class Switcher extends React.Component {
     const { color, disabled, size, version } = this.props;
 
     const containerClass = cx(
-      styles["switcher-container"],
+      styles['switcher-container'],
       version && styles[`switcher-${version}`],
       size && styles[`container-${size}`],
-      checked && styles["container-checked"],
+      checked && styles['container-checked'],
       color && styles[color],
-      disabled && styles["container-disabled"]
+      disabled && styles['container-disabled']
     );
 
     return (
       <div
         onClick={this.onChange}
         className={containerClass}>
-        <div className={styles["switcher-item"]}></div>
+        <div className={styles['switcher-item']}></div>
       </div>
     );
   }

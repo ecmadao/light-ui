@@ -12,13 +12,13 @@ class BaseModal extends React.Component {
   render() {
     const { children, showModal, className } = this.props;
     const modalClass = cx(
-      styles["modal_component"],
-      showModal && styles["active"],
+      styles['modal_component'],
+      showModal && styles.active,
       className
     );
     return (
       <div className={modalClass}>
-        <div className={styles["modal_wrapper"]} onClick={this.onClose.bind(this)}></div>
+        <div className={styles['modal_wrapper']} onClick={this.onClose.bind(this)}></div>
         {children}
       </div>
     );

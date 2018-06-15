@@ -33,8 +33,8 @@ class ShortMessage extends React.Component {
     const { show } = this.state;
     const { text } = this.props;
     const messageClass = cx(
-      styles["message_modal_wrapper"],
-      show && styles["active"]
+      styles['message_modal_wrapper'],
+      show && styles.active
     );
 
     return (

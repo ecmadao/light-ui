@@ -83,12 +83,14 @@ class BaseTipso extends React.Component {
       wrapperClass,
       wrapperStyle,
       tipsoContent,
+      activeClassName
     } = this.props;
     const containerClass = cx(
       styles['tipso-container'],
       styles[theme],
       styles[position],
       !disabled && (this.props.show || show) && styles.active,
+      !disabled && (this.props.show || show) && activeClassName,
       className
     );
 

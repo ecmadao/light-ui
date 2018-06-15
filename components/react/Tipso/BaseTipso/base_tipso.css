@@ -121,7 +121,7 @@
   }
 
   &.active {
-    bottom: 100%;
+    bottom: calc(100% + var(--triangleWidth) + var(--offsetTop));
     transform: var(--scaleActive) translate(-50%, var(--offsetTop));
   }
 }
@@ -147,7 +147,7 @@
   }
 
   &.active {
-    top: 100%;
+    top: calc(100% + var(--triangleWidth) + var(--offsetTop));
     transform: var(--scaleActive) translate(-50%, var(--offsetBottom));
   }
 }
@@ -199,7 +199,7 @@
   }
 
   &.active {
-    left: 100%;
+    left: calc(100% + var(--triangleHeight));
     transform: var(--scaleActive) translate(var(--offsetRight), -50%);
   }
 }
