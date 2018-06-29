@@ -106,7 +106,12 @@ BaseButton.propTypes = {
   type: PropTypes.string,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.array,
+    PropTypes.string
+  ]),
   clickable: PropTypes.bool
 };
 

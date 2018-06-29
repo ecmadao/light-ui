@@ -20,7 +20,12 @@ const Tipso = (props) => {
 Tipso.propTypes = {
   trigger: PropTypes.string,
   wrapperStyle: PropTypes.object,
-  children: PropTypes.element
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.array
+  ]),
 };
 
 Tipso.defaultProps = {

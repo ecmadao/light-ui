@@ -36,7 +36,8 @@ FloatingActionButton.propTypes = {
   icon: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.array
   ])
 };
 

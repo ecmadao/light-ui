@@ -120,11 +120,15 @@ class BaseTipso extends React.Component {
 BaseTipso.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.node
+    PropTypes.node,
+    PropTypes.array,
+    PropTypes.string
   ]),
   tipsoContent: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.node
+    PropTypes.node,
+    PropTypes.array,
+    PropTypes.string
   ]),
   className: PropTypes.string,
   theme: PropTypes.string,

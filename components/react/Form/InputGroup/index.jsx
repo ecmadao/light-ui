@@ -51,7 +51,12 @@ InputGroup.propTypes = {
   wrapperClassName: PropTypes.string,
   wrapperStyle: PropTypes.object,
   tipsoStyle: PropTypes.object,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.array
+  ]),
 };
 
 InputGroup.defaultProps = {

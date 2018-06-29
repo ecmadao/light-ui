@@ -48,12 +48,14 @@ Button.propTypes = {
   leftIcon: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.array
   ]),
   rightIcon: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.array
   ])
 };
 

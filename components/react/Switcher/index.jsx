@@ -29,7 +29,7 @@ class Switcher extends React.Component {
 
   render() {
     const { checked } = this.state;
-    const { color, disabled, size, version } = this.props;
+    const { color, disabled, size, version, className } = this.props;
 
     const containerClass = cx(
       styles['switcher-container'],
@@ -37,7 +37,8 @@ class Switcher extends React.Component {
       size && styles[`container-${size}`],
       checked && styles['container-checked'],
       color && styles[color],
-      disabled && styles['container-disabled']
+      disabled && styles['container-disabled'],
+      className
     );
 
     return (
@@ -56,7 +57,8 @@ Switcher.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   size: PropTypes.string,
-  version: PropTypes.string
+  version: PropTypes.string,
+  className: PropTypes.string
 };
 
 Switcher.defaultProps = {
@@ -65,7 +67,8 @@ Switcher.defaultProps = {
   disabled: false,
   onChange: () => {},
   size: 'normal',
-  version: 'v1'
+  version: 'v1',
+  className: ''
 };
 
 export default Switcher;

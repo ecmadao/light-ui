@@ -30,9 +30,11 @@ BaseModal.propTypes = {
   onClose: PropTypes.func,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
+    PropTypes.node,
     PropTypes.element,
+    PropTypes.string,
     PropTypes.array
-  ])
+  ]),
 };
 
 BaseModal.defaultProps = {

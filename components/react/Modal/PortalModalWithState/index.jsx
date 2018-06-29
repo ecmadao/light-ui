@@ -42,7 +42,9 @@ PortalModalWithState.propTypes = {
   closeOnOutsideClick: PropTypes.bool,
   onClose: PropTypes.func,
   children: PropTypes.oneOfType([
+    PropTypes.node,
     PropTypes.element,
+    PropTypes.string,
     PropTypes.array
   ]),
   defaultOpen: PropTypes.bool
