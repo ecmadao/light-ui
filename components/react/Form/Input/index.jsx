@@ -36,8 +36,9 @@ class Input extends React.Component {
 
   onBlur(e) {
     this.check();
+    const value = this.input.value;
     const { onBlur } = this.props;
-    onBlur && onBlur(e);
+    onBlur && onBlur(value);
   }
 
   onKeyDown(e) {

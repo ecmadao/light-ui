@@ -21,7 +21,8 @@ class Option extends React.Component {
     return (
       <div
         onClick={this.onClick.bind(this)}
-        className={optionClass}>
+        className={optionClass}
+      >
         <div className={styles['option-wrapper']}>
           {value}
         </div>
