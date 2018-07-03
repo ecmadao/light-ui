@@ -17,7 +17,7 @@ const CardGroup = (props) => {
 
   const cards = Helper.isArray(children) ? children.map((child, index) => {
     const isCardGroup = child.type.prototype === CardGroup.prototype;
-    if (isCardGroup) { hasCardGroup = true; }
+    if (isCardGroup) hasCardGroup = true;
 
     const childProps = isCardGroup ? {
       key: index,

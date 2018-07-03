@@ -15,9 +15,7 @@ class Slider extends React.Component {
     this.state = objectAssign(
       {},
       this.initialState(props),
-      {
-        maxDis: 0
-      }
+      { maxDis: 0 }
     );
     this.onChange = this.onChange.bind(this);
     this.onDraging = this.onDraging.bind(this);
@@ -189,22 +187,22 @@ class Slider extends React.Component {
           jump={jump}
           key={index}
           left={left}
-          maxDis={maxDis}
-          maxLeft={maxLeft}
           color={color}
           value={value}
-          max={maxPosition}
-          min={minPosition}
           maxValue={max}
           minValue={min}
+          maxDis={maxDis}
+          maxLeft={maxLeft}
+          max={maxPosition}
+          min={minPosition}
           minJump={minJump}
           useTipso={useTipso}
           showTipso={showTipso}
-          draggerClass={draggerClass}
           tipsoClass={tipsoClass}
+          tipFormatter={tipFormatter}
+          draggerClass={draggerClass}
           onDragEnd={this.onDragEnd(index)}
           onDraging={this.onDraging(index)}
-          tipFormatter={tipFormatter}
         />
       );
     });
@@ -227,6 +225,7 @@ class Slider extends React.Component {
   renderSections() {
     const { clickable, max, min, minJump, jump } = this.props;
     if (!clickable || !jump || minJump <= 0) return null;
+
     const { positions } = this.state;
     const lefts = positions.map(position => position.left);
     let maxLeft = Math.min(...lefts);
@@ -261,7 +260,7 @@ class Slider extends React.Component {
       <div className={containerClass}>
         <div
           className={styles.pathway}
-          ref={ref => this.pathway = ref}
+          ref={ref => (this.pathway = ref)}
         >
           {this.renderSections()}
           {this.renderDrager()}

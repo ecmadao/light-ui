@@ -1,3 +1,4 @@
+
 const isArray = (array) =>
   Object.prototype.toString.call(array) === '[object Array]';
 
@@ -18,6 +19,7 @@ const findFirstIndex = (options = {}) => {
     check = item => item,
     getVal = item => item
   } = options;
+
   let index = -1;
   for (let i = 0; i < array.length; i += 1) {
     const item = array[i];

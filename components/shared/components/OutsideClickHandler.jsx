@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 
 const propTypes = {
   children: PropTypes.node,
-  onOutsideClick: PropTypes.func,
   onKeydown: PropTypes.func,
-  responseOutsideClick: PropTypes.bool,
-  responseKeydown: PropTypes.bool,
   targetKey: PropTypes.number,
+  onOutsideClick: PropTypes.func,
+  responseKeydown: PropTypes.bool,
+  responseOutsideClick: PropTypes.bool,
 };
 
 const defaultProps = {

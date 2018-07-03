@@ -109,8 +109,7 @@ class Dragger extends React.Component {
     const leftLength = dragX - maxLeft;
     const offsetPercentage = leftLength / maxDis;
 
-    let validateLeft = darg.validatePosition(
-      offsetPercentage, min, max);
+    let validateLeft = darg.validatePosition(offsetPercentage, min, max);
     if (jump) {
       let val = validateLeft * (maxValue - minValue);
       const offset = val % minJump;
@@ -130,12 +129,12 @@ class Dragger extends React.Component {
       color,
       left,
       value,
-      tipFormatter,
       useTipso,
       showTipso,
-      draggerClass,
       tipsoClass,
       tipsoTrigger,
+      tipFormatter,
+      draggerClass,
     } = this.props;
     const dragClass = cx(
       styles.dragger,
@@ -146,9 +145,9 @@ class Dragger extends React.Component {
     return (
       <Tipso
         theme="dark"
-        trigger={tipsoTrigger}
         show={showTipso}
         disabled={!useTipso}
+        trigger={tipsoTrigger}
         show={this.state.draging}
         tipsoContent={(
           <div
@@ -165,13 +164,11 @@ class Dragger extends React.Component {
           tipsoClass
         )}
         wrapperClass={styles['dragger-container']}
-        wrapperStyle={{
-          left: `${left * 100}%`
-        }}
+        wrapperStyle={{ left: `${left * 100}%` }}
       >
         <div
           className={dragClass}
-          ref={ref => this.dragger = ref}
+          ref={ref => (this.dragger = ref)}
           onMouseDown={this.handleMouseDown}
         />
       </Tipso>

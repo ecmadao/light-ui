@@ -1,3 +1,4 @@
+
 import styles from './short_message.css';
 
 const ShortMessage = (...args) => {

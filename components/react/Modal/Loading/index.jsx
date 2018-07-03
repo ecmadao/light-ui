@@ -42,8 +42,8 @@ class Loading extends React.Component {
         onClick={this.onClose}
         className={containerClass}>
         <div className={loadingClass}>
-          <div></div>
-          <div></div>
+          <div />
+          <div />
         </div>
       </div>
     );

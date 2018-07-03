@@ -80,10 +80,10 @@ class BaseButton extends React.Component {
         style={style}
         onClick={onClick}
         className={buttonClass}
-        onMouseDown={this.onMouseDown}
-        onMouseOut={this.onMouseUp}
-        onMouseLeave={this.onMouseLeave}
         onMouseUp={this.onMouseUp}
+        onMouseOut={this.onMouseUp}
+        onMouseDown={this.onMouseDown}
+        onMouseLeave={this.onMouseLeave}
         onMouseEnter={this.onMouseEnter}
         onTransitionEnd={onTransitionEnd}
       >

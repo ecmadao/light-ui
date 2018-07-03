@@ -42,6 +42,7 @@ class FormWrapper extends React.Component {
         <h4>material theme</h4>
         <div>
           <Input
+            autoFocus
             value={value}
             placeholder="material theme"
             disabled={disabled}

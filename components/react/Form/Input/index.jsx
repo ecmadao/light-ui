@@ -10,11 +10,17 @@ class Input extends React.Component {
     this.state = {
       error: false
     };
+
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onFocus = this.onFocus.bind(this);
+  }
+
+  componentDidMount() {
+    const { autoFocus } = this.props;
+    autoFocus && this.input.focus();
   }
 
   componentDidUpdate(preProps) {
@@ -96,19 +102,19 @@ class Input extends React.Component {
     return (
       <input
         id={id}
-        required={required}
-        disabled={disabled}
         type={type}
         value={value}
-        className={inputClass}
-        onChange={this.onChange}
-        onKeyDown={this.onKeyDown}
+        style={style}
+        required={required}
+        disabled={disabled}
         onBlur={this.onBlur}
         onKeyUp={this.onKeyUp}
         onFocus={this.onFocus}
+        className={inputClass}
+        onChange={this.onChange}
         placeholder={placeholder}
+        onKeyDown={this.onKeyDown}
         ref={ref => (this.input = ref)}
-        style={style}
       />
     );
   }
@@ -117,6 +123,7 @@ class Input extends React.Component {
 Input.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.bool,
+  autoFocus: PropTypes.bool,
   value: PropTypes.string,
   style: PropTypes.object,
   validate: PropTypes.object,
@@ -135,6 +142,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   disabled: false,
+  autoFocus: false,
   value: '',
   required: true,
   style: {},

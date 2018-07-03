@@ -10,8 +10,7 @@ const Tipso = (props) => {
   delete baseProps.children;
 
   return (
-    <BaseTipso
-      {...baseProps}>
+    <BaseTipso {...baseProps}>
       {children}
     </BaseTipso>
   );

@@ -99,9 +99,10 @@ class BaseTipso extends React.Component {
 
     return (
       <div
-        ref={ref => (this.tipso = ref)}
         style={wrapperStyle}
-        className={cx(styles['tipso-wrapper'], wrapperClass)}>
+        ref={ref => (this.tipso = ref)}
+        className={cx(styles['tipso-wrapper'], wrapperClass)}
+      >
         {tipsoTrigger}
         {tipsoContent ? (
           <div
@@ -111,7 +112,7 @@ class BaseTipso extends React.Component {
               {tipsoContent}
             </div>
           </div>
-        ) : ''}
+        ) : null}
       </div>
     );
   }

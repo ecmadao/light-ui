@@ -26,13 +26,13 @@ class InputGroup extends React.Component {
           ...wrapperStyle,
           margin: '0 5px'
         }}
-        position={tipsoPosition}
-        tipsoStyle={{...tipsoStyle}}
         theme={tipsoTheme}
-        wrapperClass={wrapperClassName}
-        className={tipsoClassName}
         tipsoContent={children}
         onTipClose={onTipClose}
+        position={tipsoPosition}
+        className={tipsoClassName}
+        tipsoStyle={{...tipsoStyle}}
+        wrapperClass={wrapperClassName}
       >
         <Input
           {...this.props}

@@ -22,6 +22,7 @@ class Switcher extends React.Component {
   onChange() {
     const { onChange, disabled } = this.props;
     if (disabled) return;
+
     const { checked } = this.state;
     this.setState({ checked: !checked });
     onChange && onChange(!checked);
@@ -44,8 +45,9 @@ class Switcher extends React.Component {
     return (
       <div
         onClick={this.onChange}
-        className={containerClass}>
-        <div className={styles['switcher-item']}></div>
+        className={containerClass}
+      >
+        <div className={styles['switcher-item']} />
       </div>
     );
   }

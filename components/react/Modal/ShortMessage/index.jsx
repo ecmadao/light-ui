@@ -41,7 +41,8 @@ class ShortMessage extends React.Component {
       <Portal>
         <div
           ref={ref => (this.messageModal = ref)}
-          className={messageClass}>
+          className={messageClass}
+        >
           {text}
         </div>
       </Portal>

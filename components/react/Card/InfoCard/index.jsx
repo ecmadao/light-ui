@@ -14,9 +14,9 @@ const InfoCard = (props) => {
     subText,
     mainText,
     className,
-    tipsoTrigger,
     tipsoTheme,
     subTextStyle,
+    tipsoTrigger,
     mainTextStyle,
   } = props;
 
@@ -58,7 +58,7 @@ const InfoCard = (props) => {
     >
       {tipsoDOM}
       <div className={cx(styles['info_main_text'], mainTextStyle)}>
-        {icon ? iconElement : ''}
+        {icon ? iconElement : null}
         {mainText}
       </div>
       {typeof subText === 'string' ? (

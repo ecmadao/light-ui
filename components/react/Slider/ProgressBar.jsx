@@ -11,11 +11,11 @@ const ProgressBar = (props) => {
   );
   return (
     <div
+      className={barClass}
       style={{
         left: `${left * 100}%`,
         right: `${right * 100}%`
       }}
-      className={barClass}
     />
   );
 };

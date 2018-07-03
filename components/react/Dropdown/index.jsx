@@ -111,8 +111,7 @@ class Dropdown extends React.PureComponent {
 
     return (
       <div className={containerClass}>
-        <OutsideClickHandler
-          onOutsideClick={this.onOutsideClick}>
+        <OutsideClickHandler onOutsideClick={this.onOutsideClick}>
           {this.renderMainArea()}
           {this.renderMenuPanel()}
         </OutsideClickHandler>

@@ -24,8 +24,7 @@ const Button = (props) => {
   delete baseProps.value;
 
   return (
-    <BaseButton
-      {...baseProps}>
+    <BaseButton {...baseProps}>
       <div>
         {leftIconElement}
         <span>

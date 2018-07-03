@@ -1,3 +1,4 @@
+
 import cx from 'classnames';
 import styles from './message.css';
 import uuid from '../../shared/utils/uuid';
@@ -86,6 +87,7 @@ class MessageComponent {
     this.$body.appendChild(this.$message);
     const closeIcon = this.$message.childNodes[1];
     if (!closeIcon) return;
+
     const closeFunc = () => {
       this.$message.classList.remove(styles['active']);
     };

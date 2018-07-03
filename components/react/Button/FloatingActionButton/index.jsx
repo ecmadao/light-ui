@@ -17,12 +17,12 @@ const FloatingActionButton = (props) => {
   return (
     <BaseButton
       {...baseProps}
-      type="floating-action-button"
       style={{
         ...style,
         width: '50px',
         height: '50px'
       }}
+      type="floating-action-button"
     >
       {iconElement}
     </BaseButton>
