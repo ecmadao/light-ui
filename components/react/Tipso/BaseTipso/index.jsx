@@ -1,7 +1,8 @@
-import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
+
 import cx from 'classnames';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import React, { cloneElement } from 'react';
 import styles from './base_tipso.css';
 
 class BaseTipso extends React.Component {
@@ -86,7 +87,7 @@ class BaseTipso extends React.Component {
       activeClassName
     } = this.props;
     const containerClass = cx(
-      styles['tipso-container'],
+      styles.tipsoContainer,
       styles[theme],
       styles[position],
       !disabled && (this.props.show || show) && styles.active,
@@ -101,7 +102,7 @@ class BaseTipso extends React.Component {
       <div
         style={wrapperStyle}
         ref={ref => (this.tipso = ref)}
-        className={cx(styles['tipso-wrapper'], wrapperClass)}
+        className={cx(styles.tipsoWrapper, wrapperClass)}
       >
         {tipsoTrigger}
         {tipsoContent ? (

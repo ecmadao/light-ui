@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './input.css';
 import Validator from '../../../shared/utils/validator';
 
@@ -141,10 +141,10 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  required: true,
   disabled: false,
   autoFocus: false,
   value: '',
-  required: true,
   style: {},
   validate: {},
   className: '',

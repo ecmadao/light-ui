@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import objectAssign from '../../../shared/utils/objectAssign';
 import BaseButton from '../BaseButton';
 
 const Button = (props) => {
@@ -9,14 +8,14 @@ const Button = (props) => {
     leftIcon,
     rightIcon
   } = props;
-  const baseProps = objectAssign({}, props);
+  const baseProps = Object.assign({}, props);
 
   const leftIconElement = typeof leftIcon === 'string'
-    ? (<i className={`fa fa-${leftIcon}`} aria-hidden="true"></i>)
+    ? (<i className={`fa fa-${leftIcon}`} aria-hidden="true" />)
     : leftIcon;
 
   const rightIconElement = typeof rightIcon === 'string'
-    ? (<i className={`fa fa-${rightIcon}`} aria-hidden="true"></i>)
+    ? (<i className={`fa fa-${rightIcon}`} aria-hidden="true" />)
     : rightIcon;
 
   delete baseProps.leftIcon;

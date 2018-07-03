@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './slider.css';
 
 const ProgressBar = (props) => {
   const { left, right, color } = props;
   const barClass = cx(
-    styles['progress-bar'],
+    styles.progressBar,
     color && styles[`bar-${color}`]
   );
   return (

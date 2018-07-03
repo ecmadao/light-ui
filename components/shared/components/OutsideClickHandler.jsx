@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 const propTypes = {
   children: PropTypes.node,
@@ -13,11 +13,11 @@ const propTypes = {
 
 const defaultProps = {
   targetKey: null,
-  responseKeydown: false,
-  responseOutsideClick: true,
   children: <span />,
-  onOutsideClick: () => {},
   onKeydown: () => {},
+  responseKeydown: false,
+  onOutsideClick: () => {},
+  responseOutsideClick: true,
 };
 
 class OutsideClickHandler extends React.Component {

@@ -2,7 +2,7 @@
 @import "../../shared/styles/color.css";
 @import "../../shared/styles/border.css";
 
-.message_component {
+.messageComponent {
   position: fixed;
   left: 10%;
   right: 10%;
@@ -42,7 +42,7 @@
     transform: translateY(-50%);
   }
 
-  & .message_content {
+  & .messageContent {
     position: absolute;
     top: 0;
     right: 0;
@@ -55,7 +55,7 @@
   }
 }
 
-.mobile_message {
+.mobileMessage {
   top: inherit;
   bottom: -120%;
   transition: bottom 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -67,7 +67,7 @@
 }
 
 @media (max-width: 500px) {
-  .message_component {
+  .messageComponent {
     font-size: 12px;
 
     & i {

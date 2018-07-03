@@ -49,12 +49,12 @@ class LoadingWrapper extends React.Component {
       left: '0'
     } : {};
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <SelectorV2
           value={theme}
-          options={LOADING_THEMES}
           theme="flat"
           color="white"
+          options={LOADING_THEMES}
           onChange={this.onChange}
         />
         <div>
@@ -63,14 +63,15 @@ class LoadingWrapper extends React.Component {
             onClick={this.onClick}
             value="Click to loading"
           />
-          &nbsp;<span>{text}</span>
+          &nbsp;
+          <span>{text}</span>
         </div>
         <Loading
+          style={style}
           theme={theme}
-          closeAble={closeAble}
           loading={loading}
           onClose={onClose}
-          style={style}
+          closeAble={closeAble}
         />
       </div>
     );

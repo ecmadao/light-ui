@@ -1,7 +1,7 @@
 @import "../../../shared/styles/z-index.css";
 @import '../../../shared/styles/border.css';
 
-.message-component {
+.messageComponent {
   position: fixed;
   top: 50%;
   left: 50%;

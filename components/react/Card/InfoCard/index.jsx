@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
-import icons from '../../../shared/utils/icons';
+import PropTypes from 'prop-types';
 import Tipso from '../../Tipso/Tipso';
 import styles from './info_card.css';
+import icons from '../../../shared/utils/icons';
 
 const InfoCard = (props) => {
   const {
@@ -21,13 +21,13 @@ const InfoCard = (props) => {
   } = props;
 
   const infoClass = cx(
-    styles['info-card'],
+    styles.infoCard,
     theme && styles[theme],
-    tipso && styles['with-tipso'],
+    tipso && styles.withTipso,
     className
   );
   const iconElement = typeof icon === 'string'
-  ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+  ? (<i className={`fa fa-${icon}`} aria-hidden="true" />)
   : icon;
   const tipsoIcon = tipso && typeof tipso.icon === 'object'
     ? tipso.icon : (icons.info);
@@ -42,8 +42,8 @@ const InfoCard = (props) => {
           theme={tipsoTheme}
           trigger={tipsoTrigger}
           tipsoStyle={tipso.style || {}}
-          className={styles['info_tipso']}
-          wrapperClass={styles['info_tipso_wrapper']}
+          className={styles.infoTipso}
+          wrapperClass={styles.infoTipsoWrapper}
           tipsoContent={(<span>{tipso.text}</span>)}>
           {tipsoIcon}
         </Tipso>
@@ -57,12 +57,12 @@ const InfoCard = (props) => {
       className={infoClass}
     >
       {tipsoDOM}
-      <div className={cx(styles['info_main_text'], mainTextStyle)}>
+      <div className={cx(styles.infoMainText, mainTextStyle)}>
         {icon ? iconElement : null}
         {mainText}
       </div>
       {typeof subText === 'string' ? (
-        <div className={cx(styles['info_sub_text'], subTextStyle)}>
+        <div className={cx(styles.infoSubText, subTextStyle)}>
           {subText}
         </div>
       ) : subText}

@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 
-import icons from '../../../shared/utils/icons';
-import styles from './selector_v2.css';
 import Option from './Option';
+import styles from './selector_v2.css';
+import icons from '../../../shared/utils/icons';
 import OutsideClickHandler from '../../../shared/components/OutsideClickHandler';
 
 class SelectorV2 extends React.Component {
@@ -65,7 +65,7 @@ class SelectorV2 extends React.Component {
     return (
       <div
         className={cx(
-          styles['options-container'],
+          styles.optionsContainer,
           optionModalClassName
         )}
         style={{ minWidth: `${this.selectorWidth}px` }}
@@ -98,15 +98,15 @@ class SelectorV2 extends React.Component {
     if (!flexable) {
       const maxLengthValue = this.maxLengthValue;
       return (
-        <div className={cx(styles['value-wrapper'], selectedClassName)}>
-          <span className={styles['value']}>{targetValue}</span>
-          <span className={styles['value-hidden']}>{maxLengthValue}</span>
+        <div className={cx(styles.valueWrapper, selectedClassName)}>
+          <span className={styles.value}>{targetValue}</span>
+          <span className={styles.valueHidden}>{maxLengthValue}</span>
         </div>
       );
     }
 
     return (
-      <div className={cx(styles['value-wrapper'], selectedClassName)}>
+      <div className={cx(styles.valueWrapper, selectedClassName)}>
         {targetValue}
       </div>
     );
@@ -114,13 +114,13 @@ class SelectorV2 extends React.Component {
 
   get selectorWidth() {
     const { optionClassName } = this.props;
-    const tmpClassName = cx(styles.option, optionClassName, styles['option-hidden']);
+    const tmpClassName = cx(styles.option, optionClassName, styles.optionHidden);
     const maxLengthValue = this.maxLengthValue;
 
     const tmpNode = document.createElement('div');
     tmpNode.setAttribute('class', tmpClassName);
     const hiddenDOM = document.createElement('div');
-    hiddenDOM.setAttribute('class', cx(styles['option-wrapper'], styles['option-hidden-item']));
+    hiddenDOM.setAttribute('class', cx(styles.optionWrapper, styles.optionHiddenItem));
     hiddenDOM.appendChild(document.createTextNode(maxLengthValue));
     tmpNode.appendChild(hiddenDOM);
 
@@ -141,11 +141,11 @@ class SelectorV2 extends React.Component {
     } = this.props;
 
     const containerClass = cx(
-      styles['selector-container'],
+      styles.selectorContainer,
       styles[`selector-${color}`],
       styles[theme],
-      active && styles['selector-container-active'],
-      disabled && styles['selector-disabled'],
+      active && styles.selectorContainerActive,
+      disabled && styles.selectorDisabled,
       className
     );
 

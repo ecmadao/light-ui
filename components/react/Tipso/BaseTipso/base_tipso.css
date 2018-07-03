@@ -22,7 +22,7 @@
   --filter: rgba(0, 0, 0, 0.2) 4px 4px 30px;
 }
 
-.tipso-wrapper {
+.tipsoWrapper {
   position: relative;
   display: inline-block;
   composes: baseText;
@@ -36,7 +36,7 @@
   }
 }
 
-.tipso-container {
+.tipsoContainer {
   background-color: var(--white);
   border-radius: var(--radius-small);
   box-shadow: var(--shadow);

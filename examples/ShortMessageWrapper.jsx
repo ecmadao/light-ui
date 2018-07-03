@@ -61,7 +61,7 @@ class ShortMessageWrapper extends React.Component {
     if (isNaN(expire)) { expire = 3; }
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         {showSMS ? (
           <ShortMessage
             expire={expire * 1000}
@@ -85,10 +85,11 @@ class ShortMessageWrapper extends React.Component {
         </div>
         <div>
           <Button
-            value="Click to show ShortMessage"
-            onClick={this.onClick}
             disabled={showSMS}
-          />&nbsp;
+            onClick={this.onClick}
+            value="Click to show ShortMessage"
+          />
+          &nbsp;
           <Button
             value="Reset"
             color="dark"
@@ -97,10 +98,11 @@ class ShortMessageWrapper extends React.Component {
         </div>
         <div>
           <Button
-            value="Click to show Raw SMS (wrote in raw javascript)"
-            onClick={this.onClickRaw}
             disabled={showSMS}
-          />&nbsp;
+            onClick={this.onClickRaw}
+            value="Click to show Raw SMS (wrote in raw javascript)"
+          />
+          &nbsp;
           <Button
             value="Reset"
             color="dark"

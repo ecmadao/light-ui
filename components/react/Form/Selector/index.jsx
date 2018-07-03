@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+
 import styles from './selector.css';
 import icons from '../../../shared/utils/icons';
 
@@ -40,9 +41,9 @@ class Selector extends React.Component {
   render() {
     const { value, theme, className, disabled } = this.props;
     const containerClass = cx(
-      styles['selector-container'],
+      styles.selectorContainer,
       styles[theme],
-      disabled && styles['selector-disabled'],
+      disabled && styles.selectorDisabled,
       className
     );
     const onChange = disabled ? () => {} : this.onChange;

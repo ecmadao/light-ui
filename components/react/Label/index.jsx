@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './label.css';
 
 const Label = (props) => {
@@ -19,7 +19,7 @@ const Label = (props) => {
   } = props;
 
   const iconElement = typeof icon === 'string'
-  ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+  ? (<i className={`fa fa-${icon}`} aria-hidden="true" />)
   : icon;
 
   const handleClick = () => {

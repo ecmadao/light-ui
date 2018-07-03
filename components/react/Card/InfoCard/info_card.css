@@ -3,11 +3,11 @@
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
 
-.info-card {
+.infoCard {
+  flex: 1;
   padding: 15px 10px;
   margin: 10px 5px;
   display: inline-flex;
-  flex: 1;
   flex-direction: column;
   user-select: none;
   position: relative;
@@ -39,7 +39,7 @@
   }
 }
 
-.with-tipso {
+.withTipso {
   padding: 15px 20px;
   padding-right: 30px;
 }
@@ -63,11 +63,11 @@
   }
 }
 
-.info_text {
+.infoText {
 }
 
-.info_main_text {
-  composes: info_text;
+.infoMainText {
+  composes: infoText;
   font-size: 20px;
   color: var(--gray-dark);
   margin-bottom: 5px;
@@ -76,13 +76,13 @@
   white-space: nowrap;
 }
 
-.info_sub_text {
-  composes: info_text;
+.infoSubText {
+  composes: infoText;
   font-size: 14px;
   color: var(--gray);
 }
 
-.info_tipso_wrapper {
+.infoTipsoWrapper {
   position: absolute;
   right: 10px;
   top: 5px;
@@ -93,7 +93,7 @@
   }
 }
 
-.info_tipso {
+.infoTipso {
   min-width: 130px;
   font-size: 12px;
   line-height: 1.5em;
@@ -101,15 +101,15 @@
 }
 
 @media (max-width: 800px) {
-  .chart_info {
+  .chartInfo {
     padding: 0 10px;
   }
 
-  .info_main_text {
+  .infoMainText {
     font-size: 1.6em;
   }
 
-  .info_sub_text {
+  .infoSubText {
     font-size: 12px;
   }
 }

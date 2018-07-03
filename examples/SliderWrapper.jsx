@@ -5,7 +5,7 @@ import styles from './shared/styles.css';
 class SliderWrapper extends React.Component {
   render() {
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Slider</h3>
         <h4>Base Slider</h4>
         <div>
@@ -41,9 +41,9 @@ class SliderWrapper extends React.Component {
         <div>
           <Slider
             jump
-            value={1}
-            max={12}
             min={1}
+            max={12}
+            value={1}
             clickable
             draggerClass={styles.dragger}
             tipsoClass={styles.tipsoClass}
@@ -65,9 +65,9 @@ class SliderWrapper extends React.Component {
             jump
             min={0}
             max={20}
-            value={[2, 8]}
-            minRange={1}
             minJump={2}
+            minRange={1}
+            value={[2, 8]}
           />
         </div>
         <h4>...with drag section</h4>
@@ -77,9 +77,9 @@ class SliderWrapper extends React.Component {
             min={0}
             max={20}
             clickable
-            value={[2, 8]}
-            minRange={1}
             minJump={2}
+            minRange={1}
+            value={[2, 8]}
           />
         </div>
         <h4>Multi drag with section</h4>
@@ -89,9 +89,9 @@ class SliderWrapper extends React.Component {
             min={0}
             max={20}
             clickable
-            value={[2, 6, 10, 15]}
-            minRange={1}
             minJump={2}
+            minRange={1}
+            value={[2, 6, 10, 15]}
           />
         </div>
       </div>

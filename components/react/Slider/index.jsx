@@ -1,18 +1,18 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import cx from 'classnames';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 import Dragger from './Dragger';
-import ProgressBar from './ProgressBar';
 import styles from './slider.css';
+import ProgressBar from './ProgressBar';
 import Utils from '../../shared/utils/helper';
-import objectAssign from '../../shared/utils/objectAssign';
 
 class Slider extends React.Component {
   constructor(props) {
     super(props);
-    this.state = objectAssign(
+    this.state = Object.assign(
       {},
       this.initialState(props),
       { maxDis: 0 }
@@ -148,7 +148,7 @@ class Slider extends React.Component {
     const { positions } = this.state;
     const newPos = [
       ...positions.slice(0, index),
-      objectAssign({}, positions[index], position),
+      Object.assign({}, positions[index], position),
       ...positions.slice(index + 1)
     ];
     this.setState({

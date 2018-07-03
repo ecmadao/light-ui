@@ -44,7 +44,7 @@
   --v3-switcher-item-mini: 20px;
 }
 
-.switcher-container {
+.switcherContainer {
   display: inline-block;
   position: relative;
   cursor: pointer;
@@ -62,7 +62,7 @@
   }
 }
 
-.container-checked {
+.containerChecked {
   border: 1px solid transparent;
 
   &.green {
@@ -78,7 +78,7 @@
   }
 }
 
-.container-disabled {
+.containerDisabled {
   cursor: not-allowed !important;
 
   &::before {
@@ -95,7 +95,7 @@
   }
 }
 
-.switcher-item {
+.switcherItem {
   background-color: var(--white);
   box-shadow: var(--shadow2);
   box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -105,13 +105,13 @@
 
 /* switcher v1 */
 .switcher-v1 {
-  &.container-checked {
-    & .switcher-item {
+  &.containerChecked {
+    & .switcherItem {
       right: 0 !important;
     }
   }
 
-  &.switcher-container {
+  &.switcherContainer {
     width: var(--v1-switcher-width);
     height: var(--v1-switcher);
     border-radius: var(--v1-switcher);
@@ -122,7 +122,7 @@
     height: var(--v1-switcher-small);
     border-radius: var(--v1-switcher-small);
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v1-switcher-item-small);
       height: var(--v1-switcher-item-small);
       right: calc(100% - var(--v1-switcher-item-small));
@@ -134,14 +134,14 @@
     height: var(--v1-switcher-mini);
     border-radius: var(--v1-switcher-mini);
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v1-switcher-item-mini);
       height: var(--v1-switcher-item-mini);
       right: calc(100% - var(--v1-switcher-item-mini));
     }
   }
 
-  & .switcher-item {
+  & .switcherItem {
     top: 0;
     width: var(--v1-switcher-item);
     height: var(--v1-switcher-item);
@@ -151,13 +151,13 @@
 }
 
 .switcher-v2 {
-  &.switcher-container {
+  &.switcherContainer {
     width: var(--v2-switcher-width);
     height: var(--v2-switcher);
     border-radius: var(--v2-switcher);
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v2-switcher) - var(--v2-switcher-item)) / 2) !important;
       }
     }
@@ -168,13 +168,13 @@
     height: var(--v2-switcher-small);
     border-radius: var(--v2-switcher-small);
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v2-switcher-small) - var(--v2-switcher-item-small)) / 2) !important;
       }
     }
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v2-switcher-item-small);
       height: var(--v2-switcher-item-small);
       top: calc((var(--v2-switcher-small) - var(--v2-switcher-item-small)) / 2);
@@ -187,13 +187,13 @@
     height: var(--v2-switcher-mini);
     border-radius: var(--v2-switcher-mini);
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v2-switcher-mini) - var(--v2-switcher-item-mini)) / 2) !important;
       }
     }
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v2-switcher-item-mini);
       height: var(--v2-switcher-item-mini);
       top: calc((var(--v2-switcher-mini) - var(--v2-switcher-item-mini)) / 2);
@@ -201,7 +201,7 @@
     }
   }
 
-  & .switcher-item {
+  & .switcherItem {
     width: var(--v2-switcher-item);
     height: var(--v2-switcher-item);
     border-radius: var(--v2-switcher-item);
@@ -211,17 +211,17 @@
 }
 
 .switcher-v3 {
-  &.switcher-container {
+  &.switcherContainer {
     width: var(--v3-switcher-width);
     height: var(--v3-switcher);
     border-radius: var(--v3-switcher);
 
-    &:not(.container-checked) {
+    &:not(.containerChecked) {
       background-color: var(--gray);
     }
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v3-switcher) - var(--v3-switcher-item)) / 2) !important;
       }
     }
@@ -232,13 +232,13 @@
     height: var(--v3-switcher-small);
     border-radius: var(--v3-switcher-small);
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v3-switcher-small) - var(--v3-switcher-item-small)) / 2) !important;
       }
     }
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v3-switcher-item-small);
       height: var(--v3-switcher-item-small);
       top: calc((var(--v3-switcher-small) - var(--v3-switcher-item-small)) / 2);
@@ -251,13 +251,13 @@
     height: var(--v3-switcher-mini);
     border-radius: var(--v3-switcher-mini);
 
-    &.container-checked {
-      & .switcher-item {
+    &.containerChecked {
+      & .switcherItem {
         right: calc((var(--v3-switcher-mini) - var(--v3-switcher-item-mini)) / 2) !important;
       }
     }
 
-    & .switcher-item {
+    & .switcherItem {
       width: var(--v3-switcher-item-mini);
       height: var(--v3-switcher-item-mini);
       top: calc((var(--v3-switcher-mini) - var(--v3-switcher-item-mini)) / 2);
@@ -265,7 +265,7 @@
     }
   }
 
-  & .switcher-item {
+  & .switcherItem {
     width: var(--v3-switcher-item);
     height: var(--v3-switcher-item);
     border-radius: var(--v3-switcher-item);

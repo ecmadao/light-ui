@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './switcher.css';
 
 class Switcher extends React.Component {
@@ -33,12 +33,12 @@ class Switcher extends React.Component {
     const { color, disabled, size, version, className } = this.props;
 
     const containerClass = cx(
-      styles['switcher-container'],
+      styles.switcherContainer,
       version && styles[`switcher-${version}`],
       size && styles[`container-${size}`],
-      checked && styles['container-checked'],
+      checked && styles.containerChecked,
       color && styles[color],
-      disabled && styles['container-disabled'],
+      disabled && styles.containerDisabled,
       className
     );
 
@@ -47,7 +47,7 @@ class Switcher extends React.Component {
         onClick={this.onChange}
         className={containerClass}
       >
-        <div className={styles['switcher-item']} />
+        <div className={styles.switcherItem} />
       </div>
     );
   }

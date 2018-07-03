@@ -4,7 +4,7 @@
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
 
-.selector-container {
+.selectorContainer {
   background-color: var(--white);
   color: var(--gray-dark);
   cursor: pointer;
@@ -48,7 +48,7 @@
     transition: box-shadow 0.1s;
     box-shadow: var(--shadowInput);
 
-    &:not(.selector-disabled) {
+    &:not(.selectorDisabled) {
       &:hover {
         box-shadow: var(--shadowInputHover);
       }
@@ -61,7 +61,7 @@
     transition: border 0.1s;
     border: 1px solid var(--gray);
 
-    &:not(.selector-disabled) {
+    &:not(.selectorDisabled) {
       &:hover {
         border: 1px solid var(--green-dark);
       }
@@ -77,7 +77,7 @@
   }
 }
 
-.selector-disabled {
+.selectorDisabled {
   cursor: not-allowed;
 
   & .selector {

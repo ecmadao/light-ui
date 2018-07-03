@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './base_button.css';
 
 class BaseButton extends React.Component {
@@ -62,7 +62,7 @@ class BaseButton extends React.Component {
     } = this.props;
     const { pressed } = this.state;
     const buttonClass = cx(
-      styles['base_button'],
+      styles.button,
       styles[type],
       styles[theme],
       styles[color],

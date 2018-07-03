@@ -47,14 +47,14 @@ class MessageWrapper extends React.Component {
   render() {
     const { showSMS, text, isMobile } = this.state;
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Change Message</h3>
         <div>
           <Input
-            value={this.state.ttl}
             required={false}
-            onChange={this.onttlChange}
             placeholder="ttl (s)"
+            value={this.state.ttl}
+            onChange={this.onttlChange}
           />
           <Input
             value={text}
@@ -71,9 +71,9 @@ class MessageWrapper extends React.Component {
         </div>
         <div>
           <Button
-            value="Click to show Message"
-            onClick={this.onClick}
             disabled={showSMS}
+            onClick={this.onClick}
+            value="Click to show Message"
           />
         </div>
       </div>

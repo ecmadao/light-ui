@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './base_modal.css';
 
 class BaseModal extends React.Component {
@@ -12,14 +12,14 @@ class BaseModal extends React.Component {
   render() {
     const { children, showModal, className } = this.props;
     const modalClass = cx(
-      styles['modal_component'],
+      styles.modalComponent,
       showModal && styles.active,
       className
     );
     return (
       <div className={modalClass}>
         <div
-          className={styles['modal_wrapper']}
+          className={styles.modalWrapper}
           onClick={this.onClose.bind(this)}
         />
         {children}

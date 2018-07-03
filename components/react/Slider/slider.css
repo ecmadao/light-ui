@@ -23,7 +23,7 @@
   background-color: var(--gray-light);
 }
 
-.progress-bar {
+.progressBar {
   z-index: var(--zIndex1);
   height: 100%;
   position: absolute;
@@ -50,7 +50,7 @@
   }
 }
 
-.dragger-container {
+.draggerContainer {
   left: 0;
   cursor: pointer;
   z-index: var(--zIndex9);

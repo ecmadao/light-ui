@@ -2,7 +2,7 @@
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
 
-.textarea-wrapper {
+.textareaWrapper {
   min-height: 100px;
   position: relative;
   outline: none;
@@ -35,7 +35,7 @@
   }
 }
 
-.textarea-tip {
+.textareaTip {
   position: absolute;
   bottom: 6px;
   right: 6px;
@@ -43,7 +43,7 @@
   font-size: 12px;
 }
 
-.textarea-hidden {
+.textareaHidden {
   width: 94%;
   margin-left: 3%;
   display: block;

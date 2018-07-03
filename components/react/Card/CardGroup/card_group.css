@@ -2,7 +2,7 @@
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
 
-.cards-container {
+.cardsContainer {
   flex: 1;
   display: inline-flex;
   flex-direction: row;
@@ -15,7 +15,7 @@
   }
 }
 
-.cards-container-wrapper {
+.cardsContainerWrapper {
   flex-direction: column;
   margin: 10px 0;
 
@@ -24,7 +24,7 @@
   }
 }
 
-.cards-child {
+.cardsChild {
   display: flex;
   margin: 0;
   background-color: transparent;

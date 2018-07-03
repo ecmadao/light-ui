@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import objectAssign from '../../../shared/utils/objectAssign';
 import BaseButton from '../BaseButton';
 
 const FloatingActionButton = (props) => {
   const { icon, style } = props;
-  const baseProps = objectAssign({}, props);
+  const baseProps = Object.assign({}, props);
 
   const iconElement = typeof icon === 'string'
-    ? (<i className={`fa fa-${icon}`} aria-hidden="true"></i>)
+    ? (<i className={`fa fa-${icon}`} aria-hidden="true" />)
     : icon;
 
   delete baseProps.style;

@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import cx from 'classnames';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 import styles from './slider.css';
 import Tipso from '../Tipso/Tipso';
 import darg from '../../shared/utils/darg';
@@ -109,7 +110,7 @@ class Dragger extends React.Component {
     const leftLength = dragX - maxLeft;
     const offsetPercentage = leftLength / maxDis;
 
-    let validateLeft = darg.validatePosition(offsetPercentage, min, max);
+    let validateLeft = darg.getStandardAbsolutePosition(offsetPercentage, min, max);
     if (jump) {
       let val = validateLeft * (maxValue - minValue);
       const offset = val % minJump;
@@ -163,7 +164,7 @@ class Dragger extends React.Component {
           styles.tipso,
           tipsoClass
         )}
-        wrapperClass={styles['dragger-container']}
+        wrapperClass={styles.draggerContainer}
         wrapperStyle={{ left: `${left * 100}%` }}
       >
         <div

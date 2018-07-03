@@ -12,13 +12,14 @@ class ButtonWrapper extends React.Component {
   render() {
     const { disabled } = this.props;
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Button - MD Theme</h3>
         <div>
           <Button
             onClick={this.onClick.bind(this)}
             disabled={disabled}
-            value="Green Button" />
+            value="Green Button"
+          />
           <Button
             disabled={disabled}
             value="Dark Button"
@@ -37,20 +38,16 @@ class ButtonWrapper extends React.Component {
         </div>
         <div>
           <Button
+            color="dark"
             disabled={disabled}
             value="With left icon"
-            color="dark"
-            leftIcon={(
-              <i className="fa fa-angle-left" aria-hidden="true"></i>
-            )}
+            leftIcon={(<i className="fa fa-angle-left" aria-hidden="true" />)}
           />
           <Button
+            color="dark"
             disabled={disabled}
             value="With right icon"
-            color="dark"
-            rightIcon={(
-              <i className="fa fa-angle-right" aria-hidden="true"></i>
-            )}
+            rightIcon={(<i className="fa fa-angle-right" aria-hidden="true" />)}
           />
         </div>
         <h3>Button - Flat Theme</h3>
@@ -81,20 +78,16 @@ class ButtonWrapper extends React.Component {
         </div>
         <div>
           <Button
+            theme="flat"
             disabled={disabled}
             value="With left icon"
-            theme="flat"
-            leftIcon={(
-              <i className="fa fa-plus-circle" aria-hidden="true"></i>
-            )}
+            leftIcon={(<i className="fa fa-plus-circle" aria-hidden="true" />)}
           />
           <Button
+            theme="flat"
             disabled={disabled}
             value="With right icon"
-            theme="flat"
-            rightIcon={(
-              <i className="fa fa-plus-circle" aria-hidden="true"></i>
-            )}
+            rightIcon={(<i className="fa fa-plus-circle" aria-hidden="true" />)}
           />
         </div>
         <h3>Button - Ghost Theme</h3>
@@ -125,32 +118,28 @@ class ButtonWrapper extends React.Component {
         </div>
         <div>
           <Button
+            theme="ghost"
             disabled={disabled}
             value="With left icon"
-            theme="ghost"
-            leftIcon={(
-              <i className="fa fa-plus-circle" aria-hidden="true"></i>
-            )}
+            leftIcon={(<i className="fa fa-plus-circle" aria-hidden="true" />)}
           />
           <Button
+            theme="ghost"
             disabled={disabled}
             value="With right icon"
-            theme="ghost"
-            rightIcon={(
-              <i className="fa fa-plus-circle" aria-hidden="true"></i>
-            )}
+            rightIcon={(<i className="fa fa-plus-circle" aria-hidden="true" />)}
           />
         </div>
         <h3>Icon Button - Ghost Theme</h3>
         <div>
           <IconButton
             disabled={disabled}
-            icon="clipboard" />
+            icon="clipboard"
+          />
           <IconButton
             disabled={disabled}
-            icon={(
-              <i className="fa fa-question" aria-hidden="true"></i>
-            )} />
+            icon={(<i className="fa fa-question" aria-hidden="true" />)}
+          />
         </div>
         <div>
           <IconButton
@@ -182,11 +171,9 @@ class ButtonWrapper extends React.Component {
             theme="flat"
           />
           <IconButton
-            disabled={disabled}
-            icon={(
-              <i className="fa fa-question" aria-hidden="true"></i>
-            )}
             theme="flat"
+            disabled={disabled}
+            icon={(<i className="fa fa-question" aria-hidden="true"></i>)}
           />
         </div>
         <div>

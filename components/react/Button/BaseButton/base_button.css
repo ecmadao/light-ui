@@ -9,7 +9,7 @@
   --color-transition : color 0.2s;
 }
 
-.base_button {
+.button {
   text-align: center;
   cursor: default;
   padding: 10px 20px;

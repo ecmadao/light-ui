@@ -12,14 +12,14 @@ const ShortMessage = (...args) => {
 };
 
 class MessageComponent {
-  constructor(timeOut = 2500, options = {}) {
-    this.timeOut = timeOut;
+  constructor(timeout = 2500, options = {}) {
+    this.timeout = timeout;
     this.$message = null;
     this.$body = document.body;
     this.style = options.style || {};
   }
 
-  show(msg, time = this.timeOut) {
+  show(msg, time = this.timeout) {
     this.$message = this._messageTemplate(msg);
     this.$body.appendChild(this.$message);
     this._autoHide(time);
@@ -43,7 +43,7 @@ class MessageComponent {
 
   _messageTemplate(msg) {
     const message = document.createElement('div');
-    message.className = styles['message-component'];
+    message.className = styles.messageComponent;
     Object.keys(this.style).forEach((key) => { message.style[key] = this.style[key]; });
     message.innerHTML = msg;
     return message;

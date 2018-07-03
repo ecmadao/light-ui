@@ -17,7 +17,8 @@ const PortalModalWithState = (props) => {
       closeOnEsc={closeOnEsc}
       onClose={onClose}
       defaultOpen={defaultOpen}
-      closeOnOutsideClick={closeOnOutsideClick}>
+      closeOnOutsideClick={closeOnOutsideClick}
+    >
       {
         ({ openPortal, closePortal, isOpen, portal }) => {
           if (showModal) {

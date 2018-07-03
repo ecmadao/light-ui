@@ -6,16 +6,20 @@ import styles from './shared/styles.css';
 class TipsoWrapper extends React.Component {
   render() {
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Tipso</h3>
         <h4>Use hover as trigger</h4>
         <div>
           <Tipso
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -28,10 +32,14 @@ class TipsoWrapper extends React.Component {
           <Tipso
             theme="dark"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -44,10 +52,14 @@ class TipsoWrapper extends React.Component {
           <Tipso
             position="bottom"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -61,10 +73,14 @@ class TipsoWrapper extends React.Component {
             theme="dark"
             position="bottom"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -78,10 +94,14 @@ class TipsoWrapper extends React.Component {
           <Tipso
             position="left"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -94,10 +114,14 @@ class TipsoWrapper extends React.Component {
           <Tipso
             position="right"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                  This is an example
+              </div>
             )}>
             <Button
               value="hover to show"
@@ -110,10 +134,14 @@ class TipsoWrapper extends React.Component {
           <Tipso
             trigger="click"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -127,10 +155,14 @@ class TipsoWrapper extends React.Component {
             theme="dark"
             trigger="click"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -144,10 +176,14 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             position="bottom"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -162,10 +198,14 @@ class TipsoWrapper extends React.Component {
             position="bottom"
             trigger="click"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -180,10 +220,14 @@ class TipsoWrapper extends React.Component {
             trigger="click"
             position="left"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -198,10 +242,14 @@ class TipsoWrapper extends React.Component {
             position="right"
             trigger="click"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="click to show"
@@ -214,15 +262,19 @@ class TipsoWrapper extends React.Component {
         <h4>Always disable Tipso</h4>
         <div>
           <Tipso
-            show={true}
+            show
+            disabled
             theme="dark"
             position="bottom"
-            disabled={true}
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="tip is disabled"
@@ -234,15 +286,19 @@ class TipsoWrapper extends React.Component {
         <h4>Show Tipso in default</h4>
         <div>
           <Tipso
-            show={true}
+            show
             theme="dark"
             position="bottom"
             trigger="click"
             tipsoContent={(
-              <div style={{
-                width: '95px',
-                textAlign: 'center'
-              }}>This is an example</div>
+              <div
+                style={{
+                  width: '95px',
+                  textAlign: 'center'
+                }}
+              >
+                This is an example
+              </div>
             )}>
             <Button
               value="show in default"

@@ -25,11 +25,11 @@ const textarea = (value, options = {}) => validator.isByteLength(value, {
 });
 
 export default {
+  url,
   email,
   phone,
-  url,
   empty,
   string,
   number,
-  textarea
+  textarea,
 };

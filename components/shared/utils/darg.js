@@ -1,3 +1,4 @@
+
 const mousePosition = (e) => {
   e = e || window.event;
   const xPos = e.pageX
@@ -18,18 +19,17 @@ const disableMouseDown = (e) => {
   event.stopPropagation();
 };
 
-const getStandardAbsolutePosition = (position, minPosition, maxPosition) => {
-  if (position < minPosition) {
-    position = minPosition;
-  }
-  if (position > maxPosition) {
-    position = maxPosition;
-  }
-  return position;
-};
+const getStandardAbsolutePosition = (position, minPosition, maxPosition) =>
+  Math.min(
+    maxPosition,
+    Math.max(
+      position,
+      minPosition
+    )
+  );
 
 export default {
   mousePosition,
   disableMouseDown,
-  validatePosition: getStandardAbsolutePosition
+  getStandardAbsolutePosition
 };

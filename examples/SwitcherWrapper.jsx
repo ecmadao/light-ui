@@ -7,7 +7,7 @@ class SwitcherWrapper extends React.Component {
     const { disabled } = this.props;
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Switcher</h3>
         <h4>Normal size</h4>
         <div>

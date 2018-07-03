@@ -35,18 +35,18 @@ class CustomSelectorWrapper extends React.Component {
     const { disabled } = this.props;
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>SelectorV2 - Custom Style</h3>
         <h4>Flexable width</h4>
         <div>
           <SelectorV2
             flexable
             value={selected}
-            disabled={disabled}
+            showArrow={false}
             options={OPTIONS}
+            disabled={disabled}
             onChange={this.onSelect}
             className={styles.selector}
-            showArrow={false}
             optionClassName={styles.option}
             selectedClassName={styles.selected}
           />
@@ -54,9 +54,9 @@ class CustomSelectorWrapper extends React.Component {
         <div>
           <SelectorV2
             flexable
+            options={OPTIONS}
             value={selected}
             disabled={disabled}
-            options={OPTIONS}
             onChange={this.onSelect}
             className={styles.selector}
             optionClassName={styles.option}
@@ -66,9 +66,9 @@ class CustomSelectorWrapper extends React.Component {
         <h4>Fixed width</h4>
         <div>
           <SelectorV2
+            options={OPTIONS}
             value={selected}
             disabled={disabled}
-            options={OPTIONS}
             onChange={this.onSelect}
             className={styles.selector}
             optionClassName={styles.option}

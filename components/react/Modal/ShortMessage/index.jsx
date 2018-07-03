@@ -1,7 +1,7 @@
 import React from 'react';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
-import cx from 'classnames';
 import styles from './short_message.css';
 
 class ShortMessage extends React.Component {
@@ -33,7 +33,7 @@ class ShortMessage extends React.Component {
     const { show } = this.state;
     const { text } = this.props;
     const messageClass = cx(
-      styles['message_modal_wrapper'],
+      styles.messageModalWrapper,
       show && styles.active
     );
 

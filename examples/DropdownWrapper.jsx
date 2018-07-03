@@ -34,7 +34,7 @@ class DropdownWrapper extends React.Component {
           onClick={() => this.onSelect(menu.id)}
           className={cx(
             styles.menu,
-            dark && styles['menu-dark'],
+            dark && styles['menuDark'],
             menu.id === activeMenu && styles.active
           )}
         >
@@ -55,7 +55,7 @@ class DropdownWrapper extends React.Component {
     const { disabled } = this.props;
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Dropdown</h3>
         <div>
           <Dropdown

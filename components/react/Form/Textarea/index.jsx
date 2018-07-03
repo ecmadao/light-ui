@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './textarea.css';
 import Validator from '../../../shared/utils/validator';
 
@@ -70,7 +70,7 @@ class Textarea extends React.Component {
     const { focus, error } = this.state;
 
     const wrapperClass = cx(
-      styles['textarea-wrapper'],
+      styles.textareaWrapper,
       styles.flat,
       focus && styles.focus,
       error && styles.error,
@@ -81,7 +81,7 @@ class Textarea extends React.Component {
 
     return (
       <div className={wrapperClass}>
-        <pre className={styles['textarea-hidden']}>
+        <pre className={styles.textareaHidden}>
           <span>
             {value}
           </span>
@@ -99,7 +99,7 @@ class Textarea extends React.Component {
           onFocus={this.onFocus}
         />
         {wordCountTemplate && (
-          <div className={styles['textarea-tip']}>
+          <div className={styles.textareaTip}>
             {wordCountTemplate.replace('%n', wordCount(value))}
           </div>
         )}
@@ -110,13 +110,13 @@ class Textarea extends React.Component {
 
 Textarea.propTypes = {
   value: PropTypes.string,
-  placeholder: PropTypes.string,
   onChange: PropTypes.func,
   wordCount: PropTypes.func,
   onKeyDown: PropTypes.func,
   disabled: PropTypes.bool,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
+  placeholder: PropTypes.string,
   wordCountTemplate: PropTypes.string,
 };
 
@@ -128,8 +128,8 @@ Textarea.defaultProps = {
   disabled: false,
   minLength: 0,
   maxLength: 999,
+  wordCount: null,
   wordCountTemplate: '已输入%n字',
-  wordCount: null
 };
 
 export default Textarea;

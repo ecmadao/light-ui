@@ -12,7 +12,7 @@
   --scaleActive: scale(1);
 }
 
-.selector-container {
+.selectorContainer {
   background-color: var(--white);
   margin: 10px 5px;
   min-width: 4em;
@@ -67,12 +67,12 @@
   text-align: left;
 }
 
-.value-wrapper {
+.valueWrapper {
   flex: 1;
   position: relative;
 }
 
-.value-hidden {
+.valueHidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -87,7 +87,7 @@
   transition: box-shadow 0.1s;
   box-shadow: var(--shadowInput);
 
-  &:not(.selector-disabled) {
+  &:not(.selectorDisabled) {
     &:hover {
       box-shadow: var(--shadowInputHover);
     }
@@ -105,7 +105,7 @@
     fill: var(--gray-dark);
   }
 
-  & .options-container {
+  & .optionsContainer {
     border: 1px solid var(--gray);
   }
 }
@@ -121,7 +121,7 @@
     }
   }
 
-  &.flat:not(.selector-disabled) {
+  &.flat:not(.selectorDisabled) {
     &:hover {
       border: 1px solid var(--gray);
     }
@@ -139,7 +139,7 @@
     }
   }
 
-  &.flat:not(.selector-disabled) {
+  &.flat:not(.selectorDisabled) {
     &:hover {
       border: 1px solid var(--green);
     }
@@ -157,14 +157,14 @@
     }
   }
 
-  &.flat:not(.selector-disabled) {
+  &.flat:not(.selectorDisabled) {
     &:hover {
       border: 1px solid var(--blue);
     }
   }
 }
 
-.selector-disabled {
+.selectorDisabled {
   cursor: not-allowed;
 
   & .selector {
@@ -177,8 +177,8 @@
   }
 }
 
-.selector-container-active {
-  & .options-container {
+.selectorContainerActive {
+  & .optionsContainer {
     z-index: var(--zIndex99);
     visibility: visible;
     opacity: 1;
@@ -191,7 +191,7 @@
 }
 
 /* options */
-.options-container {
+.optionsContainer {
   position: absolute;
   top: 100%;
   left: -1px;
@@ -233,21 +233,21 @@
   }
 }
 
-.option-active {
+.optionActive {
   cursor: default;
   background-color: #f2f2f2;
 }
 
-.option-disabled {
+.optionDisabled {
   color: #ADADAD;
   cursor: not-allowed;
 }
 
-.option-wrapper {
+.optionWrapper {
   margin: 0 20px;
 }
 
-.option-hidden {
+.optionHidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -259,7 +259,7 @@
   width: 100%;
 }
 
-.option-hidden-item {
+.optionHiddenItem {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

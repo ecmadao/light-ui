@@ -1,6 +1,7 @@
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import styles from './loading.css';
 
 class Loading extends React.Component {
@@ -30,11 +31,11 @@ class Loading extends React.Component {
     const { loading } = this.state;
     const { className, theme, style } = this.props;
     const containerClass = cx(
-      styles['loading-container'],
-      loading && styles['loading-active'],
+      styles.loadingContainer,
+      loading && styles.loadingActive,
       className
     );
-    const loadingClass = styles[`${theme}-wrapper`];
+    const loadingClass = styles[`${theme}Wrapper`];
 
     return (
       <div

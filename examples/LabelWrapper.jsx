@@ -9,35 +9,35 @@ class LabelWrapper extends React.Component {
     console.log(`disabled: ${disabled}`);
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Label</h3>
         <h4>...can be delete or click</h4>
         <div>
           <Label
-            disabled={disabled}
-            text="click me"
+            deleteable
             theme="ghost"
-            deleteable
+            text="click me"
+            disabled={disabled}
           />
           <Label
-            disabled={disabled}
-            text="click me"
+            deleteable
             theme="flat"
-            deleteable
+            text="click me"
+            disabled={disabled}
           />
           <Label
-            disabled={disabled}
-            text="click me"
             deleteable
+            text="click me"
+            disabled={disabled}
           />
         </div>
 
         <h4>...can be click, can not delete</h4>
         <div>
           <Label
-            disabled={disabled}
-            text="click me"
             theme="ghost"
+            text="click me"
+            disabled={disabled}
           />
           <Label
             disabled={disabled}
@@ -56,16 +56,19 @@ class LabelWrapper extends React.Component {
             disabled={disabled}
             clickable={false}
             text="can not click"
-            theme="ghost"/>
+            theme="ghost"
+          />
           <Label
             disabled={disabled}
             clickable={false}
             text="can not click"
-            theme="flat"/>
+            theme="flat"
+          />
           <Label
             disabled={disabled}
             clickable={false}
-            text="can not click" />
+            text="can not click"
+          />
         </div>
 
         <h4>...with icon</h4>

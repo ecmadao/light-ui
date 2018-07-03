@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+
 import Input from '../Input';
 import Tipso from '../../Tipso/Tipso';
 import styles from './input_group.css';
@@ -12,8 +13,8 @@ class InputGroup extends React.Component {
       tipsoStyle,
       tipsoTheme,
       onTipClose,
-      tipsoPosition,
       wrapperStyle,
+      tipsoPosition,
       tipsoClassName,
       inputClassName,
       wrapperClassName,

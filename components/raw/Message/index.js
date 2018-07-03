@@ -1,8 +1,7 @@
 
 import cx from 'classnames';
 import styles from './message.css';
-import uuid from '../../shared/utils/uuid';
-import objectAssign from '../../shared/utils/objectAssign';
+import helper from '../../shared/utils/helper';
 
 const Message = (...args) => {
   let messageComponent = null;
@@ -38,47 +37,47 @@ class MessageComponent {
     this.timeout && clearTimeout(this.timeout);
     this.timeout = null;
     const { isMobile } = this.state;
-    objectAssign(this.state, newState);
+    Object.assign(this.state, newState);
     if (newState.isMobile !== undefined && newState.isMobile !== isMobile) {
       this.resetTemplate();
     }
   }
 
   error(msg, timeout) {
-    this.$message.classList.remove(styles['positive']);
-    this.$message.classList.remove(styles['tips']);
-    this.$message.classList.add(styles['negative']);
+    this.$message.classList.remove(styles.positive);
+    this.$message.classList.remove(styles.tips);
+    this.$message.classList.add(styles.negative);
     this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeout);
   }
 
   notice(msg, timeout) {
-    this.$message.classList.remove(styles['negative']);
-    this.$message.classList.remove(styles['tips']);
-    this.$message.classList.add(styles['positive']);
+    this.$message.classList.remove(styles.negative);
+    this.$message.classList.remove(styles.tips);
+    this.$message.classList.add(styles.positive);
     this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeout);
   }
 
   tips(msg, timeout) {
-    this.$message.classList.remove(styles['negative']);
-    this.$message.classList.remove(styles['positive']);
-    this.$message.classList.add(styles['tips']);
+    this.$message.classList.remove(styles.negative);
+    this.$message.classList.remove(styles.positive);
+    this.$message.classList.add(styles.tips);
     this.$message.childNodes[0].innerHTML = msg;
 
     this.showMessage(timeout);
   }
 
   showMessage(timeout = this.state.timeout) {
-    this.$message.classList.add(styles['active']);
+    this.$message.classList.add(styles.active);
     this.autoHideMessage(timeout);
   }
 
   autoHideMessage(timeout) {
     const hideMessage = () => {
-      this.$message.classList.remove(styles['active']);
+      this.$message.classList.remove(styles.active);
     };
     this.timeout = setTimeout(hideMessage, timeout);
   }
@@ -89,7 +88,7 @@ class MessageComponent {
     if (!closeIcon) return;
 
     const closeFunc = () => {
-      this.$message.classList.remove(styles['active']);
+      this.$message.classList.remove(styles.active);
     };
     if (closeIcon.addEventListener) {
       closeIcon.addEventListener('click', closeFunc.bind(this), true);
@@ -100,14 +99,14 @@ class MessageComponent {
 
   messageTemplate() {
     const { type, content, isMobile } = this.state;
-    const id = uuid();
+    const id = helper.uuid();
     const message = document.createElement('div');
     message.className = cx(
-      styles['message_component'],
+      styles.messageComponent,
       styles[type],
-      isMobile && styles['mobile_message']
+      isMobile && styles.mobileMessage
     );
-    message.innerHTML = `<div id="${id}" class="${styles['message_content']}">${content}</div>${isMobile ? '' : '<i class="fa fa-times" aria-hidden="true"></i>'}`;
+    message.innerHTML = `<div id="${id}" class="${styles.messageContent}">${content}</div>${isMobile ? '' : '<i class="fa fa-times" aria-hidden="true"></i>'}`;
     this.setState({ id });
     return message;
   }

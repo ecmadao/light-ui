@@ -37,7 +37,7 @@ class FormWrapper extends React.Component {
     const { disabled } = this.props;
 
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Input</h3>
         <h4>material theme</h4>
         <div>
@@ -67,7 +67,8 @@ class FormWrapper extends React.Component {
             placeholder="borderless theme"
             disabled={disabled}
             onChange={this.onChange}
-          />&nbsp;&nbsp;&nbsp;
+          />
+          &nbsp;&nbsp;&nbsp;
           <Input
             value={value}
             theme="borderless"
@@ -135,7 +136,8 @@ class FormWrapper extends React.Component {
             tipsoTheme="dark"
             tipsoPosition="bottom"
             placeholder="input group with intro"
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <div style={{ fontSize: '12px' }}>
               This is an intro of input.
             </div>

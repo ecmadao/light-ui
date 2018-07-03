@@ -1,8 +1,10 @@
-import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
+
 import cx from 'classnames';
-import Helper from '../../../shared/utils/helper';
+import PropTypes from 'prop-types';
+import React, { cloneElement } from 'react';
+
 import styles from './card_group.css';
+import Helper from '../../../shared/utils/helper';
 
 const CardGroup = (props) => {
   const {
@@ -21,21 +23,21 @@ const CardGroup = (props) => {
 
     const childProps = isCardGroup ? {
       key: index,
-      className: styles['cards-child']
+      className: styles.cardsChild
     } : {
       key: index,
       theme: 'ghost',
-      className: styles['card']
+      className: styles.card
     };
     return cloneElement(child, childProps);
   }) : cloneElement(children, {
     theme: 'ghost',
-    className: styles['card']
+    className: styles.card
   });
 
   const groupClass = cx(
-    styles['cards-container'],
-    hasCardGroup && styles['cards-container-wrapper'],
+    styles.cardsContainer,
+    hasCardGroup && styles.cardsContainerWrapper,
     theme && hasCardGroup && styles[theme],
     className
   );

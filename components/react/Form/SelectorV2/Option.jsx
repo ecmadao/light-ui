@@ -14,8 +14,8 @@ class Option extends React.Component {
     const { value, isActive, disabled, className } = this.props;
     const optionClass = cx(
       styles.option,
-      isActive && styles['option-active'],
-      disabled && styles['option-disabled'],
+      isActive && styles.optionActive,
+      disabled && styles.optionDisabled,
       className
     );
     return (
@@ -23,7 +23,7 @@ class Option extends React.Component {
         onClick={this.onClick.bind(this)}
         className={optionClass}
       >
-        <div className={styles['option-wrapper']}>
+        <div className={styles.optionWrapper}>
           {value}
         </div>
       </div>

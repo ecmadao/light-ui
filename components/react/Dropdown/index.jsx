@@ -1,7 +1,7 @@
 
-import React, { cloneElement } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
+import React, { cloneElement } from 'react';
 
 import styles from './dropdown.css';
 import icons from '../../shared/utils/icons';
@@ -52,7 +52,7 @@ class Dropdown extends React.PureComponent {
 
     return (
       <div className={cx(styles.wrapper, buttonClassName)} onClick={onClick}>
-        <div className={styles['value-wrapper']}>
+        <div className={styles.valueWrapper}>
           {button}
         </div>
         {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
@@ -73,7 +73,7 @@ class Dropdown extends React.PureComponent {
         const { onClick, className } = item.props;
         return cloneElement(item, {
           key: `menu-${index}`,
-          className: cx(styles['menu'], className),
+          className: cx(styles.menu, className),
           onClick: this.onMenuClick(onClick)
         });
       });
@@ -81,8 +81,8 @@ class Dropdown extends React.PureComponent {
     return (
       <div
         className={cx(
-          styles['menus-container'],
-          showPanelTriangle && styles['useTriangle'],
+          styles.menusContainer,
+          showPanelTriangle && styles.useTriangle,
           menuPanelClassName
         )}
       >
@@ -101,11 +101,11 @@ class Dropdown extends React.PureComponent {
     } = this.props;
 
     const containerClass = cx(
-      styles['dropdown-container'],
+      styles.dropdownContainer,
       styles[`dropdown-${color}`],
       styles[theme],
-      active && styles['dropdown-container-active'],
-      disabled && styles['dropdown-disabled'],
+      active && styles.dropdownContainerActive,
+      disabled && styles.dropdownDisabled,
       className
     );
 

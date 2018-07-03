@@ -6,7 +6,7 @@ import styles from './shared/styles.css';
 class CardWrapper extends React.Component {
   render() {
     return (
-      <div id="components-container">
+      <div id="componentsContainer">
         <h3>Min Info Card</h3>
         <div>
           <InfoCard
@@ -84,9 +84,11 @@ class CardWrapper extends React.Component {
             mainText="Material Theme"
             subText="2017"
             style={{ textAlign: 'left' }}
-            tipso={(<div className={styles.customIcon}>
-              <i className="fa fa-github" aria-hidden="true" />
-            </div>)}
+            tipso={(
+              <div className={styles.customIcon}>
+                <i className="fa fa-github" aria-hidden="true" />
+              </div>
+            )}
           />
         </div>
         <h3>Card Group</h3>
