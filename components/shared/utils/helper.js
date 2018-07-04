@@ -52,10 +52,15 @@ const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
 const uuid = () => s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4() + s4();
 
+const getType = {};
+const isFunction = func =>
+  func && getType.toString.call(func) === '[object Function]';
+
 export default {
   uuid,
   isArray,
   isEqual,
+  isFunction,
   createArray,
   checkSameArray,
   findFirstIndex,

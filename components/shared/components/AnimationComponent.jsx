@@ -1,5 +1,6 @@
 
 import React, { cloneElement } from 'react';
+import helper from '../utils/helper';
 
 const STATUS = {
   HIDDEN: 'hidden',
@@ -51,13 +52,21 @@ class AnimationComponent extends React.Component {
 
   render() {
     const { status } = this.state;
-    const children = cloneElement(this.props.children, {
+    const { children } = this.props;
+
+    if (helper.isFunction(children)) {
+      return children({
+        status,
+        onExit: this.onExit,
+        onTransitionEnd: this.onTransitionEnd,
+      });
+    }
+
+    return cloneElement(this.props.children, {
       status,
       onExit: this.onExit,
       onTransitionEnd: this.onTransitionEnd,
     });
-
-    return children;
   }
 }
 

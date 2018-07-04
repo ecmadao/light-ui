@@ -168,8 +168,9 @@ class SelectorV2 extends React.Component {
 SelectorV2.propTypes = {
   options: PropTypes.array,
   value: PropTypes.oneOfType([
+    PropTypes.bool,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   onChange: PropTypes.func,
   onSelectorClose: PropTypes.func,
