@@ -52,11 +52,13 @@ class Textarea extends React.Component {
 
   check(inputValue) {
     const value = inputValue || this.textarea.value;
-    const { minLength, maxLength } = this.props;
-    const error = !Validator.textarea(value, {
-      min: parseInt(minLength, 10),
-      max: parseInt(maxLength, 10),
-    });
+    const { minLength, maxLength, validator } = this.props;
+    const error = validator
+      ? !validator(value)
+      : !Validator.textarea(value, {
+        min: parseInt(minLength, 10),
+        max: parseInt(maxLength, 10),
+      });
     this.setState({ error });
   }
 
@@ -117,6 +119,7 @@ Textarea.propTypes = {
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
   placeholder: PropTypes.string,
+  validator: PropTypes.func,
   wordCountTemplate: PropTypes.string,
 };
 
@@ -129,6 +132,7 @@ Textarea.defaultProps = {
   minLength: 0,
   maxLength: 999,
   wordCount: null,
+  validator: null,
   wordCountTemplate: '已输入%n字',
 };
 

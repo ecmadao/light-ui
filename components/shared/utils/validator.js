@@ -20,8 +20,8 @@ const string = (value, options = {}) => validator.isByteLength(value, {
 });
 
 const textarea = (value, options = {}) => validator.isByteLength(value, {
-  min: options.min,
-  max: options.max
+  min: options.min || 0,
+  max: options.max || 999
 });
 
 export default {

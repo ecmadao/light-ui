@@ -64,12 +64,14 @@ class Input extends React.Component {
   }
 
   check(inputValue) {
-    const { type, required, validate } = this.props;
+    const { type, required, validator, validateOptions } = this.props;
     if (!required) return;
 
     const value = inputValue || this.input.value;
     try {
-      const error = !Validator[type](value, validate);
+      const error = validator
+        ? !validator(value)
+        : !Validator[type](value, validateOptions);
       this.setState({ error });
     } catch (e) {
       console.error(e);
@@ -126,7 +128,7 @@ Input.propTypes = {
   autoFocus: PropTypes.bool,
   value: PropTypes.string,
   style: PropTypes.object,
-  validate: PropTypes.object,
+  validateOptions: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   placeholder: PropTypes.string,
@@ -138,6 +140,7 @@ Input.propTypes = {
   onKeyUp: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyDown: PropTypes.func,
+  validator: PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -146,7 +149,8 @@ Input.defaultProps = {
   autoFocus: false,
   value: '',
   style: {},
-  validate: {},
+  validateOptions: {},
+  validator: null,
   className: '',
   id: '',
   placeholder: '',
