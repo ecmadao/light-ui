@@ -6,9 +6,11 @@
 :root {
   --triangleWidth: 8px;
   --triangleHeight: 5px;
+  --triangleHeightNegative: -5px;
   --offsetTop: 4px;
   --offsetBottom: -4px;
   --offsetLeft: 8px;
+  --offsetLeftNegative: 8px;
   --offsetRight: 4px;
 
   --ratio: 4;
@@ -105,7 +107,7 @@
   transform: var(--scale) translate(-50%, var(--offsetTop));
 
   &::after {
-    bottom: -var(--triangleHeight);
+    bottom: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -131,7 +133,7 @@
   transform: var(--scale) translate(-50%, var(--offsetBottom));
 
   &::after {
-    top: -var(--triangleHeight);
+    top: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -154,10 +156,10 @@
 
 .left {
   right: calc(100% + var(--offsetLeft) * var(--ratio));
-  transform: var(--scale) translate(-var(--offsetLeft), -50%);
+  transform: var(--scale) translate(var(--offsetLeftNegative), -50%);
 
   &::after {
-    right: -var(--triangleHeight);
+    right: var(--triangleHeightNegative);
   }
 
   &.dark {
@@ -174,7 +176,7 @@
 
   &.active {
     right: 100%;
-    transform: var(--scaleActive) translate(-var(--offsetLeft), -50%);
+    transform: var(--scaleActive) translate(var(--offsetLeftNegative), -50%);
   }
 }
 
@@ -183,7 +185,7 @@
   transform: var(--scale) translate(var(--offsetRight), -50%);
 
   &::after {
-    left: -var(--triangleHeight);
+    left: var(--triangleHeightNegative);
   }
 
   &.dark {

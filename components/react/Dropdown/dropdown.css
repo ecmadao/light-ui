@@ -7,8 +7,8 @@
 :root {
   --triangleWidth: 8px;
   --triangleHeight: 5px;
-  --triangleAfterOffset: 4px;
-  --triangleOffset: 6px;
+  --triangleAfterOffset: -4px;
+  --triangleOffset: -6px;
 
   --speed: .2s;
   --easing: cubic-bezier(.55,0,.1,1);
@@ -230,13 +230,13 @@
 
     &::after {
       z-index: var(--zIndex1);
-      top: -var(--triangleAfterOffset);
+      top: var(--triangleAfterOffset);
       border-bottom: var(--triangleHeight) solid var(--white);
     }
 
     &::before {
       z-index: var(--zIndexHidden);
-      top: -var(--triangleOffset);
+      top: var(--triangleOffset);
       border-bottom: var(--triangleHeight) solid rgba(212, 212, 212, 0.3);
     }
   }
