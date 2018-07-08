@@ -84,15 +84,17 @@
   border: 1px solid transparent;
   background-color: transparent;
 
-  &:focus {
-    border: 1px solid var(--green-dark);
-  }
-
-  &.error {
-    border: 1px solid var(--red-dark);
-
+  &:not(.underline) {
     &:focus {
+      border: 1px solid var(--green-dark);
+    }
+
+    &.error {
       border: 1px solid var(--red-dark);
+
+      &:focus {
+        border: 1px solid var(--red-dark);
+      }
     }
   }
 
