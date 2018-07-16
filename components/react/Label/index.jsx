@@ -5,17 +5,18 @@ import styles from './label.css';
 
 const Label = (props) => {
   const {
-    text,
     min,
-    className,
-    theme,
     icon,
+    text,
+    color,
+    theme,
+    onClick,
     onDelete,
-    deleteable,
     disabled,
     clickable,
-    onClick,
-    color
+    className,
+    deleteable,
+    style = {}
   } = props;
 
   const iconElement = typeof icon === 'string'
@@ -33,6 +34,7 @@ const Label = (props) => {
 
   return (
     <div
+      style={style}
       className={cx(
         styles.label,
         styles[color],
