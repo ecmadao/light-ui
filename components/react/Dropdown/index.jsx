@@ -55,7 +55,12 @@ class Dropdown extends React.PureComponent {
         <div className={styles.valueWrapper}>
           {button}
         </div>
-        {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
+        {showArrow && (
+          <span>
+            &nbsp;&nbsp;&nbsp;
+            <span className={styles.icon}>{icons.down}</span>
+          </span>
+        )}
       </div>
     );
   }

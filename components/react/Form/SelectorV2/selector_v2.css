@@ -27,11 +27,11 @@
   color: var(--gray-dark);
   fill: var(--gray-dark);
 
-  & polygon {
+  & .icon polygon {
     fill: var(--gray-dark);
   }
 
-  & svg {
+  & .icon svg {
     transition: transform 0.2s, background-color 0.2s;
   }
 
@@ -101,7 +101,7 @@
   transition: border 0.1s;
   border: 1px solid var(--gray);
 
-  & polygon {
+  & .icon polygon {
     fill: var(--gray-dark);
   }
 
@@ -116,7 +116,7 @@
     color: var(--white);
     fill: var(--white);
 
-    & polygon {
+    & .icon polygon {
       fill: var(--white);
     }
   }
@@ -134,7 +134,7 @@
     color: var(--white);
     background-color: var(--green);
 
-    & polygon {
+    & .icon polygon {
       fill: var(--white);
     }
   }
@@ -152,7 +152,7 @@
     color: var(--white);
     background-color: var(--blue);
 
-    & polygon {
+    & .icon polygon {
       fill: var(--white);
     }
   }
@@ -185,7 +185,7 @@
     transform: var(--scaleActive) translateY(-2px);
   }
 
-  & svg {
+  & .icon svg {
     transform: rotate(180deg);
   }
 }

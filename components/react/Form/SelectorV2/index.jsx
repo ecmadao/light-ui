@@ -156,7 +156,12 @@ class SelectorV2 extends React.Component {
         <OutsideClickHandler onOutsideClick={this.handleOutsideClick}>
           <div className={styles.wrapper} onClick={onClick}>
             {this.renderSelected()}
-            {showArrow && <span>&nbsp;&nbsp;&nbsp;{icons.down}</span>}
+            {showArrow && (
+              <span>
+                &nbsp;&nbsp;&nbsp;
+                <span className={styles.icon}>{icons.down}</span>
+              </span>
+            )}
           </div>
           {this.renderOptions()}
         </OutsideClickHandler>
