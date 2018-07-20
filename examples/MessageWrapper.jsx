@@ -2,10 +2,16 @@ import React from 'react';
 import Button from '../components/react/Button/Button';
 import Input from '../components/react/Form/Input';
 import Switcher from '../components/react/Switcher';
+import SelectorV2 from '../components/react/Form/SelectorV2';
 import Message from '../components/raw/Message';
 import styles from './shared/styles.css';
 
 const message = new Message();
+
+const OPTIONS = [
+  { id: 'banner', value: 'banner' },
+  { id: 'notify', value: 'notify' },
+];
 
 class MessageWrapper extends React.Component {
   constructor(props) {
@@ -13,10 +19,12 @@ class MessageWrapper extends React.Component {
     this.state = {
       ttl: '',
       text: '',
-      isMobile: false
+      isMobile: false,
+      theme: OPTIONS[0].id,
     };
     this.onClick = this.onClick.bind(this);
     this.onSwitch = this.onSwitch.bind(this);
+    this.onSelect = this.onSelect.bind(this);
     this.onttlChange = this.onttlChange.bind(this);
     this.onTextChange = this.onTextChange.bind(this);
   }
@@ -29,11 +37,16 @@ class MessageWrapper extends React.Component {
     this.setState({ text });
   }
 
+  onSelect(theme) {
+    message.update({ theme });
+    this.setState({ theme });
+  }
+
   onSwitch() {
-    this.setState({
+    message.update({
       isMobile: !this.state.isMobile
     });
-    message.setState({
+    this.setState({
       isMobile: !this.state.isMobile
     });
   }
@@ -45,7 +58,7 @@ class MessageWrapper extends React.Component {
   }
 
   render() {
-    const { showSMS, text, isMobile } = this.state;
+    const { showSMS, text, isMobile, theme } = this.state;
     return (
       <div id="componentsContainer">
         <h3>Change Message</h3>
@@ -61,6 +74,12 @@ class MessageWrapper extends React.Component {
             required={false}
             onChange={this.onTextChange}
             placeholder="message content"
+          />
+          <SelectorV2
+            theme="flat"
+            value={theme}
+            options={OPTIONS}
+            onChange={this.onSelect}
           />
         </div>
         <div className={styles.lineItem}>

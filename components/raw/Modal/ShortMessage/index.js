@@ -1,5 +1,6 @@
 
-import styles from './short_message.css';
+import cx from 'classnames';
+import styles from './message.css';
 
 const ShortMessage = (...args) => {
   let messageComponent = null;
@@ -13,13 +14,20 @@ const ShortMessage = (...args) => {
 
 class MessageComponent {
   constructor(timeout = 2500, options = {}) {
-    this.timeout = timeout;
+    this.state = {
+      timeout,
+      style: options.style || {},
+      className: options.className || '',
+    };
     this.$message = null;
     this.$body = document.body;
-    this.style = options.style || {};
   }
 
-  show(msg, time = this.timeout) {
+  update(newState) {
+    Object.assign(this.state, newState);
+  }
+
+  show(msg, time = this.state.timeout) {
     this.$message = this._messageTemplate(msg);
     this.$body.appendChild(this.$message);
     this._autoHide(time);
@@ -43,8 +51,11 @@ class MessageComponent {
 
   _messageTemplate(msg) {
     const message = document.createElement('div');
-    message.className = styles.messageComponent;
-    Object.keys(this.style).forEach((key) => { message.style[key] = this.style[key]; });
+    message.className = cx(
+      styles.messageComponent,
+      this.state.className
+    );
+    Object.keys(this.state.style).forEach((key) => { message.style[key] = this.state.style[key]; });
     message.innerHTML = msg;
     return message;
   }

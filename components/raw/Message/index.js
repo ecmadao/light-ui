@@ -17,30 +17,37 @@ class MessageComponent {
   constructor(options = {}) {
     const {
       content = '',
+      className = '',
       timeout = 2500,
+      showClose = true,
       isMobile = false,
+      theme = 'banner',
       type = 'positive',
     } = options;
     this.state = {
       type,
+      theme,
       content,
       timeout,
       isMobile,
+      showClose,
+      className,
     };
     this.timeout = null;
     this.$body = document.body;
-    this.$message = this.messageTemplate();
-    this.appendMessage();
+
+    this.resetTemplate();
   }
 
-  setState(newState) {
+  update(options) {
+    this._setState(options);
+  }
+
+  _setState(newState) {
     this.timeout && clearTimeout(this.timeout);
     this.timeout = null;
-    const { isMobile } = this.state;
     Object.assign(this.state, newState);
-    if (newState.isMobile !== undefined && newState.isMobile !== isMobile) {
-      this.resetTemplate();
-    }
+    this.resetTemplate();
   }
 
   error(msg, timeout) {
@@ -98,21 +105,24 @@ class MessageComponent {
   }
 
   messageTemplate() {
-    const { type, content, isMobile } = this.state;
+    const { className, type, content, theme, isMobile, showClose } = this.state;
     const id = helper.uuid();
     const message = document.createElement('div');
     message.className = cx(
       styles.messageComponent,
       styles[type],
-      isMobile && styles.mobileMessage
+      styles[theme],
+      isMobile && styles.mobileMessage,
+      className
     );
-    message.innerHTML = `<div id="${id}" class="${styles.messageContent}">${content}</div>${isMobile ? '' : '<i class="fa fa-times" aria-hidden="true"></i>'}`;
-    this.setState({ id });
+
+    message.innerHTML = `<div id="${id}" class="${styles.messageContent}">${content}</div>${!showClose ? '' : '<i class="fa fa-close" aria-hidden="true"></i>'}`;
+    this.state.id = id;
     return message;
   }
 
   resetTemplate() {
-    this.$message.remove();
+    this.$message && this.$message.remove();
     this.$message = this.messageTemplate();
     this.appendMessage();
   }
