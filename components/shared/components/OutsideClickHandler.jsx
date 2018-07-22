@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
   onKeydown: PropTypes.func,
   targetKey: PropTypes.number,
@@ -12,6 +13,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  className: '',
   targetKey: null,
   children: <span />,
   onKeydown: () => {},
@@ -87,9 +89,13 @@ class OutsideClickHandler extends React.Component {
   }
 
   render() {
+    const { children, className } = this.props;
     return (
-      <div ref={c => (this.childNode = c)}>
-        {this.props.children}
+      <div
+        className={className}
+        ref={c => (this.childNode = c)}
+      >
+        {children}
       </div>
     );
   }

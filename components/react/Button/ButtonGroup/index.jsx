@@ -11,7 +11,10 @@ class ButtonGroup extends React.Component {
         key={index}
         {...button}
         theme="flat"
-        className={styles.button}
+        className={cx(
+          styles.button,
+          button.className || ''
+        )}
       />
     ));
   }

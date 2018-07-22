@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
 
 import styles from './dropdown.css';
-import icons from '../../shared/utils/icons';
 import OutsideClickHandler from '../../shared/components/OutsideClickHandler';
 
 class Dropdown extends React.PureComponent {
@@ -47,22 +46,12 @@ class Dropdown extends React.PureComponent {
   }
 
   renderMainArea() {
-    const { showArrow, disabled, button, buttonClassName } = this.props;
+    const { disabled, button } = this.props;
     const onClick = disabled ? () => {} : () => this.onActiveToggle();
 
-    return (
-      <div className={cx(styles.wrapper, buttonClassName)} onClick={onClick}>
-        <div className={styles.valueWrapper}>
-          {button}
-        </div>
-        {showArrow && (
-          <span>
-            &nbsp;&nbsp;&nbsp;
-            <span className={styles.icon}>{icons.down}</span>
-          </span>
-        )}
-      </div>
-    );
+    return cloneElement(button, {
+      onClick
+    });
   }
 
   renderMenuPanel() {
@@ -71,6 +60,7 @@ class Dropdown extends React.PureComponent {
       showPanelTriangle,
       menuPanelClassName,
     } = this.props;
+    const { active } = this.state;
 
     let dom = content;
     if (Array.isArray(content)) {
@@ -88,7 +78,8 @@ class Dropdown extends React.PureComponent {
         className={cx(
           styles.menusContainer,
           showPanelTriangle && styles.useTriangle,
-          menuPanelClassName
+          menuPanelClassName,
+          active && styles.menusContainerActived,
         )}
       >
         {dom}
@@ -97,40 +88,25 @@ class Dropdown extends React.PureComponent {
   }
 
   render() {
-    const { active } = this.state;
     const {
-      theme,
-      color,
-      disabled,
       className,
     } = this.props;
 
-    const containerClass = cx(
-      styles.dropdownContainer,
-      styles[`dropdown-${color}`],
-      styles[theme],
-      active && styles.dropdownContainerActive,
-      disabled && styles.dropdownDisabled,
-      className
-    );
-
     return (
-      <div className={containerClass}>
-        <OutsideClickHandler onOutsideClick={this.onOutsideClick}>
-          {this.renderMainArea()}
-          {this.renderMenuPanel()}
-        </OutsideClickHandler>
-      </div>
+      <OutsideClickHandler
+        onOutsideClick={this.onOutsideClick}
+        className={cx(styles.dropdownContainer, className)}
+      >
+        {this.renderMainArea()}
+        {this.renderMenuPanel()}
+      </OutsideClickHandler>
     );
   }
 }
 
 Dropdown.propTypes = {
-  theme: PropTypes.string,
-  color: PropTypes.string,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  showArrow: PropTypes.bool,
   showPanelTriangle: PropTypes.bool,
   closeOnClick: PropTypes.bool,
   closeOnOutsideClick: PropTypes.bool,
@@ -147,22 +123,17 @@ Dropdown.propTypes = {
     PropTypes.array
   ]),
   menuPanelClassName: PropTypes.string,
-  buttonClassName: PropTypes.string,
   onDropdownClose: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
-  theme: 'material',
-  color: 'green',
   className: '',
   disabled: false,
-  showArrow: true,
   content: [],
   showPanelTriangle: true,
   closeOnClick: true,
   closeOnOutsideClick: true,
   button: (<div/>),
-  buttonClassName: '',
   menuPanelClassName: '',
   onDropdownClose: () => {},
 };

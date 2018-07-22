@@ -2,8 +2,11 @@
 import React from 'react';
 import cx from 'classnames';
 import Dropdown from '../components/react/Dropdown';
+import Switcher from '../components/react/Switcher';
+import Button from '../components/react/Button/Button';
+import IconButton from '../components/react/Button/IconButton';
+import FloatingActionButton from '../components/react/Button/FloatingActionButton';
 import styles from './shared/styles.css';
-import icons from '../lib/shared/utils/icons';
 
 const MENUS = [
   { id: 0, value: 'menu 1' },
@@ -16,7 +19,12 @@ class DropdownWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeMenu: MENUS[0].id
+      activeMenu: MENUS[0].id,
+      switchers: [
+        false,
+        true,
+        false,
+      ]
     };
     this.onSelect = this.onSelect.bind(this);
   }
@@ -44,9 +52,48 @@ class DropdownWrapper extends React.Component {
     });
   }
 
+  onSwitch(index) {
+    return (checked) => {
+      const { switchers } = this.state;
+      this.setState({
+        switchers: [
+          ...switchers.slice(0, index),
+          checked,
+          ...switchers.slice(index + 1)
+        ]
+      });
+    };
+  }
+
+  renderOperactionMenus() {
+    const { switchers } = this.state;
+
+    return switchers.map((checked, index) => (
+      <div
+        key={index}
+        className={cx(
+          styles.operationMenu,
+        )}
+      >
+        <Switcher
+          size="mini"
+          version="v3"
+          checked={checked}
+          onChange={this.onSwitch(index)}
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        {checked ? 'checked' : 'uncheck'}
+      </div>
+    ));
+  }
+
   renderDropdownButton() {
     return (
-      <div className={styles.dropdownButton}>Dropdown</div>
+      <Button
+        theme="flat"
+        value="Dropdown"
+        className={styles.button}
+      />
     );
   }
 
@@ -64,11 +111,18 @@ class DropdownWrapper extends React.Component {
             showPanelTriangle={false}
             content={this.renderMenus()}
             className={styles.dropdown}
-            button={this.renderDropdownButton()}
+            button={(
+              <IconButton
+                theme="flat"
+                icon="cog"
+                className={styles.button}
+              />
+            )}
             menuPanelClassName={styles.menuPanel}
             buttonClassName={styles.dropdownTrigger}
           />
         </div>
+        <br />
         <div>
           <Dropdown
             showArrow
@@ -76,11 +130,18 @@ class DropdownWrapper extends React.Component {
             disabled={disabled}
             content={this.renderMenus()}
             className={styles.dropdown}
-            button={this.renderDropdownButton()}
+            button={(
+              <Button
+                theme="flat"
+                value="Dropdown"
+                className={styles.button}
+              />
+            )}
             menuPanelClassName={styles['menuPanel-2']}
             buttonClassName={styles.dropdownTrigger}
           />
         </div>
+        <br />
         <div>
           <Dropdown
             showArrow
@@ -88,8 +149,55 @@ class DropdownWrapper extends React.Component {
             disabled={disabled}
             content={this.renderMenus(true)}
             className={styles.dropdown}
-            button={this.renderDropdownButton()}
+            button={(
+              <Button
+                color="dark"
+                theme="material"
+                value="Dropdown"
+                className={styles.button}
+              />
+            )}
             menuPanelClassName={styles['menuPanel-2-dark']}
+            buttonClassName={styles.dropdownTrigger}
+          />
+        </div>
+        <br />
+        <div>
+          <Dropdown
+            showArrow={false}
+            disabled={disabled}
+            closeOnClick={false}
+            showPanelTriangle={false}
+            content={this.renderOperactionMenus()}
+            className={styles.dropdown}
+            button={(
+              <IconButton
+                theme="flat"
+                icon="cog"
+                className={styles.buttonLarge}
+              />
+            )}
+            menuPanelClassName={styles.menuPanel}
+            buttonClassName={styles.dropdownTrigger}
+          />
+        </div>
+        <br />
+        <div>
+          <Dropdown
+            showArrow={false}
+            disabled={disabled}
+            closeOnClick={false}
+            showPanelTriangle={false}
+            content={this.renderOperactionMenus()}
+            className={styles.dropdown}
+            button={(
+              <FloatingActionButton
+                icon="cog"
+                color="white"
+                className={styles.buttonCirle}
+              />
+            )}
+            menuPanelClassName={styles.menuPanel}
             buttonClassName={styles.dropdownTrigger}
           />
         </div>

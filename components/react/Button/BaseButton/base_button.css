@@ -78,6 +78,16 @@
 .flat {
   transition: var(--background-transition), var(--color-transition);
 
+  &.white {
+    border: none;
+    color: var(--gray-dark);
+    background-color: var(--white);
+
+    & i {
+      color: var(--gray-dark);
+    }
+  }
+
   &.green {
     border: 1px solid var(--green-dark);
     color: var(--green-dark);
@@ -185,6 +195,11 @@
     box-shadow: var(--shadow5);
   }
 
+  &.white {
+    color: var(--gray-dark);
+    background-color: var(--white);
+  }
+
   &.green {
     background-color: var(--green-dark);
   }
@@ -215,6 +230,11 @@
 
   &::before {
     border-radius: var(--radius-half);
+  }
+
+  &.white {
+    color: var(--gray-dark);
+    background-color: var(--white);
   }
 
   &.green {

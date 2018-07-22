@@ -91,7 +91,17 @@
   }
 }
 
-.menu-dark {
+.operationMenu {
+  color: #000;
+  display: flex;
+  padding: 0 20px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: default !important;
+}
+
+.menuDark {
   color: #fff;
 
   &.active {
@@ -139,4 +149,16 @@
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.buttonLarge {
+  composes: button;
+  width: 40px;
+  height: 40px;
+  font-size: 18px !important;
+}
+
+.buttonCirle {
+  composes: button;
+  font-size: 18px !important;
 }

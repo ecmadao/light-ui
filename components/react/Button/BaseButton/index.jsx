@@ -22,7 +22,7 @@ class BaseButton extends React.Component {
     return pressed !== nextState.pressed || disabled !== nextProps.disabled;
   }
 
-  onClick(e) {
+  onClick() {
     const { onClick } = this.props;
     onClick && onClick();
   }
