@@ -8,12 +8,18 @@ const LOADING_THEMES = [
   { id: 'bounce', value: 'bounce' },
 ];
 
+const LOADING_COLORS = [
+  { id: 'light', value: 'light' },
+  { id: 'dark', value: 'dark' },
+];
+
 class LoadingWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
       theme: LOADING_THEMES[0].id,
+      color: LOADING_COLORS[0].id,
       text: 'click to show loading'
     };
     this.onClose = this.onClose.bind(this);
@@ -21,8 +27,8 @@ class LoadingWrapper extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(theme) {
-    this.setState({ theme });
+  onChange(key) {
+    return val => this.setState({ [key]: val });
   }
 
   onClose() {
@@ -38,7 +44,7 @@ class LoadingWrapper extends React.Component {
   }
 
   render() {
-    const { loading, text, theme } = this.state;
+    const { loading, text, theme, color } = this.state;
     const { closeAble, hasCloseCallback, customStyle } = this.props;
     const onClose = hasCloseCallback ? this.onClose : null;
     const style = customStyle ? {
@@ -55,7 +61,15 @@ class LoadingWrapper extends React.Component {
           theme="flat"
           color="white"
           options={LOADING_THEMES}
-          onChange={this.onChange}
+          onChange={this.onChange('theme')}
+        />
+        &nbsp;&nbsp;
+        <SelectorV2
+          value={color}
+          theme="flat"
+          color="white"
+          options={LOADING_COLORS}
+          onChange={this.onChange('color')}
         />
         <div>
           <Button
@@ -69,6 +83,7 @@ class LoadingWrapper extends React.Component {
         <Loading
           style={style}
           theme={theme}
+          color={color}
           loading={loading}
           onClose={onClose}
           closeAble={closeAble}

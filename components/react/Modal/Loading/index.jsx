@@ -22,29 +22,35 @@ class Loading extends React.Component {
 
   onClose() {
     const { onClose, closeAble } = this.props;
-    if (!closeAble) { return; }
+    if (!closeAble) return;
     this.setState({ loading: false });
     onClose && onClose();
   }
 
   render() {
     const { loading } = this.state;
-    const { className, theme, style } = this.props;
+    const { theme, style, className, color, loaderColor } = this.props;
     const containerClass = cx(
       styles.loadingContainer,
+      styles[color],
       loading && styles.loadingActive,
       className
     );
-    const loadingClass = styles[`${theme}Wrapper`];
 
     return (
       <div
         style={style}
         onClick={this.onClose}
-        className={containerClass}>
-        <div className={loadingClass}>
-          <div />
-          <div />
+        className={containerClass}
+      >
+        <div
+          className={cx(
+            styles[`${theme}Wrapper`],
+            styles[color]
+          )}
+        >
+          <div style={{ backgroundColor: loaderColor }} />
+          <div style={{ backgroundColor: loaderColor }} />
         </div>
       </div>
     );
@@ -58,6 +64,7 @@ Loading.propTypes = {
   closeAble: PropTypes.bool,
   onClose: PropTypes.func,
   style: PropTypes.object,
+  color: PropTypes.string,
 };
 
 Loading.defaultProps = {
@@ -66,7 +73,8 @@ Loading.defaultProps = {
   loading: false,
   closeAble: false,
   onClose: null,
-  style: {}
+  style: {},
+  color: 'dark'
 };
 
 export default Loading;
