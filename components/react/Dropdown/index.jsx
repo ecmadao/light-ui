@@ -47,7 +47,7 @@ class Dropdown extends React.PureComponent {
 
   renderMainArea() {
     const { disabled, button } = this.props;
-    const onClick = disabled ? () => {} : () => this.onActiveToggle();
+    const onClick = disabled ? Function.prototype : () => this.onActiveToggle();
 
     return cloneElement(button, {
       onClick
@@ -135,7 +135,7 @@ Dropdown.defaultProps = {
   closeOnOutsideClick: true,
   button: (<div/>),
   menuPanelClassName: '',
-  onDropdownClose: () => {},
+  onDropdownClose: Function.prototype,
 };
 
 export default Dropdown;

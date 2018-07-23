@@ -126,8 +126,8 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   value: '',
   placeholder: '',
-  onChange: () => {},
-  onKeyDown: () => {},
+  onChange: Function.prototype,
+  onKeyDown: Function.prototype,
   disabled: false,
   minLength: 0,
   maxLength: 999,

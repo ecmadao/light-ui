@@ -72,7 +72,7 @@ class BaseButton extends React.Component {
       disabled && styles.disabled,
       className
     );
-    const onClick = disabled ? () => {} : this.onClick;
+    const onClick = disabled ? Function.prototype : this.onClick;
 
     return (
       <div
@@ -120,12 +120,12 @@ BaseButton.defaultProps = {
   color: 'green',
   theme: 'material',
   type: 'button',
-  onClick: () => {},
+  onClick: Function.prototype,
   className: '',
   style: {},
   active: false,
   disabled: false,
-  children: (<div></div>),
+  children: <div />,
   clickable: true
 };
 

@@ -52,7 +52,7 @@ class Slider extends React.Component {
 
   validateValues(props) {
     const { value } = props;
-    const values = Utils.isArray(value) ? value : [value];
+    const values = Array.isArray(value) ? value : [value];
     return values;
   }
 
@@ -301,7 +301,7 @@ Slider.defaultProps = {
   value: 10,
   minRange: 1,
   color: 'green',
-  onChange: () => {},
+  onChange: Function.prototype,
   useTipso: true,
   showTipso: false,
   draggerClass: '',

@@ -16,9 +16,9 @@ const defaultProps = {
   className: '',
   targetKey: null,
   children: <span />,
-  onKeydown: () => {},
+  onKeydown: Function.prototype,
   responseKeydown: false,
-  onOutsideClick: () => {},
+  onOutsideClick: Function.prototype,
   responseOutsideClick: true,
 };
 

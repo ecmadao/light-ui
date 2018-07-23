@@ -67,7 +67,7 @@ Switcher.defaultProps = {
   color: 'green',
   checked: false,
   disabled: false,
-  onChange: () => {},
+  onChange: Function.prototype,
   size: 'normal',
   version: 'v1',
   className: ''

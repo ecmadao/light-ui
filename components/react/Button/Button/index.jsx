@@ -62,7 +62,7 @@ Button.defaultProps = {
   color: 'green',
   style: {},
   theme: 'material',
-  onClick: () => {},
+  onClick: Function.prototype,
   leftIcon: null,
   rightIcon: null,
   className: '',

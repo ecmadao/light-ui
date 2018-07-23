@@ -68,7 +68,7 @@ InputGroup.defaultProps = {
   wrapperClassName: '',
   wrapperStyle: {},
   tipsoStyle: {},
-  children: (<div></div>),
+  children: <div />,
 };
 
 export default InputGroup;

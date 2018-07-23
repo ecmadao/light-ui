@@ -55,8 +55,8 @@ PortalModalWithState.defaultProps = {
   closeOnEsc: true,
   showModal: false,
   closeOnOutsideClick: false,
-  onClose: () => {},
-  children: (<div></div>),
+  onClose: Function.prototype,
+  children: <div />,
   defaultOpen: false,
 };
 

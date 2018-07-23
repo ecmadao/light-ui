@@ -145,7 +145,7 @@ BaseTipso.propTypes = {
 };
 
 BaseTipso.defaultProps = {
-  children: (<div></div>),
+  children: <div />,
   tipsoContent: null,
   className: '',
   theme: 'light',
@@ -156,7 +156,7 @@ BaseTipso.defaultProps = {
   position: 'top',
   show: false,
   disabled: false,
-  onTipClose: () => {},
+  onTipClose: Function.prototype,
 };
 
 export default BaseTipso;

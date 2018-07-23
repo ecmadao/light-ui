@@ -42,9 +42,9 @@ BaseModal.propTypes = {
 
 BaseModal.defaultProps = {
   showModal: true,
-  onClose: () => {},
+  onClose: Function.prototype,
   className: '',
-  children: (<div></div>)
+  children: <div />
 };
 
 export default BaseModal;

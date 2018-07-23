@@ -157,11 +157,11 @@ Input.defaultProps = {
   type: 'string',
   theme: 'material',
   subTheme: '',
-  onChange: () => {},
-  onBlur: () => {},
-  onKeyUp: () => {},
-  onFocus: () => {},
-  onKeyDown: () => {}
+  onChange: Function.prototype,
+  onBlur: Function.prototype,
+  onKeyUp: Function.prototype,
+  onFocus: Function.prototype,
+  onKeyDown: Function.prototype
 };
 
 export default Input;

@@ -42,7 +42,7 @@ FloatingActionButton.propTypes = {
 
 FloatingActionButton.defaultProps = {
   style: {},
-  onClick: () => {},
+  onClick: Function.prototype,
   className: '',
   icon: ''
 };

@@ -97,11 +97,11 @@ Label.defaultProps = {
   text: '',
   min: false,
   clickable: true,
-  onClick: () => {},
+  onClick: Function.prototype,
   className: '',
   theme: 'material',
   icon: null,
-  onDelete: () => {},
+  onDelete: Function.prototype,
   deleteable: false,
   disabled: false,
   color: 'dark'

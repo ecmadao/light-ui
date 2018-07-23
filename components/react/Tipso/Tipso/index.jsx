@@ -28,7 +28,7 @@ Tipso.propTypes = {
 Tipso.defaultProps = {
   trigger: 'hover',
   wrapperStyle: {},
-  children: (<div></div>)
+  children: <div />
 };
 
 export default Tipso;

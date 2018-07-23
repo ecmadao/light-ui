@@ -40,7 +40,7 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   icon: '',
-  onClick: () => {},
+  onClick: Function.prototype,
   className: '',
   disabled: false,
   theme: 'ghost'

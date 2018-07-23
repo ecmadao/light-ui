@@ -46,7 +46,7 @@ class Selector extends React.Component {
       disabled && styles.selectorDisabled,
       className
     );
-    const onChange = disabled ? () => {} : this.onChange;
+    const onChange = disabled ? Function.prototype : this.onChange;
     return (
       <div className={containerClass}>
         {this.currentValue}&nbsp;&nbsp;&nbsp;{icons.down}
@@ -78,7 +78,7 @@ Selector.defaultProps = {
   value: '',
   theme: 'material',
   options: [],
-  onChange: () => {},
+  onChange: Function.prototype,
   className: '',
   disabled: false
 };

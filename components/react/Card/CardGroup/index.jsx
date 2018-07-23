@@ -2,9 +2,7 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
-
 import styles from './card_group.css';
-import Helper from '../../../shared/utils/helper';
 
 const CardGroup = (props) => {
   const {
@@ -17,7 +15,7 @@ const CardGroup = (props) => {
 
   let hasCardGroup = false;
 
-  const cards = Helper.isArray(children) ? children.map((child, index) => {
+  const cards = Array.isArray(children) ? children.map((child, index) => {
     const isCardGroup = child.type.prototype === CardGroup.prototype;
     if (isCardGroup) hasCardGroup = true;
 
@@ -66,7 +64,7 @@ CardGroup.propTypes = {
 };
 
 CardGroup.defaultProps = {
-  children: (<div></div>),
+  children: <div />,
   className: '',
   theme: null,
   style: {}

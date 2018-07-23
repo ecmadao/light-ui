@@ -149,7 +149,7 @@ class SelectorV2 extends React.Component {
       className
     );
 
-    const onClick = disabled ? () => {} : () => this.handleActiveToggle();
+    const onClick = disabled ? Function.prototype : () => this.handleActiveToggle();
 
     return (
       <div className={containerClass}>
@@ -192,8 +192,8 @@ SelectorV2.propTypes = {
 
 SelectorV2.defaultProps = {
   options: [],
-  onChange: () => {},
-  onSelectorClose: () => {},
+  onChange: Function.prototype,
+  onSelectorClose: Function.prototype,
   theme: 'material',
   color: 'green',
   className: '',

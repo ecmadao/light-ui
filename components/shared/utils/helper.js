@@ -1,9 +1,7 @@
 
-const isArray = (array) =>
-  Object.prototype.toString.call(array) === '[object Array]';
 
 const isEqual = (arrayA, arrayB) => {
-  for (let i = 0; i < arrayA.length; i++) {
+  for (let i = 0; i < arrayA.length; i += 1) {
     if (arrayA[i] !== arrayB[i]) {
       return false;
     }
@@ -11,7 +9,7 @@ const isEqual = (arrayA, arrayB) => {
   return true;
 };
 
-const createArray = (length) => new Array(length).join('0').split('');
+const createArray = length => new Array(length).join('0').split('');
 
 const findFirstIndex = (options = {}) => {
   const {
@@ -32,7 +30,7 @@ const findFirstIndex = (options = {}) => {
   return index;
 };
 
-export const checkSameArray = (arrayA, arrayB) => {
+const checkSameArray = (arrayA, arrayB) => {
   if (arrayA.length !== arrayB.length) return false;
   let same = true;
   for (let i = 0; i < arrayA.length; i += 1) {
@@ -58,7 +56,6 @@ const isFunction = func =>
 
 export default {
   uuid,
-  isArray,
   isEqual,
   isFunction,
   createArray,
