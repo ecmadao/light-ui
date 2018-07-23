@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Input from '../Input';
 import Tipso from '../../Tipso/Tipso';
-import styles from './input_group.css';
+import styles from './group.css';
 
 class InputGroup extends React.Component {
   render() {

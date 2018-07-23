@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import IconButton from '../IconButton';
-import styles from './button_group.css';
+import styles from './group.css';
 
 class ButtonGroup extends React.Component {
   renderButton() {

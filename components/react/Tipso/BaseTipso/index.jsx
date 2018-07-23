@@ -3,7 +3,7 @@ import cx from 'classnames';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
-import styles from './base_tipso.css';
+import styles from './tipso.css';
 
 class BaseTipso extends React.Component {
   constructor(props) {

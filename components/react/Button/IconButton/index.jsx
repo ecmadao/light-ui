@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import BaseButton from '../BaseButton';
-import styles from './icon_button.css';
+import styles from './button.css';
 
 const IconButton = (props) => {
   const { icon, className } = props;

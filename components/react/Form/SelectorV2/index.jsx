@@ -3,7 +3,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 
 import Option from './Option';
-import styles from './selector_v2.css';
+import styles from './selector.css';
 import icons from '../../../shared/utils/icons';
 import OutsideClickHandler from '../../../shared/components/OutsideClickHandler';
 

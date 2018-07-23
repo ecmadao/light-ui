@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Tipso from '../../Tipso/Tipso';
-import styles from './info_card.css';
+import styles from './card.css';
 import icons from '../../../shared/utils/icons';
 
 const InfoCard = (props) => {

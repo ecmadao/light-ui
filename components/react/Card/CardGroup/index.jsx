@@ -2,7 +2,7 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { cloneElement } from 'react';
-import styles from './card_group.css';
+import styles from './group.css';
 
 const CardGroup = (props) => {
   const {

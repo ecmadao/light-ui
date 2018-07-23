@@ -73,6 +73,7 @@ class Dropdown extends React.PureComponent {
         });
       });
     }
+
     return (
       <div
         className={cx(
@@ -88,9 +89,7 @@ class Dropdown extends React.PureComponent {
   }
 
   render() {
-    const {
-      className,
-    } = this.props;
+    const { className } = this.props;
 
     return (
       <OutsideClickHandler
@@ -133,7 +132,7 @@ Dropdown.defaultProps = {
   showPanelTriangle: true,
   closeOnClick: true,
   closeOnOutsideClick: true,
-  button: (<div/>),
+  button: <div />,
   menuPanelClassName: '',
   onDropdownClose: Function.prototype,
 };

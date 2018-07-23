@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
-import styles from './short_message.css';
+import styles from './message.css';
 
 class ShortMessage extends React.Component {
   constructor(props) {

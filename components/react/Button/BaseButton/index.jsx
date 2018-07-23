@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './base_button.css';
+import styles from './button.css';
 
 class BaseButton extends React.Component {
   constructor(props) {

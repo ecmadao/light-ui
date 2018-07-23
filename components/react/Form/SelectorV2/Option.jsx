@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from './selector_v2.css';
+import styles from './selector.css';
 
 class Option extends React.Component {
   onClick(e) {

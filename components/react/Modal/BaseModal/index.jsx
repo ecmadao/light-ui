@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './base_modal.css';
+import styles from './modal.css';
 
 class BaseModal extends React.Component {
   onClose() {
