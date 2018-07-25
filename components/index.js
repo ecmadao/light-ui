@@ -6,7 +6,7 @@ export FloatingActionButton from './react/Button/FloatingActionButton';
 
 export Input from './react/Form/Input';
 export InputGroup from './react/Form/InputGroup';
-export InputGroup2 from './react/Form/InputGroup2';
+export InputGroupV2 from './react/Form/InputGroupV2';
 export Selector from './react/Form/Selector';
 export SelectorV2 from './react/Form/SelectorV2';
 export Textarea from './react/Form/Textarea';
