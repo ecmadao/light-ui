@@ -116,6 +116,13 @@
   }
 }
 
+.ghost {
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  background-color: transparent;
+}
+
 .disabled {
   cursor: not-allowed;
 }

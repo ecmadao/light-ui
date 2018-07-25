@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../components/react/Form/Input';
 import InputGroup from '../components/react/Form/InputGroup';
+import InputGroupV2 from '../components/react/Form/InputGroupV2';
 import Selector from '../components/react/Form/Selector';
 import SelectorV2 from '../components/react/Form/SelectorV2';
 import Textarea from '../components/react/Form/Textarea';
@@ -18,14 +19,17 @@ class FormWrapper extends React.Component {
     super(props);
     this.state = {
       value: '',
+      email: '',
+      phone: '',
+      textarea: '',
       selected: OPTIONS[0].id
     };
     this.onChange = this.onChange.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
 
-  onChange(value) {
-    this.setState({ value });
+  onChange(key) {
+    return value => this.setState({ [key]: value });
   }
 
   onSelect(selected) {
@@ -33,8 +37,10 @@ class FormWrapper extends React.Component {
   }
 
   render() {
-    const { value, selected } = this.state;
+    const { value, phone, email, textarea, selected } = this.state;
     const { disabled } = this.props;
+
+    const [prefix, suffix] = email.split('@');
 
     return (
       <div id="componentsContainer">
@@ -46,7 +52,7 @@ class FormWrapper extends React.Component {
             value={value}
             placeholder="material theme"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('value')}
           />
         </div>
         <h4>flat theme</h4>
@@ -56,7 +62,7 @@ class FormWrapper extends React.Component {
             theme="flat"
             placeholder="flat theme"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('value')}
           />
         </div>
         <h4>borderless theme</h4>
@@ -66,7 +72,7 @@ class FormWrapper extends React.Component {
             theme="borderless"
             placeholder="borderless theme"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('value')}
           />
           &nbsp;&nbsp;&nbsp;
           <Input
@@ -75,43 +81,43 @@ class FormWrapper extends React.Component {
             subTheme="underline"
             placeholder="borderless theme"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('value')}
           />
         </div>
         <h4>validator</h4>
         <div>
           <Input
-            value={value}
+            value={email}
             type="email"
             placeholder="email"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('email')}
           />
           <Input
-            value={value}
+            value={phone}
             type="phone"
             placeholder="phone"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('phone')}
           />
         </div>
         <h4>Not required</h4>
         <div>
           <Input
-            value={value}
+            value={email}
             type="email"
             required={false}
             placeholder="email"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('email')}
           />
           <Input
-            value={value}
+            value={phone}
             type="phone"
             required={false}
             placeholder="phone"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('phone')}
           />
         </div>
         <h3>Input Group</h3>
@@ -120,14 +126,15 @@ class FormWrapper extends React.Component {
             value={value}
             disabled={disabled}
             placeholder="input group with input"
-            onChange={this.onChange} >
+            onChange={this.onChange('value')}
+          >
             <Input
               value={value}
               theme="borderless"
               subTheme="underline"
               placeholder="borderless input"
               disabled={disabled}
-              onChange={this.onChange}
+              onChange={this.onChange('value')}
             />
           </InputGroup>
           <InputGroup
@@ -136,31 +143,110 @@ class FormWrapper extends React.Component {
             tipsoTheme="dark"
             tipsoPosition="bottom"
             placeholder="input group with intro"
-            onChange={this.onChange}
+            onChange={this.onChange('value')}
           >
             <div style={{ fontSize: '12px' }}>
               This is an intro of input.
             </div>
           </InputGroup>
         </div>
+        <h3>Input Group2</h3>
+        <div>
+          <InputGroupV2
+            sections={[
+              {
+                value: '+86',
+                disabled: true,
+                style: {
+                  width: 30
+                }
+              },
+              {
+                value: phone,
+                type: 'phone',
+                placeholder: 'phone',
+                onChange: this.onChange('phone'),
+              }
+            ]}
+            theme="flat"
+          />
+        </div>
+        <div>
+          <InputGroupV2
+            sections={[
+              {
+                value: prefix,
+                placeholder: 'email prefix',
+                onChange: val => this.onChange('email')(`${val}@${suffix}`)
+              },
+              {
+                value: '@',
+                disabled: true,
+                style: {
+                  width: 30,
+                  textAlign: 'center',
+                  padding: 0
+                }
+              },
+              {
+                value: suffix,
+                placeholder: 'email suffix',
+                style: { width: 100 },
+                onChange: val => this.onChange('email')(`${prefix}@${val}`)
+              }
+            ]}
+            theme="material"
+          />
+        </div>
+        <div>
+          <InputGroup
+            value={value}
+            disabled={disabled}
+            placeholder="input group with input"
+            onChange={this.onChange('value')}
+          >
+            <InputGroupV2
+              sections={[
+                {
+                  value: 'https://',
+                  disabled: true,
+                  style: {
+                    width: 50,
+                    padding: '0 5px'
+                  }
+                },
+                {
+                  value,
+                  type: 'url',
+                  placeholder: 'url',
+                  onChange: this.onChange('value'),
+                }
+              ]}
+              style={{
+                margin: 0
+              }}
+              theme="underline"
+            />
+          </InputGroup>
+        </div>
         <h3>Textarea</h3>
         <div>
           <Textarea
             maxLength={200}
-            value={value}
+            value={textarea}
             placeholder="textarea"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('textarea')}
           />
         </div>
         <br/>
         <div>
           <Textarea
             maxLength={200}
-            value={value}
+            value={textarea}
             placeholder="textarea"
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={this.onChange('textarea')}
             wordCountTemplate="%n words typed"
             wordCount={val => val ? val.split(' ').length : 0}
           />

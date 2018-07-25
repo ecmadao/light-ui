@@ -64,7 +64,13 @@ class Input extends React.Component {
   }
 
   check(inputValue) {
-    const { type, required, validator, validateOptions } = this.props;
+    const {
+      type,
+      onCheck,
+      required,
+      validator,
+      validateOptions
+    } = this.props;
     if (!required) return;
 
     const value = inputValue || this.input.value;
@@ -73,6 +79,7 @@ class Input extends React.Component {
         ? !validator(value)
         : !Validator[type](value, validateOptions);
       this.setState({ error });
+      onCheck && onCheck(error);
     } catch (e) {
       console.error(e);
     }

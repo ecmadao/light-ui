@@ -1,0 +1,92 @@
+
+@import '../../../shared/styles/font.css';
+@import "../../../shared/styles/shadow.css";
+@import '../../../shared/styles/color.css';
+@import '../../../shared/styles/border.css';
+
+.group {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 5px;
+  background-color: var(--white);
+  border-radius: var(--radius-small);
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.input {
+  margin: 0;
+  flex: initial;
+  min-width: initial;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 0;
+}
+
+.material {
+  border: 1px solid transparent;
+  height: 30px;
+  line-height: 30px;
+  transition: box-shadow 0.2s, border 0.2s;
+  box-shadow: var(--shadowInput);
+
+  & .input:not(:last-child) {
+    border-right: 1px solid var(--gray-light);
+  }
+
+  &.error {
+    border: 1px solid var(--red);
+  }
+
+  &.focus {
+    box-shadow: var(--shadowInputHover);
+  }
+}
+
+.flat {
+  height: 30px;
+  line-height: 30px;
+  transition: border 0.2s;
+  border: 1px solid var(--gray);
+
+  & .input:not(:last-child) {
+    border-right: 1px solid var(--gray-light);
+  }
+
+  &.error {
+    border: 1px solid var(--red);
+  }
+
+  &.focus {
+    border: 1px solid var(--green-dark);
+  }
+}
+
+.underline {
+  border: none;
+  transition: border 0.2s;
+  border-radius: 0;
+  border-bottom: 1px solid var(--gray);
+
+  & .input:not(:last-child) {
+    border-right: 1px solid var(--gray-light);
+  }
+
+  &.error {
+    border-bottom: 1px solid var(--red);
+  }
+
+  &.focus {
+    border-bottom: 1px solid var(--green-dark);
+  }
+}

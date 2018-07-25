@@ -1,5 +1,4 @@
 
-
 const isEqual = (arrayA, arrayB) => {
   for (let i = 0; i < arrayA.length; i += 1) {
     if (arrayA[i] !== arrayB[i]) {
