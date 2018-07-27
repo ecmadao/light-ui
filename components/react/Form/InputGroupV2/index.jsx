@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Input from '../Input';
 import styles from './group.css';
 
-class InputGroup2 extends React.Component {
+class InputGroupV2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,11 +70,11 @@ class InputGroup2 extends React.Component {
   }
 }
 
-InputGroup2.defaultProps = {
+InputGroupV2.defaultProps = {
   style: {},
   sections: [],
   className: '',
   theme: 'material',
 };
 
-export default InputGroup2;
+export default InputGroupV2;
