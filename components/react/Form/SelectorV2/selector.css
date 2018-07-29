@@ -84,13 +84,17 @@
 
 .material {
   border: none;
-  transition: box-shadow 0.1s;
-  box-shadow: var(--shadowInput);
+  transition: box-shadow 0.2s;
+  box-shadow: var(--shadow4);
 
   &:not(.selectorDisabled) {
     &:hover {
-      box-shadow: var(--shadowInputHover);
+      box-shadow: var(--shadow6);
     }
+  }
+
+  & .optionsContainer {
+    box-shadow: var(--shadow6);
   }
 }
 
@@ -106,6 +110,7 @@
   }
 
   & .optionsContainer {
+    box-shadow: var(--shadowInput);
     border: 1px solid var(--gray);
   }
 }
@@ -193,17 +198,16 @@
 /* options */
 .optionsContainer {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   left: -1px;
   right: -1px;
   max-height: 400px;
   flex-direction: column;
   background-color: var(--white);
-  box-shadow: var(--shadowInput);
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
-  border-radius: 0 0 var(--radius-small) var(--radius-small);
+  border-radius: var(--radius-small);
 
   z-index: var(--zIndex0);
   opacity: var(--modalContentOpacity);
@@ -223,9 +227,14 @@
   color: var(--gray-dark);
   background-color: transparent;
   transition: background-color 0.2s;
+  display: inline-block;
 
   &:hover {
     background-color: #f2f2f2;
+  }
+
+  &:first-child {
+    border-radius: var(--radius-small) var(--radius-small) 0 0;
   }
 
   &:last-child {

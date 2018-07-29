@@ -204,40 +204,74 @@ class ButtonWrapper extends React.Component {
         </div>
         <h3>Icon Button Group</h3>
         <div>
-          <ButtonGroup
-            buttons={[
-              {
-                icon: 'clipboard',
-                color: 'dark',
-                active: true
-              },
-              {
-                icon: 'font',
-                color: 'dark',
-              },
-              {
-                icon: 'bold',
-                color: 'dark'
-              },
-            ]}
-          />
-          <ButtonGroup
-            theme="flat"
-            buttons={[
-              {
-                icon: 'clipboard',
-                color: 'dark',
-              },
-              {
-                icon: 'font',
-                color: 'dark',
-              },
-              {
-                icon: 'bold',
-                color: 'dark'
-              },
-            ]}
-          />
+          <ButtonGroup color="white" disabled={disabled}>
+            <IconButton
+              active
+              color="dark"
+              icon="clipboard"
+            />
+            <IconButton
+              color="dark"
+              icon="font"
+            />
+            <IconButton
+              color="dark"
+              icon="bold"
+            />
+          </ButtonGroup>
+          <ButtonGroup theme="flat" color="white" disabled={disabled}>
+            <IconButton
+              active
+              color="dark"
+              icon="clipboard"
+            />
+            <IconButton
+              color="dark"
+              icon="font"
+            />
+            <IconButton
+              color="dark"
+              icon="bold"
+            />
+          </ButtonGroup>
+        </div>
+        <div>
+          <ButtonGroup theme="flat" color="blue" disabled={disabled}>
+            <Button
+              value="Blue Button"
+            />
+            <Button
+              value="Blue Button"
+            />
+          </ButtonGroup>
+          <ButtonGroup theme="flat" color="dark" disabled={disabled}>
+            <Button
+              value="With left icon"
+              leftIcon={(<i className="fa fa-angle-left" aria-hidden="true" />)}
+            />
+            <Button
+              value="With right icon"
+              rightIcon={(<i className="fa fa-angle-right" aria-hidden="true" />)}
+            />
+          </ButtonGroup>
+        </div>
+        <div>
+          <ButtonGroup theme="flat" color="dark" disabled={disabled}>
+            <Button
+              disabled={disabled}
+              value="With left icon"
+              leftIcon={(<i className="fa fa-angle-left" aria-hidden="true" />)}
+            />
+            <Button
+              disabled={disabled}
+              value="Button"
+            />
+            <Button
+              disabled={disabled}
+              value="With right icon"
+              rightIcon={(<i className="fa fa-angle-right" aria-hidden="true" />)}
+            />
+          </ButtonGroup>
         </div>
         <h3>Floating Action Button</h3>
         <div>
