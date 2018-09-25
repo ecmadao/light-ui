@@ -1,6 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import styles from './slider.css';
@@ -14,70 +13,49 @@ class Dragger extends React.Component {
       draging: false,
       showTipso: props.showTipso
     };
-    this.startX = 0;
 
     this.setLeft = this.setLeft.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
-    this.resetOrigin = this.resetOrigin.bind(this);
   }
 
   componentDidMount() {
-    this.resetOrigin();
-    if (window.addEventListener) {
-      window.addEventListener('resize', this.resetOrigin, true);
-    } else {
-      window.addEventListener('onresize', this.resetOrigin);
-    }
     if (document.addEventListener) {
-      document.addEventListener('scroll', this.resetOrigin, true);
       document.addEventListener('mousemove', this.handleMouseMove, true);
       document.addEventListener('mouseup', this.handleMouseUp, true);
     } else {
-      document.addEventListener('onscroll', this.resetOrigin);
       document.attachEvent('onmousemove', this.handleMouseMove);
       document.attachEvent('onmouseup', this.handleMouseUp);
     }
   }
 
   componentWillUnmount() {
-    if (window.addEventListener) {
-      window.removeEventListener('resize', this.resetOrigin, true);
-    } else {
-      window.detachEvent('onresize', this.resetOrigin);
-    }
     if (document.removeEventListener) {
-      document.removeEventListener('scroll', this.resetOrigin, true);
       document.removeEventListener('mousemove', this.handleMouseMove, true);
       document.removeEventListener('mouseup', this.handleMouseUp, true);
     } else {
-      document.detachEvent('onscroll', this.resetOrigin);
       document.detachEvent('onmousemove', this.handleMouseMove);
       document.detachEvent('onmouseup', this.handleMouseUp);
     }
   }
 
-  resetOrigin() {
-    const centerPoint = ReactDOM.findDOMNode(this.dragger);
-    const centerPointPos = centerPoint.getBoundingClientRect();
-    this.startX = centerPointPos.left + centerPoint.clientWidth;
-  }
-
   handleMouseMove(e) {
+    const event = e || window.event;
     if (this.state.draging) {
-      const pos = darg.mousePosition(e);
+      const pos = darg.mousePosition(event);
       this.setLeft(pos);
     }
   }
 
   handleMouseUp(e) {
+    const event = e || window.event;
     if (this.state.draging) {
       this.setState({
         draging: false,
         showTipso: false,
       });
-      const pos = darg.mousePosition(e);
+      const pos = darg.mousePosition(event);
       this.setLeft(pos, true);
     }
   }
@@ -89,8 +67,6 @@ class Dragger extends React.Component {
     this.setState({
       draging: true
     });
-    const pos = darg.mousePosition(event);
-    this.startX = pos.x;
   }
 
   setLeft(position, mouseUp = false) {
@@ -99,11 +75,11 @@ class Dragger extends React.Component {
       min,
       max,
       jump,
-      maxValue,
-      minValue,
-      minJump,
       maxDis,
       maxLeft,
+      minJump,
+      maxValue,
+      minValue,
       onDragEnd,
       onDraging,
     } = this.props;
@@ -127,8 +103,8 @@ class Dragger extends React.Component {
 
   render() {
     const {
-      color,
       left,
+      color,
       value,
       useTipso,
       showTipso,
@@ -137,6 +113,7 @@ class Dragger extends React.Component {
       tipFormatter,
       draggerClass,
     } = this.props;
+
     const dragClass = cx(
       styles.dragger,
       color && styles[color],

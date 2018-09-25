@@ -70,10 +70,12 @@ class Slider extends React.Component {
   }
 
   resetOrigin() {
-    const pathway = ReactDOM.findDOMNode(this.pathway).getBoundingClientRect();
-    const maxDis = pathway.width;
-    const maxLeft = pathway.left;
-    this.setState({ maxDis, maxLeft });
+    setTimeout(() => {
+      const pathway = ReactDOM.findDOMNode(this.pathway).getBoundingClientRect();
+      const maxDis = pathway.width;
+      const maxLeft = pathway.left;
+      this.setState({ maxDis, maxLeft });
+    }, 100);
   }
 
   onChange(options = {}) {
@@ -172,6 +174,7 @@ class Slider extends React.Component {
       draggerClass,
       tipFormatter,
     } = this.props;
+
     const minDis = minRange / (max - min);
     return positions.map((item, index) => {
       const { left } = item;
@@ -230,11 +233,10 @@ class Slider extends React.Component {
     const lefts = positions.map(position => position.left);
     let maxLeft = Math.min(...lefts);
     const maxRight = Math.max(...lefts);
-    if (positions.length === 1) {
-      maxLeft = 0;
-    }
+    if (positions.length === 1) maxLeft = 0;
+
     const length = (max - min) / minJump;
-    return Utils.createArray(length + 2).map((val, index) => {
+    return Utils.createArray(length + 2).map((_, index) => {
       const left = index / length;
       return (
         <div
