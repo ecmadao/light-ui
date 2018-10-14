@@ -66,6 +66,7 @@ class Textarea extends React.Component {
     const {
       value,
       disabled,
+      className,
       placeholder,
       wordCountTemplate
     } = this.props;
@@ -77,6 +78,7 @@ class Textarea extends React.Component {
       focus && styles.focus,
       error && styles.error,
       disabled && styles.disabled,
+      className
     );
 
     const wordCount = this.props.wordCount || countWords;
@@ -112,6 +114,7 @@ class Textarea extends React.Component {
 
 Textarea.propTypes = {
   value: PropTypes.string,
+  className: PropTypes.string,
   onChange: PropTypes.func,
   wordCount: PropTypes.func,
   onKeyDown: PropTypes.func,
@@ -125,6 +128,7 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   value: '',
+  className: '',
   placeholder: '',
   onChange: Function.prototype,
   onKeyDown: Function.prototype,

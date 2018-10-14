@@ -118,7 +118,6 @@ Dropdown.propTypes = {
   button: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string,
     PropTypes.array
   ]),
   menuPanelClassName: PropTypes.string,
