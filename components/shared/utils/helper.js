@@ -53,6 +53,19 @@ const getType = {};
 const isFunction = func =>
   func && getType.toString.call(func) === '[object Function]';
 
+const getStringWidth = (str) => {
+  const cnChars = str.match(/[\u4e00-\u9fa5]/g);
+  const enChars = str.match(/[a-zA-Z]/g);
+  let smallChars = '';
+  try {
+    smallChars = str.match(/[_\-.|/,^$!@#%&*()[]\{\}`~:;'"]/g);
+  } catch (e) {
+    console.error(e);
+  }
+  const numChars = str.match(/[0-9]/g);
+  return cnChars ? cnChars.length : 0 + enChars ? enChars.length : 0 + (smallChars ? smallChars.length : 0) * 1.5 + (numChars ? numChars.length : 0) * 1.1;
+};
+
 export default {
   uuid,
   isEqual,
@@ -60,4 +73,5 @@ export default {
   createArray,
   checkSameArray,
   findFirstIndex,
+  getStringWidth
 };

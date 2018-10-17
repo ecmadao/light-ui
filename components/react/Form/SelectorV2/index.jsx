@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Option from './Option';
 import styles from './selector.css';
 import icons from '../../../shared/utils/icons';
+import helper from '../../../shared/utils/helper';
 import OutsideClickHandler from '../../../shared/components/OutsideClickHandler';
 
 class SelectorV2 extends React.Component {
@@ -79,7 +80,7 @@ class SelectorV2 extends React.Component {
     const { options } = this.props;
     let maxValue = (options[0] && options[0].text) || '';
     options.forEach((option) => {
-      if (option.value.length > maxValue.length) { maxValue = option.value; }
+      if (helper.getStringWidth(option.value) > helper.getStringWidth(maxValue)) { maxValue = option.value; }
     });
     return maxValue;
   }
