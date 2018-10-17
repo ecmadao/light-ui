@@ -53,17 +53,20 @@ const getType = {};
 const isFunction = func =>
   func && getType.toString.call(func) === '[object Function]';
 
+const strLength = str => str ? str.length : 0;
+
 const getStringWidth = (str) => {
-  const cnChars = str.match(/[\u4e00-\u9fa5]/g);
+  const cnChars = str.match(/[\u4e00-\u9fa5【】「」“”；：，。‘’（）！？]/g);
   const enChars = str.match(/[a-zA-Z]/g);
   let smallChars = '';
   try {
-    smallChars = str.match(/[_\-.|/,^$!@#%&*()[]\{\}`~:;'"]/g);
+    smallChars = str.match(/[_\-.|/,^$!?@#%&*()[]\{\}`~:;'"]/g);
   } catch (e) {
     console.error(e);
   }
   const numChars = str.match(/[0-9]/g);
-  return cnChars ? cnChars.length : 0 + enChars ? enChars.length : 0 + (smallChars ? smallChars.length : 0) * 1.5 + (numChars ? numChars.length : 0) * 1.1;
+  const others = str.length - strLength(cnChars) - strLength(enChars) - strLength(smallChars) - strLength(numChars);
+  return strLength(cnChars) * 1.3 + strLength(enChars) + strLength(smallChars) * 0.8 + strLength(numChars) * 1.1 + others;
 };
 
 export default {
