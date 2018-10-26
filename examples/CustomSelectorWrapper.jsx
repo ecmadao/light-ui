@@ -11,6 +11,7 @@ const OPTIONS = [
   { id: 4, value: 'disabled section', disabled: true }
 ];
 
+
 class CustomSelectorWrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -59,8 +60,8 @@ class CustomSelectorWrapper extends React.Component {
             disabled={disabled}
             onChange={this.onSelect}
             className={styles.selector}
-            optionClassName={styles.option}
-            selectedClassName={styles.selected}
+            // optionClassName={styles.option}
+            // selectedClassName={styles.selected}
           />
         </div>
         <h4>Fixed width</h4>

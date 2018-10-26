@@ -66,7 +66,7 @@ const getStringWidth = (str) => {
   }
   const numChars = str.match(/[0-9]/g);
   const others = str.length - strLength(cnChars) - strLength(enChars) - strLength(smallChars) - strLength(numChars);
-  return strLength(cnChars) * 1.3 + strLength(enChars) + strLength(smallChars) * 0.8 + strLength(numChars) * 1.1 + others;
+  return strLength(cnChars) * 1.5 + strLength(enChars) + strLength(smallChars) * 0.8 + strLength(numChars) * 1.1 + others;
 };
 
 export default {
