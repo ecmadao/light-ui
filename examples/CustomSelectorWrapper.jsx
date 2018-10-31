@@ -8,7 +8,8 @@ const OPTIONS = [
   { id: 1, value: 'selector 1' },
   { id: 2, value: 'selector 2' },
   { id: 3, value: 'this is long selector' },
-  { id: 4, value: 'disabled section', disabled: true }
+  { id: 4, value: 'disabled section', disabled: true },
+  { id: 4, value: 'hidden section', hidden: true }
 ];
 
 
@@ -60,8 +61,8 @@ class CustomSelectorWrapper extends React.Component {
             disabled={disabled}
             onChange={this.onSelect}
             className={styles.selector}
-            // optionClassName={styles.option}
-            // selectedClassName={styles.selected}
+            optionClassName={styles.option}
+            selectedClassName={styles.selected}
           />
         </div>
         <h4>Fixed width</h4>

@@ -49,7 +49,8 @@ class SelectorV2 extends React.Component {
       optionModalClassName
     } = this.props;
     const optionComponents = options.map((option, index) => {
-      const { id } = option;
+      const { id, hidden } = option;
+      if (hidden) return null;
       return (
         <Option
           id={id}
