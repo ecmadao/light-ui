@@ -22,6 +22,7 @@ class Slider extends React.Component {
     this.onDragEnd = this.onDragEnd.bind(this);
     this.onDragMove = this.onDragMove.bind(this);
     this.changePosition = this.changePosition.bind(this);
+    this.resetOrigin = this.resetOrigin.bind(this)
   }
 
   componentDidMount() {
@@ -69,13 +70,18 @@ class Slider extends React.Component {
     };
   }
 
-  resetOrigin() {
+  resetOrigin(count = 1) {
+    if (count >= 3) return
     setTimeout(() => {
-      const pathway = ReactDOM.findDOMNode(this.pathway).getBoundingClientRect();
-      const maxDis = pathway.width;
-      const maxLeft = pathway.left;
-      this.setState({ maxDis, maxLeft });
-    }, 100);
+      if (!this.pathway) {
+        this.resetOrigin(count)
+      } else {
+        const pathway = ReactDOM.findDOMNode(this.pathway).getBoundingClientRect()
+        const maxDis = pathway.width
+        const maxLeft = pathway.left
+        this.setState({ maxDis, maxLeft })
+      }
+    }, 100)
   }
 
   onChange(options = {}) {
