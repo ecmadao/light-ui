@@ -16,6 +16,8 @@
   text-align: center;
   cursor: default;
   composes: baseText;
+  position: relative;
+  padding: 15px 10px;
 
   & i {
     margin-right: 10px;
@@ -34,80 +36,27 @@
   cursor: pointer;
 }
 
-.bg {
-  position: relative;
-  padding: 15px 10px;
-}
-
 .withTipso {
-  & .bg {
-    padding: 15px 20px;
-    padding-right: 30px;
-  }
+  padding: 15px 20px;
+  padding-right: 30px;
 }
 
 .material {
-  &:hover {
-    & .bg {
-      box-shadow: var(--shadow4);
-    }
-  }
+  box-shadow: var(--shadow3);
+  transition: box-shadow 0.3s;
+  background-color: var(--white);
 
-  & .bg {
-    box-shadow: var(--shadow3);
-    transition: box-shadow 0.3s;
-    background-color: var(--white);
+  &:hover {
+    box-shadow: var(--shadow4);
   }
 }
 
 .flat {
-  &:hover {
-    & .bg {
-      background-color: var(--gray-light);
-    }
-  }
-
-  & .bg {
-    transition: background-color 0.3s;
-    border: 1px solid var(--gray);
-  }
-}
-
-.classic {
-  text-align: initial;
-
-  & .bg {
-    z-index: var(--zIndex1);
-    background-color: var(--white);
-    transition: transform 0.15s;
-    transform: translate(-4px, -4px);
-  }
-
-  &::after {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-    display: block;
-    background-color: var(--gray);
-    transform: translate(4px, 4px);
-  }
+  transition: background-color 0.3s;
+  border: 1px solid var(--gray);
 
   &:hover {
-    & .bg {
-      transform: translate(-2px, -2px);
-    }
-  }
-
-  &:active {
-    & .bg {
-      transform: translate(0px, 0px);
-    }
-
-    &::after {
-      transform: translate(2px, 2px);
-    }
+    background-color: var(--gray-light);
   }
 }
 
@@ -149,10 +98,6 @@
 }
 
 @media (max-width: 800px) {
-  .chartInfo {
-    padding: 0 10px;
-  }
-
   .infoMainText {
     font-size: 1.6em;
   }

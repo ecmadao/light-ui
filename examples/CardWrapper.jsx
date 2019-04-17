@@ -1,6 +1,7 @@
-import React from 'react';
-import InfoCard from '../components/react/Card/InfoCard';
-import CardGroup from '../components/react/Card/CardGroup';
+import React from 'react'
+import InfoCard from '../components/react/Card/InfoCard'
+import ClassicCard from '../components/react/Card/ClassicCard'
+import CardGroup from '../components/react/Card/CardGroup'
 import styles from './shared/styles.css';
 
 class CardWrapper extends React.Component {
@@ -23,11 +24,16 @@ class CardWrapper extends React.Component {
             subText="ghost theme demo"
             theme="ghost"
           />
-          <InfoCard
-            mainText="Classic Theme"
-            subText="classic theme demo"
-            theme="classic"
-          />
+          <ClassicCard>
+            <InfoCard
+              mainText="Classic Theme"
+              subText="classic theme demo"
+              theme="ghost"
+              style={{
+                margin: '0px'
+              }}
+            />
+          </ClassicCard>
         </div>
         <div>
           <InfoCard

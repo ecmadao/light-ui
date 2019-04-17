@@ -17,6 +17,7 @@ const InfoCard = (props) => {
     onClick,
     children,
     className,
+    cardClassName,
     tipsoTheme,
     subTextStyle,
     tipsoTrigger,
@@ -31,11 +32,12 @@ const InfoCard = (props) => {
           styles.infoCard,
           theme && styles[theme],
           className,
+          cardClassName,
           onClick !== null && styles.clickable
         )}
         onClick={onClick || Function.prototype}
       >
-        <div className={styles.bg}>{children}</div>
+        {children}
       </div>
     )
   }
@@ -73,22 +75,21 @@ const InfoCard = (props) => {
         theme && styles[theme],
         tipso && styles.withTipso,
         className,
+        cardClassName,
         onClick !== null && styles.clickable
       )}
       onClick={onClick || Function.prototype}
     >
-      <div className={styles.bg}>
-        {tipsoDOM}
-        <div className={cx(styles.infoMainText, mainTextStyle)}>
-          {icon ? iconElement : null}
-          {mainText}
-        </div>
-        {typeof subText === 'string' ? (
-          <div className={cx(styles.infoSubText, subTextStyle)}>
-            {subText}
-          </div>
-        ) : subText}
+      {tipsoDOM}
+      <div className={cx(styles.infoMainText, mainTextStyle)}>
+        {icon ? iconElement : null}
+        {mainText}
       </div>
+      {typeof subText === 'string' ? (
+        <div className={cx(styles.infoSubText, subTextStyle)}>
+          {subText}
+        </div>
+      ) : subText}
     </div>
   )
 }
@@ -109,6 +110,7 @@ InfoCard.propTypes = {
   mainTextStyle: PropTypes.string,
   subTextStyle: PropTypes.string,
   className: PropTypes.string,
+  cardClassName: PropTypes.string,
   icon: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
@@ -132,6 +134,7 @@ InfoCard.defaultProps = {
   mainTextStyle: '',
   subTextStyle: '',
   className: '',
+  cardClassName: '',
   icon: null,
   tipso: null,
   tipsoTrigger: 'hover',
