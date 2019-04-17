@@ -3,6 +3,7 @@ export Button from './react/Button/Button';
 export IconButton from './react/Button/IconButton';
 export ButtonGroup from './react/Button/ButtonGroup';
 export FloatingActionButton from './react/Button/FloatingActionButton';
+export ClassicButton from './react/Button/ClassicButton';
 
 export Input from './react/Form/Input';
 export InputGroup from './react/Form/InputGroup';
@@ -25,6 +26,8 @@ export Label from './react/Label';
 export Switcher from './react/Switcher';
 export Slider from './react/Slider';
 export Dropdown from './react/Dropdown';
+
+export ClassicText from './react/ClassicText';
 
 export OutsideClickHandler from './shared/components/OutsideClickHandler';
 export AnimationComponent from './shared/components/AnimationComponent';

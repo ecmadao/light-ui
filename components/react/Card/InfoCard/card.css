@@ -2,10 +2,10 @@
 @import "../../../shared/styles/shadow.css";
 @import '../../../shared/styles/color.css';
 @import '../../../shared/styles/border.css';
+@import "../../../shared/styles/z-index.css";
 
 .infoCard {
   flex: 1;
-  padding: 15px 10px;
   margin: 10px 5px;
   display: inline-flex;
   flex-direction: column;
@@ -16,15 +16,6 @@
   text-align: center;
   cursor: default;
   composes: baseText;
-
-  & svg {
-    width: 14px;
-    height: 14px;
-
-    & path {
-      fill: var(--gray);
-    }
-  }
 
   & i {
     margin-right: 10px;
@@ -39,27 +30,82 @@
   }
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.bg {
+  position: relative;
+  padding: 15px 10px;
+}
+
 .withTipso {
-  padding: 15px 20px;
-  padding-right: 30px;
+  & .bg {
+    padding: 15px 20px;
+    padding-right: 30px;
+  }
 }
 
 .material {
-  background-color: var(--white);
-  box-shadow: var(--shadow3);
-  transition: box-shadow 0.3s;
-
   &:hover {
-    box-shadow: var(--shadow4);
+    & .bg {
+      box-shadow: var(--shadow4);
+    }
+  }
+
+  & .bg {
+    box-shadow: var(--shadow3);
+    transition: box-shadow 0.3s;
+    background-color: var(--white);
   }
 }
 
 .flat {
-  border: 1px solid var(--gray);
-  transition: background-color 0.3s;
+  &:hover {
+    & .bg {
+      background-color: var(--gray-light);
+    }
+  }
+
+  & .bg {
+    transition: background-color 0.3s;
+    border: 1px solid var(--gray);
+  }
+}
+
+.classic {
+  & .bg {
+    z-index: var(--zIndex1);
+    background-color: var(--white);
+    transition: transform 0.15s;
+    transform: translate(-4px, -4px);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    display: block;
+    background-color: var(--gray);
+    transform: translate(4px, 4px);
+  }
 
   &:hover {
-    background-color: var(--gray-light);
+    & .bg {
+      transform: translate(-2px, -2px);
+    }
+  }
+
+  &:active {
+    & .bg {
+      transform: translate(0px, 0px);
+    }
+
+    &::after {
+      transform: translate(2px, 2px);
+    }
   }
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/react/Button/Button';
 import IconButton from '../components/react/Button/IconButton';
 import ButtonGroup from '../components/react/Button/ButtonGroup';
+import ClassicButton from '../components/react/Button/ClassicButton';
 import FloatingActionButton from '../components/react/Button/FloatingActionButton';
 
 class ButtonWrapper extends React.Component {
@@ -200,6 +201,18 @@ class ButtonWrapper extends React.Component {
             icon="clipboard"
             theme="flat"
             color="dark"
+          />
+        </div>
+        <h3>Classic Button</h3>
+        <div>
+          <ClassicButton
+            theme="dark"
+            content="classic button"
+          />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ClassicButton
+            theme="light"
+            content="classic button"
           />
         </div>
         <h3>Icon Button Group</h3>

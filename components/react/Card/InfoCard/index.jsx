@@ -1,9 +1,10 @@
-import React from 'react';
-import cx from 'classnames';
-import PropTypes from 'prop-types';
-import Tipso from '../../Tipso/Tipso';
-import styles from './card.css';
-import icons from '../../../shared/utils/icons';
+
+import React from 'react'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+import Tipso from '../../Tipso/Tipso'
+import styles from './card.css'
+import icons from '../../../shared/utils/icons'
 
 const InfoCard = (props) => {
   const {
@@ -13,29 +14,42 @@ const InfoCard = (props) => {
     style,
     subText,
     mainText,
+    onClick,
+    children,
     className,
     tipsoTheme,
     subTextStyle,
     tipsoTrigger,
-    mainTextStyle,
-  } = props;
+    mainTextStyle
+  } = props
 
-  const infoClass = cx(
-    styles.infoCard,
-    theme && styles[theme],
-    tipso && styles.withTipso,
-    className
-  );
+  if (children) {
+    return (
+      <div
+        style={style}
+        className={cx(
+          styles.infoCard,
+          theme && styles[theme],
+          className,
+          onClick !== null && styles.clickable
+        )}
+        onClick={onClick || Function.prototype}
+      >
+        <div className={styles.bg}>{children}</div>
+      </div>
+    )
+  }
+
   const iconElement = typeof icon === 'string'
-  ? (<i className={`fa fa-${icon}`} aria-hidden="true" />)
-  : icon;
+    ? <i className={`fa fa-${icon}`} aria-hidden="true" />
+    : icon
   const tipsoIcon = tipso && typeof tipso.icon === 'object'
-    ? tipso.icon : (icons.info);
+    ? tipso.icon : (icons.info)
 
-  let tipsoDOM = null;
+  let tipsoDOM = null
   if (tipso !== null) {
     if (!tipso.text && !tipso.icon) {
-      tipsoDOM = tipso;
+      tipsoDOM = tipso
     } else {
       tipsoDOM = (
         <Tipso
@@ -47,28 +61,37 @@ const InfoCard = (props) => {
           tipsoContent={(<span>{tipso.text}</span>)}>
           {tipsoIcon}
         </Tipso>
-      );
+      )
     }
   }
 
   return (
     <div
       style={style}
-      className={infoClass}
+      className={cx(
+        styles.infoCard,
+        theme && styles[theme],
+        tipso && styles.withTipso,
+        className,
+        onClick !== null && styles.clickable
+      )}
+      onClick={onClick || Function.prototype}
     >
-      {tipsoDOM}
-      <div className={cx(styles.infoMainText, mainTextStyle)}>
-        {icon ? iconElement : null}
-        {mainText}
-      </div>
-      {typeof subText === 'string' ? (
-        <div className={cx(styles.infoSubText, subTextStyle)}>
-          {subText}
+      <div className={styles.bg}>
+        {tipsoDOM}
+        <div className={cx(styles.infoMainText, mainTextStyle)}>
+          {icon ? iconElement : null}
+          {mainText}
         </div>
-      ) : subText}
+        {typeof subText === 'string' ? (
+          <div className={cx(styles.infoSubText, subTextStyle)}>
+            {subText}
+          </div>
+        ) : subText}
+      </div>
     </div>
-  );
-};
+  )
+}
 
 InfoCard.propTypes = {
   mainText: PropTypes.oneOfType([
@@ -100,7 +123,8 @@ InfoCard.propTypes = {
   style: PropTypes.object,
   theme: PropTypes.string,
   tipsoTheme: PropTypes.string,
-};
+  onClick: PropTypes.func
+}
 
 InfoCard.defaultProps = {
   mainText: '',
@@ -114,6 +138,7 @@ InfoCard.defaultProps = {
   style: {},
   theme: 'material',
   tipsoTheme: 'light',
-};
+  onClick: null
+}
 
-export default InfoCard;
+export default InfoCard

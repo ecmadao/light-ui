@@ -23,6 +23,11 @@ class CardWrapper extends React.Component {
             subText="ghost theme demo"
             theme="ghost"
           />
+          <InfoCard
+            mainText="Classic Theme"
+            subText="classic theme demo"
+            theme="classic"
+          />
         </div>
         <div>
           <InfoCard
