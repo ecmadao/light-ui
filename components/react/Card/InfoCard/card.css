@@ -74,6 +74,8 @@
 }
 
 .classic {
+  text-align: initial;
+
   & .bg {
     z-index: var(--zIndex1);
     background-color: var(--white);
