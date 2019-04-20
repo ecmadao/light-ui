@@ -13,9 +13,9 @@ class Switcher extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { checked } = nextProps;
+    const { checked } = nextProps
     if (checked !== this.state.checked) {
-      this.setState({ checked });
+      this.setState({ checked })
     }
   }
 

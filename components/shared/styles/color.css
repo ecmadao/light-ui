@@ -18,6 +18,7 @@
   --green-light: var(--oc-green-3);
   --green: var(--oc-green-5);
   --green-dark: var(--oc-green-7);
+  --green-dark-deep: var(--oc-green-9);
 
   /* ====== blue ====== */
   --blue-light-deep: var(--oc-blue-1);

@@ -1,5 +1,6 @@
 
 @import "../../../shared/styles/color.css";
+@import "../../../shared/styles/z-index.css";
 
 .buttonContainer {
   pointer-events: auto;
@@ -19,10 +20,10 @@
 }
 
 .buttonWrapper {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
 
-  &::before {
+  &::after {
     content: '';
     display: block;
     left: 0;
@@ -42,9 +43,9 @@
     background-color: var(--white);
   }
 
-  &::before {
-    background-color: var(--gray-light);
-    opacity: 0.5;
+  &::after {
+    opacity: 0.3;
+    background-color: var(--gray);
   }
 }
 
@@ -54,8 +55,21 @@
     background-color: var(--gray-dark-deep);
   }
 
-  &::before {
-    background-color: rgba(34, 37, 41, 0.3);
+  &::after {
+    opacity: 0.9;
+    background-color: var(--gray);
+  }
+}
+
+.buttonWrapper.wrapper_green {
+  & .buttonContent {
+    color: var(--white);
+    background-color: var(--green-dark);
+  }
+
+  &::after {
+    opacity: 0.5;
+    background-color: var(--green);
   }
 }
 
@@ -67,4 +81,5 @@
   border-radius: 1px;
   transition: transform 0.15s;
   user-select: none;
+  z-index: var(--zIndex1);
 }

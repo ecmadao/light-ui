@@ -8,6 +8,7 @@ class ClassicButton extends React.PureComponent {
     const {
       theme, // light or dark
       content,
+      children,
       className,
       buttonContainerClassName,
       onClick = Function.prototype
@@ -27,7 +28,7 @@ class ClassicButton extends React.PureComponent {
           )}
         >
           <div className={cx(styles.buttonContent, className)}>
-            {content}
+            {children || content}
           </div>
         </div>
       </div>

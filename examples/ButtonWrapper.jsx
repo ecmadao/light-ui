@@ -214,6 +214,11 @@ class ButtonWrapper extends React.Component {
             theme="light"
             content="classic button"
           />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ClassicButton
+            theme="green"
+            content="classic button"
+          />
         </div>
         <h3>Icon Button Group</h3>
         <div>
