@@ -41,7 +41,6 @@
     "quotes": 0,
     "block-spacing": 1,
     "semi": 0,
-    "no-extra-semi": 1,
     "keyword-spacing": 1,
     "comma-dangle": 0,
     "array-bracket-spacing": 1,
@@ -63,7 +62,7 @@
     "babel/new-cap": 1,
     "babel/object-curly-spacing": 0,
     "babel/no-invalid-this": 1,
-    "babel/semi": 1
+    "babel/semi": 0
   },
   "settings": {
     "import/resolver": {

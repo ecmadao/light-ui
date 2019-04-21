@@ -1,17 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import BaseButton from '../BaseButton';
+import React from 'react'
+import PropTypes from 'prop-types'
+import cx from 'classnames'
+import styles from './fab.css'
+import BaseButton from '../BaseButton'
 
 const FloatingActionButton = (props) => {
-  const { icon, style } = props;
-  const baseProps = Object.assign({}, props);
+  const { icon, style, className } = props
+  const baseProps = Object.assign({}, props)
 
   const iconElement = typeof icon === 'string'
     ? (<i className={`fa fa-${icon}`} aria-hidden="true" />)
-    : icon;
+    : icon
 
-  delete baseProps.style;
-  delete baseProps.icon;
+  delete baseProps.style
+  delete baseProps.icon
 
   return (
     <BaseButton
@@ -21,12 +23,13 @@ const FloatingActionButton = (props) => {
         width: '50px',
         height: '50px'
       }}
+      className={cx(className, styles.fab)}
       type="floating-action-button"
     >
       {iconElement}
     </BaseButton>
-  );
-};
+  )
+}
 
 FloatingActionButton.propTypes = {
   style: PropTypes.object,
@@ -38,13 +41,13 @@ FloatingActionButton.propTypes = {
     PropTypes.string,
     PropTypes.array
   ])
-};
+}
 
 FloatingActionButton.defaultProps = {
   style: {},
   onClick: Function.prototype,
   className: '',
   icon: ''
-};
+}
 
-export default FloatingActionButton;
+export default FloatingActionButton

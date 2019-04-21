@@ -317,6 +317,13 @@ class ButtonWrapper extends React.Component {
             disabled={disabled}
             color="blue"
           />
+          <ClassicButton theme="blue">
+            <FloatingActionButton
+              icon="share-alt"
+              disabled={disabled}
+              color="blue"
+            />
+          </ClassicButton>
         </div>
       </div>
     );

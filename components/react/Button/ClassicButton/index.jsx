@@ -43,6 +43,7 @@ class ClassicButton extends React.PureComponent {
       children,
       className,
       onTransitionEnd,
+      buttonWrapperClassName,
       buttonContainerClassName
     } = this.props
     const { pressed } = this.state
@@ -61,7 +62,8 @@ class ClassicButton extends React.PureComponent {
             styles.buttonWrapper,
             styles[`wrapper_${theme}`],
             disabled && styles.disabled,
-            !disabled && pressed && styles.pressDown
+            !disabled && pressed && styles.pressDown,
+            buttonWrapperClassName
           )}
           onMouseUp={this.onMouseUp}
           onMouseOut={this.onMouseUp}
