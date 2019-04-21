@@ -37,7 +37,7 @@
   & .bg {
     z-index: var(--zIndex1);
     transition: transform 0.15s;
-    transform: translate(-4px, -4px);
+    transform: translate(-5px, -5px);
   }
 
   &::after {
@@ -48,12 +48,17 @@
     opacity: 0.5;
     display: block;
     background-color: var(--gray);
-    transform: translate(4px, 4px);
+    transform: translate(5px, 5px);
+    transition: transform 0.15s, opacity 0.15s;
   }
 
   &:hover {
     & .bg {
       transform: translate(-2px, -2px);
+    }
+
+    &::after {
+      opacity: 0.7;
     }
   }
 

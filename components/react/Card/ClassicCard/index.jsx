@@ -24,7 +24,9 @@ const ClassicCard = (props) => {
       )}
       onClick={onClick || Function.prototype}
     >
-      <div className={cx(styles.bg, bgClassName)}>{children}</div>
+      <div className={cx(styles.bg, bgClassName)}>
+        {children}
+      </div>
     </div>
   )
 }

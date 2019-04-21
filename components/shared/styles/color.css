@@ -25,12 +25,14 @@
   --blue-light: var(--oc-blue-3);
   --blue: var(--oc-blue-5);
   --blue-dark: var(--oc-blue-7);
+  --blue-dark-deep: var(--oc-blue-9);
 
   /* ====== red ====== */
   --red-light-deep: var(--oc-red-1);
   --red-light: var(--oc-red-3);
   --red: var(--oc-red-5);
   --red-dark: var(--oc-red-7);
+  --red-dark-deep: var(--oc-red-9);
 
   --bg: #F7F8F9;
   --bgDark: #252525;

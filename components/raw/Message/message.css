@@ -7,6 +7,7 @@
   min-height: 50px;
   font-size: 14px;
   user-select: none;
+  overflow: hidden;
   color: var(--white);
   z-index: var(--zIndex9999);
   border-radius: var(--radius-small);

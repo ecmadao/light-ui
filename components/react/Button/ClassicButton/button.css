@@ -5,18 +5,6 @@
 .buttonContainer {
   pointer-events: auto;
   display: inline-flex;
-
-  &:hover {
-    & .buttonContent {
-      transform: translate(-1px, 1px);
-    }
-  }
-
-  &:active {
-    & .buttonContent {
-      transform: translate(4px, 4px);
-    }
-  }
 }
 
 .buttonWrapper {
@@ -30,10 +18,37 @@
     right: 0;
     bottom: 0;
     top: 0;
+    opacity: 0.5;
     position: absolute;
     transform: translate(4px, 4px);
     border-radius: 1px;
-    transition: background-color 0.15s;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  &.disabled {
+    & .buttonContent {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.buttonWrapper:not(.disabled):hover, .buttonWrapper:not(.disabled).pressDown {
+  & .buttonContent {
+    transform: translate(-2px, -2px);
+  }
+
+  &::after {
+    opacity: 0.7;
+  }
+}
+
+.buttonWrapper:not(.disabled):active {
+  & .buttonContent {
+    transform: translate(0px, 0px);
+  }
+
+  &::after {
+    transform: translate(2px, 2px);
   }
 }
 
@@ -44,7 +59,6 @@
   }
 
   &::after {
-    opacity: 0.3;
     background-color: var(--gray);
   }
 }
@@ -56,8 +70,7 @@
   }
 
   &::after {
-    opacity: 0.9;
-    background-color: var(--gray);
+    background-color: var(--gray-dark);
   }
 }
 
@@ -68,8 +81,29 @@
   }
 
   &::after {
-    opacity: 0.5;
     background-color: var(--green);
+  }
+}
+
+.buttonWrapper.wrapper_blue {
+  & .buttonContent {
+    color: var(--white);
+    background-color: var(--blue-dark);
+  }
+
+  &::after {
+    background-color: var(--blue);
+  }
+}
+
+.buttonWrapper.wrapper_red {
+  & .buttonContent {
+    color: var(--white);
+    background-color: var(--red-dark);
+  }
+
+  &::after {
+    background-color: var(--red);
   }
 }
 
@@ -77,9 +111,9 @@
   padding: 10px 15px;
   font-size: 1rem;
   transform: translate(-4px, -4px);
-  cursor: pointer;
   border-radius: 1px;
   transition: transform 0.15s;
   user-select: none;
+  cursor: pointer;
   z-index: var(--zIndex1);
 }

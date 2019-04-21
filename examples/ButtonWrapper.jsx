@@ -207,16 +207,31 @@ class ButtonWrapper extends React.Component {
         <div>
           <ClassicButton
             theme="dark"
+            disabled={disabled}
             content="classic button"
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <ClassicButton
             theme="light"
+            disabled={disabled}
             content="classic button"
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <ClassicButton
             theme="green"
+            disabled={disabled}
+            content="classic button"
+          />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <ClassicButton
+            theme="blue"
+            disabled={disabled}
+            content="classic button"
+          />
+          <br/><br/>
+          <ClassicButton
+            theme="red"
+            disabled={disabled}
             content="classic button"
           />
         </div>

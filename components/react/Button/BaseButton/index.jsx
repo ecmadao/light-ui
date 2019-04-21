@@ -59,8 +59,9 @@ class BaseButton extends React.Component {
       clickable,
       className,
       onTransitionEnd
-    } = this.props;
-    const { pressed } = this.state;
+    } = this.props
+    const { pressed } = this.state
+
     const buttonClass = cx(
       styles.button,
       styles[type],
@@ -72,7 +73,7 @@ class BaseButton extends React.Component {
       disabled && styles.disabled,
       className
     );
-    const onClick = disabled ? Function.prototype : this.onClick;
+    const onClick = disabled ? Function.prototype : this.onClick
 
     return (
       <div
@@ -91,7 +92,7 @@ class BaseButton extends React.Component {
           {children}
         </div>
       </div>
-    );
+    )
   }
 }
 

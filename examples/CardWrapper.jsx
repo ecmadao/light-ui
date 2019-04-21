@@ -28,7 +28,6 @@ class CardWrapper extends React.Component {
             <InfoCard
               mainText="Classic Theme"
               subText="classic theme demo"
-              theme="ghost"
               style={{
                 margin: '0px'
               }}
