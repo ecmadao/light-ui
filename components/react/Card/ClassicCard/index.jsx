@@ -6,6 +6,7 @@ import styles from './card.css'
 
 const ClassicCard = (props) => {
   const {
+    flat,
     style,
     onClick,
     children,
@@ -19,6 +20,7 @@ const ClassicCard = (props) => {
       className={cx(
         styles.infoCard,
         styles.classic,
+        flat && styles.flat,
         className,
         onClick !== null && styles.clickable
       )}
@@ -32,6 +34,7 @@ const ClassicCard = (props) => {
 }
 
 ClassicCard.propTypes = {
+  flat: PropTypes.bool,
   className: PropTypes.string,
   bgClassName: PropTypes.string,
   style: PropTypes.object,
@@ -39,6 +42,7 @@ ClassicCard.propTypes = {
 }
 
 ClassicCard.defaultProps = {
+  flat: false,
   className: '',
   bgClassName: '',
   style: {},

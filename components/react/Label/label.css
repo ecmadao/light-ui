@@ -34,6 +34,10 @@
     }
   }
 
+  &.clickable {
+    cursor: pointer;
+  }
+
   &.disabled {
     background-color: var(--gray-light-deep);
     color: var(--gray-dark-deep);
@@ -67,6 +71,8 @@
 }
 
 .flat {
+  transition: background-color 0.15s, color 0.15s;
+
   &.dark {
     border: 1px solid var(--gray-dark-deep);
     color: var(--gray-dark-deep);
@@ -84,9 +90,24 @@
     color: var(--gray-dark);
     background-color: transparent;
   }
+
+  &:not(.disabled).clickable:hover {
+    &.dark {
+      color: var(--white);
+      background-color: var(--gray-dark-deep);
+    }
+
+    &.darkLight {
+      color: var(--white);
+      background-color: var(--gray-dark);
+    }
+  }
 }
 
 .material {
+  opacity: 0.7;
+  transition: opacity 0.15s;
+
   &.dark {
     border: 1px solid var(--gray-dark-deep);
     background-color: var(--gray-dark-deep);
@@ -103,6 +124,14 @@
     border: 1px solid var(--gray-dark);
     background-color: var(--gray-dark);
     color: var(--white);
+  }
+
+  &.active {
+    opacity: 1;
+  }
+
+  &:not(.disabled).clickable:hover {
+    opacity: 1;
   }
 }
 

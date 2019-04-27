@@ -10,6 +10,7 @@ const Label = (props) => {
     text,
     color,
     theme,
+    active,
     onClick,
     onDelete,
     disabled,
@@ -42,6 +43,8 @@ const Label = (props) => {
         min && styles.min,
         deleteable && styles.deleteable,
         disabled && styles.disabled,
+        clickable && styles.clickable,
+        active && styles.active,
         className,
       )}
     >
@@ -73,12 +76,13 @@ const Label = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Label.propTypes = {
   text: PropTypes.string,
   min: PropTypes.bool,
+  active: PropTypes.bool,
   clickable: PropTypes.bool,
   deleteable: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -96,6 +100,7 @@ Label.propTypes = {
 Label.defaultProps = {
   text: '',
   min: false,
+  active: true,
   clickable: true,
   onClick: Function.prototype,
   className: '',
