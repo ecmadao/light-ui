@@ -33,6 +33,15 @@ class CardWrapper extends React.Component {
               }}
             />
           </ClassicCard>
+          <ClassicCard hoverable={false} >
+            <InfoCard
+              mainText="Classic Theme"
+              subText="classic theme demo"
+              style={{
+                margin: '0px'
+              }}
+            />
+          </ClassicCard>
         </div>
         <div>
           <InfoCard

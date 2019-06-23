@@ -9,6 +9,8 @@ const ClassicCard = (props) => {
     flat,
     style,
     onClick,
+    clickable,
+    hoverable,
     children,
     className,
     bgClassName
@@ -21,8 +23,9 @@ const ClassicCard = (props) => {
         styles.infoCard,
         styles.classic,
         flat && styles.flat,
+        hoverable && styles.hoverable,
         className,
-        onClick !== null && styles.clickable
+        (onClick !== null || clickable) && styles.clickable
       )}
       onClick={onClick || Function.prototype}
     >
@@ -35,6 +38,8 @@ const ClassicCard = (props) => {
 
 ClassicCard.propTypes = {
   flat: PropTypes.bool,
+  clickable: PropTypes.bool,
+  hoverable: PropTypes.bool,
   className: PropTypes.string,
   bgClassName: PropTypes.string,
   style: PropTypes.object,
@@ -43,6 +48,8 @@ ClassicCard.propTypes = {
 
 ClassicCard.defaultProps = {
   flat: false,
+  clickable: false,
+  hoverable: true,
   className: '',
   bgClassName: '',
   style: {},
