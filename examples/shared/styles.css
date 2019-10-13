@@ -117,6 +117,10 @@
   top: 130% !important;
 }
 
+.button {
+  padding: 5px 10px;
+}
+
 .dropdownButton {
   display: flex;
   flex-direction: row;

@@ -16,12 +16,6 @@ class BaseButton extends React.Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { pressed } = this.state;
-    const { disabled } = this.props;
-    return pressed !== nextState.pressed || disabled !== nextProps.disabled;
-  }
-
   onClick() {
     const { onClick } = this.props;
     onClick && onClick();

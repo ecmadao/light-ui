@@ -4,6 +4,7 @@ import IconButton from '../components/react/Button/IconButton';
 import ButtonGroup from '../components/react/Button/ButtonGroup';
 import ClassicButton from '../components/react/Button/ClassicButton';
 import FloatingActionButton from '../components/react/Button/FloatingActionButton';
+import styles from './shared/styles.css'
 
 class ButtonWrapper extends React.Component {
   onClick() {
@@ -209,30 +210,35 @@ class ButtonWrapper extends React.Component {
             theme="dark"
             disabled={disabled}
             content="classic button"
+            className={styles.button}
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <ClassicButton
             theme="light"
             disabled={disabled}
             content="classic button"
+            className={styles.button}
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <ClassicButton
             theme="green"
             disabled={disabled}
             content="classic button"
+            className={styles.button}
           />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <ClassicButton
             theme="blue"
             disabled={disabled}
             content="classic button"
+            className={styles.button}
           />
           <br/><br/>
           <ClassicButton
             theme="red"
             disabled={disabled}
             content="classic button"
+            className={styles.button}
           />
         </div>
         <h3>Icon Button Group</h3>
